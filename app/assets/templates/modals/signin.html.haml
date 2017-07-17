@@ -1,0 +1,34 @@
+.item-main-wrapper.no-margin
+  .item-header
+    .pull-right
+      %a.close{href: "", "ng-click" => "cancel()"}
+        %i.fa.fa-times
+    {{signinType+".title" | t}}
+  .item-body{"ng-show" => "session.isSigningIn"}
+    .item
+      .spinner.spinner-lg
+        %i.fa.fa-spinner.fa-pulse
+    .item.text-center.description
+      {{signinType+".signing_in" | t}}
+  .item-body{"ng-hide" => "session.isSigningIn"}
+    .item
+      %p
+        %button.btn.btn-primary.btn-block.persona{ "ng-click" => "signinWithPersona()"} {{signinType+".with_email" | t}}
+      .description.text-center
+        %a{href: "https://login.persona.org/about", target: "_blank"} Mozilla Persona
+        {{"signin.persona_description" | t}}
+
+    .item.text-center{ "ng-if" => "!isPrivate()" }
+      %em {{"signin.or" | t}}
+
+    .item{"ng-if" => "!isChina() && !isPrivate()" }
+      %button.btn.btn-primary.btn-block.facebook{ "ng-click" => "signInWithFacebook()"} {{signinType+".with_facebook" | t}}
+    .item{"ng-if" => "!isChina() && !isPrivate()" }
+      %button.btn.btn-primary.btn-block.google{ "ng-click" => "signInWithGoogle()"} {{signinType+".with_google" | t}}
+    .item{"ng-if" => "!isPrivate()" }
+      %button.btn.btn-primary.btn-block.linkedin{ "ng-click" => "signInWithLinkedin()"} {{signinType+".with_linkedin" | t}}
+
+    .item.text-center{ "ng-show" => "signinType == 'signin'" }
+      %em {{"signin.no_account_yet" | t}}
+    .item{ "ng-show" => "signinType == 'signin'" }
+      %button.btn.btn-primary.btn-block{ "ng-click" => "noAccountSignUp()"} {{"signin.sign_up_now" | t}}

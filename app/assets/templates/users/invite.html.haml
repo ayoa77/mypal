@@ -1,0 +1,66 @@
+.item-main-wrapper{ "ng-if" => "session.connected" }
+
+  .item-header
+    {{"user.invite.title" | t}}
+    
+  .item-body
+
+    .item
+      {{"user.invite.description" | t}}
+
+    .item{ "ng-show" => "!isChina() && session.contacts.gmail == null" }
+      %label {{"user.invite.gmail_contacts" | t}}
+      .spinner.spinner-lg
+        %i.fa.fa-spinner.fa-pulse
+    
+    .item{ "ng-show" => "!isChina() &&  session.contacts.gmail != null && session.contacts.gmail.length == 0" }
+      %label {{"user.invite.gmail_contacts" | t}}
+      .media
+        .media-left
+          %a{ href: "", "ng-click" => "getGoogleContacts()", "ng-disabled" => "isPosting || isGettingGoogleContacts" }
+            .img-placeholder.img-placeholder-100
+              %i.fa.fa-envelope
+        .media-body.media-middle
+          %button.btn.btn-default{ href: "", "ng-click" => "getGoogleContacts()", "ng-disabled" => "isPosting || isGettingGoogleContacts" }
+            {{"user.invite." + (isGettingGoogleContacts ? 'connecting' : 'connect') | t}}
+
+
+    .item{ "ng-show" => "!isChina() && session.contacts.gmail != null && session.contacts.gmail.length > 0" }
+      %label {{"user.invite.gmail_contacts" | t}}
+      .forward-connected-account
+        .header
+          .row
+            .col-xs-6
+              .account
+                .img-placeholder.img-placeholder-50
+                  %i.fa.fa-envelope
+            .col-xs-6
+              %button.btn.btn-default.btn-block.btn-sm{ "ng-click" => "getGoogleContacts()", "ng-disabled" => "isPosting || isGettingGoogleContacts" }
+                %i.fa.fa-spinner.fa-pulse{ "ng-show" => "isGettingGoogleContacts" }
+                {{"user.invite." + (isGettingGoogleContacts ? 'updating' : 'update') | t}}
+              %input.form-control.input-sm{ "ng-model" => "searchCriteria", "ng-change" => "updateFilter()", placeholder: "Filter"}
+        .contacts
+          %label
+            .row
+              .col-xs-6
+                %input{ type: "checkbox", "ng-model" => "gcontactAllSelected", "ng-change" => "onAllSelectedChange()" }
+                {{"user.invite.select_all" | t}}
+          %label{"ng-repeat" => "gcontact in gcontactsFiltered", "ng-class" => "gcontact.selected ? 'selected' : ''"}
+            .row{"ng-class" => "gcontact.selected ? 'selected' : ''"}
+              .col-xs-6
+                %input{ type: "checkbox", "ng-model" => "gcontact.selected" }
+                %span {{ gcontact.name }}
+              .col-xs-6
+                %span {{ gcontact.email }}
+  
+
+    .item
+      %label{ "ng-show" => "!isChina()" } {{"user.invite.other_contacts" | t}}
+      %tags-input#receivers{"ng-model" => "emailList", "type" => "email", "placeholder" => "someone@example.com", "replace-spaces-with-dashes" => "false", "display-property" => "email"}
+        %auto-complete{ source: "searchEmails($query)", "min-length" => 1 }
+      %p.help-block{ "ng-bind-html" => "'user.invite.helper_text' | t"}
+
+  .item-footer.text-right
+    %button.btn.btn-primary{ "ng-click" => "sendEmails()", "ng-disabled" => "isPosting || isGettingGoogleContacts" }
+      %i.fa.fa-spinner.fa-pulse{ "ng-show" => "isPosting" }
+      {{"user.invite." + (isPosting ? 'sending' : 'send') | t}}

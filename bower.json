@@ -1,0 +1,35 @@
+{
+  "lib": {
+    "name": "bower-rails generated lib assets",
+    "dependencies": {
+      "angular": "latest",
+      "angular-ui-router": "latest",
+      "angular-animate": "latest",
+      "angular-cookies": "latest",
+      // "bootstrap-sass-official": "latest",
+      "angular-persona": "latest",
+      "angular-bootstrap": "latest",
+      "ng-tags-input": "latest",
+      "angular-moment": "latest",
+      "angular-sanitize": "latest",
+      "showdown": "latest",
+      // "angular-ui-slider": "latest",
+      "angular-xeditable": "latest",
+      "ngInfiniteScroll": "latest",
+      "jusas-angularjs-slider": "latest",
+      "notify.js": "latest",
+      "visibilityjs": "latest",
+      "angular-google-analytics": "latest",
+      "angular-notify": "latest",
+      "ngImgCrop": "latest",
+      "readmore": "latest"
+      //"angular-markdown-directive": "latest"
+    }
+  },
+  "vendor": {
+    "name": "bower-rails generated vendor assets",
+    "dependencies": {
+      // "three.js"    : "https://raw.github.com/mrdoob/three.js/master/build/three.js"
+    }
+  }
+}

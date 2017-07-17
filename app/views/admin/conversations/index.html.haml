@@ -1,0 +1,36 @@
+.page-header
+  %h1 Conversations
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th #
+        %th Created at
+        %th
+          .row
+            .col-xs-3 User
+            .col-xs-3 Status
+            .col-xs-4 Last read
+            .col-xs-2 Messages
+    %tbody
+      - @conversations.each do |c|
+        %tr
+          %td= c.id
+          %td= c.created_at
+          %td
+            - c.conversation_users.each do |cu|
+              .row
+                .col-xs-3
+                  = link_to admin_user_path(cu.user), class: "btn btn-default btn-xs" do
+                    = image_tag cu.user.avatar.thumb('20x20').url, style: "width: 20px; height:20px;" if cu.user.avatar_stored?
+                    = cu.user.name
+                .col-xs-3
+                  - if !cu.unread
+                    Read
+                  - elsif cu.notified
+                    Unread + Notified
+                  - else
+                    Unread + Unnotified
+                .col-xs-4= cu.last_read_at
+                .col-xs-2= c.messages.where(user: cu.user).count
+          / %td= c.messages.count

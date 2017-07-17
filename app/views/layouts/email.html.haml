@@ -1,0 +1,25 @@
+!!!
+%html{:style => "padding: 0;margin: 0;background-color: #0DCF8A;"}
+  %body{:style => "padding: 0;margin: 0;background-color: #{settings["COLOR"]};"}
+    %table.mainbody{:style => "padding: 0 4% 20px 4%;margin: 0;border-spacing: 0;width: 100%;background-color: #{settings["COLOR"]};"}
+      %tr{:style => "padding: 0;margin: 0;border-spacing: 0;"}
+        %td{:style => "padding: 0;margin: 0;border-spacing: 0;"}
+          %table.header{:style => "padding: 30px 4% 15px 4%;margin: 0;border-spacing: 0;width: 100%;max-width: 1200px;"}
+            %tr{:style => "padding: 0;margin: 0;border-spacing: 0;"}
+              %td.title{:style => "padding: 0;margin: 0;border-spacing: 0;vertical-align: middle;"}
+                %h1{:style => "padding: 0;margin: 0 0 0 -2px;display: inline;"}
+                  %a{:href => root_url, :style => "line-height: 140%;color: #fff;text-decoration: none;font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;font-weight: bold;font-size: 32px;"}
+                    = settings["SUBSITE"]
+                    = settings["SITE_NAME"]
+              / %td.poweredby{:style => "padding: 0;margin: 0;border-spacing: 0;padding-left: 10px;width: 200px;text-align: right;font-size: 13px;padding-top: 16px;font-weight: bold;font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;vertical-align: middle;"}
+              /   %a{:href => root_url, :style => "line-height: 140%;color: #444;text-decoration: none;"}
+              /     %span{:style => "font-weight: normal;white-space: nowrap;"}= t("emails.powered_by", siteName: settings["SITE_NAME"])
+          = yield
+          %table.footer{:style => "padding: 20px 4% 20px 4%;margin: 0;border-spacing: 0;width: 100%;max-width: 1200px;background-color: #f7f7f7;vertical-align: top;"}
+            %tr{:style => "padding: 0;margin: 0;border-spacing: 0;"}
+              %td{:style => "padding: 0;margin: 0;border-spacing: 0;"}
+                %p{:style => "font-family: Roboto, Calibri, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;font-weight: 400;font-size: 12px;line-height: 140%;color: #505050;padding: 0px 0 15px 0;margin: 0;text-align: center;"}
+                  = t "emails.reason"
+                  - if unsubscribe_token.present?
+                    %a{:href => unsubscribe_url(token: unsubscribe_token), :style => "line-height: 140%;color: #444;text-decoration: underline;"}
+                      = t "emails.unsubscribe"

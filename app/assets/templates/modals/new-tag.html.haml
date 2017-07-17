@@ -1,0 +1,21 @@
+.item-main-wrapper.no-margin
+  .item-header
+    .pull-right
+      %a.close{href: "", "ng-click" => "cancel()"}
+        %i.fa.fa-times
+    {{"new_tag_modal.title" | t}}
+  .item-body
+    .item
+      .description {{"new_tag_modal.description" | t}}
+    .item
+      %form.form{"ng-submit" => "createTag()"}
+        .form-group
+          %label.control-label{for: "tag-name"} {{"new_tag_modal.name" | t}}
+          %input.form-control#tag-name{required: '', "ng-model" => "newTag", "ng-disabled" => "isCreating" }
+        .form-group
+          %label.control-label{for: "tag-icon"} {{"new_tag_modal.icon" | t}}
+          %input.form-control#tag-icon{required: '', "ng-model" => "newIcon", "ng-disabled" => "isCreating" }
+        %button.btn.btn-primary.pull-right{type: "submit", "ng-disabled" => "isCreating"} 
+          {{"new_tag_modal.create" | t}}
+        %a.btn.btn-link.pull-right{"ng-click" => "cancel()"} {{"new_tag_modal.cancel" | t}}
+        .clearfix

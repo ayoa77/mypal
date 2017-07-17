@@ -1,0 +1,40 @@
+.item-main-wrapper{"ng-show" => "tag"}
+
+  .item-body
+    .top-right
+      %follow-tag
+      .btn-group{ "ng-if" => "session.user.admin" }
+        %button.btn.btn-default.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
+          %i.fa.fa-ellipsis-h
+        %ul.dropdown-menu.dropdown-menu-right
+          %li
+            %a{href: "", "ng-click" => "editTag()"}
+              {{"tag_item_directive.edit_tag" | t}}
+          %li
+            %a{href: "", "ng-click" => "destroyTag()", "ng-disabled" => "isDestroying"}
+              {{"tag_item_directive.delete_tag" | t}}
+
+    .media.no-margin
+      .media-left
+
+        %a{"ui-sref" => "home.tagSingle({tag: tag.name})" }
+          .img-placeholder.img-placeholder-100
+            %i.fa.fa-fw{ "ng-class" => "'fa-'+tag.icon" }
+      .media-body.media-bottom
+        %a.title.title-lg.primary{"ui-sref" => "home.tagSingle({tag: tag.name})" }> {{ tag.display_name }}
+        .item-tags
+
+          %span.item.text-nowrap
+            %a{"ui-sref" => "home.users({q: 'category:'+tag.name})"}
+              %span{ "ng-bind-html" => "'tag_item_directive.follower_num' | t:{count: tag.user_count}" }>
+
+  / .item-footer.item-actions{ "ng-show" => "tag.user || canEdit()" }
+  /   .media.with-overflow
+  /     .media-left.media-middle
+  /       %user-link.user{ "ng-show" => "tag.user", user: "tag.user", title: "{{tag.user.name}}"}>
+  /         %img.img-34{"ng-src" => "{{tag.user.avatar_url}}"}>
+  /     .media-body.media-middle
+  /       .description{ "ng-show" => "tag.user" }
+  /         %user-link.user{ user: "tag.user", title: "{{tag.user.name}}"}>
+  /           {{"tag_item_directive.created_by" | t:{user: tag.user.name} }}
+

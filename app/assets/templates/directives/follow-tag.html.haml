@@ -1,0 +1,3 @@
+%button.btn.btn-default{"ng-class" => "tag.member ? 'active' : ''", "ng-click" => "toggleFollowing(tag)", "ng-disabled" => "isBusy"}
+  %i.fa{"ng-class" => "isBusy ? 'fa-spinner fa-pulse' : (tag.member ? 'fa-check' : 'fa-user-plus') "}
+  %span.hidden-xs {{"follow_tag_directive." + (tag.member ? "following" : "follow") | t}}

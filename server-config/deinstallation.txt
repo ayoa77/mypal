@@ -1,0 +1,27 @@
+====================================
+REMOVING FLUENTD
+====================================
+
+$ sudo update-rc.d -f td-agent remove
+$ sudo service td-agent stop
+$ sudo apt-get remove td-agent
+
+$ sudo rm /etc/apt/sources.list.d/treasure-data.list
+$ sudo rm /etc/apt/sources.list.d/treasure-data.list.save
+
+$ sudo apt-get autoremove
+
+$ sudo rm -rf /etc/td-agent
+
+remove
+  td-agent
+from
+  /etc/monit/monitrc
+
+
+$ sudo service monit reload
+
+
+$ curl -XDELETE 'http://localhost:9200/*/' 
+
+redeploy

@@ -1,0 +1,45 @@
+.page-header
+  %h1 Users
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th #
+        %th Name
+        %th Email
+        %th Created at
+        %th Last seen at
+        %th Location
+        %th Enabled
+        %th Active
+        %th Online
+        %th Admin
+        %th Action
+    %tbody
+      - @users.each do |u|
+        %tr
+          %td= u.id
+          %td
+            = link_to admin_user_path(u), class: "btn btn-default btn-xs" do
+              = image_tag u.avatar.thumb('20x20').url, style: "width: 20px; height:20px;" if u.avatar_stored?
+              = u.name
+          %td= u.email
+          %td= u.created_at
+          %td= u.last_seen_at
+          %td
+            - if u.location.present?
+              = u.location.display_text
+          %td
+            - if u.enabled?
+              %i.fa.fa-check.text-success
+          %td
+            - if u.last_seen_at.present? && u.last_seen_at >= Date.today - 30
+              %i.fa.fa-check.text-success
+          %td
+            - if u.online?
+              %i.fa.fa-check.text-success
+          %td
+            - if u.admin?
+              %i.fa.fa-check.text-success
+          %td
+            = link_to "Show", admin_user_path(u), class: "btn btn-default btn-xs"

@@ -1,0 +1,55 @@
+.item-main-wrapper
+
+  .item-body{"ng-click" => "toggle()"}
+
+    .media.old-media-style
+
+      .media-left
+        .tag-icon
+          %a.stop-event{"ng-show" => "request.tag && !tag", "ui-sref" => "home.tagSingle({tag: request.tag.name})"}
+            %i.fa.fa-fw{ "ng-class" => "'fa-'+request.tag.icon" }
+        -# %user-link.stop-event{user: "request.user"}
+        -#   .user-online{"ng-show" => "request.user.online"}
+        -#   %img.img-50{"ng-src" => "{{request.user.avatar_url}}"}
+      .media-body
+
+        -# .top-right
+        -#   %span{"ng-show" => "request.tag && !tag"}
+        -#     %i.fa.fa-fw{ "ng-class" => "'fa-'+request.tag.icon" }
+        -#     %a.stop-event{"ui-sref" => "home.tagSingle({tag: request.tag.name})"}
+        -#       %span {{ request.tag.display_name }}
+
+        -#   %span{"ng-show" => "request.tag && tag && request.id == tag.request.id"}
+        -#     %i.fa.fa-thumb-tack.fa-fw
+        -#     %span {{"request_item_directive.sticky" | t}}
+
+        %a.request-title{ "ng-click" => "toggle()", href: "" } {{ request.subject }}
+        -# %user-link.title.primary.stop-event{user: "request.user"} {{request.user.name}}
+
+        .item-tags
+
+          %span.item.text-nowrap
+            Posted by
+            %user-link.stop-event{user: "request.user" } {{request.user.name}}
+
+          %span.item.text-nowrap
+            %i.fa.fa-clock-o.fa-fw
+            
+            %a.stop-event{ "ui-sref" => "requestSingle({id: request.id})"}>
+              %span{"am-time-ago" => "request.created_at", "am-preprocess" => "unix"}
+
+          -# %span.item.text-nowrap{"ng-show" => "request.user_reach_count > 0"}
+          -#   %i.fa.fa-eye.fa-fw
+          -#   %span{"ng-bind-html" => "'request_item_directive.people_reached_num' | t:{count: request.user_reach_count}"}>
+
+
+        %formatted-message.item.readmore{ text: "request.content" }
+
+        -# .item.show-expanded
+          
+        -#   .content
+        -#     %formatted-message{text: "request.content"}
+            
+        %attachment{text: "request.content"}
+
+  %request-item-actions

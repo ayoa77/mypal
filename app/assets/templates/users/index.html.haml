@@ -1,0 +1,44 @@
+%div{"ng-if" => "session.connected", "ng-controller" => "UserIndexController"}
+
+  .item-main-wrapper
+    .item-body
+      %form{role: "form", "ng-submit" => "search()"}
+        .input-group
+          %input.form-control{type: "search", placeholder: "{{'users.search_placeholder' | t}}", "ng-model" => "searchQuery"}
+          %span.input-group-btn
+            %button.btn.btn-primary{type: "submit"}
+              %i.fa.fa-search
+
+
+  .filter-bar.bottom-border
+
+    .btn-group.pull-right
+      %button.btn.btn-link.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
+        %span{"ng-show" => "order == 'relevance'" } {{"users.relevance" | t}}
+        %span{"ng-show" => "order == 'points'" } {{"users.points" | t}}
+        %span{"ng-show" => "order == 'last_seen'" } {{"users.last_seen" | t}}
+        %i.fa.fa-caret-down
+      %ul.dropdown-menu.dropdown-menu-right
+        %li
+          %a{href: "", "ng-click" => "setOrder('relevance')"} {{"users.relevance" | t}}
+        %li
+          %a{href: "", "ng-click" => "setOrder('points')"} {{"users.points" | t}}
+        %li
+          %a{href: "", "ng-click" => "setOrder('last_seen')"} {{"users.last_seen" | t}}
+
+    .clearfix
+
+
+
+  %div{ "infinite-scroll" => "getNextUsers()", "infinite-scroll-disabled" => "isLoadingUsers", "infinite-scroll-container" => "'#main-content'", "infinite-scroll-distance" => "1" }
+    %user-item.border{"ng-repeat" => "user in users"}
+
+    .spinner.spinner-lg{ "ng-show" => "isLoadingUsers" }
+      %i.fa.fa-spinner.fa-pulse
+
+    .spinner{ "ng-show" => "isEndOfUsers && users.length > 0"}
+      %i.fa.fa-circle
+
+  .no-content-filler{"ng-show" => "isEndOfUsers && users.length == 0"}
+    %i.fa.fa-meh-o
+    %div {{"users.no_users" | t}}

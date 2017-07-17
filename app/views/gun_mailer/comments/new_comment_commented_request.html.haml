@@ -1,0 +1,30 @@
+%table.greeting{:style => "padding: 40px 4% 25px 4%;margin: 0;border-spacing: 0;width: 100%;max-width: 1200px;background-color: #f7f7f7 ;vertical-align: baseline;"}
+  %tr{:style => "padding: 0;margin: 0;border-spacing: 0;"}
+    %td{:style => "padding: 0;margin: 0;border-spacing: 0;"}
+      %p.intro{:style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;font-weight: 400;font-size: 16px;line-height: 23px;color: #505050 ;padding: 0px 0 10px 0;margin: 0;"}
+        = t "emails.greeting_name", name: name_to
+      %p.intro{:style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;font-weight: 400;font-size: 16px;line-height: 23px;color: #505050 ;padding: 0px 0 10px 0;margin: 0;"}
+        = t "emails.new_comment_commented.intro", name: comment.user.name
+
+%table.content{:style => "padding: 30px 4% 10px 4%;margin: 0;border-spacing: 0;width: 100%;max-width: 1200px;background-color: #fff;vertical-align: top;border-bottom: 1px solid #f2f2f2 ;"}
+  %tr{:style => "padding: 0;margin: 0;border-spacing: 0;"}
+    %td{:style => "padding: 0;margin: 0;border-spacing: 0;width:100%;"}
+
+      = render partial: 'gun_mailer/partials/request_small', locals: {request: comment.request, settings: settings}
+
+      %table{:cellpadding => "0", :cellspacing => "0", :style => "padding-top: 10px;width:100%;"}
+        %tr
+          %td{:style => "padding-right: 20px;vertical-align: top;width:50px;"}
+            %a{:href => user_url(comment.user) }
+              %img{:src => comment.user.avatar.thumb('200x200').url, :style => "width:50px;height:50px;border-radius:50%"}
+          %td
+            %p{:style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;font-weight:400;font-size:14px;line-height:140%;color:#505050;padding:0 0 15px 0;margin:0;"}
+              %a{:href => user_url(comment.user), :style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;font-weight:600;font-size:16px;color:#444; text-decoration:none;"}
+                = comment.user.name
+
+            %p{:style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;font-weight:400;font-size:14px;line-height:140%;color:#505050;padding:0 0 15px 0;margin:0;"}
+              = comment.content
+
+            %p{:style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;font-weight:400;font-size:14px;line-height:140%;color:#505050;padding:0 0 15px 0;margin:0;"}
+              %a{:href => request_url(comment.request), :style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif; color: #333;font-size:14px;font-weight:500;padding: 10px 20px; border-radius: 2px; background-color: #efefef; display: inline-block; text-decoration: none;"}
+                = t "emails.new_comment_commented.action"

@@ -1,0 +1,37 @@
+.item.message
+  .media
+    .media-left
+      %user-link{user: "comment.user"}
+        %img.img-34{"ng-src" => "{{comment.user.avatar_url}}"}
+    .media-body
+      .user
+        %user-link{user: "comment.user"}
+          {{comment.user.name}}
+        %span.timestamp{"am-time-ago" => "comment.created_at", "am-preprocess" => "unix"}>
+      .auto-folded
+        %formatted-message.text{text: "comment.content"}
+        %attachment.small{text: "comment.content"}
+        .auto-folded--more
+          %button.btn.btn-default.btn-sm{ "ng-click" => "unfold()"}> {{"comment_directive.read_more" | t}}
+  .item-actions
+    %button.btn.btn-link.btn-sm.btn-no-text{ "ng-click" => "rateComment(comment.user_rating == 1 ? 0 : 1)", "ng-class" => "comment.user_rating == 1 ? 'active' : ''", "ng-disabled" => "isRating || comment.user_rating == -2"}>
+      %i.fa.fa-heart-o
+      %span{"ng-show" => "comment.like_count > 0"} {{comment.like_count}}
+
+    .btn-group
+      %button.btn.btn-link.btn-sm.btn-no-text.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
+        %i.fa.fa-ellipsis-h
+      %ul.dropdown-menu
+        %li{"ng-show" => "comment.user.id == session.user.id"}
+          %a{href: "", "ng-click" => "destroyComment()", "ng-disabled" => "isDestroying"}
+            {{"comment_directive.delete_comment" | t}}
+        %li{"ng-class" => "isRating || comment.user_rating == -2 ? 'disabled' : ''"}
+          %a{href: "", "ng-click" => "rateComment(-2)"}
+            {{comment.user_rating == -2 ? ("comment_directive.comment_reported" | t) : ("comment_directive.report_comment" | t) }}
+
+        %li.divider{"ng-show" => "session.connected && session.user.admin == 1"}
+        %li.dropdown-header{"ng-show" => "session.connected && session.user.admin == 1"} {{"general.admin" | t}}
+        %li.dropdown-header{"ng-show" => "session.connected && session.user.admin == 1"} {{"comment_directive.report_count" | t}} {{comment.report_count}}
+        %li{"ng-show" => "session.connected && session.user.admin == 1"}
+          %a{href: "", "ng-click" => "destroyComment()", "ng-disabled" => "isDestroying"}
+            {{"comment_directive.delete_comment" | t}}

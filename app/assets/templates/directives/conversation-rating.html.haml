@@ -1,0 +1,7 @@
+.conversation-rating{"ng-class" => "showHeader ? 'conversation-rating-header' : '' "}
+  .description {{"conversation_rating_directive.please_rate" | t}}
+  .buttons
+    %btn.btn.btn-default.btn-sm{ "ng-click" => "rateConversation(conversation.user_rating == 1 ? 0 : 1)", "ng-class" => "conversation.user_rating == 1 ? 'active' : ''", "ng-disabled" => "isRating" }
+      %i.fa.fa-thumbs-up
+    %btn.btn.btn-default.btn-sm{ "ng-click" => "rateConversation(conversation.user_rating == -1 ? 0 : -1)", "ng-class" => "conversation.user_rating == -1 ? 'active' : ''", "ng-disabled" => "isRating" }
+      %i.fa.fa-thumbs-down

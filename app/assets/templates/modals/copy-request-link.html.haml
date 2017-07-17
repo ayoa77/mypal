@@ -1,0 +1,10 @@
+.item-main-wrapper.no-margin
+  .item-header
+    .pull-right
+      %a.close{href: "", "ng-click" => "close()"}
+        %i.fa.fa-times
+    {{"request_item_directive.copy_link_to_post" | t}}
+  .item-body
+    %p {{"request_item_directive.copy_link_description" | t}}
+    %textarea.request-link.textarea-noresize.form-control{rows: "1", readonly: ""}
+      {{ linkToCopy }}

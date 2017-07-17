@@ -1,0 +1,12 @@
+%div
+  .item
+    .media
+      .media-left
+        %img.img-50{ "ng-src" => "{{user.avatar_url}}" }
+      .media-body.media-middle
+        %input#avatar{ type: "file", "nv-file-select" => "", uploader: "uploader", "ng-show" => "uploader.queue == 0", accept: "image/*" }
+  .item.cropArea{ "ng-show" => "imageEdit.input" }
+    %img-crop{ image: "imageEdit.input", "result-image" => "imageEdit.cropped", "area-type" => "square", "result-image-format" => "image/jpeg", "result-image-size" => "512" }
+  / .item{ "ng-show" => "imageEdit.input" }
+  / 	%a.btn.btn-link{ type: "button", "ng-click" => "cancel()", "ng-disabled" => "uploader.isUploading" }
+  / 		Cancel

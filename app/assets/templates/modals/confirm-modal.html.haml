@@ -1,0 +1,7 @@
+.modal-header
+	%h3.modal-title {{confirmTitle}}
+.modal-body
+	%p {{confirmText}}
+.modal-footer
+	%button.btn.btn-primary{ "ng-click" => "confirm()"} {{confirmLabel}}
+	%button.btn.btn-warning{ "ng-click" => "cancel()"} {{cancelLabel}}

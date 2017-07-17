@@ -1,0 +1,14 @@
+.item-main-wrapper.no-margin
+  .item-header
+    .pull-right
+      %a.close{href: "", "ng-click" => "cancel()"}
+        %i.fa.fa-times
+    {{"profile.summary" | t}}
+  .item-body
+    .spinner.spinner-lg{ "ng-show" => "isLoadingUser" }
+      %i.fa.fa-spinner.fa-pulse
+    %div.profile-summary{"ng-show" => "user && !isLoadingUser"}
+      %user-item
+  / .item-footer.text-right
+  /   %user-link.btn.btn-default{user: "user"}
+  /     Go to full profile

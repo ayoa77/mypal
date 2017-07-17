@@ -1,0 +1,43 @@
+%div{"ng-if" => "session.connected", "ng-controller" => "NotificationsController"}
+
+  .no-content-filler{"ng-show" => "session.connected && (notifications == null || notifications.length == 0) && isEndOfNotifications"}
+    %i.fa.fa-bell-o
+    %div {{"notifications.no_notifications" | t}}
+
+  %div{ "ng-show" => "notifications.length > 0", "infinite-scroll" => "getNextNotifications()", "infinite-scroll-disabled" => "isLoadingNotifications", "infinite-scroll-container" => "'#main-content'", "infinite-scroll-distance" => "1" }
+
+    .list-group
+      %a.list-group-item{"ng-repeat" => "notification in notifications", "ng-href" => "{{notification.goto_path}}", "ng-click" => "$event.preventDefault();gotoNotable(notification);", "ng-class" => "notification.done ? 'notification-done' : ''"}
+        .media
+          .media-left
+            %img.img-50{"ng-src" => "{{notification.from_user.avatar_url}}"}
+          .media-body.media-middle
+            .notification-header{"ng-show" => "notification.notification_type == 'request_like'", "ng-bind-html" => "'notifications.request_like_num' | t:{name: '<b>'+notification.from_user.name+'</b>', count: (notification.from_user_count - 1)}"}>
+
+            .notification-header{"ng-show" => "notification.notification_type == 'comment_like'", "ng-bind-html" => "'notifications.comment_like_num' | t:{name: '<b>'+notification.from_user.name+'</b>', count: (notification.from_user_count - 1)}"}>
+
+            .notification-header{"ng-show" => "notification.notification_type == 'comment_my_request'", "ng-bind-html" => "'notifications.comment_my_request_num' | t:{name: '<b>'+notification.from_user.name+'</b>', count: (notification.from_user_count - 1)}"}>
+
+            .notification-header{"ng-show" => "notification.notification_type == 'comment_commented_request'", "ng-bind-html" => "'notifications.comment_commented_request_num' | t:{name: '<b>'+notification.from_user.name+'</b>', count: (notification.from_user_count - 1)}"}>
+
+            .notification-header{"ng-show" => "notification.notification_type == 'new_follower'", "ng-bind-html" => "'notifications.new_follower' | t:{name: '<b>'+notification.from_user.name+'</b>'}"}>
+
+            .description{"ng-show" => "notification.description"} {{notification.description}}
+
+            .item-tags
+
+              %span.item.text-nowrap
+                %i.fa.fa-thumbs-up.fa-fw{"ng-show" => "notification.notification_type == 'request_like' || notification.notification_type == 'comment_like'"}>
+                %i.fa.fa-user-plus.fa-fw{"ng-show" => "notification.notification_type == 'new_follower'"}>
+                %i.fa.fa-comment.fa-fw{"ng-show" => "notification.notification_type == 'comment_my_request'"}>
+                %i.fa.fa-comment.fa-fw{"ng-show" => "notification.notification_type == 'comment_commented_request'"}>
+                %span{"am-time-ago" => "notification.updated_at", "am-preprocess" => "unix"}>
+
+
+            / {{ notification.notification_type }}
+
+    .spinner.spinner-lg{ "ng-show" => "isLoadingNotifications" }
+      %i.fa.fa-spinner.fa-pulse
+
+    .spinner{ "ng-show" => "isEndOfNotifications"}
+      %i.fa.fa-circle

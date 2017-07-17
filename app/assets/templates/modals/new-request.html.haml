@@ -1,0 +1,29 @@
+.item-main-wrapper.no-margin
+  .item-header
+    .pull-right
+      %a.close{href: "", "ng-click" => "cancel()"}
+        %i.fa.fa-times
+    {{"new_request_directive.title" | t}}
+  .item-body{"ng-if" => "newRequestData"}
+    %form.form{"ng-submit" => "postRequest()"}
+      .item
+        .media
+          .media-left{"ng-show" => "session.connected"}
+            %img.img-50{"ng-src" => "{{session.user.avatar_url}}"}
+          .media-body
+            .form-group
+              %input#request-subject.form-control{"ng-model" => "newRequestData.subject", required: '', maxlength: 100, "placeholder" => "{{'new_request_directive.subject_placeholder' | t}}", "ng-disabled" => "isPosting"}
+            .form-group
+              %select#list-selector.form-control{"ng-model" => "newRequestData.tag", "ng-disabled" => "isPosting",  "ng-options" => "tag.name as (tag.display_name) for tag in session.user.tags", required: ''}
+                %option{value: '', disabled: ''} {{ "new_request_directive.pick_a_tag" | t }}
+            .form-group
+              %textarea#request-content.form-control{rows: "4", "ng-model" => "newRequestData.content", required: '', "placeholder" => "{{'new_request_directive.content_placeholder' | t}}", "ng-disabled" => "isPosting"}
+          / .item
+          /   %textarea#request-reward.form-control{rows: "1", "ng-model" => "newRequestData.reward", "placeholder" => "{{'new_request_directive.offer' | t}}", "ng-disabled" => "isPosting"}
+
+      .item
+        .pull-right
+          %a.btn.btn-link{"ng-click" => "cancel()"} {{"new_request_directive.cancel" | t}}
+          %button.btn.btn-primary{"ng-disabled" => "isPosting"} 
+            {{"new_request_directive.post" | t}}
+        .clearfix

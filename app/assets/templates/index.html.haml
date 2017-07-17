@@ -1,0 +1,32 @@
+%div{"ng-controller" => "IndexController"}
+
+  / .filter-bar{"ng-show" => "session.connected"}
+  /   .btn-group.pull-right
+  /     %button.btn.btn-link.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
+  /       %span{"ng-show" => "order == 'recommended'" } {{"index.recommended" | t}}
+  /       %span{"ng-show" => "order == 'new'" } {{"index.latest" | t}}
+  /       %span{"ng-show" => "order == 'top'" } {{"index.top" | t}}
+  /       %i.fa.fa-caret-down
+  /     %ul.dropdown-menu.dropdown-menu-right
+  /       %li
+  /         %a{href: "", "ng-click" => "setOrder('recommended')"} {{"index.recommended" | t}}
+  /       %li
+  /         %a{href: "", "ng-click" => "setOrder('new')"} {{"index.latest" | t}}
+  /       %li
+  /         %a{href: "", "ng-click" => "setOrder('top')"} {{"index.top" | t}}
+
+  /   .clearfix
+
+  %div{ "infinite-scroll" => "getNextRequests()", "infinite-scroll-disabled" => "isLoadingRequests", "infinite-scroll-container" => "'#main-content'", "infinite-scroll-distance" => "1" }
+
+    %request-item.border{"ng-repeat" => "request in requests | limitTo:2"}
+
+    %widget-users-to-follow.border{session: "session", "show-widget" => "requests.length >= 2 || isEndOfRequests"}
+
+    %request-item.border{"ng-repeat" => "request in requests", "ng-if" => "$index >= 2"}
+
+    .spinner.spinner-lg{ "ng-show" => "isLoadingRequests" }
+      %i.fa.fa-spinner.fa-pulse
+
+    .spinner{ "ng-show" => "isEndOfRequests"}
+      %i.fa.fa-circle

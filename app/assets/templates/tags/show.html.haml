@@ -1,0 +1,31 @@
+%tag-item.bottom-border
+
+%request-item.border{"ng-repeat" => "request in [tag.request]", "ng-show" => "tag.request"}
+
+/ .filter-bar{"ng-show" => "session.connected"}
+
+/   .btn-group.pull-right
+/     %button.btn.btn-link.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
+/       %span{"ng-show" => "order == 'recommended'" } {{"tag.recommended" | t}}
+/       %span{"ng-show" => "order == 'new'" } {{"tag.latest" | t}}
+/       %span{"ng-show" => "order == 'top'" } {{"tag.top" | t}}
+/       %i.fa.fa-caret-down
+/     %ul.dropdown-menu.dropdown-menu-right
+/       %li
+/         %a{href: "", "ng-click" => "setOrder('recommended')"} {{"tag.recommended" | t}}
+/       %li
+/         %a{href: "", "ng-click" => "setOrder('new')"} {{"tag.latest" | t}}
+/       %li
+/         %a{href: "", "ng-click" => "setOrder('top')"} {{"tag.top" | t}}
+
+/   .clearfix
+
+%div{ "infinite-scroll" => "getNextRequests()", "infinite-scroll-disabled" => "isLoadingRequests", "infinite-scroll-container" => "'#main-content'", "infinite-scroll-distance" => "1" }
+
+  %request-item.border{"ng-repeat" => "request in requests"}
+
+  .spinner.spinner-lg{ "ng-show" => "isLoadingRequests" }
+    %i.fa.fa-spinner.fa-pulse
+    
+  .spinner{ "ng-show" => "isEndOfRequests"}
+    %i.fa.fa-circle

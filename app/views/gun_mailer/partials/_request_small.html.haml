@@ -1,0 +1,10 @@
+%table{:cellpadding => "0", :cellspacing => "0", :style => "padding-top: 10px;border-bottom: 1px solid #f2f2f2;width:100%;"}
+  %tr
+    %td{:style => "padding-right: 20px; text-align: right;width:50px;"}
+      %a{:href => user_url(request.user) }
+        %img{:src => request.user.avatar.thumb('120x120').url, :style => "width:30px;height:30px;border-radius:50%;"}
+    %td{:style => "vertical-align: top;"}
+      %a{:href => user_url(request.user), :style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;font-weight:600;font-size:14px;line-height:16px;color:#444; text-decoration:none;"}
+        = request.user.name
+      %p{:style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif; font-weight:400;font-size:12px;line-height:14px;color:#505050;padding:0 0 15px 0;margin:0;"}
+        = request.real_subject

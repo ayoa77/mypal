@@ -1,0 +1,9 @@
+%a.cool-plus-button{ "ng-if" => "session.user.admin", href: "", "ng-click" => "newTag()" }
+  %label {{"new_tag_modal.title" | t}}
+
+%tag-item.border{"ng-repeat" => "tag in tags_to_follow"}
+
+%tag-item.border{"ng-repeat" => "tag in tags_already_following"}
+
+.spinner.spinner-lg{ "ng-show" => "isLoadingTags" }
+  %i.fa.fa-spinner.fa-pulse

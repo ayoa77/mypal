@@ -1,0 +1,70 @@
+.page-header
+  %h1= @user.name
+
+.row
+  .col-sm-6
+    .row
+      .col-sm-3
+        %strong Name
+      .col-sm-9= @user.name
+    .row
+      .col-sm-3
+        %strong Email
+      .col-sm-9= @user.email
+    .row
+      .col-sm-3
+        %strong Paypal
+      .col-sm-9= @user.paypal
+    .row
+      .col-sm-3
+        %strong About you
+      .col-sm-9= @user.biography
+  .col-sm-6
+    .row
+      .col-sm-3
+        %strong Created at
+      .col-sm-9= @user.created_at
+    .row
+      .col-sm-3
+        %strong Last seen at
+      .col-sm-9= @user.last_seen_at
+    .row
+      .col-sm-3
+        %strong 
+          - if @user.enabled?
+            %i.fa.fa-check.text-success
+            Enabled
+          - else
+            %i.fa.fa-times.text-danger
+            Disabled
+      .col-sm-9
+        = form_for [:admin, @user] do |f|
+          - if @user.enabled?
+            = hidden_field_tag :enabled, 0
+            %button.btn.btn-danger.btn-xs{ type: "submit"} Disable
+          - else
+            = hidden_field_tag :enabled, 1
+            %button.btn.btn-success.btn-xs{ type: "submit"} Enable
+    .row
+      .col-sm-3
+        %strong
+          - if @user.admin?
+            %i.fa.fa-check.text-success
+            Admin
+          - else
+            %i.fa.fa-times.text-danger
+            No admin
+      .col-sm-9
+        = form_for [:admin, @user]  do |f|
+          - if @user.admin?
+            = hidden_field_tag :admin, 0
+            %button.btn.btn-danger.btn-xs{ type: "submit"} Remove admin rights
+          - else
+            = hidden_field_tag :admin, 1
+            %button.btn.btn-success.btn-xs{ type: "submit"} Give admin rights
+
+%h2 Involved Requests
+= render partial:'admin/requests/requests_table', locals: {requests: @user.involved_requests.order(id: :desc)}
+
+-# %h2 Viewed Requests
+-# = render partial:'admin/requests/requests_table', locals: {requests: @user.viewed_requests.order(id: :desc)}

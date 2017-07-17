@@ -1,0 +1,67 @@
+.cg-notify-message {
+    position:fixed;
+    left:0;
+    top:0 !important;
+    margin: 0 !important;
+    right: 0;
+    z-index: 9999;
+    text-align: center;
+
+    background-color: #f5a623;
+    color: white;
+    padding: 5px;
+
+    -webkit-transition: top 0.5s ease-out,opacity 0.2s ease-out;
+    -moz-transition: top 0.5s ease-out,opacity 0.2s ease-out;
+    -o-transition: top 0.5s ease-out,opacity 0.2s ease-out;
+    transition: top 0.5s ease-out,opacity 0.2s ease-out;
+
+    visibility:hidden;
+
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.cg-notify-message a {
+    font-weight:bold;
+    color:inherit;
+}
+
+.cg-notify-message a:hover {
+    color:inherit;
+}
+
+.cg-notify-close {
+    -webkit-appearance: none;
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1;
+    color: white;
+    text-shadow: 0 1px 0 #fff;
+
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    line-height: 15px;    
+}
+
+.cg-notify-close:hover, .cg-notify-close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cg-notify-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}

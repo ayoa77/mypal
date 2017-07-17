@@ -1,0 +1,41 @@
+%div{"ng-show" => "user != null"}
+
+  %user-item
+
+  .filter-bar.bottom-border
+
+
+    / .btn-group.pull-right
+    /   %button.btn.btn-link.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
+    /     %span{"ng-show" => "order == 'recommended'" } {{"users.recommended" | t}}
+    /     %span{"ng-show" => "order == 'new'" } {{"users.latest" | t}}
+    /     %i.fa.fa-caret-down
+    /   %ul.dropdown-menu.dropdown-menu-right
+    /     %li
+    /       %a{href: "", "ng-click" => "setOrder('recommended')"} {{"users.recommended" | t}}
+    /     %li
+    /       %a{href: "", "ng-click" => "setOrder('new')"} {{"users.latest" | t}}
+
+    .btn-group.pull-right
+      %button.btn.btn-link.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
+        %span{"ng-show" => "filter == 'mine'" } {{"user.my_posts" | t}}
+        %span{"ng-show" => "filter == 'all'" } {{"user.my_posts_plus_replied_on" | t}}      
+        %i.fa.fa-caret-down
+      %ul.dropdown-menu
+        %li
+          %a{href: "", "ng-click" => "setFilter('mine')"} {{"user.my_posts" | t}}
+        %li
+          %a{href: "", "ng-click" => "setFilter('all')"} {{"user.my_posts_plus_replied_on" | t}}
+
+    .clearfix
+    
+
+  %div{ "infinite-scroll" => "getNextRequests()", "infinite-scroll-disabled" => "isLoadingRequests", "infinite-scroll-container" => "'#main-content'", "infinite-scroll-distance" => "1" }
+    %request-item.expandable.border{"ng-repeat" => "request in requests"}
+
+    .spinner.spinner-lg{ "ng-show" => "isLoadingRequests" }
+      %i.fa.fa-spinner.fa-pulse
+
+    .spinner{ "ng-show" => "isEndOfRequests"}
+      %i.fa.fa-circle
+
