@@ -4,7 +4,7 @@ default: &default
   # From address
   MAILGUN_FROM_ADDRESS: Doers <info@doers.io>
 
-  ROOT_URL: "http://globetutors.com/"
+  ROOT_URL: "http://globetutors.com:3000/"
   DATA_URL: "https://i.doers.io/"
 
   # Payments
