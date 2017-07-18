@@ -1,0 +1,21 @@
+default: &default
+
+  # # MailGun
+  # From address
+  MAILGUN_FROM_ADDRESS: Doers <info@doers.io>
+
+  ROOT_URL: "https://doers.io/"
+  DATA_URL: "https://i.doers.io/"
+
+  # Payments
+  PAYPAL_RETURN_PATH: /payments/authorized
+  PAYPAL_CANCEL_PATH: /payments/cancelled
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
