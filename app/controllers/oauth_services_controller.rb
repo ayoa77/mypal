@@ -8,7 +8,7 @@ class OauthServicesController < BaseController
 		elsif params[:code].present?
 			begin
 				access_token = authenticate_at_google( params[:code], root_url + 'oauth2callback' )
-				
+
 				# access_token = JSON.parse(response.body)["access_token"]
 				contactsResponse = RestClient.get "https://www.google.com/m8/feeds/contacts/default/full",
 					{ params: { alt: 'json', :'max-results' => '1000', v: '3' }, :'Authorization' => "Bearer #{access_token}" }
@@ -95,7 +95,7 @@ class OauthServicesController < BaseController
 	          user.reload
           end
         end
-        
+
         if user && user.enabled?
         	sign_in user.id, provider
           if (provider == 'google')
@@ -107,7 +107,7 @@ class OauthServicesController < BaseController
         else
           redirect_to "/?auth_result=not_found" # user not found
         end
-				
+
 			rescue => err
 				CustomLogger.add(__FILE__, __method__, {provider: provider, code: params[:code] }, err.inspect)
 				redirect_to "/?auth_result=error"
@@ -129,7 +129,7 @@ class OauthServicesController < BaseController
 				redirect_uri: redirect_uri,
 				grant_type: 'authorization_code'
 		rescue => err
-			CustomLogger.add(__FILE__, __method__, 
+			CustomLogger.add(__FILE__, __method__,
 				{ code: code,
 				  client_id: Rails.application.secrets.google_client_id,
 				  client_secret: Rails.application.secrets.google_client_secret,
@@ -168,7 +168,7 @@ class OauthServicesController < BaseController
 				redirect_uri: redirect_uri,
 				grant_type: 'authorization_code'
 		rescue => err
-			CustomLogger.add(__FILE__, __method__, 
+			CustomLogger.add(__FILE__, __method__,
 				{ code: code,
 					client_id: Rails.application.secrets.linkedin_client_id,
 					client_secret: Rails.application.secrets.linkedin_client_secret,
@@ -201,7 +201,7 @@ class OauthServicesController < BaseController
 					redirect_uri: redirect_uri
 				} }
 		rescue => err
-			CustomLogger.add(__FILE__, __method__, 
+			CustomLogger.add(__FILE__, __method__,
 				{ code: code,
 					client_id: Rails.application.secrets.facebook_client_id,
 					client_secret: Rails.application.secrets.facebook_client_secret,
@@ -218,7 +218,7 @@ class OauthServicesController < BaseController
 		user_info = { email: json_response["email"], name: json_response["name"], facebook_name: json_response["name"], access_token: access_token, facebook_url: json_response["link"] }
 
 		response = RestClient.get "https://graph.facebook.com/me/picture?access_token=#{access_token}&redirect=false&format=json&type=large"
-			
+
 		json_response = JSON.parse(response.body)
 		avatar_url = nil
 		if json_response["data"]["url"].present?
