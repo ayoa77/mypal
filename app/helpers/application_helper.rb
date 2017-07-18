@@ -27,15 +27,15 @@ module ApplicationHelper
   end
   # "#{@settings["SITE_URL"].chomp("/")}/logo.png"
   def logo_image_url
-    "logo.png"
+    "/logo.png"
   end
   # "#{@settings["SITE_URL"].chomp("/")}/favicon.png"
   def favicon_image_url
-    "favicon.png"
+    "/favicon.png"
   end
   # "#{@settings["SITE_URL"].chomp("/")}/share.png"
   def share_image_url
-    "share.png"
+    "/share.png"
   end
 
   def localize_setting setting
