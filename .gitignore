@@ -16,7 +16,6 @@
 /tmp
 dump.rdb
 
-/config/database.yml
 /config/secrets.yml
 /config/paypal.yml
 /config/fluent-logger.yml
