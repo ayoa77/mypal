@@ -35,6 +35,7 @@ gem 'spring',        group: :development
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'byebug', group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'will_paginate', '~> 3.0.6'
@@ -88,6 +89,7 @@ gem 'angularjs-file-upload-rails', '~> 1.1.6'
 # fluentd related gems
 # gem 'act-fluent-logger-rails'
 # gem 'lograge'
+
 
 # elasticsearch
 gem 'elasticsearch-model'

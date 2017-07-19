@@ -2,6 +2,7 @@ require 'custom_logger'
 
 class OauthServicesController < BaseController
 	def callback
+		byebug
 		if params[:error].present?
 			CustomLogger.add(__FILE__, __method__, { }, params[:error])
 			redirect_to invite_users_path
@@ -26,6 +27,7 @@ class OauthServicesController < BaseController
 	end
 
 	def authentication
+		byebug
 		if params[:error].present?
 			CustomLogger.add(__FILE__, __method__, { }, params[:error])
 			redirect_to "/?auth_result=error"
@@ -192,6 +194,7 @@ class OauthServicesController < BaseController
 	end
 
 	def authenticate_at_facebook code, redirect_uri, connect_type
+		byebug
 		response = nil
 		begin
 			response = RestClient.get "https://graph.facebook.com/v2.3/oauth/access_token", { params: {

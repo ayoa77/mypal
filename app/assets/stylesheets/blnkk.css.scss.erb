@@ -30,7 +30,7 @@ body {
   font-family: 'Roboto', '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;
   color: #303030;
   font-weight: 400;
-  background: $background;
+  background-image: url("/backgrounds/doers-bg.png");
   position: relative;
   height: 100%;
 }
@@ -100,7 +100,7 @@ body {
           }
         }
       }
-        
+
   }
   #main-content{
     //position: absolute;
@@ -221,7 +221,7 @@ img{
     width: 25px;
     height: 25px;
     border-radius: 50%;
-  }  
+  }
   &.img-30{
     width: 30px;
     height: 30px;
@@ -495,8 +495,8 @@ label{
       color: white;
       font-size: 24px;
       line-height: 24px;
-      vertical-align: middle;      
-      font-weight: bold;      
+      vertical-align: middle;
+      font-weight: bold;
       font-family: $biggerfont;
       &.logo{
         &:hover, &:focus{
@@ -538,9 +538,9 @@ label{
     }
 
     .btn{
-      margin-left: 5px;  
+      margin-left: 5px;
     }
-    
+
     .btn-link{
       padding: 0;
       position: relative;
@@ -815,7 +815,7 @@ label{
       &:not(:last-child){
         padding-right: 15px;
       }
-      
+
       &.active {
         color: #ff385f;
       }
@@ -1163,7 +1163,7 @@ label{
     @media (min-width: $screen-sm-min) {
       top: 20px;
       left: 22px;
-    }    
+    }
   }
   &::before {
     content: "\f067";
@@ -1189,7 +1189,7 @@ label{
   &:hover::after{
     transform: rotate(360deg);
     opacity: 1;
-  }    
+  }
 }
 
 .item-tags{
@@ -1287,7 +1287,7 @@ label{
 //     text-align: center;
 //     img{
 //       width: 100px;
-//     }  
+//     }
 //   }
 // }
 
@@ -1301,8 +1301,8 @@ label{
       max-width: 100%;
       text-align: center;
       img{
-        width: 100%;  
-      }  
+        width: 100%;
+      }
     }
     input{
       margin-top: 10px;
@@ -1375,7 +1375,7 @@ label{
     right: 0;
     height: 47px;
     overflow: hidden;
-    z-index: 1; 
+    z-index: 1;
     background: white;
   }
   .item-footer{
@@ -1474,7 +1474,7 @@ label{
         &:hover{
           i.fa{
             color: $light_gray;
-          }      
+          }
         }
       }
     }
@@ -1516,7 +1516,7 @@ kbd{
 .spinner{
   text-align: center;
   margin: 40px 0;
-  color: $medium_gray; 
+  color: $medium_gray;
   &.spinner-lg{
     font-size: 200%;
   }
@@ -1565,7 +1565,7 @@ tags-input .tags{
 }
 
 i.fa-hash {
-  &::before { 
+  &::before {
     content: "#";
   }
 }
