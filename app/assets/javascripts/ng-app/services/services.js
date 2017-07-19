@@ -28,7 +28,7 @@ var postErrorFunction = function(dataReturned, status, deferred) {
 			break;
 		case 401:
 			authService.signedOutByServer();
-			deferred.reject(I18n.t("services.need_sign_in"));	
+			deferred.reject(I18n.t("services.need_sign_in"));
 			break;
 		case 404:
 			deferred.reject(I18n.t("services.not_found"));
@@ -54,7 +54,7 @@ var getErrorFunction = function(message, status, deferred){
 		default:
 			deferred.reject(message + ' ' + I18n.t("services.unknown"));
 			break;
-	}	
+	}
 }
 
 angular.module('blnkk.services', [ 'persona' ])
@@ -148,7 +148,7 @@ angular.module('blnkk.services', [ 'persona' ])
 		var dispatchConnexionChange = function( state ) {
 			$rootScope.$broadcast('connexion-change', { signedIn: state });
 		};
-		
+
 		this.state = { signedIn: false};
 		var requestPersona = function() {
 			var logoPath = '';
@@ -183,7 +183,7 @@ angular.module('blnkk.services', [ 'persona' ])
 			dispatchConnexionChange(false);
 		}
 	}])
-	
+
 	.service('User', ['$http', '$q', '$rootScope', 'SocketMessages', function($http, $q, $rootScope, SocketMessages){
 		var theService = this;
 		this.getAll = function(page, searchQuery, order, serializer){
@@ -232,7 +232,7 @@ angular.module('blnkk.services', [ 'persona' ])
 				.error(function(dataReturned, status) {
 					postErrorFunction(dataReturned, status, deferred);
 				});
-			return deferred.promise;			
+			return deferred.promise;
 		}
 
 		this.saveData = function(userData) {
@@ -358,7 +358,7 @@ angular.module('blnkk.services', [ 'persona' ])
 		};
 		this.resetData();
 	}])
-	
+
   .service('MyRequest', ['$http', '$q', function($http, $q){
 		var theService = this;
 		this.post = function(requestData) {
@@ -431,10 +431,10 @@ angular.module('blnkk.services', [ 'persona' ])
 					postErrorFunction(dataReturned, status, deferred);
 				});
 			return deferred.promise;
-		};				
+		};
 	}])
 
-	
+
 	.service('Contact', ['$http', '$q', function($http, $q){
 		var theService = this;
 
@@ -472,7 +472,7 @@ angular.module('blnkk.services', [ 'persona' ])
 		};
 		this.resetData();
 	}])
-	
+
 	.service('Rating', ['$http', '$q', function($http, $q){
 		var theService = this;
 		this.getRatings = function(type, ids) {
@@ -486,9 +486,9 @@ angular.module('blnkk.services', [ 'persona' ])
 					getErrorFunction(I18n.t("services.error_ratings"), status, deferred);
 				});
 			return deferred.promise;
-		};	
+		};
 	}])
-	
+
 	.service('Request', ['$http', '$q', 'Contact', function($http, $q, Contact){
 		var theService = this;
 		this.getNewsfeed = function(page, order){
@@ -548,7 +548,7 @@ angular.module('blnkk.services', [ 'persona' ])
 					postErrorFunction(dataReturned, status, deferred);
 				});
 			return deferred.promise;
-		};		
+		};
 	}])
 
 	.service('Tag', ['$http', '$q', function($http, $q){
@@ -678,7 +678,7 @@ angular.module('blnkk.services', [ 'persona' ])
 					postErrorFunction(dataReturned, status, deferred);
 				});
 			return deferred.promise;
-		};	
+		};
 		this.resetData();
 	}])
 
@@ -774,7 +774,7 @@ angular.module('blnkk.services', [ 'persona' ])
 		this.getAuthenticationURL = function() {
 			return "https://accounts.google.com/o/oauth2/auth?response_type=code&scope=" + encodeURIComponent("https://www.googleapis.com/auth/contacts.readonly") + "&client_id=" + clientId + "&login_hint=" + User.data.email + "&redirect_uri=" + redirect;
 		}
-		
+
 	}])
 
 	.service('FacebookAuthentication', ['$http', '$q', '$location', 'User', function($http, $q, $location, User){
@@ -782,10 +782,10 @@ angular.module('blnkk.services', [ 'persona' ])
 		var clientId;
 		var redirect;
 		if ($location.host() == 'localhost') {
-			clientId = '1436962946605426';
+			clientId = '221821404959944';
 			redirect = encodeURIComponent("http://localhost:3000/oauth2authentication");
 		} else {
-			clientId = '1430837953890716';
+			clientId = '108627286462499';
 			redirect = encodeURIComponent($location.protocol() + '://' + $location.host() + '/oauth2authentication');
 		}
 		this.getAuthenticationURL = function(redirectTo, requestType) {
@@ -794,7 +794,7 @@ angular.module('blnkk.services', [ 'persona' ])
 			redirectTo = redirectTo.split('?')[0];
 			return "https://www.facebook.com/dialog/oauth?client_id=" + clientId + "&response_type=code&scope=public_profile%2cemail&redirect_uri=" + redirect + "&state=" + encodeURIComponent("redirect=" + redirectTo + "&provider=facebook&type=" + requestType + "&ln=" + I18n.locale);
 		}
-		
+
 	}])
 
 	.service('GoogleAuthentication', ['$http', '$q', '$location', 'User', function($http, $q, $location, User){
@@ -814,7 +814,7 @@ angular.module('blnkk.services', [ 'persona' ])
 			redirectTo = redirectTo.split('?')[0];
 			return "https://accounts.google.com/o/oauth2/auth?client_id=" + clientId + "&response_type=code&scope=openid%20email&redirect_uri=" + redirect + "&state=" + encodeURIComponent("redirect=" + redirectTo + "&provider=google&type=" + requestType + "&ln=" + I18n.locale);
 		}
-		
+
 	}])
 
 	.service('LinkedinAuthentication', ['$http', '$q', '$location', 'User', function($http, $q, $location, User){
@@ -834,6 +834,5 @@ angular.module('blnkk.services', [ 'persona' ])
 			redirectTo = redirectTo.split('?')[0];
 			return "https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=" + clientId + "&redirect_uri=" + redirect + "&state=" + encodeURIComponent("redirect=" + redirectTo + "&provider=linkedin&type=" + requestType + "&ln=" + I18n.locale);
 		}
-		
-	}]);
 
+	}]);
