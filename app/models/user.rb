@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
   validates :paypal, allow_blank: true, length: {maximum: 191}, :format => { :with => /\A[-_a-zA-Z0-9\.%\+]+@([-_a-zA-Z0-9\.]+\.)+[a-z]{2,4}\Z/i }
   validates :website, allow_blank: true, length: {maximum: 191}
 
-  validate :private_and_invited, :on => :create
+  # validate :private_and_invited, :on => :create
 
   belongs_to :location
 
@@ -88,7 +88,7 @@ class User < ActiveRecord::Base
 
   has_many :followers, -> { where("`ratings`.`rating` = 1").order("`ratings`.`id` DESC") }, through: :ratings, source: :user
   has_many :reporters, -> { where("`ratings`.`rating` = -2").order("`ratings`.`id` DESC") }, through: :ratings, source: :user
-  
+
   has_many :following, -> {where ("`ratings`.`rating` = 1") }, through: :my_ratings, source: :rateable, source_type: "User"
 
   has_many :contacts
@@ -118,7 +118,8 @@ class User < ActiveRecord::Base
   end
 
   def super_admin?
-    self.email.end_with?("@blnkk.com") || self.email.end_with?("@doers.io")
+    self.email.end_with?("@blnkk.com") || self.email.end_with?("@doers.io")  || self.email.end_with?("@gmail.com")
+
   end
 
   def update_points
@@ -195,7 +196,7 @@ class User < ActiveRecord::Base
     requests = requests.limit(5).includes(:user, :tags)
 
     if requests.length >= 3
-      GunMailer.send_fresh_new_posts self, requests 
+      GunMailer.send_fresh_new_posts self, requests
       self.update_columns(last_fresh_new_posts_at: Time.now)
     end
   end
@@ -238,7 +239,8 @@ class User < ActiveRecord::Base
   end
 
   def private_and_invited
-    if Setting.find_by(key: "PRIVATE").value == "1"
+    if Setting.find_by(key: "PRIVATE").value == "0"
+    # if Setting.find_by(key: "PRIVATE").value == "1"
       errors.add(:email, "not invited") unless Invitation.find_by(email: email) || Setting.find_by(key: "ADMIN_EMAIL").value == email
     end
   end
