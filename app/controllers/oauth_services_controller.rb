@@ -192,10 +192,9 @@ class OauthServicesController < BaseController
 	end
 
 	def authenticate_at_facebook code, redirect_uri, connect_type
-
 		response = nil
 		begin
-			response = RestClient.get "https://graph.facebook.com/v2.3/oauth/access_token", { params: {
+			response = RestClient.get "https://graph.facebook.com/v2.9/oauth/access_token", { params: {
 					code: code,
 					client_id: Rails.application.secrets.facebook_client_id,
 					client_secret: Rails.application.secrets.facebook_client_secret,
