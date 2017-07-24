@@ -17,10 +17,7 @@
 dump.rdb
 
 #gemfile application and database.yml must be changed for local env to work
-Gemfile.lock
 
-/config/database.yml
-/config/application.yml
 /config/paypal.yml
 /config/fluent-logger.yml
 
