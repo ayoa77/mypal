@@ -43,7 +43,7 @@ class OauthServicesController < BaseController
 				if (provider == 'google')
 					user_info = authenticate_at_google( params[:code], root_url + 'oauth2authentication' )
 				elsif provider == 'facebook'
-					user_info = authenticate_at_facebook( params[:code], root_url + 'oauth2authentication', state_params["type"] )
+					user_info = authenticate_at_facebook( params[:code], 'http://globetutoring.com/' + 'oauth2authentication', state_params["type"] )
 					if state_params["type"] == 'info'
 						if signed_in?
 							current_user.facebook_url = user_info[:facebook_url]
@@ -71,8 +71,8 @@ class OauthServicesController < BaseController
 						end
 					end
 				end
-				user = User.find_by(email: user_info[:email])
 				if state_params["type"] == 'signin'
+					user = User.find_by(email: user_info[:email])
 					if !user.present? || !user.enabled?
             redirect_to "/?auth_result=not_found" # user not found
             return

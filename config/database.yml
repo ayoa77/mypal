@@ -43,7 +43,6 @@ test:
 # available as an environment variable. For example:
 #
 #   DATABASE_URL="mysql2://myuser:mypass@localhost/somedatabase"
-#
 # You can use this database configuration with:
 #
 #   production:
@@ -53,4 +52,4 @@ production:
   <<: *default
   database: blnkk_production
   username: blnkk
-  password: <%= ENV['BLNKK_DATABASE_PASSWORD'] %>
+  password: blinkblink@schwifty
