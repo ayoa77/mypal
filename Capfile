@@ -10,6 +10,15 @@ require 'capistrano-passenger'
 #
 # For documentation on these, see for example:
 #
+#   gem 'annotate'
+  # gem 'awesome_print'
+  # gem 'capistrano', '~> 3.4.0'
+  # gem 'colorize', '0.7.4'
+  # gem 'capistrano-slackify', '~> 2.2.0'
+  # gem 'capistrano-rails'
+  # gem 'capistrano-passenger'
+  # gem 'capistrano-bundler'
+  # gem 'capistrano-rvm'
 #   https://github.com/capistrano/rvm
 #   https://github.com/capistrano/rbenv
 #   https://github.com/capistrano/chruby
