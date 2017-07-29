@@ -12,8 +12,10 @@ ActiveRecord::Base.connection.execute('SHOW databases').each do |db|
         settings[s.key] = s.value
       end
 
-      SitemapGenerator::Sitemap.default_host = settings["SITE_URL"] rescue ""
-      SitemapGenerator::Sitemap.sitemaps_path = "sitemaps/#{settings["SUBSITE"].downcase.to_url}"
+      SitemapGenerator::Sitemap.default_host = "http://globetutoring.com" rescue ""
+
+      # SitemapGenerator::Sitemap.default_host = settings["SITE_URL"] rescue ""
+      # SitemapGenerator::Sitemap.sitemaps_path = "sitemaps/#{settings["SUBSITE"].downcase.to_url}"
 
       SitemapGenerator::Sitemap.create do
 
@@ -29,7 +31,7 @@ ActiveRecord::Base.connection.execute('SHOW databases').each do |db|
         #   add tags_path(ln: locale), priority: 0.9
         #   add users_path(ln: locale), priority: 0.9
         # end
-        
+
         # locales.each do |locale|
         #   ActsAsTaggableOn::Tag.order(:position).each do |t|
         #     add tag_path(t.name, ln: locale), priority: 0.9, changefreq: 'always'
