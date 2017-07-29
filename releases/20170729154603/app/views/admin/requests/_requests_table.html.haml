@@ -1,0 +1,49 @@
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th #
+        %th Content
+        %th Proposer
+        %th Tags
+        %th.text-right
+          %i.fa.fa-eye
+        %th.text-right 
+          %i.fa.fa-thumbs-up
+        %th.text-right 
+          %i.fa.fa-comment
+        %th.text-right 
+          %i.fa.fa-fire
+        %th Created at
+        %th State
+    %tbody
+      - requests.each do |r|
+        %tr
+          %td= link_to r.id, request_path(r), class: "btn btn-default btn-xs"
+          %td= r.real_subject
+          %td
+            = link_to admin_user_path(r.user), class: "btn btn-default btn-xs" do
+              = image_tag r.user.avatar.thumb('20x20').url, style: "width: 20px; height:20px;"
+              = r.user.name
+          %td
+            = r.tags.map(&:name).join(', ')
+            = form_for [:admin, r], html: {style: "display: inline-block;"} do |f|
+              / = f.collection_select :tag, @tags, :id, :name, include_blank: true
+              = select("request", "tag", @tags.collect {|p| [ p.name, p.name ] }, { include_blank: true })
+              %button.btn.btn-default.btn-xs{ type: "submit"} Save
+          %td.text-right= r.user_reach_count
+          %td.text-right= r.like_count
+          %td.text-right= r.comment_count
+          %td.text-right= r.score.round(2)
+          %td= r.created_at
+          %td
+            %span.label.label-default= r.workflow_state
+
+            - if r.can_disable?
+              = form_for [:admin, r], html: {style: "display: inline-block;"} do |f|
+                = hidden_field_tag :workflow_event, "disable"
+                %button.btn.btn-danger.btn-xs{ type: "submit"} Delete
+            - if r.can_enable?
+              = form_for [:admin, r], html: {style: "display: inline-block;"} do |f|
+                = hidden_field_tag :workflow_event, "enable"
+                %button.btn.btn-primary.btn-xs{ type: "submit"} Undelete

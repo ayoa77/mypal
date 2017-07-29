@@ -1,0 +1,118 @@
+.item-main-wrapper
+
+  .item-body
+
+    .media.old-media-style
+      .media-left
+
+        %a{"ui-sref" => "home.userSingle({id: user.id})"}
+          %img.img-100{"ng-src" => "{{user.avatar_url}}"}
+      .media-body
+
+        .top-right
+
+          %button.btn.btn-default{ "ng-click" => "sendPM()", "ng-hide" => "user.id == session.user.id" }
+            %i.fa.fa-comment
+            %span.hidden-xs {{"user_directives.chat" | t}}
+
+          %follow-user{user: "user", session: "session"}
+
+          %a.btn.btn-default{ "ui-sref" => "home.users-edit", "ng-show" => "user.id == session.user.id" }
+            %i.fa.fa-cog
+            %span.hidden-xs {{"user_directives.edit_profile" | t}}
+
+          .btn-group{"ng-if"=>"session.user.admin && session.user.id != user.id"}
+            %button.btn.btn-default.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
+              %i.fa.fa-ellipsis-h
+            %ul.dropdown-menu.dropdown-menu-right
+              %li{"ng-show" => "!user.admin"}
+                %a{href: "", "ng-click" => "promote()"}
+                  {{"user_directives.promote" | t}}
+              %li{"ng-show" => "user.admin"}
+                %a{href: "", "ng-click" => "demote()"}
+                  {{"user_directives.demote" | t}}
+              %li{"ng-show" => "!user.enabled"}
+                %a{href: "", "ng-click" => "enable()"}
+                  {{"user_directives.enable" | t}}
+              %li{"ng-show" => "user.enabled"}
+                %a{href: "", "ng-click" => "disable()"}
+                  {{"user_directives.disable" | t}}
+                  
+        .clearfix
+
+        %a.title.title-lg.primary{"ui-sref" => "home.userSingle({id: user.id})"} {{user.name}}
+        .item-tags
+
+          %span.item.text-nowrap.points
+            %i.fa.fa-star.fa-fw
+            %span> {{ user.admin ? ("user_directives.admin" | t) : ("user_directives.points_num" | t:{count: user.point_count}) }}
+
+          %span.item.text-nowrap.green{"ng-show" => "user.online"}
+            %i.fa.fa-circle.fa-fw
+            %span> {{"user_directives.online" | t}}
+
+          %span.item.text-nowrap{"ng-show" => "!user.online"}
+            %i.fa.fa-clock-o.fa-fw
+            %span> {{"user_directives.last_seen" | t}}
+            %span &nbsp;
+            %span{"am-time-ago" => "user.last_seen_at", "am-preprocess" => "unix"}>
+ 
+    .item
+      .row
+        .col-sm-2.col-xs-4
+          %a.content-link{"ui-sref" => "home.userSingle({id: user.id})"}
+            .content-header {{"user_directives.posts" | t}}
+            .content {{user.request_count}}
+        .col-sm-2.col-xs-4
+          %a.content-link{"ui-sref" => "home.users({q: 'followed-by:'+user.id})"}
+            .content-header {{"user_directives.following" | t}}
+            .content {{user.following_count}}
+        .col-sm-2.col-xs-4
+          %a.content-link{"ui-sref" => "home.users({q: 'following:'+user.id})"}
+            .content-header {{"user_directives.followers" | t}}
+            .content {{user.follower_count}}
+
+
+        .clearfix.visible-xs-block
+
+        .col-sm-6{"ng-show" => "user.linkedin_url || user.website || user.facebook_url"}
+          .content-header {{"user_directives.profiles" | t}}
+          .content-profiles
+            %a{href: "{{user.linkedin_url}}", target: "_blank" , "ng-attr-title" => "{{user.linkedin_name}}", "ng-show" => "user.linkedin_url"}>
+              %i.fa.fa-linkedin-square
+            %a{href: "{{user.facebook_url}}", target: "_blank" , "ng-attr-title" => "{{user.facebook_name}}", "ng-show" => "user.facebook_url"}>
+              %i.fa.fa-facebook-square
+            %a{href: "{{user.website}}", target: "_blank" , "ng-attr-title" => "{{displayUrl(user.website)}}", "ng-show" => "user.website"}>
+              %i.fa.fa-globe
+
+    .item{"ng-show" => "user.biography"}
+      .content-header {{"user_directives.about_me" | t}}
+      %formatted-message.content{text: "user.biography"}
+
+    / .item{ "ng-show" => "user.tags.length > 0" }
+    /   .content-header {{"user_directives.tags" | t}}
+    /   .item-tags
+    /     %span.item{ "ng-repeat" => "tag in user.tags" }
+    /       %a{ "ui-sref" => "home.tagSingle({tag: tag.name})"}
+    /         %i.fa.fa-fw{ "ng-class" => "'fa-'+tag.icon" }>
+    /         %span {{ tag.display_name }}
+
+  .item-footer.item-actions{ "ng-show" => "user.follower_count > 0" }
+    .media.with-overflow
+      .media-left.media-middle
+        %user-link.user{ "ng-repeat" => "follower in user.followers", user: "follower", title: "{{follower.name}}"}>
+          %img.img-34{"ng-src" => "{{follower.avatar_url}}"}>
+      .media-body.media-middle
+
+        .description
+          %a{"ui-sref" => "home.users({q: 'following:'+user.id})"}
+            %span{ "ng-show" => "user.followers.length == 1" }
+              {{"user_directives.followed_by.one" | t:{user1:user.followers[0].name} }}
+
+            %span{ "ng-show" => "user.followers.length == 2" }
+              {{"user_directives.followed_by.two" | t:{user1:user.followers[0].name,user2:user.followers[1].name} }}
+
+            %span{ "ng-show" => "user.followers.length > 2" }
+              {{"user_directives.followed_by.more" | t:{user1:user.followers[0].name,number:user.follower_count - 1} }}
+      / .media-right.media-middle
+      /   %social-share-buttons.pull-right{user: "user"}

@@ -1,0 +1,45 @@
+!!!
+%html
+  %head
+    %meta{:charset => 'utf-8'}
+    %title Admin | #{@settings["SUBSITE"]}
+    %meta{'http-equiv' => 'X-UA-Compatible', content: 'IE=Edge,chrome=1'}
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
+    %link{rel: 'shortcut icon', type:"image/png", href: favicon_image_url}
+    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', media: :all
+    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', media: :all
+    = stylesheet_link_tag :application
+    = render "layouts/conditional_styles"
+    = javascript_include_tag :application
+    = javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'
+    = csrf_meta_tags
+  %body
+    %nav.navbar.navbar-inverse.navbar-fixed-top{ role: "navigation" }
+      .container
+        .navbar-header
+          %button.navbar-toggle{ type: "button", data: { toggle: "collapse", target: ".navbar-collapse"} }
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{ href: admin_path } Admin | #{@settings["SUBSITE"]}
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li= link_to 'Users', admin_users_path
+            %li= link_to 'Requests', admin_requests_path
+            %li= link_to 'Conversations', admin_conversations_path
+            %li= link_to 'Settings', admin_settings_path
+            / %li= link_to 'Pages', admin_pages_path
+            %li= link_to 'Newsletters', admin_newsletters_path
+            %li= link_to 'Logs', admin_logs_path
+    .content-wrapper
+      #main-content
+        .container
+          - if flash[:notice].present?
+            .alert.alert-info
+              = flash[:notice]
+              %a.close{ data: {dismiss:"alert"}, href:"#", aria: {hidden:"true"}} &times;
+          - if flash[:alert].present?
+            .alert.alert-danger
+              = flash[:alert]
+              %a.close{ data: {dismiss:"alert"}, href:"#", aria: {hidden:"true"}} &times;
+          = yield

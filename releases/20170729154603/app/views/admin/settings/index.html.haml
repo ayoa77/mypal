@@ -1,0 +1,14 @@
+.page-header
+  %h1 Settings
+
+%table.table.table-striped
+  %tr
+    %th Key
+    %th{width: "80%"} Value
+    %th Actions
+  - @sings.each do |s|
+    %tr
+      = form_for s, url: admin_setting_path(s) do |f|
+        %td= s.key
+        %td= f.text_field :value, class: "form-control"
+        %td= f.submit "Update", class: "btn btn-primary"

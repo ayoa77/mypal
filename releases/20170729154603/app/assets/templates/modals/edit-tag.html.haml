@@ -1,0 +1,21 @@
+.item-main-wrapper.no-margin
+  .item-header
+    .pull-right
+      %a.close{href: "", "ng-click" => "cancel()"}
+        %i.fa.fa-times
+    {{"edit_tag_modal.title" | t}}
+  .item-body
+    .item
+      .description {{"edit_tag_modal.description" | t}}
+    .item
+      %form.form{"ng-submit" => "updateTag()"}
+        .form-group
+          %label.control-label{for: "tag-name"} {{"edit_tag_modal.name" | t}}
+          %input.form-control#tag-name{required: '', "ng-model" => "newTag", "ng-disabled" => "isUpdating" }
+        .form-group
+          %label.control-label{for: "tag-icon"} {{"new_tag_modal.icon" | t}}
+          %input.form-control#tag-icon{required: '', "ng-model" => "newIcon", "ng-disabled" => "isUpdating" }
+        %button.btn.btn-primary.pull-right{type: "submit", "ng-disabled" => "isUpdating"} 
+          {{"edit_tag_modal.save" | t}}
+        %a.btn.btn-link.pull-right{"ng-click" => "cancel()"} {{"edit_tag_modal.cancel" | t}}
+        .clearfix

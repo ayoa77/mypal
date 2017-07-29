@@ -1,0 +1,15 @@
+= form_for [:admin, @newsletter] do |f|
+
+  .form-group
+    %label Subject
+    = f.text_field :subject, class: "form-control"
+
+  .form-group
+    %label Intro
+    = f.text_field :intro, class: "form-control"
+
+  .form-group
+    %label Content
+    = f.text_area :content, size: "60x20", class: "form-control"
+
+  = f.submit "Save", class: "btn btn-primary"

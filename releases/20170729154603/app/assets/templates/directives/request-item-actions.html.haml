@@ -1,0 +1,76 @@
+%div
+  .item-footer.indent-40
+    .request-action{ "ng-click" => "rateRequest(request.user_rating == 1 ? 0 : 1)", "ng-class" => "request.user_rating == 1 ? 'active' : ''", "ng-disabled" => "isRating || request.user_rating == -2"}>
+      %i.fa{ "ng-class" => "request.user_rating == 1 ? 'fa-heart' : 'fa-heart-o'" }
+      %span{"ng-show" => "request.like_count > 0"} {{request.like_count}}
+
+    .request-action{ "ng-click" => "expand();"}>
+      %i.fa.fa-comment
+      %span{"ng-show" => "request.comments.length > 0"} {{request.comments.length}}
+
+    .request-action{ "ng-show" => "request.user_reach_count > 0" }>
+      %i.fa.fa-eye
+      %span {{request.user_reach_count}}
+
+    .request-action.dropdown{ "uib-dropdown" => "" }
+      .dropdown-toggle{type: "button", "uib-dropdown-toggle" => ""}
+        %i.fa.fa-ellipsis-h
+      %ul.dropdown-menu
+        %li
+          %a{href: "", "ng-click" => "copyLink()"}
+            {{"request_item_directive.copy_link_to_post" | t}}
+        %li{"ng-if" => "request.tag && tag && session.connected && session.user.admin" }
+          %a{href: "", "ng-click" => "stickifyRequest(request.id)"}
+            {{"request_item_directive.stickify_post" | t}}
+        %li{"ng-show" => "session.connected && request.user.id == session.user.id"}
+          %a{href: "", "ng-click" => "destroyRequest()", "ng-disabled" => "isDestroying"}
+            {{"request_item_directive.delete_post" | t}}
+        %li{"ng-class" => "isRating || request.user_rating == -2 ? 'disabled' : ''"}
+          %a{href: "", "ng-click" => "rateRequest(-2)"}
+            {{request.user_rating == -2 ? ("request_item_directive.post_reported" | t) : ("request_item_directive.report_post" | t) }}
+
+        %li.divider{"ng-show" => "session.connected && session.user.admin == 1"}
+        %li.dropdown-header{"ng-show" => "session.connected && session.user.admin == 1"} {{"general.admin" | t}}
+        %li.dropdown-header{"ng-show" => "session.connected && session.user.admin == 1"} {{"request_item_directive.report_count" | t}} {{request.report_count}}
+        %li{"ng-show" => "session.connected && session.user.admin == 1"}
+          %a{href: "", "ng-click" => "destroyRequest()", "ng-disabled" => "isDestroying"}
+            {{"request_item_directive.delete_post" | t}}
+
+    %social-share-buttons{ "ng-if" => "!isPrivate()", request: "request"}
+
+    .clearfix
+
+  .item-comments.indent-40.with-background{ "uib-collapse" => "commentsAreCollapsed" }
+
+    / .item{"ng-show" => "request.likers.length > 0 || request.repliers.length > 0"}
+    /   .media.likers
+    /     .media-left
+    /       .like{"ng-show" => "request.likers.length > 0"}
+    /         %i.fa.fa-thumbs-up
+    /       %user-link{ "ng-repeat" => "user in request.likers", user: "user", title: "{{user.name}}"}>
+    /         %img.img-30{"ng-src" => "{{user.avatar_url}}"}>
+    /     .media-left
+    /       .like{"ng-show" => "request.repliers.length > 0"}
+    /         %i.fa.fa-comment
+    /       %user-link{ "ng-repeat" => "user in request.repliers", user: "user", title: "{{user.name}}"}>
+    /         %img.img-30{"ng-src" => "{{user.avatar_url}}"}>
+
+
+    .item{"ng-if" => "request.comments.length > 3 && !showingAllComments"}
+      %button.btn.btn-default.btn-sm{ "ng-click" => "showAllComments()", "ng-bind-html" => "'request_item_actions_directive.view_more' | t:{count: request.comments.length-3}" }>
+        -# View {{request.comments.length-3}} more {{request.comments.length-3 == 1 ? 'comment' : 'comments'}}
+
+    %comment{"ng-repeat" => "comment in request.comments | limitTo:(!showingAllComments ? -3 : request.comments.length)"}
+
+    .item
+      .media
+        .media-left{"ng-show" => "session.connected"}
+          %img.img-34{"ng-src" => "{{ session.user.avatar_url}}"}
+        .media-body
+          .fake-input{"ng-hide" => "isCommenting", "ng-click" => "converse()"} {{"request_item_actions_directive.add_comment" | t}}
+          .item-actions{"ng-show" => "isCommenting"}
+            .input-group
+              %textarea.commentReply.textarea-noresize.form-control{rows: "1", required: '', placeholder: '{{"request_item_actions_directive.add_comment" | t}}', "ng-model" => "newComment", "ng-disabled" => "isPosting"}
+              %span.commentReplySubmit.input-group-addon.btn.btn-primary{type: "submit", "ng-disabled" => "isPosting"}
+                %i.fa.fa-arrow-right
+                / {{"request_item_actions_directive.post" | t}}

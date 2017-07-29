@@ -1,0 +1,21 @@
+.item-main-wrapper.no-margin
+  .item-header
+    .pull-right
+      %a.close{href: "", "ng-click" => "cancel()"}
+        %i.fa.fa-times
+    {{"new_message.chat" | t}}
+  .item-body
+    .spinner.spinner-lg{ "ng-show" => "isLoadingUser" }
+      %i.fa.fa-spinner.fa-pulse
+    %div{"ng-show" => "user && !isLoadingUser"}
+      .item
+        %user-card{user: "user"}
+
+      .item
+        %form.form{"ng-submit" => "sendMessage()"}
+          .form-group
+            %textarea.form-control{rows: "4", required: '', placeholder: '{{"new_message.send_placeholder" | t}}', "ng-model" => "newMessage", "ng-disabled" => "isPosting || !isMessagingAvailable" }
+          %button.btn.btn-primary.pull-right{type: "submit", "ng-disabled" => "isPosting || !isMessagingAvailable"} 
+            {{"new_message.send" | t}}
+          %a.btn.btn-link.pull-right{"ng-click" => "cancel()"} {{"new_message.cancel" | t}}
+          .clearfix

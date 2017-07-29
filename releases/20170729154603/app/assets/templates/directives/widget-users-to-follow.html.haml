@@ -1,0 +1,40 @@
+.item-main-wrapper{"ng-show" => "showWidget && (users.length > 0 || tags.length > 0)"}
+  .row
+    .col-md-6{"ng-show" => "tags.length > 0"}
+      .item-header
+        {{"widget_tags_to_follow_directive.what_to_follow" | t}}
+      .item-body
+        .item{"ng-repeat" => "tag in tags | limitTo:3"}
+         
+          .media.no-margin
+            .media-left
+              %a{"ui-sref" => "home.tagSingle({tag: tag.name})" }
+                .img-placeholder.img-placeholder-50
+                  %i.fa.fa-fw{ "ng-class" => "'fa-'+tag.icon" }
+            .media-body.media-bottom
+              %a.title.primary{"ui-sref" => "home.tagSingle({tag: tag.name})" }> {{ tag.display_name }}
+              .item-tags
+                %span.item.text-nowrap
+                  %span{ "ng-bind-html" => "'tag_item_directive.follower_num' | t:{count: tag.user_count}" }>
+            .media-right.media-middle
+              %follow-tag{tag: "tag", session: "session"}
+      .item-footer.text-right
+        %a.btn.btn-default{"ui-sref" => "home.tags"} {{"widget_tags_to_follow_directive.view_more_tags" | t}}
+
+    .col-md-6{"ng-show" => "users.length > 0"}
+      .item-header
+        {{"widget_users_to_follow_directive.who_to_follow" | t}}
+      .item-body
+        .item{"ng-repeat" => "user in users | limitTo:3"}
+          .media.no-margin
+            .media-left
+              %user-link{user: "user"}
+                .user-online{"ng-show" => "user.online"}
+                %img.img-50{"ng-src" => "{{user.avatar_url}}"}
+            .media-body.media-middle
+              %user-link.title.primary{user: "user"} {{user.name}}
+            .media-right.media-middle
+              %follow-user{user: "user", session: "session"}
+      .item-footer.text-right
+        %a.btn.btn-default{"ui-sref" => "home.users({q: 'who-to-follow'})"} {{"widget_users_to_follow_directive.view_more_members" | t}}
+    

@@ -1,0 +1,45 @@
+%div{ "ng-if" => "session.connected", "ng-controller" => "ConversationShowController" }
+  %div
+    .spinner.spinner-lg{ "ng-show" => "isLoadingConversation" }
+      %i.fa.fa-spinner.fa-pulse
+
+    .item-main-wrapper.conversation{ "ng-show" => "selectedConversation" }
+      .item-header.user
+        .media-left
+
+          %user-link{user: "selectedConversation.user"}
+            .user-online{"ng-show" => "selectedConversation.user.online"}
+            %img.img-50{"ng-src" => "{{selectedConversation.user.avatar_url}}"}
+        .media-body.media-bottom
+
+
+
+          %user-link.title.primary{user: "selectedConversation.user"} {{selectedConversation.user.name}}
+
+          .item-tags
+
+            %span.item.text-nowrap{"ng-show" => "!selectedConversation.user.online"}
+              %i.fa.fa-clock-o.fa-fw
+              
+              %span> {{"user_directives.last_seen" | t}}
+              %span &nbsp;
+              %span{"am-time-ago" => "selectedConversation.user.last_seen_at", "am-preprocess" => "unix"}>
+
+        .media-right
+          %conversation-rating{"ng-show" => "selectedConversation.user_rating == 1 || selectedConversation.user_rating == -1", conversation: "selectedConversation"}
+      .item-header.rating{"ng-show" => "selectedConversation.messages.length >= 10 && selectedConversation.user_rating == 0"}
+        %conversation-rating{conversation: "selectedConversation", "show-header" => "true"}
+      .messages{ "ng-show" => "isLoadingConversation" }
+        .spinner.spinner-lg
+          %i.fa.fa-spinner.fa-pulse
+      %message-block{ messages: "selectedConversation.messages", "ng-show" => "!isLoadingConversation"}
+      .is-typing{ "ng-show" => "selectedConversation.isTyping", "ng-bind-html" => "'conversations.is_typing' | t:{name: selectedConversation.user.name}" }
+      .item-footer
+        .media
+          .media-left.hidden-xs
+            %img.img-30{"ng-src" => "{{session.user.avatar_url}}"}
+          .media-body 
+            .input-group
+              %textarea#messageReply.textarea-noresize.form-control{rows: "1", required: '', placeholder: '{{"conversations.placeholder" | t}}', "ng-model" => "messageReply[selectedConversation.id]", "ng-disabled" => "isPosting || isLoadingConversation || !isMessagingAvailable", "ng-change" => "replyChangedHandler()"}
+              %span#messageReplySubmit.input-group-addon.btn.btn-primary{type: "submit", "ng-disabled" => "isPosting || isLoadingConversation || !isMessagingAvailable"}
+                %i.fa.fa-arrow-right

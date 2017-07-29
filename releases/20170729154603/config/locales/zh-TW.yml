@@ -1,0 +1,338 @@
+zh-TW:
+  emails:
+    # powered_by: "Powered by %{siteName}"
+    reason: "您收到這封電子郵件是因為您是Doers的會員，或是有個Doers的會員邀請您使用Doers。"
+    unsubscribe: 退訂 
+    greeting_name: "你好 %{name},"
+    greeting_no_name: "哈囉,"
+    new_comment_commented:
+      intro: "%{name} 評論了您的留言”!"
+      action: 去看看吧
+    new_comment:
+      intro: "%{name} 評論了您在Doers上的公告!"
+      action: 去看看吧
+    new_message:
+      intro: "%{name} 在Doers上留言給你!"
+      action: 現在就回覆吧
+    fresh_new_posts:
+      intro: 在Doers上有一些您可能會感到興趣的新信息!
+      action: 查看更多
+      view_all_posts: 瀏覽全部
+    invite:
+      intro: "%{name} 在Doers上找你呢!"
+      action: 去看看吧
+    new_follower:
+      intro: "%{name} 變成你的Doers粉絲了!"
+      action: 查看檔案
+  toolbar:
+    sign_in: 登入
+    register: 註冊
+    my_profile: 我的檔案
+    settings: 設定
+    sign_out: 登出
+  index:
+    welcome: "歡迎加入"
+    join: 現在就加入
+    news_feed: 我的動態訊息
+    discover: 探索其它訊息
+    recommended: 推薦訊息
+    latest: 最新訊息
+    top: 超級熱門
+  session:
+    unable_sign_in: "無法登入（害羞中...），請稍候再試試。"
+    new_message_from: "%{name} 留言給你了"
+    reconnecting_in: "%{remainingSeconds} 幾秒內重新登入，請稍待... "
+    trying_reconnect: 嘗試登入中...
+    retry: 重新嘗試中...
+  tag:
+    index_title: 頻道
+    recommended: 推薦
+    latest: 最新
+    top: 超級熱門
+  page:
+    not_found: 未發現你要找的頁面
+  conversations:
+    title: 對話
+    send_failed: 訊息傳送失敗。
+    websocket_error: "Web socket 出現錯誤。"
+    new_message: 新訊息
+    is_typing: "%{name} 打字中..."
+    placeholder: 繼續對話...
+    # no_conversations: 你的對話會出現在這裡。
+  notifications:
+    title: 我的信息中心
+    no_notifications: 你的通知會出現在這裡
+    new_follower: "%{name} 變成你的粉絲了。"
+    request_like_num: 
+      zero: "%{name} 對你的告示按讚。"
+      one: "%{name} 和另外 %{count} 個人對你的告示按讚。"
+      other: "%{name} 和另外 %{count} 個人對你的告示按讚。"
+    comment_like_num: 
+      zero: "%{name} 喜愛你的留言。"
+      one: "%{name} 和另外 %{count} 個人喜愛你的留言。"
+      other: "%{name} 和另外 %{count}個人喜愛你的留言。"
+    comment_my_request_num:
+      zero: "%{name} 評論了你的告示。"
+      one: "%{name} 和另外 %{count} 個人評論了你的告示。"
+      other: "%{name} 和另外 %{count} 個人評論了你的告示。"
+    comment_commented_request_num:
+      zero: "%{name} 評論了一則你也評論了的告示。"
+      one: "%{name} 和另外 %{count} 個人評論了一則你也評論過的告示。"
+      other: "%{name} 和另外 %{count} 個人評論了一則你也評論過的告示。"
+  services:
+    unavailable: 真拍謝，現在無法服務。 請稍後再試試。
+    need_sign_in: 你必需登入才能夠使用 Doers。請登入。
+    not_found: 找不到你要的資訊，真抱歉。
+    unknown: 不知道那裡出錯了。請稍候再試！
+    sign_in: 請登入。
+    info_not_found: 找不到你要的資訊。
+    auth_error: 認證出錯了。
+    auth_user_not_found: "用戶不存在，請先註冊。"
+    auth_user_already_exists: "用戶已存在，歡迎登入。"
+    auth_user_forbidden: "您的郵箱地址有誤或是尚未收到邀請。"
+    error_signed_out: 無法登出。
+    error_get_users: 無法找到用戶。
+    error_get_user: "找不到#%{id}"
+    error_get_user_data: 無法取得用戶資料。
+    error_google_contacts: 無法取得Google通訊錄。
+    error_contacts: 無法取得通訊錄。
+    error_ratings: 無法取得API資訊。
+    error_news_feed: 無法取得你的動態訊息。
+    error_user_blinks: 無法取得此用戶分享的內容。
+    error_blink: "無法取得 #%{id}的分享。"
+    error_tag: "無法取得 %{name}的資訊 "
+    error_tags: 無法取得標籤。
+    error_conversations: 無法取得對話內容。
+    error_conversation: "無法取得 #%{conversationId} 對話內容"
+    error_page: "無法讀取 %{id} 頁面"
+    error_notifications: "無法取得通知。"
+  new_message:
+    chat: 聊聊
+    cancel: 取消
+    send: 發送
+    send_placeholder: 發送私人信息...
+  new_tag_modal:
+    title: 新頻道
+    description: 建立站內公開頻道
+    name: 頻道名稱
+    icon: Icon
+    create: 建立頻道
+    cancel: 取消
+  edit_tag_modal:
+    title: 重新命名頻道
+    description: 你可以隨時重新為頻道更名，但應該十分謹慎，以免造成混亂及誤解。
+    name: 頻道名稱
+    icon: Icon
+    save: 重新命名
+    cancel: 取消
+  profile:
+    summary: 個人簡歷
+  share:
+    page: 將 Doers 分享給朋友
+    tagline: 關心就要分享!
+  signup:
+    title: 註冊
+    signing_in: 註冊中 ...
+    with_email: 以電子郵件註冊
+    with_google: 以 Google 註冊
+    with_linkedin: 以 Linkedin 註冊
+    with_facebook: 以 Facebook 註冊
+  signin:
+    title: 登入
+    signing_in: 登入中 ...
+    with_email: 以電子郵件登入
+    with_google: 以 Google 登入
+    with_linkedin: 以 Linkedin 登入
+    with_facebook: 以 Facebook 登入
+    or: or
+    persona_description: 是一個由 Firefox 所開發的簡易登入系統。
+    no_account_yet: "還沒有帳戶？"
+    sign_up_now: "現在就註冊"
+  unsubscribe:
+    header: 更新電子郵件設定
+    body1: 您不會再收到任何來自我們的電子郵件。
+    profile_pre: 拜訪你的 
+    profile_link: 簡歷設定
+    profile_post:  如果您希望更改更多的電子郵件設定。
+  user:
+    edit: 編輯簡歷
+    name: 我的全名
+    name_details: "請用真實姓名，不要用綽號、代稱或機構名稱。"
+    about: 關於我
+    about_placeholder: 簡歷
+    linkedin: LinkedIn 個人檔案
+    connect_linkedin: 聯結 LinkedIn 檔案
+    facebook: Facebook 個人檔案
+    connect_facebook: 聯結 Facebook 檔案
+    website: 個人網站
+    avatar: 個人頭像
+    email_notify: 以下事項請用電子郵件通知我
+    invitations: 邀請
+    new_conversation_messages: 你有新訊息
+    my_posts_comments: 你有新留言
+    posts_comments: 我的留言有人評論了
+    new_followers: 新粉絲
+    newsletters: Doers周報
+    save: 儲存簡歷
+    my_posts: 我的公告
+    my_posts_plus_replied_on: 我的公告及我留言過的公告
+    by: "%{name} - %{bio} 發佈"
+    invite:
+      title: 邀請更多人
+      description: 邀請朋友使用Doers並相互關注、互通有無。
+      gmail_contacts: Gmail 聯絡人
+      connecting: 連線中...
+      connect: 連線
+      updating: 更新中...
+      update: 更新
+      select_all: 選擇全部
+      other_contacts: 其它聯絡人
+      helper_text: "敲擊 <kbd>輸入鍵</kbd> 或在每個電子郵件地址後加個逗點。"
+      sending: 發送中...
+      send: 發送電子郵件邀請函
+      sent_success: 邀請郵件已寄送給收件人
+      all_gmail_question: 你確定要選取Gmail全部聯絡人?
+      contact_error: "真拍謝，在存取你的聯絡人資訊時出錯了。"
+  users:
+    title: 會員
+    recommended: 推薦會員
+    last_seen: 最近拜訪
+    relevance: 相關性
+    points: 積分
+    latest: 最近
+    no_users: "冏, 沒有任何會員符合你的搜尋條件"
+    search_placeholder: "搜尋會員中..."
+  comment_directive:
+    read_more: 查看更多
+    delete_comment: 删除此則留言
+    comment_deleted:  留言已刪除
+    delete_comment_question: 你確定要刪除此則留言？
+    report_comment: 檢舉此則留言
+    comment_reported: 留言已舉報
+    report_comment_question: 你確定要舉報此則留言？
+    report_count: 被舉報次數：
+  conversation_rating_directive:
+    please_rate: 評價此則對話
+  follow_tag_directive:
+    following: 關注中
+    follow: 關注
+    unfollow_question: "你確定要停止關注 %{tag} 頻道?"
+  follow_user_directive:
+    following: 關注中
+    follow: 關注
+    unfollow_question: "你確定要停止關注 %{name}?"
+  main_menu_directive:
+    news_feed: 我的動態訊息
+    discover: 探索其它訊息
+    conversations: 我的對話記錄
+    notifications: 我的信息中心
+    who_to_follow: 增加關注對象
+    invite_people: 邀請更多人
+    tags: 頻道
+    more_tags: 更多頻道
+    get_started: 開始使用 Doers
+    complete_profile: 完善個人簡歷
+    follow_tags: 關注5個頻道
+    follow_people: 關注5個會員
+    # get_followers: 募集10個粉絲
+    connect_linkedin: 驗證LinkedIn檔案
+    make_first_post: 發佈第一個公告
+  messages_directive:
+    replied_on: “回覆："
+  new_request_directive:
+    title: "撰寫"
+    subject_placeholder: "Subject"
+    content_placeholder: "寫點東西"
+    post: 發佈
+    cancel: 取消
+    pick_a_tag: "選擇一個頻道..."
+    blink_posted: 公告已發佈
+  request_item_actions_directive:
+    chat: 聊聊
+    share: Share
+    add_comment: 留個言吧！
+    view_more:
+      one: "瀏覽 %{count} 則留言"
+      other: "瀏覽 %{count} 則留言"
+    comment_posted: 留言已發佈
+  request_item_directive:
+    sticky: 置頂文
+    read_more: 瀏覽更多
+    delete_post_question: 你確定要刪除這則公告?
+    post_deleted: 公告已刪除
+    copy_link_to_post: 複製聯結
+    copy_link_description: 告示聯結如下，請複製後分享。
+    stickify_post: 將文章置頂
+    delete_post: 刪除此告示
+    report_post: 舉報此告示
+    post_reported: 告示已舉報
+    report_count: 被舉報次數：
+    report_post_question: 你確定要舉報此告示？
+    people_reached_num:
+      one: "已觸及%{count}位Doer"
+      other: "已觸及%{count}位Doer"
+      zero: "已觸及%{count}位Doer"
+  tag_item_directive:
+    created_by: "由%{user}建立"
+    follower_num:
+      one: "%{count} 粉絲數"
+      other: "%{count} 粉絲數"
+      zero: "%{count} 粉絲數"
+    edit_tag: 更改頻道名稱
+    delete_tag: 刪除頻道
+    delete_tag_question: 你確定要刪除此一頻道？
+    tag_deleted: 頻道已刪除
+    sticky_post_changed: 置頂文變更
+  user_directives:
+    online: 在線
+    last_seen: 上次拜訪
+    chat: 聊聊
+    edit_profile: 編輯簡歷
+    followers: 粉絲數
+    following: 關注中
+    posts: 公告
+    profiles: 個人檔案
+    points_num:
+      one: "%{count} 積分"
+      other: "%{count} 積分"
+      zero: "%{count} 積分"
+    admin: "管理員"
+    about_me: 關於我
+    tags: 頻道
+    followed_by:
+      one: "%{user1} 關注中"
+      two: "%{user1} 與 %{user2} 關注中"
+      more: "%{user1} 與 %{number}位用戶關注中"
+    promote: "設為管理員"
+    demote: "移除管理員"
+    enable: "啟用此帳號"
+    disable: "封鎖此帳號"
+    promote_success: "成功將用戶設為管理員"
+    demote_success: "成功移除管理員"
+    enable_success: "成功啟用此帳號"
+    disable_success: "成功封鎖此用戶"
+  widget_footer_directive:
+    about: 關於我們
+    team: 團隊成員
+    contact: 聯絡方式
+    terms: 使用條款
+    on_facebook: Doers 在 Facebook
+    on_twitter: Doers 在 Twitter
+    on_google_plus: Doers 在 Google+
+    on_linkedin: Doers 在 LinkedIn
+  widget_online_users_directive:
+    members: Doers 會員
+    view_all: 瀏覽全部會員
+  widget_users_to_follow_directive:
+    who_to_follow: 關注那些人
+    view_more_members: 瀏覽更多會員
+  widget_tags_to_follow_directive:
+    what_to_follow: 關注什麼
+    view_more_tags: 瀏覽更多頻道
+  general:
+    admin: 管理介面
+    email: 電子郵件
+    characters_left:
+      one: "你還有一個字符。"
+      other: "你還可以輸入 %{count} 個字符。"
+      zero: "你不能再輸入字符了。"

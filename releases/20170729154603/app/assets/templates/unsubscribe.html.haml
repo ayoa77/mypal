@@ -1,0 +1,17 @@
+.content-wrapper
+  .container
+
+    .row
+      .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+
+        .item-main-wrapper
+
+          .item-header
+            {{"unsubscribe.header" | t}}
+          .item-body
+            .item {{"unsubscribe.body1" | t}}
+            .item
+              {{"unsubscribe.profile_pre" | t}}
+              %a{ href: "", "ui-sref" => "home.users-edit"}
+                {{"unsubscribe.profile_link" | t}}
+              {{"unsubscribe.profile_post" | t}}

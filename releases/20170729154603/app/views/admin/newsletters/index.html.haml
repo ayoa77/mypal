@@ -1,0 +1,41 @@
+.page-header
+  %h1 Newsletters
+%table.table.table-striped
+  %thead
+    %tr
+      %th #
+      %th Subject
+      %th Status
+      %th Action
+  %tbody
+    - @newsletters.each do |n|
+      %tr
+        %td= n.id
+        %td= n.subject
+        %td
+          - if n.sent?
+            Sent
+          - else
+            Draft
+        %td
+          = link_to "View", admin_newsletter_path(n), target: "_blank", class: "btn btn-default btn-xs"
+          - if n.sent?
+          - else
+            = link_to "Edit", edit_admin_newsletter_path(n), class: "btn btn-default btn-xs"
+            .btn-group
+              %button.btn.btn-default.btn-xs.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
+                Send
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to "Send to myself", send_me_admin_newsletter_path(n), "method" => "post"
+                %li
+                  = link_to "Send to all admins", send_admin_admin_newsletter_path(n), "method" => "post"
+                %li.divider
+                %li
+                  = link_to "Send to everybody", send_everybody_admin_newsletter_path(n), "method" => "post", "data-confirm" => "Are you sure you want to send this newsletter to everybody? This cannot be undone. And this can also take a while."
+
+
+    %tr
+      %td{colspan: 3}
+      %td= link_to "New", new_admin_newsletter_path, class: "btn btn-primary btn-xs"

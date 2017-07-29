@@ -1,0 +1,41 @@
+:css
+  a, a:hover, a:focus, .primary,  a.content-link:hover .content-header{
+    color: #{ @settings["COLOR"] };
+  }
+  .primary, .btn-default.active i.fa, .btn-link.active i.fa {
+    color: #{ @settings["COLOR"] }!important;
+  }
+  .btn-primary, .header-primary, .logo-wrapper{
+    color: white;
+    background: #{ @settings["COLOR"] };
+  }
+  .btn-primary {
+    border-color: #{ @settings["COLOR"] };
+  }
+  .btn-primary:hover, .btn-primary:focus, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary.disabled, .btn-primary.disabled:hover{
+    color: white;
+    border-color: #{ darken_color(@settings["COLOR"], 0.8) };
+    background: #{ darken_color(@settings["COLOR"], 0.8) };
+  }
+  .landing-page{
+    / background-image: url("/img?url=#{ @settings["BACKGROUND_URL"] || "http://sfbay.doers.io/backgrounds/default.jpg" }");
+    background-image: url("#{ @settings["BACKGROUND_URL"] || "http://sfbay.doers.io/backgrounds/default.jpg" }");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .landing-page .intro{
+    color: #{ @settings["COLOR"] };
+  }
+  #sidebar, .cool-plus-button, .landing-page .landing-hr, .landing-page a.btn-large {
+    background-color: #{ @settings["COLOR"] };
+  }
+  .landing-page a.btn-large:hover{
+    background-color: #{ darken_color(@settings["COLOR"], 0.9) };
+  }
+
+  .tag-icon {
+    background-color: #{ @settings["COLOR"] };
+  }
+:javascript
+  var settings = #{ @settings.to_json};

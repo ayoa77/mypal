@@ -1,0 +1,338 @@
+zh-CN:
+  emails:
+    # powered_by: "Powered by %{siteName}"
+    reason: "您收到这封电子邮件是因为您是Doers的会员，或是有个Doers的会员邀请您使用Doers。"
+    unsubscribe: 退订
+    greeting_name: "你好 %{name},"
+    greeting_no_name: "哈啰,"
+    new_comment_commented:
+      intro: "%{name} 评论了您的留言”!"
+      action: 去看看吧
+    new_comment:
+      intro: "%{name} 评论了您在Doers上的公告!"
+      action: 去看看吧
+    new_message:
+      intro: "%{name} 在Doers上留言给你!"
+      action: 现在就回覆吧
+    fresh_new_posts:
+      intro: 在Doers上有一些您可能会感到兴趣的新信息!
+      action: 查看更多
+      view_all_posts: 浏览全部
+    invite:
+      intro: "%{name} 在Doers上找你呢!"
+      action: 去看看吧
+    new_follower:
+      intro: "%{name} 变成你的Doers粉丝了!"
+      action: 查看档案
+  toolbar:
+    sign_in: 登入
+    register: 注册
+    my_profile: 我的档案
+    settings: 设定
+    sign_out: 登出
+  index:
+    welcome: "欢迎加入"
+    join: 现在就加入
+    news_feed: 我的动态讯息
+    discover: 探索其它讯息
+    recommended: 推荐讯息
+    latest: 最新讯息
+    top: 超级热门
+  session:
+    unable_sign_in: "无法登入（害羞中...），请稍候再试试。"
+    new_message_from: "%{name} 留言给你了"
+    reconnecting_in: "%{remainingSeconds} 几秒内重新登入，请稍待... "
+    trying_reconnect: 尝试登入中...
+    retry: 重新尝试中...
+  tag:
+    index_title: 频道
+    recommended: 推荐
+    latest: 最新
+    top: 超级热门
+  page:
+    not_found: 未发现你要找的页面
+  conversations:
+    title: 对话
+    send_failed: 讯息传送失败。
+    websocket_error: "Web socket 出现错误。"
+    new_message: 新讯息
+    is_typing: "%{name} 打字中..."
+    placeholder: 继续对话...
+    # no_conversations: 你的对话会出现在这里。
+  notifications:
+    title: 我的信息中心
+    no_notifications: 你的通知会出现在这里
+    new_follower: "%{name} 变成你的粉丝了。"
+    request_like_num:
+      zero: "%{name} 对你的告示按赞。"
+      one: "%{name} 和另外%{count} 个人对你的告示按赞。"
+      other: "%{name} 和另外%{count} 个人对你的告示按赞。"
+    comment_like_num:
+      zero: "%{name} 喜爱你的留言。"
+      one: "%{name} 和另外%{count} 个人喜爱你的留言。"
+      other: "%{name} 和另外%{count}个人喜爱你的留言。"
+    comment_my_request_num:
+      zero: "%{name} 评论了你的告示。"
+      one: "%{name} 和另外%{count} 个人评论了你的告示。"
+      other: "%{name} 和另外%{count} 个人评论了你的告示。"
+    comment_commented_request_num:
+      zero: "%{name} 评论了一则你也评论了的告示。"
+      one: "%{name} 和另外%{count} 个人评论了一则你也评论过的告示。"
+      other: "%{name} 和另外%{count} 个人评论了一则你也评论过的告示。"
+  services:
+    unavailable: 真拍谢，现在无法服务。请稍后再试试。
+    need_sign_in: 你必需登入才能够使用Doers。请登入。
+    not_found: 找不到你要的资讯，真抱歉。
+    unknown: 不知道那里出错了。请稍候再试！
+    sign_in: 请登入。
+    info_not_found: 找不到你要的资讯。
+    auth_error: 认证出错了。
+    auth_user_not_found: "用户不存在，请先注册。"
+    auth_user_already_exists: "用户已存在，欢迎登入。"
+    auth_user_forbidden: "您的邮箱地址有误或是尚未收到邀请。"
+    error_signed_out: 无法登出。
+    error_get_users: 无法找到用户。
+    error_get_user: "找不到#%{id}"
+    error_get_user_data: 无法取得用户资料。
+    error_google_contacts: 无法取得Google通讯录。
+    error_contacts: 无法取得通讯录。
+    error_ratings: 无法取得API资讯。
+    error_news_feed: 无法取得你的动态讯息。
+    error_user_blinks: 无法取得此用户分享的内容。
+    error_blink: "无法取得 #%{id}的分享。"
+    error_tag: "无法取得 %{name}的资讯 "
+    error_tags: 无法取得标签。
+    error_conversations: 无法取得对话内容。
+    error_conversation: "无法取得#%{conversationId} 对话内容"
+    error_page: "无法读取 %{id} 页面"
+    error_notifications: "无法取得通知。"
+  new_message:
+    chat: 聊聊
+    cancel: 取消
+    send: 发送
+    send_placeholder: 发送私人信息...
+  new_tag_modal:
+    title: 新频道
+    description: 建立站内公开频道
+    name: 频道名称
+    icon: Icon
+    create: 建立频道
+    cancel: 取消
+  edit_tag_modal:
+    title: 重新命名频道
+    description: 你可以随时重新为频道更名，但应该十分谨慎，以免造成混乱及误解。
+    name: 频道名称
+    icon: Icon
+    save: 重新命名
+    cancel: 取消
+  profile:
+    summary: 个人简历
+  share:
+    page: 将 Doers 分享给朋友
+    tagline: 关心就要分享!
+  signup:
+    title: 注册
+    signing_in: 注册中 ...
+    with_email: 以电子邮件注册
+    with_google: 以 Google 注册
+    with_linkedin: 以 Linkedin 注册
+    with_facebook: 以 Facebook 注册
+  signin:
+    title: 登入
+    signing_in: 登入中 ...
+    with_email: 以电子邮件登入
+    with_google: 以 Google 登入
+    with_linkedin: 以 Linkedin 登入
+    with_facebook: 以 Facebook 登入
+    or: or
+    persona_description: 是一个由Firefox 所开发的简易登入系统。
+    no_account_yet: "还没有帐户？"
+    sign_up_now: "现在就注册"
+  unsubscribe:
+    header: 更新电子邮件设定
+    body1: 您不会再收到任何来自我们的电子邮件。
+    profile_pre: 拜访你的
+    profile_link: 简历设定
+    profile_post: 如果您希望更改更多的电子邮件设定。
+  user:
+    edit: 编辑简历
+    name: 我的全名
+    name_details: "请用真实姓名，不要用绰号​​、代称或机构名称。"
+    about: 关于我
+    about_placeholder: 简历
+    linkedin: LinkedIn 个人档案
+    connect_linkedin: 联结 LinkedIn 档案
+    facebook: Facebook 个人档案
+    connect_facebook: 联结 Facebook 档案
+    website: 个人网站
+    avatar: 个人头像
+    email_notify: 以下事项请用电子邮件通知我
+    invitations: 邀请
+    new_conversation_messages: 你有新讯息
+    my_posts_comments: 你有新留言
+    posts_comments: 我的留言有人评论了
+    new_followers: 新粉丝
+    newsletters: Doers周报
+    save: 储存简历
+    my_posts: 我的公告
+    my_posts_plus_replied_on: 我的公告及我留言过的公告
+    by: "%{name} - %{bio} 发布"
+    invite:
+      title: 邀请更多人
+      description: 邀请朋友使用Doers并相互关注、互通有无。
+      gmail_contacts: Gmail 联络人
+      connecting: 连线中...
+      connect: 连线
+      updating: 更新中...
+      update: 更新
+      select_all: 选择全部
+      other_contacts: 其它联络人
+      helper_text: "敲击<kbd>输入键</kbd> 或在每个电子邮件地址后加个逗点。"
+      sending: 发送中...
+      send: 发送电子邮件邀请函
+      sent_success: 邀请邮件已寄送给收件人
+      all_gmail_question: 你确定要选取Gmail全部联络人?
+      contact_error: "真拍谢，在存取你的联络人资讯时出错了。"
+  users:
+    title: 会员
+    recommended: 推荐会员
+    last_seen: 最近拜访
+    relevance: 相关性
+    points: 积分
+    latest: 最近
+    no_users: "冏, 没有任何会员符合你的搜寻条件"
+    search_placeholder: "搜寻会员中..."
+  comment_directive:
+    read_more: 查看更多
+    delete_comment: 删除此则留言
+    comment_deleted: 留言已删除
+    delete_comment_question: 你确定要删除此则留言？
+    report_comment: 检举此则留言
+    comment_reported: 留言已举报
+    report_comment_question: 你确定要举报此则留言？
+    report_count: 被举报次数：
+  conversation_rating_directive:
+    please_rate: 评价此则对话
+  follow_tag_directive:
+    following: 关注中
+    follow: 关注
+    unfollow_question: "你确定要停止关注%{tag} 频道?"
+  follow_user_directive:
+    following: 关注中
+    follow: 关注
+    unfollow_question: "你确定要停止关注%{name}?"
+  main_menu_directive:
+    news_feed: 我的动态讯息
+    discover: 探索其它讯息
+    conversations: 我的对话记录
+    notifications: 我的信息中心
+    who_to_follow: 增加关注对象
+    invite_people: 邀请更多人
+    tags: 频道
+    more_tags: 更多频道
+    get_started: 开始使用 Doers
+    complete_profile: 完善个人简历
+    follow_tags: 关注5个频道
+    follow_people: 关注5个会员
+    # get_followers: 募集10个粉丝
+    connect_linkedin: 验证LinkedIn档案
+    make_first_post: 发布第一个公告
+  messages_directive:
+    replied_on: “回覆："
+  new_request_directive:
+    title: "撰写"
+    subject_placeholder: "Subject"
+    content_placeholder: "写点东西"
+    post: 发布
+    cancel: 取消
+    pick_a_tag: "选择一个频道..."
+    blink_posted: 公告已发布
+  request_item_actions_directive:
+    chat: 聊聊
+    share: Share
+    add_comment: 留个言吧！
+    view_more:
+      one: "浏览 %{count} 则留言"
+      other: "浏览 %{count} 则留言"
+    comment_posted: 留言已发布
+  request_item_directive:
+    sticky: 置顶文
+    read_more: 浏览更多
+    delete_post_question: 你确定要删除这则公告?
+    post_deleted: 公告已删除
+    copy_link_to_post: 复制联结
+    copy_link_description: 告示联结如下，请复制后分享。
+    stickify_post: 将文章置顶
+    delete_post: 删除此告示
+    report_post: 举报此告示
+    post_reported: 告示已举报
+    report_count: 被举报次数：
+    report_post_question: 你确定要举报此告示？
+    people_reached_num:
+      one: "已触及%{count}位Doer"
+      other: "已触及%{count}位Doer"
+      zero: "已触及%{count}位Doer"
+  tag_item_directive:
+    created_by: "由%{user}建立"
+    follower_num:
+      one: "%{count} 粉丝数"
+      other: "%{count} 粉丝数"
+      zero: "%{count} 粉丝数"
+    edit_tag: 更改频道名称
+    delete_tag: 删除频道
+    delete_tag_question: 你确定要删除此一频道？
+    tag_deleted: 频道已删除
+    sticky_post_changed: 置顶文变更
+  user_directives:
+    online: 在线
+    last_seen: 上次拜访
+    chat: 聊聊
+    edit_profile: 编辑简历
+    followers: 粉丝数
+    following: 关注中
+    posts: 公告
+    profiles: 个人档案
+    points_num:
+      one: "%{count} 积分"
+      other: "%{count} 积分"
+      zero: "%{count} 积分"
+    admin: "管理员"
+    about_me: 关于我
+    tags: 频道
+    followed_by:
+      one: "%{user1} 关注中"
+      two: "%{user1} 与 %{user2} 关注中"
+      more: "%{user1} 与 %{number}位用户关注中"
+    promote: "设为管理员"
+    demote: "移除管理员"
+    enable: "启用此帐号"
+    disable: "封锁此帐号"
+    promote_success: "成功将用户设为管理员"
+    demote_success: "成功移除管理员"
+    enable_success: "成功启用此帐号"
+    disable_success: "成功封锁此用户"
+  widget_footer_directive:
+    about: 关于我们
+    team: 团队成员
+    contact: 联络方式
+    terms: 使用条款
+    on_facebook: Doers 在 Facebook
+    on_twitter: Doers 在 Twitter
+    on_google_plus: Doers 在 Google+
+    on_linkedin: Doers 在 LinkedIn
+  widget_online_users_directive:
+    members: Doers 会员
+    view_all: 浏览全部会员
+  widget_users_to_follow_directive:
+    who_to_follow: 关注那些人
+    view_more_members: 浏览更多会员
+  widget_tags_to_follow_directive:
+    what_to_follow: 关注什么
+    view_more_tags: 浏览更多频道
+  general:
+    admin: 管理介面
+    email: 电子邮件
+    characters_left:
+      one: "你还有一个字符。"
+      other: "你还可以输入 %{count} 个字符。"
+      zero: "你不能再输入字符了。"

@@ -1,0 +1,1 @@
+Elasticsearch::Model.client = Elasticsearch::Client.new hosts: ['localhost:9200'], retry_on_failure: 20

@@ -1,0 +1,27 @@
+.request-action.dropdown{ "uib-dropdown" => "" }
+  .dropdown-toggle{type: "button", "uib-dropdown-toggle" => ""}
+    %i.fa.fa-share-alt
+  %ul.dropdown-menu
+    %li
+      %a.social{ href: "https://www.facebook.com/sharer/sharer.php?u={{safeUrl}}", target: "_blank" }
+        .media
+          .media-left
+            %i.fa.fa-facebook-square
+          .media-body.media-middle
+            Facebook
+    %li
+      %a.social{ href: "https://twitter.com/intent/tweet?url={{safeUrl}}&text={{safeTitle}}", target: "_blank" }
+        .media
+          .media-left
+            %i.fa.fa-twitter-square
+          .media-body.media-middle
+            Twitter
+    %li
+      %a.social{ href: "mailto:?subject={{safeTitle}}&body={{safeUrl}}", target: "_blank" }
+        .media
+          .media-left
+            %i.fa.fa-envelope-square
+          .media-body.media-middle
+            {{"general.email" | t }}
+
+                 

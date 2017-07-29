@@ -1,0 +1,12 @@
+v1.7.0 - 2015-08-07 - Slick app-like look-and-feel
+v1.6.0 - 2015-07-01 - Channels created by users
+v1.5.0 - 2015-06-09 - Multiple subdomains support
+v1.4.0 - 2015-05-13 - I18n
+v1.3.0 - 2015-05-08 - Social classifieds
+v1.2.0 - 2015-04-30 - Follow people, broadcast, groups
+v1.1.0 - 2015-04-10 - Fixed topics, one topic per post
+v1.0.0 - 2015-03-30 - "Social network for startups"
+v0.4.0 - 2015-02-19 - Refer request page
+v0.3.0 - 2015-02-08 - Reputation system
+v0.2.0 - 2015-02-02 - Gray "minitron", call to action
+v0.1.0 - 2015-01-26 - First public launch

@@ -1,0 +1,62 @@
+.item-main-wrapper{ "ng-if" => "session.connected", "ng-controller" => "ProfileController"}
+
+  .item-header
+    {{"user.edit" | t}}
+
+  %form{role: "form", "ng-submit" => "saveProfile()"}
+    .item-body
+
+      .form-group
+        %label{for: "name"} {{"user.name" | t}}
+        %input#name.form-control{type: "text", placeholder: "", "ng-model" => "session.user.name", required: "", maxlength: 40}
+        %p.help-block {{"user.name_details" | t}}
+      .form-group
+        %label{for: "biography"} {{"user.about" | t}}
+        %textarea#biography.form-control{rows: "4", "ng-model" => "session.user.biography", placeholder: "{{'user.about_placeholder' | t}}"}
+      .form-group
+        %label {{"user.linkedin" | t}}
+        %br
+        %link-linkedin.btn.btn-default{"ng-show" => "!session.user.linkedin_url"} {{"user.connect_linkedin" | t}}
+        %a.btn.btn-default{"ng-show" => "session.user.linkedin_url", href: "{{session.user.linkedin_url}}", target: "_blank" } {{session.user.linkedin_name}}
+      .form-group{"ng-if" => "!isChina()"}
+        %label {{"user.facebook" | t}}
+        %br
+        %link-facebook.btn.btn-default{"ng-show" => "!session.user.facebook_url"} {{"user.connect_facebook" | t}}
+        %a.btn.btn-default{"ng-show" => "session.user.facebook_url", href: "{{session.user.facebook_url}}", target: "_blank" } {{session.user.facebook_name}}
+      .form-group
+        %label{for: "website"} {{"user.website" | t}}
+        %input#website.form-control{type: "text", placeholder: "http://...", "ng-model" => "session.user.website", maxlength: 191}
+      .form-group
+        %label{for: "avatar"} {{"user.avatar" | t}}
+        %avatar-upload#avatar{ "image-edit" => "updated.avatar", user: "session.user" }
+      .form-group
+        %label {{"user.email_notify" | t}}
+        .checkbox
+          %label
+            %input#invitations{type: "checkbox", "ng-model" => "session.user.email_setting.invitations"}
+            {{"user.invitations" | t}}
+        .checkbox
+          %label
+            %input#conversations{type: "checkbox", "ng-model" => "session.user.email_setting.conversations"}
+            {{"user.new_conversation_messages" | t}}
+        .checkbox
+          %label
+            %input#comments{type: "checkbox", "ng-model" => "session.user.email_setting.comments"}
+            {{"user.my_posts_comments" | t}}
+        .checkbox
+          %label
+            %input#recomments{type: "checkbox", "ng-model" => "session.user.email_setting.recomments"}
+            {{"user.posts_comments" | t}}
+        .checkbox
+          %label
+            %input#newfollowers{type: "checkbox", "ng-model" => "session.user.email_setting.newfollowers"}
+            {{"user.new_followers" | t}}
+        .checkbox
+          %label
+            %input#newsletters{type: "checkbox", "ng-model" => "session.user.email_setting.newsletters"}
+            {{"user.newsletters" | t}}
+
+    .item-footer.text-right
+      %button.btn.btn-primary{type: "submit", "ng-disabled" => "isSavingProfile"}
+        %i.fa.fa-spinner.fa-pulse{ "ng-show" => "isSavingProfile" }
+        {{"user.save" | t}}

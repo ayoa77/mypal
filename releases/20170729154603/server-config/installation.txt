@@ -1,0 +1,103 @@
+=============================
+PRE-INSTALL REQUIRED PACKAGES
+=============================
+
+$ sudo apt-get install mysql-server apache2 phpmyadmin sendmail imagemagick
+
+===============================
+INSTALLING (AND UPGRADING) RUBY
+===============================
+
+Installing Ruby etc. with Rails Ready: https://github.com/joshfng/railsready
+(Don't forget to delete old Rails Ready from home directory befuore upgrading)
+
+$ wget --no-check-certificate https://raw.githubusercontent.com/joshfng/railsready/master/railsready.sh && bash railsready.sh
+
+--> Choose for option 1. Build from source
+
+===========================================
+INSTALLING PASSENGER AND CONFIGURING APACHE
+===========================================
+
+$ sudo passenger-install-apache2-module
+
+Create apache config file for passenger: /etc/apache2/mods-available/passenger.load
+Enable passenger mod:
+
+$ sudo a2enmod passenger
+
+Enable mods for proxy:
+
+$ sudo a2enmod proxy
+$ sudo a2enmod proxy_http
+$ sudo a2enmod proxy_ajp
+$ sudo a2enmod rewrite
+$ sudo a2enmod headers
+$ sudo a2enmod proxy_balancer
+$ sudo a2enmod proxy_connect
+$ sudo a2enmod proxy_html
+$ sudo a2enmod proxy_wstunnel
+$ sudo a2enmod xml2enc lbmethod_byrequests slotmem_shm // new ones
+
+Create apache config file for blnkk: /etc/apache2/sites-available/blnkk.conf
+Enable site:
+
+$ sudo a2ensite blnkk
+
+$ sudo a2enmod expires
+$ sudo service apache2 restart
+
+================================
+INSTALLING AND CONFIGURING REDIS
+================================
+
+$ wget http://download.redis.io/redis-stable.tar.gz
+$ tar xvzf redis-stable.tar.gz
+$ cd redis-stable
+$ make
+$ sudo cp src/redis-server /usr/local/bin/
+$ sudo cp src/redis-cli /usr/local/bin/
+
+Add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect
+(Not able to do this if not root) Run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+
+$ sudo mkdir /etc/redis
+$ sudo mkdir /var/redis
+$ sudo cp utils/redis_init_script /etc/init.d/redis_6379
+$ sudo mkdir /var/redis/6379
+
+Create redis config file for blnkk: /etc/redis/6379.conf
+
+$ sudo update-rc.d redis_6379 defaults
+$ sudo /etc/init.d/redis_6379 start
+
+
+========================
+INSTALLING ELASTICSEARCH
+========================
+
+First install Java:
+
+$ sudo add-apt-repository ppa:webupd8team/java
+$ sudo apt-get update
+$ sudo apt-get install oracle-java7-installer
+$ java -version
+
+Then install Elasticsearch:
+
+$ wget -qO - https://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo apt-key add -
+$ sudo add-apt-repository "deb http://packages.elasticsearch.org/elasticsearch/1.4/debian stable main"
+$ sudo apt-get update && sudo apt-get install elasticsearch
+$ sudo service elasticsearch restart
+$ sudo update-rc.d elasticsearch defaults 95 10
+
+================
+INSTALLING MONIT
+================
+
+$ sudo apt-get install monit
+
+Update the monit config file: /etc/monit/monitrc
+
+$ sudo monit -t           # test configuration
+$ sudo monit reload       # reload configuration

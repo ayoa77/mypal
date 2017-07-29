@@ -1,0 +1,120 @@
+.main-menu{ "ng-click" => "hideSidebar()" }
+
+  %ul.dropdown-menu{ "ng-if" => "session.connected"}
+    %li
+      %a.with-overflow{"ui-sref" => "home.userSingle({id: session.user.id})", "ui-sref-opts" => "{reload:true}"}
+        %img.img-25{"ng-src" => "{{session.user.avatar_url}}"}
+        {{ session.user.name }}
+    %li
+      %a{"ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}"}
+        %i.fa.fa-home.fa-fw
+        {{"main_menu_directive.news_feed" | t}}
+    / %li
+    /   %a{"ui-sref" => "home.discover", "ui-sref-opts" => "{reload:true}"}
+    /     %i.fa.fa-globe.fa-fw
+    /     {{"main_menu_directive.discover" | t}}
+    %li
+      %a{"ui-sref" => "home.notifications", "ui-sref-opts" => "{reload:true}"}
+        %i.fa.fa-bell.fa-fw
+        {{"main_menu_directive.notifications" | t}}
+        %span.badge.pull-right{"ng-show" => "session.user.unread_notifications_count > 0"} {{session.user.unread_notifications_count}}
+
+  %ul.dropdown-menu{"ng-show" => "session.connected && (session.user.email.split('@')[0] == session.user.name || !session.user.biography || (session.user.tag_list.length < 5) || (session.user.following_count < 5) || (session.user.request_count < 1))"}
+    %li.dropdown-header 
+      {{"main_menu_directive.get_started" | t}}
+
+    %li
+      %a{ "ui-sref" => "home.users-edit" }
+        %i.fa.fa-fw{"ng-class" => "session.user.email.split('@')[0] == session.user.name || !session.user.biography ? 'fa-square-o' : 'fa-check-square-o'"}
+        %span{"ng-class" => "session.user.email.split('@')[0] == session.user.name || !session.user.biography ? '' : 'done'"}
+          {{"main_menu_directive.complete_profile" | t}}
+
+    -# %li
+    -#   %a{ "ui-sref" => "home.tags" }
+    -#     %i.fa.fa-fw{"ng-class" => "session.user.tag_list.length < 5 ? 'fa-square-o' : 'fa-check-square-o'"}
+    -#     %span{"ng-class" => "session.user.tag_list.length < 5 ? '' : 'done'"}
+    -#       {{"main_menu_directive.follow_tags" | t}}
+
+    -# %li
+    -#   %a{ "ui-sref" => "home.users({q: 'who-to-follow'})" }
+    -#     %i.fa.fa-fw{"ng-class" => "session.user.following_count < 5 ? 'fa-square-o' : 'fa-check-square-o'"}
+    -#     %span{"ng-class" => "session.user.following_count < 5 ? '' : 'done'"}
+    -#       {{"main_menu_directive.follow_people" | t}}
+
+    / %li
+    /   %a{ "ui-sref" => "home.users-invite" }
+    /     %i.fa.fa-fw{"ng-class" => "session.user.follower_count < 10 ? 'fa-square-o' : 'fa-check-square-o'"}
+    /     %span{"ng-class" => "session.user.follower_count < 10 ? '' : 'done'"}
+    /       {{"main_menu_directive.get_followers" | t}}
+
+    %li
+      %a{ "href" => "", "ng-click" => "start()" }
+        %i.fa.fa-fw{"ng-class" => "session.user.request_count < 1 ? 'fa-square-o' : 'fa-check-square-o'"}
+        %span{"ng-class" => "session.user.request_count < 1 ? '' : 'done'"}
+          {{"main_menu_directive.make_first_post" | t}}
+
+  %ul.dropdown-menu
+    %li
+      %a{ "href" => "", "ng-click" => "signIn(null, 'signup')", "ng-hide" => "session.connected" }
+        %i.fa.fa-fw.fa-sign-in
+        %span
+          {{"main_menu_directive.make_first_post" | t}}
+
+  %ul.dropdown-menu
+    %li.dropdown-header 
+      {{"main_menu_directive.tags" | t}}
+    %li{"ng-repeat" => "tag in (session.connected ? session.user.tags : tags)"}
+      %a{"ui-sref" => "home.tagSingle({tag: tag.name})", "ui-sref-opts" => "{reload: true}"}
+        %i.fa.fa-fw{ "ng-class" => "'fa-'+tag.icon" }
+        %span {{ tag.display_name }}
+    %li
+      %a{"ui-sref" => "home.tags", "ui-sref-opts" => "{reload: true}"}
+        %i.fa.fa-fw
+        {{"main_menu_directive.more_tags" | t}}
+
+  %ul.dropdown-menu{"ng-controller" => "DashboardController", "ng-show" => "conversations.length > 0"}
+    %li.dropdown-header 
+      {{"main_menu_directive.conversations" | t}}
+    %li{"ng-repeat" => "conversation in conversations"}
+      %a{"ui-sref" => "home.conversation({id: conversation.id})", "ui-sref-opts" => "{reload: true}"}
+        %i.fa.fa-fw{"ng-class" => "conversation.user.online ? 'fa-circle green' : 'fa-circle-o'"}
+        %span {{ conversation.user.name }}
+        %span.badge.pull-right{"ng-show" => "conversation.unread > 0"} new
+
+  %ul.dropdown-menu{"ng-if" => "session.connected && (!isPrivate() || session.user.admin == 1)"}
+    %li
+      %a{"ui-sref" => "home.users-invite"}
+        %i.fa.fa-plus.fa-fw
+        {{"main_menu_directive.invite_people" | t}}
+
+  .footer
+    .item
+      %span
+        &copy;
+        = Date.today.strftime("%Y")
+        {{ setting("SITE_NAME") }}
+      %br
+      -# %a{ "ui-sref" => "home.users({q: 'doers-team'})" } {{"widget_footer_directive.team" | t}}
+      -# %a{ "ui-sref" => "terms" } {{"widget_footer_directive.terms" | t}}
+      %a{ href: "mailto:contact@doers.io", target: "_blank" } {{"widget_footer_directive.contact" | t}}
+
+
+    .item{"ng-show" => "showLanguage('en')"}
+      %a{"ng-click" => "$event.preventDefault();switchLanguage('en')", href: "/?ln=en"} {{ setting("SITE_NAME") }} offered in: English
+    .item{"ng-show" => "showLanguage('zh-CN')"}  
+      %a{"ng-click" => "$event.preventDefault();switchLanguage('zh-CN')", href: "/?ln=zh-CN"} {{ setting("SITE_NAME") }} offered in: 简体中文
+    .item{"ng-show" => "showLanguage('zh-TW')"}  
+      %a{"ng-click" => "$event.preventDefault();switchLanguage('zh-TW')", href: "/?ln=zh-TW"} {{ setting("SITE_NAME") }} offered in: 繁體中文
+
+    .item.social-links{"ng-if" => "!isChina()"}
+      %a{href: "https://www.facebook.com/blnkkhq", target: "_blank", title: "{{'widget_footer_directive.on_facebook' | t}}"}
+        %i.fa.fa-facebook-square>
+
+      %a{href: "https://twitter.com/blnkkhq", target: "_blank", title: "{{'widget_footer_directive.on_twitter' | t}}"}
+        %i.fa.fa-twitter-square>
+
+      %a{href: "https://plus.google.com/+blnkk", target: "_blank", title: "{{'widget_footer_directive.on_google_plus' | t}}"}
+        %i.fa.fa-google-plus-square>
+
+      %a{href: "https://www.linkedin.com/company/blnkk", target: "_blank", title: "{{'widget_footer_directive.on_linkedin' | t}}"}
+        %i.fa.fa-linkedin-square>

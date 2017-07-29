@@ -1,0 +1,339 @@
+en:
+  emails:
+    # powered_by: "Powered by %{siteName}"
+    reason: You received this email because you are a Doers member or someone used your email to invite you for Doers.
+    unsubscribe: Unsubscribe
+    greeting_name: "Hi %{name},"
+    greeting_no_name: "Hey there,"
+    new_comment_commented:
+      intro: "%{name} commented on a post you also commented on!"
+      action: Check it out
+    new_comment:
+      intro: "%{name} commented on your post on Doers!"
+      action: Check it out
+    new_message:
+      intro: "%{name} wrote you a message on Doers!"
+      action: Keep the conversation going
+    fresh_new_posts:
+      intro: There are some fresh new posts for you on Doers!
+      action: Read more
+      view_all_posts: View all new posts
+    invite:
+      intro: "%{name} is looking for you on Doers!"
+      action: Check it out
+    new_follower:
+      intro: "%{name} started following you on Doers!"
+      action: View full profile
+  toolbar:
+    sign_in: Log in
+    register: Sign up
+    my_profile: My profile
+    settings: Settings
+    sign_out: Log out
+  index:
+    welcome: "Welcome to"
+    join: Become a Doer
+    news_feed: My newsfeed
+    discover: Discover more
+    recommended: Recommended
+    latest: Latest
+    top: Top
+  session:
+    unable_sign_in: Unable to sign you in. Please try again later.
+    new_message_from: "New message from %{name}"
+    reconnecting_in: "Reconnecting in %{remainingSeconds} seconds..."
+    trying_reconnect: Trying to reconnect...
+    retry: Retry now
+  tag:
+    index_title: Project categories
+    recommended: Recommended
+    latest: Latest
+    top: Top
+  page:
+    not_found: Page not found
+  conversations:
+    title: Conversations
+    send_failed: Sending of message failed.
+    websocket_error: Web socket error.
+    new_message: New message
+    is_typing: "%{name} is typing..."
+    placeholder: Keep the conversation going...
+    # no_conversations: Your conversations will appear here.
+  notifications:
+    title: Notifications
+    no_notifications: Your notifications will appear here. 
+    new_follower: "%{name} started following you."
+    request_like_num: 
+      zero: "%{name} likes your post."
+      one: "%{name} and %{count} other like your post."
+      other: "%{name} and %{count} others like your post."
+    comment_like_num: 
+      zero: "%{name} likes your comment."
+      one: "%{name} and %{count} other like your comment."
+      other: "%{name} and %{count} others like your comment."
+    comment_my_request_num:
+      zero: "%{name} commented on your post."
+      one: "%{name} and %{count} other commented on your post."
+      other: "%{name} and %{count} others commented on your post."
+    comment_commented_request_num:
+      zero: "%{name} commented on a post you also commented on."
+      one: "%{name} and %{count} other commented on a post you also commented on."
+      other: "%{name} and %{count} others commented on a post you also commented on."
+  services:
+    unavailable: Service unavailable. Please try again later.
+    need_sign_in: You need to be signed in to do this. Please sign in.
+    not_found: Not found.
+    unknown: Unknown error. Please try again later.
+    sign_in: Please sign in.
+    info_not_found: Information not found.
+    auth_error: Authentication error.
+    auth_user_not_found: "Account not found, please sign up first."
+    auth_user_already_exists: "Account already exists, please log in."
+    auth_user_forbidden: "Your email address is invalid or you have not been invited yet."
+    error_signed_out: Failed to log out.
+    error_get_users: Failed to get users.
+    error_get_user: "Failed to get user #%{id}"
+    error_get_user_data: Failed to get user data.
+    error_google_contacts: Failed to get Google contacts.
+    error_contacts: Failed to get contacts.
+    error_ratings: Failed to get ratings.
+    error_news_feed: Failed to get your newsfeed.
+    error_user_blinks: Failed to get requests of this user.
+    error_blink: "Failed to get request #%{id}."
+    error_tag: "Failed to get tag %{name}."
+    error_tags: Failed to get tags.
+    error_conversations: Failed to get conversations.
+    error_conversation: "Failed to get conversation #%{conversationId}."
+    error_page: "Failed to get page %{id}."
+    error_notifications: Failed to get notifications.
+  new_message:
+    chat: Chat
+    cancel: Cancel
+    send: Send
+    send_placeholder: Send a private message...
+  new_tag_modal:
+    title: New category
+    description: This will create a new public category which everyone in this community can follow.
+    name: Name
+    icon: Icon
+    create: Create
+    cancel: Cancel
+  edit_tag_modal:
+    title: Edit category
+    description: "You can edit this category at any time. But, use it sparingly: it might confuse or disorient others!"
+    name: Name
+    icon: Icon
+    save: Save
+    cancel: Cancel
+  profile:
+    summary: Profile summary
+  share:
+    page: Share this page
+    tagline: Sharing is caring!
+  signup:
+    title: Sign up
+    signing_in: Signing you up ...
+    with_email: Sign up with your email
+    with_google: Sign up with Google
+    with_linkedin: Sign up with Linkedin
+    with_facebook: Sign up with Facebook
+  signin:
+    title: Log in
+    signing_in: Logging you in ...
+    with_email: Log in with your email
+    with_google: Log in with Google
+    with_linkedin: Log in with Linkedin
+    with_facebook: Log in with Facebook
+    or: or
+    persona_description: is a simple sign-in system from the non-profit behind Firefox.
+    no_account_yet: "No account yet?"
+    sign_up_now: "Sign up now"
+    sign_in_now: "Already a Doer? Log in with Facebook now!"
+  unsubscribe:
+    header: Email preferences updated
+    body1: You will not receive such emails anymore from us.
+    profile_pre: Visit your 
+    profile_link: profile settings
+    profile_post:  if you want to change more email preferences.
+  user:
+    edit: Edit profile
+    name: My full name
+    name_details: "Please keep it real, and don't use aliases or company names."
+    about: About me
+    about_placeholder: Short bio
+    linkedin: LinkedIn profile
+    connect_linkedin: Connect with LinkedIn
+    facebook: Facebook profile
+    connect_facebook: Connect with Facebook
+    website: Personal website
+    avatar: Avatar
+    email_notify: Notify me by email about the following
+    invitations: Invitations
+    new_conversation_messages: New messages in conversations
+    my_posts_comments: Comments on my posts
+    posts_comments: Comments on posts I commented on
+    new_followers: New followers
+    newsletters: Newsletters
+    save: Save profile
+    my_posts: My posts
+    my_posts_plus_replied_on: My posts + posts I replied on
+    by: "By %{name} - %{bio}"
+    invite:
+      title: Invite people
+      description: Make the most out of Doers by inviting your friends to join the community and to follow you.
+      gmail_contacts: Gmail contacts
+      connecting: Connecting...
+      connect: Connect
+      updating: Updating...
+      update: Update
+      select_all: Select all
+      other_contacts: Other contacts
+      helper_text: "Press <kbd>Enter</kbd> or add a comma after each email address."
+      sending: Sending...
+      send: Send invitation emails
+      sent_success: Invitations sent to recipients
+      all_gmail_question: Are you sure you want to select all your Gmail contacts?
+      contact_error: "Sorry, an error occurred while retrieving your contacts."
+  users:
+    title: Members
+    recommended: Recommended
+    relevance: Relevance
+    points: Points
+    last_seen: Last seen
+    latest: Latest
+    no_users: "Bummer, your search did not match any of our members."
+    search_placeholder: Search for members...
+  comment_directive:
+    read_more: Read more
+    delete_comment: Delete this comment
+    comment_deleted:  Comment deleted
+    delete_comment_question: Are you sure you want to delete this comment?
+    report_comment: Report this comment
+    comment_reported: Comment reported
+    report_comment_question: Are you sure you want to report this comment?
+    report_count: "Report count:"
+  conversation_rating_directive:
+    please_rate: Please rate this conversation
+  follow_tag_directive:
+    following: Following
+    follow: Follow
+    unfollow_question: "Are you sure you want to unfollow the %{tag} category?"
+  follow_user_directive:
+    following: Following
+    follow: Follow
+    unfollow_question: "Are you sure you want to unfollow %{name}?"
+  main_menu_directive:
+    news_feed: My newsfeed
+    discover: Discover more
+    conversations: Conversations
+    notifications: Notifications
+    who_to_follow: Who to follow
+    invite_people: Invite people
+    tags: Project categories
+    more_tags: All categories
+    get_started: Get started
+    complete_profile: Complete your profile
+    follow_tags: Follow 5 categories
+    follow_people: Follow 5 people
+    # get_followers: Get 10 followers
+    connect_linkedin: Connect with LinkedIn
+    make_first_post: Make your first post
+  messages_directive:
+    replied_on: "replied on:"
+  new_request_directive:
+    title: "Collaborators Wanted"
+    subject_placeholder: "Subject (e.g. Looking for a designer for my iOS game)"
+    content_placeholder: "Project details and why people should join"
+    post: Post
+    cancel: Cancel
+    pick_a_tag: Project category ...
+    blink_posted: Doers request posted
+  request_item_actions_directive:
+    chat: Chat
+    share: Share
+    add_comment: Add a comment...
+    view_more:
+      one: "View %{count} more comment"
+      other: "View %{count} more comments"
+    comment_posted: Comment posted
+  request_item_directive:
+    sticky: Sticky post
+    read_more: Read more
+    delete_post_question: Are you sure you want to delete this post?
+    post_deleted: Post deleted
+    copy_link_to_post: Copy link to post
+    copy_link_description: The URL of this post is below. Copy it to easily share with friends.
+    stickify_post: Make this post sticky
+    delete_post: Delete this post
+    report_post: Report this post
+    post_reported: Post reported
+    report_count: "Report count:"
+    report_post_question: Are you sure you want to report this post?
+    people_reached_num:
+      one: "%{count} doer reached"
+      other: "%{count} doers reached"
+      zero: "%{count} doers reached"
+  tag_item_directive:
+    created_by: "Created by %{user}"
+    follower_num:
+      one: "%{count} follower"
+      other: "%{count} followers"
+      zero: "%{count} followers"
+    edit_tag: Edit category
+    delete_tag: Delete category
+    delete_tag_question: Are you sure you want to delete this category?
+    tag_deleted: Category deleted
+    sticky_post_changed: Sticky post changed
+  user_directives:
+    online: Online
+    last_seen: Last seen
+    chat: Chat
+    edit_profile: Edit profile
+    followers: Followers
+    following: Following
+    posts: Posts
+    profiles: Profiles
+    points_num:
+      one: "%{count} Point"
+      other: "%{count} Points"
+      zero: "%{count} Points"
+    admin: "Admin"
+    about_me: About me
+    tags: Project categories following
+    followed_by:
+      one: "Followed by %{user1}"
+      two: "Followed by %{user1} and %{user2}"
+      more: "Followed by %{user1} and %{number} others"
+    promote: "Promote this user to admin"
+    demote: "Demote this user from admin"
+    enable: "Enable this user"
+    disable: "Disable this user"
+    promote_success: "User successfully promoted to admin"
+    demote_success: "User successfully demoted from admin"
+    enable_success: "User successfully enabled"
+    disable_success: "User successfully disabled"
+  widget_footer_directive:
+    about: About
+    team: Team
+    contact: Contact
+    terms: Terms
+    on_facebook: Doers on Facebook
+    on_twitter: Doers on Twitter
+    on_google_plus: Doers on Google+
+    on_linkedin: Doers on LinkedIn
+  widget_online_users_directive:
+    members: Doers Members
+    view_all: View all members
+  widget_users_to_follow_directive:
+    who_to_follow: People to follow
+    view_more_members: View more members
+  widget_tags_to_follow_directive:
+    what_to_follow: Categories to follow
+    view_more_tags: View more categories
+  general:
+    admin: Admin
+    email: "Email"
+    characters_left:
+      one: "You have 1 character left."
+      other: "You have %{count} characters left."
+      zero: "You have no characters left."

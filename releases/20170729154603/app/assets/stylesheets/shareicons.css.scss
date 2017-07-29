@@ -1,0 +1,51 @@
+a.social, .dropdown-menu li a.social{
+  .fa{
+    font-size: 34px;
+    line-height: 34px;
+  }
+  .fa-facebook-square{
+    color: #405d95;
+  }
+  .fa-twitter-square{
+    color: #53a9da;
+  }
+  .fa-google-plus-square{
+    color: #ce5a4a;
+  }
+  .fa-linkedin-square{
+    color: #377cb2;
+  }
+  .fa-whatsapp{
+    color: #00d231;
+  }
+  .fa-envelope-square, .fa-share-square{
+    color: $medium_gray;
+  }
+  &:hover{
+    .fa-facebook-square{
+      color: lighten(#405d95,5%);
+    }
+    .fa-twitter-square{
+      color: lighten(#53a9da,5%);
+    }
+    .fa-google-plus-square{
+      color: lighten(#ce5a4a,5%);
+    }
+    .fa-linkedin-square{
+      color: lighten(#377cb2,5%);
+    }
+    .fa-whatsapp{
+      color: lighten(#00d231,5%);
+    }
+    .fa-envelope-square, .fa-share-square{
+      color: lighten($medium_gray,5%);
+    }
+  }
+
+}
+a.social{
+  display: inline-block;
+  &:not(:last-child){
+    margin-right: 2px;
+  }
+}

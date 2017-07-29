@@ -1,0 +1,14 @@
+.messages
+  .item.message{"ng-repeat" => "message in messages"}
+
+    .media.old-media-style
+      .media-left
+        %img.img-30{"ng-src" => "{{message.user.avatar_url}}"}
+      .media-body
+        .user
+          %span {{message.user.name}}
+          %span{"ng-if" => "message.system_generated"} {{"messages_directive.replied_on" | t}}
+          %span.timestamp{"am-time-ago" => "message.created_at", "am-preprocess" => "unix"}>
+        .text{"ng-if" => "message.system_generated", "ng-bind-html" => "translateSystemMessage(message)"}
+        %formatted-message.text{"ng-if" => "!message.system_generated", "text" => "message.content"}
+        %attachment{text: "message.content"}

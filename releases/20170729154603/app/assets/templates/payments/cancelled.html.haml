@@ -1,0 +1,9 @@
+.headings-wrapper
+  .container
+    %h1 Oh noes!
+    %h2 You have cancelled the payment authorization. Thus, the meeting proposal was not sent.
+.content-wrapper{"ng-controller" => "CancelledPaymentController"}
+  .container
+    %p{"ng-show" => "requestId != ''"}
+      But there is still hope! You can propose the meeting again
+      %a.btn.btn-primary{"ng-click" => "goToRequest()"} here.

@@ -1,0 +1,31 @@
+.auto-folded {
+  position: relative;
+  max-height: 201px;
+  overflow: hidden;
+  margin-bottom: -1px;
+  .auto-folded--more { //the button is placed at right-bottom, and default to hidden
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    padding-top: 40px;
+  }
+  &.auto-folded--folded {
+    max-height: 200px;
+    // overflow: hidden;
+    margin-bottom: 0;
+    .auto-folded--more { 
+      background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+      display: block;
+    }
+  }
+  &.auto-folded--unfolded {
+    max-height: none;
+    margin-bottom: 0;
+    .auto-folded--more {
+      display: none;
+    }
+  }
+}

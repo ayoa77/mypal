@@ -1,0 +1,7 @@
+.modal-header
+	%h3.modal-title Hi there! We need to make sure that you are able to pay the bounty you've offered.
+.modal-body
+	%p When you click the button below, you will be taken to Paypal, where you will authorize the future payment of {{rewardAndCommission | currency:"US$" }} from your account.
+	%p However, the payment won't occur until you confirm a meeting with somebody. So hop to it!
+.modal-footer
+	%button.btn.btn-primary{ "ng-click" => "redirect()"} Authorize payment

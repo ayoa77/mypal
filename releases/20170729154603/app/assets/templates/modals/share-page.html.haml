@@ -1,0 +1,10 @@
+.item-main-wrapper.no-margin
+  .item-header
+    .pull-right
+      %a.close{href: "", "ng-click" => "cancel()"}
+        %i.fa.fa-times
+    {{"share.page" | t}}
+  .item-body.text-center
+    %p
+      %social-share-buttons
+    .description.text-center {{"share.tagline" | t}}
