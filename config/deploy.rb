@@ -41,7 +41,6 @@ set :linked_dirs, %w{tmp/pids tmp/cache public/system public/javascripts public/
 # rename db/migrate/{20150526040154_create_settings.rb => 20150209161053_create_settings.rb} (77%)
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-load "config/recipes/assets"
 
 # Give resque access to Rails environment
 set :resque_environment_task, true
