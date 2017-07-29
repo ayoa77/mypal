@@ -29,7 +29,7 @@ development:
 test:
   <<: *default
   database: blnkk_test
-
+# rsync -zvh database.yml aj@globetutoring.com:~/globetutoring/config/
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -43,7 +43,6 @@ test:
 # available as an environment variable. For example:
 #
 #   DATABASE_URL="mysql2://myuser:mypass@localhost/somedatabase"
-#
 # You can use this database configuration with:
 #
 #   production:
@@ -53,4 +52,4 @@ production:
   <<: *default
   database: blnkk_production
   username: blnkk
-  password: <%= ENV['BLNKK_DATABASE_PASSWORD'] %>
+  password: blinkblink@schwifty

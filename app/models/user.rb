@@ -211,7 +211,6 @@ class User < ActiveRecord::Base
   end
 
   private
-
   def initialize_new_user
     if !self.avatar_uid.present?
       begin
@@ -220,9 +219,10 @@ class User < ActiveRecord::Base
         self.avatar = Dragonfly.app.fetch_file("public/default-user-icon.jpg")
       end
     end
-    # if Setting.find_by(key: "ADMIN_EMAIL").value == self.email
-    #   self.admin = true
-    # end
+
+    if Setting.find_by(key: "ADMIN_EMAIL").value == self.email
+      self.admin = true
+    end
     ActsAsTaggableOn::Tag.all.each do |tag|
       self.tag_list.add tag.name
     end
@@ -238,12 +238,13 @@ class User < ActiveRecord::Base
     end
   end
 
+
   def private_and_invited
     # if Setting.find_by(key: "PRIVATE").value == "0"
-    # # if Setting.find_by(key: "PRIVATE").value == "1"
-    #   errors.add(:email, "not invited") unless Invitation.find_by(email: email) || Setting.find_by(key: "ADMIN_EMAIL").value == email
-    end
+    if Setting.find_by(key: "PRIVATE").value == "1"
+      errors.add(:email, "not invited") unless Invitation.find_by(email: email) || Setting.find_by(key: "ADMIN_EMAIL").value == email
   end
+end
 
   def sanitize_fields
     self.name = HTML::FullSanitizer.new.sanitize(self.name) if self.name.present?
@@ -256,5 +257,4 @@ class User < ActiveRecord::Base
     end
     self.biography = HTML::FullSanitizer.new.sanitize(self.biography) if self.biography.present?
   end
-
 end

@@ -1,14 +1,21 @@
-# config valid only for Capistrano 3.1
-lock '3.2.1'
+# config valid only for Capistrano 3.4 bundle exec cap -T
+lock '3.4.1'
 
-set :application, 'blnkk'
-set :repo_url, 'git@gerbenmeyer.nl:blnkk'
+set :application, 'globetutoring'
+set :repo_url, 'https://ayoa77:S6SMTfsmuF9vFRNeSy84@bitbucket.org/ayoa77/globetutoring.git'
+set :branch, "devenv"
+set :user, "aj"
+set :rails_env, "production"
+set :deploy_via, :copy
+set :keep_releases, 5
+server 'globetutoring.com', user: 'aj', roles: %w{web app db live}
+# Default deploy_to directory is /var/www/my_app
+set :deploy_to, '/var/www/html/globetutoring/'
+
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
-# Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/home/deploy/www/blnkk'
 
 # Default value for :scm is :git
 # set :scm, :git
