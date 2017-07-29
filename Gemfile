@@ -48,7 +48,6 @@ gem 'websocket-rails'
 group :development do
   gem 'annotate'
   gem 'awesome_print'
-  gem 'capistrano', '~> 3.2.0'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano', '~> 3.4.0'
