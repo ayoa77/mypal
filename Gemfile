@@ -51,6 +51,11 @@ group :development do
   gem 'capistrano', '~> 3.2.0'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
+  gem 'capistrano', '~> 3.4.0'
+  gem 'colorize', '0.7.4'
+  gem 'capistrano-slackify', '~> 2.2.0'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rvm'
 end
 
 gem 'acts-as-taggable-on', '~> 3.4'
