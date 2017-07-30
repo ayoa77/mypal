@@ -38,11 +38,4 @@ Rails.application.configure do
   # Required for websockets
   config.middleware.delete Rack::Lock
 
-  config.after_initialize do
-    Rails.application.routes.default_url_options = {
-      host:  'com',
-      protocol: 'http',
-      subdomain: 'globetutoring'
-    }
-  end
 end
