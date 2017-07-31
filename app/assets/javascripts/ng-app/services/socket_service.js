@@ -1,7 +1,7 @@
 angular.module('blnkk.services')
 	.service('SocketMessages', ['$timeout', '$location', '$rootScope', function($timeout, $location, $rootScope) {
 		var host = $location.host();
-		var prefix = host == 'localhost' ? host + ':3001' : host;
+		var prefix = host == 'localhost' ? host + ':3001' : host + ':3001';
 		var dispatcher;
 		var theService = this;
 		var userId;
@@ -21,8 +21,8 @@ angular.module('blnkk.services')
       console.info("WebSocket: connecting ...");
       userId = newUserId;
       mustTryToReconnectOnDisconnect = true;
-			dispatcher = new WebSocketRails( prefix + ':3001?user_id=' + userId + '&key=' + socketKey );
-			// dispatcher = new WebSocketRails( prefix + '/websocket?user_id=' + userId + '&key=' + socketKey );
+			// dispatcher = new WebSocketRails( prefix + ':3001?user_id=' + userId + '&key=' + socketKey );
+			dispatcher = new WebSocketRails( prefix + '/websocket?user_id=' + userId + '&key=' + socketKey );
       var channelName = settings["WEBSOCKET_PREFIX"] + '_user_' + userId;
       channel = dispatcher.subscribe(channelName);
   		channel.bind('message_new', newMessageCallback);
