@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005053236) do
+ActiveRecord::Schema.define(version: 20170801041204) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "request_id",   limit: 4
@@ -280,6 +280,7 @@ ActiveRecord::Schema.define(version: 20151005053236) do
     t.text     "keywords",                limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_url",              limit: 191
   end
 
   add_index "users", ["admin"], name: "index_users_on_admin", using: :btree
