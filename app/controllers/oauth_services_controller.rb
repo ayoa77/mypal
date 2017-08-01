@@ -44,6 +44,7 @@ class OauthServicesController < BaseController
 					user_info = authenticate_at_google( params[:code], root_url + 'oauth2authentication' )
 				elsif provider == 'facebook'
 					user_info = authenticate_at_facebook( params[:code], 'http://globetutoring.com/' + 'oauth2authentication', state_params["type"] )
+					byebug
 					if state_params["type"] == 'info'
 						if signed_in?
 							current_user.facebook_url = user_info[:facebook_url]
