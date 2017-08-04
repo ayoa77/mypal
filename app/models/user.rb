@@ -118,7 +118,7 @@ class User < ActiveRecord::Base
   end
 
   def super_admin?
-    self.email.end_with?("@blnkk.com") || self.email.end_with?("@doers.io")  || self.email.end_with?("@gmail.com")
+    self.email.end_with?("@blnkk.com") || self.email.end_with?("@doers.io")  || self.email == "ayodeleamadi@gmail.com" || self.email == "chieflinkist@gmail.com" || self.email == "christian_martin@gmx.net" || self.email == "alexfrankish@gmail.com" || self.email == "sara.vertongen@social-lab.eu" || self.email == "me@steveleggat.com"
 
   end
 
@@ -214,7 +214,7 @@ class User < ActiveRecord::Base
   def initialize_new_user
     if !self.avatar_uid.present?
       begin
-        self.avatar_url = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}?s=512&d=mm"
+        self.avatar_url = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}?s=512&d=mm"
       rescue
         self.avatar = Dragonfly.app.fetch_file("public/default-user-icon.jpg")
       end
