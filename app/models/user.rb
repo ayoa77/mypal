@@ -118,7 +118,7 @@ class User < ActiveRecord::Base
   end
 
   def super_admin?
-    self.email.end_with?("@blnkk.com") || self.email.end_with?("@doers.io")  || self.email == "ayodeleamadi@gmail.com" || self.email == "chieflinkist@gmail.com" || self.email == "christian_martin@gmx.net" || self.email == "alexfrankish@gmail.com" ||  self.email == "me@steveleggat.com"
+    self.email.end_with?("@globetutoring.com") || self.email.end_with?("@doers.io")  || self.email == "ayodeleamadi@gmail.com" || self.email == "chieflinkist@gmail.com" || self.email == "christian_martin@gmx.net" || self.email == "alexfrankish@gmail.com" ||  self.email == "me@steveleggat.com"
 
   end
 
