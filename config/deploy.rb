@@ -6,11 +6,17 @@ set :repo_url, 'https://ayoa77:S6SMTfsmuF9vFRNeSy84@bitbucket.org/ayoa77/globetu
 set :branch, "devenv"
 set :user, "aj"
 set :rails_env, "production"
-set :deploy_via, :copy
+set :deploy_via, :checkout
 set :keep_releases, 5
 server 'globetutoring.com', user: 'aj', roles: %w{web app db live}
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/var/www/html/globetutoring/'
+
+role :app, %w{globetutoring.com}
+role :web, %w{globetutoring.com}
+role :db,  %w{globetutoring.com}
+role :live, %w{globetutoring.com}
+
 
 
 # Default branch is :master
@@ -68,6 +74,11 @@ namespace :deploy do
   after :publishing, :restart
 
   after :restart, "resque:restart"
+  role :resque_worker, %w{globetutoring.com}
+  role :resque_scheduler, %w{globetutoring.com}
+
+  set :workers, { "email" => 1, "location" => 1, "elasticsearch" => 1 }
+
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
