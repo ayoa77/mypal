@@ -2,8 +2,8 @@ require 'custom_logger'
 
 class GunMailer
 
-	@@av = ActionView::Base.new(ActionController::Base.view_paths)  
-	@@av.class_eval do  
+	@@av = ActionView::Base.new(ActionController::Base.view_paths)
+	@@av.class_eval do
 		# include any needed helpers (for the view)
 		include ApplicationHelper
 		include Rails.application.routes.url_helpers
@@ -13,12 +13,12 @@ class GunMailer
 		if EmailSetting.allowed?(email_to, :invitations)
 			I18n.with_locale(user_locale(from_user)) do
 				send_async_message(
-					email_to, 
+					email_to,
 					I18n.t("emails.invite.intro", name: from_user.name),
-					"gun_mailer/users/invite", 
-					{ 
-						from_user: from_user, 
-						name_to: name_to, 
+					"gun_mailer/users/invite",
+					{
+						from_user: from_user,
+						name_to: name_to,
 						unsubscribe_token: EmailSetting.getToken(email_to, :invitations)
 					}
 				)
@@ -30,14 +30,14 @@ class GunMailer
 		if EmailSetting.allowed?(user_to.email, :conversations)
 			I18n.with_locale(user_locale(user_to)) do
 				send_async_message(
-					user_to.email, 
+					user_to.email,
 					I18n.t("emails.new_message.intro", name: message.user.name),
-					"gun_mailer/conversations/new_message", 
-					{ 
-						name_to: user_to.name, 
-						message: message, 
+					"gun_mailer/conversations/new_message",
+					{
+						name_to: user_to.name,
+						message: message,
 						conversation_id: message.conversation.id,
-						unsubscribe_token: EmailSetting.getToken(user_to.email, :conversations) 
+						unsubscribe_token: EmailSetting.getToken(user_to.email, :conversations)
 					}
 				)
 			end
@@ -59,12 +59,12 @@ class GunMailer
 		if EmailSetting.allowed?(user_to.email, :comments)
 			I18n.with_locale(user_locale(user_to)) do
 				send_async_message(
-					user_to.email, 
+					user_to.email,
 					I18n.t("emails.new_comment.intro", name: comment.user.name),
-					"gun_mailer/comments/new_comment_my_request", 
-					{ 
-						name_to: user_to.name, 
-						comment: comment, 
+					"gun_mailer/comments/new_comment_my_request",
+					{
+						name_to: user_to.name,
+						comment: comment,
 						unsubscribe_token: EmailSetting.getToken(user_to.email, :comments)
 					}
 				)
@@ -77,12 +77,12 @@ class GunMailer
 		if EmailSetting.allowed?(user_to.email, :comments)
 			I18n.with_locale(user_locale(user_to)) do
 				send_async_message(
-					user_to.email, 
+					user_to.email,
 					I18n.t("emails.new_comment_commented.intro", name: comment.user.name),
-					"gun_mailer/comments/new_comment_commented_request", 
-					{ 
-						name_to: user_to.name, 
-						comment: comment, 
+					"gun_mailer/comments/new_comment_commented_request",
+					{
+						name_to: user_to.name,
+						comment: comment,
 						unsubscribe_token: EmailSetting.getToken(user_to.email, :recomments)
 					}
 				)
@@ -95,12 +95,12 @@ class GunMailer
 		if EmailSetting.allowed?(user_to.email, :newfollowers)
 			I18n.with_locale(user_locale(user_to)) do
 				send_async_message(
-					user_to.email, 
+					user_to.email,
 					I18n.t("emails.new_follower.intro", name: follower.name),
-					"gun_mailer/users/new_follower", 
-					{ 
-						name_to: user_to.name, 
-						follower: follower, 
+					"gun_mailer/users/new_follower",
+					{
+						name_to: user_to.name,
+						follower: follower,
 						unsubscribe_token: EmailSetting.getToken(user_to.email, :newfollowers)
 					}
 				)
@@ -112,12 +112,12 @@ class GunMailer
 		if EmailSetting.allowed?(user_to.email, :newsletters)
 			I18n.with_locale(user_locale(user_to)) do
 				send_async_message(
-					user_to.email, 
-					I18n.t("emails.fresh_new_posts.intro"), 
-					"gun_mailer/requests/fresh_new_posts", 
-					{ 
-						name_to: user_to.name, 
-						requests: requests, 
+					user_to.email,
+					I18n.t("emails.fresh_new_posts.intro"),
+					"gun_mailer/requests/fresh_new_posts",
+					{
+						name_to: user_to.name,
+						requests: requests,
 						unsubscribe_token: EmailSetting.getToken(user_to.email, :newsletters)
 					}
 				)
@@ -129,12 +129,12 @@ class GunMailer
 		if EmailSetting.allowed?(user_to.email, :newsletters)
 			I18n.with_locale(user_locale(user_to)) do
 				send_async_message(
-					user_to.email, 
-					newsletter.subject, 
-					"gun_mailer/newsletter", 
-					{ 
-						name_to: user_to.name, 
-						newsletter: newsletter, 
+					user_to.email,
+					newsletter.subject,
+					"gun_mailer/newsletter",
+					{
+						name_to: user_to.name,
+						newsletter: newsletter,
 						unsubscribe_token: EmailSetting.getToken(user_to.email, :newsletters)
 					}
 				)
@@ -154,7 +154,7 @@ class GunMailer
 
     def self.setting the_setting
       if the_setting == "SITE_NAME"
-        return setting("CHINA") == "1" ? "小圈" : "Doers"
+        return setting("CHINA") == "1" ? "小圈" : "globetutoring"
       else
         Setting.find_by(key: the_setting).value
       end
@@ -171,19 +171,23 @@ class GunMailer
 		def self.send_async_message to, subject, html_template, locals
 			unless Rails.env.production?
 				subject = "[to: #{to}] #{subject}"
-				to = "dev@blnkk.com"
+				to = "ayodeleamadi@gmail.com"
 			end
 			begin
 				settings = {}
 		    Setting.all.each do |s|
 		      settings[s.key] = s.value
 		    end
-		    settings["SITE_NAME"] = settings["CHINA"] == "1" ? "小圈" : "Doers"
+		    settings["SITE_NAME"] = settings["CHINA"] == "1" ? "小圈" : "globetutoring"
 		    locals[:settings] = settings
 
 				locals[:description] = I18n.locale.to_s == settings["LOCALE_SECONDARY"] ? settings["DESCRIPTION_SECONDARY"] : settings["DESCRIPTION_PRIMARY"]
-				
-				Rails.application.routes.default_url_options[:host] = settings['SITE_URL'].chomp("/")
+
+				if Rails.env.production?
+					Rails.application.routes.default_url_options[:host] = 'globetutoring.com'
+				else
+					Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+				end
 
 				html_output = @@av.render template: html_template, locals: locals, layout: 'layouts/email'
 				from = ENV['MAILGUN_FROM_ADDRESS']
