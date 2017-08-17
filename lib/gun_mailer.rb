@@ -184,7 +184,7 @@ class GunMailer
 				locals[:description] = I18n.locale.to_s == settings["LOCALE_SECONDARY"] ? settings["DESCRIPTION_SECONDARY"] : settings["DESCRIPTION_PRIMARY"]
 
 				if Rails.env.production
-				Rails.application.routes.default_url_options[:host] = settings['SITE_URL'].chomp("/")
+					Rails.application.routes.default_url_options[:host] = settings['SITE_URL'].chomp("/")
 				else
 					Rails.application.routes.default_url_options[:host] = 'localhost:3000'
 				end
