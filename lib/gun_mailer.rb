@@ -154,7 +154,7 @@ class GunMailer
 
     def self.setting the_setting
       if the_setting == "SITE_NAME"
-        return setting("CHINA") == "1" ? "小圈" : "Doers"
+        return setting("CHINA") == "1" ? "小圈" : "globetutoring"
       else
         Setting.find_by(key: the_setting).value
       end
@@ -178,13 +178,13 @@ class GunMailer
 		    Setting.all.each do |s|
 		      settings[s.key] = s.value
 		    end
-		    settings["SITE_NAME"] = settings["CHINA"] == "1" ? "小圈" : "Doers"
+		    settings["SITE_NAME"] = settings["CHINA"] == "1" ? "小圈" : "globetutoring"
 		    locals[:settings] = settings
 
 				locals[:description] = I18n.locale.to_s == settings["LOCALE_SECONDARY"] ? settings["DESCRIPTION_SECONDARY"] : settings["DESCRIPTION_PRIMARY"]
 
 				if Rails.env.production?
-					Rails.application.routes.default_url_options[:host] = settings['SITE_URL'].chomp("/")
+					Rails.application.routes.default_url_options[:host] = 'globetutoring.com'
 				else
 					Rails.application.routes.default_url_options[:host] = 'localhost:3000'
 				end
