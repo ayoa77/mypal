@@ -179,6 +179,7 @@ class GunMailer
 		    Setting.all.each do |s|
 		      settings[s.key] = s.value
 		    end
+				byebug
 		    settings["SITE_NAME"] = settings["CHINA"] == "1" ? "小圈" : "Doers"
 		    locals[:settings] = settings
 

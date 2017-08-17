@@ -17,7 +17,7 @@ class AdminController < BaseController
     Setting.all.each do |s|
       @settings[s.key] = s.value
     end
-    @settings["SITE_NAME"] = @settings["CHINA"] == "1" ? "小圈" : "Doers"
+    @settings["SITE_NAME"] = @settings["CHINA"] == "1" ? "小圈" : "globetutoring"
   end
 
 end
