@@ -1,7 +1,7 @@
 default: &default
   # # MailGun
   # From address
-  MAILGUN_FROM_ADDRESS: Doers <info@doers.io>
+  MAILGUN_FROM_ADDRESS: Globetutors <info@globetutoring.com>
   ROOT_URL: "http://globetutoring.com/"
   DATA_URL: "http://globetutoring.com/"
   # DATA_URL: "https://i.doers.io/"
