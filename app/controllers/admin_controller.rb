@@ -1,7 +1,7 @@
 class AdminController < BaseController
 
   before_filter :is_super_admin?
-  before_filter :set_defaults  
+  before_filter :set_defaults
 
   layout 'admin'
 

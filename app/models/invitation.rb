@@ -20,7 +20,7 @@ class Invitation < ActiveRecord::Base
   validates_presence_of :user
 
   validates :email, presence: true, :uniqueness => {:scope => :user_id}, :format => { :with => /\A[-_a-zA-Z0-9\.%\+]+@([-_a-zA-Z0-9\.]+\.)+[a-z]{2,4}\Z/i }
-  
+
   def self.invite(user_from, email_to, name_to = nil)
     invite = Invitation.create(user: user_from, email: email_to)
     if invite.present? && invite.valid?
