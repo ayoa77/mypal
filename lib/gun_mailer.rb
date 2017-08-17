@@ -172,7 +172,6 @@ class GunMailer
 			unless Rails.env.production?
 				subject = "[to: #{to}] #{subject}"
 				to = "ayodeleamadi@gmail.com"
-				Rails.application.routes.default_url_options[:host] = 'localhost:3000'
 			end
 			begin
 				settings = {}
@@ -184,7 +183,11 @@ class GunMailer
 
 				locals[:description] = I18n.locale.to_s == settings["LOCALE_SECONDARY"] ? settings["DESCRIPTION_SECONDARY"] : settings["DESCRIPTION_PRIMARY"]
 
-				Rails.application.routes.default_url_options[:host] = settings['SITE_URL'].chomp("/")
+				if Rails.env.production?
+					Rails.application.routes.default_url_options[:host] = settings['SITE_URL'].chomp("/")
+				else
+					Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+				end
 
 				html_output = @@av.render template: html_template, locals: locals, layout: 'layouts/email'
 				from = ENV['MAILGUN_FROM_ADDRESS']
