@@ -37,7 +37,6 @@ class EmailSetting < ActiveRecord::Base
   end
 
   def self.allowed?(email, setting)
-    byebug
     setting_obj = EmailSetting.find_by(email: email)
     if setting_obj.present?
       return setting_obj.invitations if setting == :invitations

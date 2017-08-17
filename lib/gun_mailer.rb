@@ -11,7 +11,6 @@ class GunMailer
 
 	def self.send_invitation (from_user, email_to, name_to)
 		if EmailSetting.allowed?(email_to, :invitations)
-			byebug
 			I18n.with_locale(user_locale(from_user)) do
 				send_async_message(
 					email_to,
@@ -170,17 +169,17 @@ class GunMailer
 		end
 
 		def self.send_async_message to, subject, html_template, locals
-			unless Rails.env.test?
+			unless Rails.env.production?
 				subject = "[to: #{to}] #{subject}"
 				to = "ayodeleamadi@gmail.com"
+				Rails.application.routes.default_url_options[:host] = 'localhost:3000'
 			end
 			begin
 				settings = {}
 		    Setting.all.each do |s|
 		      settings[s.key] = s.value
 		    end
-				byebug
-		    settings["SITE_NAME"] = settings["CHINA"] == "1" ? "小圈" : "Doers"
+		    settings["SITE_NAME"] = settings["CHINA"] == "1" ? "小圈" : "globetutoring"
 		    locals[:settings] = settings
 
 				locals[:description] = I18n.locale.to_s == settings["LOCALE_SECONDARY"] ? settings["DESCRIPTION_SECONDARY"] : settings["DESCRIPTION_PRIMARY"]
