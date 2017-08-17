@@ -1,8 +1,17 @@
+if RUBY_VERSION =~ /2.1.5/
+  Encoding.default_external = Encoding::UTF_8
+  Encoding.default_internal = Encoding::UTF_8
+end
+
 source 'https://rubygems.org'
 
 # gem install libv8 -v '3.16.14.7'  -- --with-system-v8
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
+gem 'rails', '4.2.8'
+if RUBY_VERSION =~ /2.1.5/
+  Encoding.default_external = Encoding::UTF_8
+  Encoding.default_internal = Encoding::UTF_8
+end
 # Use mysql as the database for Active Record
 gem 'mysql2', '~> 0.3.20'
 # Use SCSS for stylesheets
