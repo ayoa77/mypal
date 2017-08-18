@@ -49,9 +49,9 @@ set :linked_dirs, %w{tmp/pids tmp/cache public/system public/javascripts public/
 # set :keep_releases, 5
 
 # Give resque access to Rails environment
-set :resque_environment_task, true
-role :resque_worker, %w{globetutoring.com}
-role :resque_scheduler, %w{globetutoring.com}
+# set :resque_environment_task, true
+# role :resque_worker, %w{globetutoring.com}
+# role :resque_scheduler, %w{globetutoring.com}
 
 
 
@@ -78,10 +78,10 @@ namespace :deploy do
   after :publishing, :restart
 
   after :restart, "resque:restart"
-  role :resque_worker, %w{globetutoring.com}
-  role :resque_scheduler, %w{globetutoring.com}
-
-  set :workers, { "email" => 1, "*" => 1, "location" => 1, "elasticsearch" => 1}
+  # role :resque_worker, %w{globetutoring.com}
+  # role :resque_scheduler, %w{globetutoring.com}
+  #
+  # set :workers, { "email" => 1, "*" => 1, "location" => 1, "elasticsearch" => 1}
 
 
   after :restart, :clear_cache do
