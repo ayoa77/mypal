@@ -44,13 +44,13 @@ class Api::V1::UsersController < ApiUserController
       query = query.squish
     end
     if query.present?
-      # response = User.search query: { multi_match: { fields: ["name", "linkedin_name", "facebook_name", "biography", "keywords"], query: query } }, size: 1000 
+      # response = User.search query: { multi_match: { fields: ["name", "linkedin_name", "facebook_name", "biography", "keywords"], query: query } }, size: 1000
       response = User.search(query.gsub(/\W/, ' '), index: ActiveRecord::Base.connection.current_database+"_users", size: 1000)
       users = response.records
     else
       users = User.all
     end
-    
+
     if params.has_key?(:order) && params[:order] == "new"
       users = users.order(created_at: :desc)
     elsif params.has_key?(:order) && params[:order] == "last_seen"
@@ -79,11 +79,11 @@ class Api::V1::UsersController < ApiUserController
     if following_query.present?
       users = users.where("`id` IN (?)", following_query.followers.map(&:id))
     end
-    
+
     users = users.paginate(:page => page, :per_page => 5)
-   
+
     if show_user_card
-      render json: users, each_serializer: UserCardSerializer  
+      render json: users, each_serializer: UserCardSerializer
     else
       if signed_in?
         users.each do |user|
@@ -103,7 +103,7 @@ class Api::V1::UsersController < ApiUserController
       else
         render json: nil, status: :not_found
       end
-    else    
+    else
       user = User.find_by(id:params[:id]);
       if user
         if signed_in?
@@ -156,7 +156,7 @@ class Api::V1::UsersController < ApiUserController
         render json: nil, status: :unauthorized
       end
     end
-  end  
+  end
 
   def addTag
     tag = ActsAsTaggableOn::Tag.find_by!(name: params[:tag]) # To make sure the tag exists

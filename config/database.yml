@@ -16,9 +16,9 @@ default: &default
   pool: 5
   username: root
   password:
-  socket:  /var/run/mysqld/mysqld.sock
+  socket:  /private/tmp/mysql.sock
 
-  # /private/tmp/mysql.sock
+  # /var/run/mysqld/mysqld.sock
 development:
   <<: *default
   database: blnkk_development

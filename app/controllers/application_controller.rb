@@ -21,7 +21,7 @@ class ApplicationController < BaseController
 
   def browser_not_supported
     if supported_browser?
-      redirect_to root_path 
+      redirect_to root_path
     else
       render :layout => false
     end
@@ -49,7 +49,7 @@ class ApplicationController < BaseController
     end
     @settings["WEBSOCKET_PREFIX"] = @websocket_prefix
     @settings["FAVICON"] = view_context.favicon_image_url
-    @settings["SITE_NAME"] = @settings["CHINA"] == "1" ? "小圈" : "Doers"
+    @settings["SITE_NAME"] = @settings["CHINA"] == "1" ? "小圈" : "globetutoring"
   end
 
   def set_defaults
@@ -73,10 +73,10 @@ class ApplicationController < BaseController
         end
         redirect_to url_for(params.merge(ln: detect_locale))
       end
-    rescue 
+    rescue
       redirect_to root_url(ln: @locale_primary)
     end
-    
+
     @title = nil
     @description = view_context.localize_setting "DESCRIPTION"
     @icon = nil

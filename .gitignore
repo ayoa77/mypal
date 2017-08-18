@@ -21,6 +21,7 @@ dump.rdb
 /config/paypal.yml
 /config/database.yml
 /config/fluent-logger.yml
+/config/database.yml
 
 /public/system
 /public/sitemaps
