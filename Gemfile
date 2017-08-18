@@ -101,7 +101,7 @@ gem 'angularjs-file-upload-rails', '~> 1.1.6'
 # gem 'act-fluent-logger-rails'
 # gem 'lograge'
 
-
+gem 'meta_request'
 # elasticsearch
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'

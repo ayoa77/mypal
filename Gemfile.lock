@@ -54,6 +54,7 @@ GEM
     browser (0.8.0)
     builder (3.2.3)
     byebug (9.0.6)
+    callsite (0.0.11)
     capistrano (3.4.1)
       i18n
       rake (>= 10.0.0)
@@ -140,6 +141,10 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.6)
       mime-types (>= 1.16, < 4)
+    meta_request (0.4.3)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (>= 1.1, < 3)
+      railties (>= 3.0.0, < 5.2.0)
     mime-types (2.99.3)
     mini_portile2 (2.2.0)
     minitest (5.10.3)
@@ -158,6 +163,8 @@ GEM
       uuidtools (~> 2.1)
       xml-simple
     rack (1.6.8)
+    rack-contrib (1.5.0)
+      rack (~> 1.4)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -320,6 +327,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jwt
+  meta_request
   mysql2 (~> 0.3.20)
   paypal-sdk-rest
   rails (= 4.2.8)
