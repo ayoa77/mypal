@@ -89,8 +89,8 @@ Rails.application.configure do
 
   config.middleware.use ExceptionNotification::Rack,
   :email => {
-    :sender_address => %{"info" <info@mg.globetutoring.com>},
-    :exception_recipients => %w{ayodeleamadi@gmail.com}
+    :sender_address => %{"info" <info@blnkk.com>},
+    :exception_recipients => %w{dev@blnkk.com}
   }
 
   # Required for websockets
