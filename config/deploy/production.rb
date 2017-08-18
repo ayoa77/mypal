@@ -12,7 +12,7 @@ role :live, %w{globetutoring.com}
 role :resque_worker, %w{globetutoring.com}
 role :resque_scheduler, %w{globetutoring.com}
 
-set :workers, { "email" => 1, "location" => 1, "elasticsearch" => 1 }
+set :workers, { "email" => 1, "*" => 1, "location" => 1, "elasticsearch" => 1}
 
 
 # Extended Server Syntax
