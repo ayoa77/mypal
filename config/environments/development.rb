@@ -20,8 +20,9 @@ Rails.application.configure do
   config.active_support.deprecation = :log
 
   # Raise an error on page load if there are pending migrations.
-  #  config.active_record.migration_error = :page_load
+  # config.active_record.migration_error = :page_load
   config.active_record.migration_error = false
+
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
@@ -38,4 +39,12 @@ Rails.application.configure do
 
   # Required for websockets
   config.middleware.delete Rack::Lock
+
+  # config.after_initialize do
+  #   Rails.application.routes.default_url_options = {
+  #     host:  'com',
+  #     protocol: 'http',
+  #     subdomain: 'globetutoring'
+  #   }
+  # end
 end

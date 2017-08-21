@@ -783,13 +783,13 @@ angular.module('blnkk.services', [ 'persona' ])
 		var clientId;
 		var redirect;
 		if ($location.host() == 'localhost') {
-			// change for local
-		  clientId = '221821404959944';
-			redirect = encodeURIComponent("http://localhost:3000/oauth2authentication");
+			clientId = '221821404959944';
 			// clientId = '108627286462499';
 			// redirect = encodeURIComponent("http://globetutoring.com/oauth2authentication");
+			redirect = encodeURIComponent("http://localhost:3000/oauth2authentication");
 		} else {
 			clientId = '108627286462499';
+			console.log(clientId);
 			redirect = encodeURIComponent("http://globetutoring.com/oauth2authentication");
 			// redirect = encodeURIComponent($location.protocol() + '://' + $location.host() + '/oauth2authentication');
 		}

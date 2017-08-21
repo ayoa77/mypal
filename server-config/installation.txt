@@ -9,7 +9,7 @@ INSTALLING (AND UPGRADING) RUBY
 ===============================
 
 Installing Ruby etc. with Rails Ready: https://github.com/joshfng/railsready
-(Don't forget to delete old Rails Ready from home directory befuore upgrading)
+(Don't forget to delete old Rails Ready from home directory before upgrading)
 
 $ wget --no-check-certificate https://raw.githubusercontent.com/joshfng/railsready/master/railsready.sh && bash railsready.sh
 

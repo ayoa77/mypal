@@ -214,7 +214,7 @@ class User < ActiveRecord::Base
   def initialize_new_user
     if !self.avatar_uid.present?
       begin
-        self.avatar_url = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}?s=512&d=mm"
+        self.avatar_url = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}?s=512&d=mm"
       rescue
         self.avatar = Dragonfly.app.fetch_file("public/default-user-icon.jpg")
       end

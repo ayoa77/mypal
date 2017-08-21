@@ -182,7 +182,7 @@ class GunMailer
 		    locals[:settings] = settings
 
 				locals[:description] = I18n.locale.to_s == settings["LOCALE_SECONDARY"] ? settings["DESCRIPTION_SECONDARY"] : settings["DESCRIPTION_PRIMARY"]
-byebug
+
 				# if Rails.env.production?
 					Rails.application.routes.default_url_options[:host] = 'globetutoring.com'
 				# else

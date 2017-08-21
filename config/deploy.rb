@@ -3,7 +3,7 @@ lock '3.4.1'
 
 set :application, 'globetutoring'
 set :repo_url, 'https://ayoa77:S6SMTfsmuF9vFRNeSy84@bitbucket.org/ayoa77/globetutoring.git'
-set :branch, "devenv"
+set :branch, "deploy"
 set :user, "aj"
 set :rails_env, "production"
 set :deploy_via, :copy
@@ -11,6 +11,12 @@ set :keep_releases, 5
 server 'globetutoring.com', user: 'aj', roles: %w{web app db live}
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/var/www/html/globetutoring/'
+
+role :app, %w{globetutoring.com}
+role :web, %w{globetutoring.com}
+role :db,  %w{globetutoring.com}
+role :live, %w{globetutoring.com}
+
 
 
 # Default branch is :master
@@ -43,11 +49,10 @@ set :linked_dirs, %w{tmp/pids tmp/cache public/system public/javascripts public/
 # set :keep_releases, 5
 
 # Give resque access to Rails environment
-set :resque_environment_task, true
-role :resque_worker, %w{globetutoring.com}
-role :resque_scheduler, %w{globetutoring.com}
+# set :resque_environment_task, true
+# role :resque_worker, %w{globetutoring.com}
+# role :resque_scheduler, %w{globetutoring.com}
 
-set :workers, { "email" => 1, "location" => 1, "elasticsearch" => 1 }
 
 
 namespace :deploy do
@@ -73,9 +78,14 @@ namespace :deploy do
   after :publishing, :restart
 
   after :restart, "resque:restart"
+  # role :resque_worker, %w{globetutoring.com}
+  # role :resque_scheduler, %w{globetutoring.com}
+  #
+  # set :workers, { "email" => 1, "*" => 1, "location" => 1, "elasticsearch" => 1}
+
 
   after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
+    on roles(:web), in: :groups, limit: 4, wait: 10 do
       # Here we can do anything such as:
       # within release_path do
       #   execute :rake, 'cache:clear'
