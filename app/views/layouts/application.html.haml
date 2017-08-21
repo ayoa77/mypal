@@ -96,10 +96,10 @@
               .col-xs-6 
                 Hosts
                 Learn skills at home by hosting our experienced travellers
-            -# .inner-button
-            -#   %a.btn-large{ href: "", "ng-click" => "signIn(null, 'signup-Facebook')"} {{"signup.with_facebook" | t}}
-            -# .inner-link
-            -#   %a.btn-small{ href: "", "ng-click" => "signIn(null, 'signin-Facebook')"} {{"signin.sign_in_now" | t}}
+            .inner-button
+              %a.btn-large{ href: "", "ng-click" => "signIn(null, 'signup-Facebook')"} {{"signup.with_facebook" | t}}
+            .inner-link
+              %a.btn-small{ href: "", "ng-click" => "signIn(null, 'signin-Facebook')"} {{"signin.sign_in_now" | t}}
 
       #sidebar{"ng-class" => "!session.connected ? 'lower-sidebar' : ''"}
         #sidebar-background{ "ng-click" => "hideSidebar()" }
