@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post '/auth/persona/login',  to: 'sessions#signin_persona'
       post '/auth/persona/logout', to: 'sessions#signout_persona'
-      post '/auth/persona/signup',  to: 'sessions#signup_persona'  
+      post '/auth/persona/signup',  to: 'sessions#signup_persona'
       resources :users do
         member do
           post 'rate'
@@ -66,6 +66,7 @@ Rails.application.routes.draw do
     resources :requests
     resources :conversations
     resources :settings
+    resources :cities
     resources :newsletters do
       member do
         post 'send_me'
