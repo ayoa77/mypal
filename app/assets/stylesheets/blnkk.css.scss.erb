@@ -14,8 +14,8 @@ $screen-sm-min: 768px;
 $screen-md-min: 992px;
 $screen-lg-min: 1200px;
 
-$biggerfont: 'Montserrat', '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;
-
+// $biggerfont: 'Montserrat', '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;
+$biggerfont:'Roboto';
 
 /* @group Misc. global styles */
 
@@ -27,14 +27,18 @@ html{
 }
 
 body {
-  font-family: 'Roboto', '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;
+  font-family: 'Roboto Slab', '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;
   color: #303030;
   font-weight: 400;
-  background-image: url("/backgrounds/doers-bg.png");
+  background-image: url("/backgrounds/gt-bg.jpg");
+  background-size: 100%;
   position: relative;
   height: 100%;
 }
-
+.bblue{
+  color:#3ae9eb;
+  font-family: 'Roboto Slab'
+}
 .content-wrapper{
   position: relative;
   top: 50px;
@@ -572,11 +576,11 @@ label{
     font-size: 14px;
     //color: rgba(74,74,74,0.5);
   }
-  /*.intro {
-    color: #4A4A4A;
+  .intro {
     font-family: $biggerfont;
-    font-size: 18px;
-  }*/
+    font-size: 48px;
+    font-weight: 600;
+  }
   .outer {
     display: table;
     //position: absolute;

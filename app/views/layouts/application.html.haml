@@ -24,6 +24,7 @@
     %meta{itemprop: 'image', content: @icon || share_image_url}
 
     = stylesheet_link_tag '//fonts.googleapis.com/css?family=Montserrat:400,700', media: :all
+    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Roboto+Slab:400,500,600,700,900', media: :all
     = stylesheet_link_tag '//fonts.googleapis.com/css?family=Roboto:400,500,600,700,900', media: :all
     = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', media: :all
     = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', media: :all
@@ -43,9 +44,9 @@
               {{ session.user.unread_notifications_count + session.user.unread_conversations_count }}
           %a.logo{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
             = image_tag logo_image_url
-            %span.hidden-xs
-              = @settings["SUBSITE"]
-              = @settings["SITE_NAME"]
+            -#/ %span.hidden-xs
+            -#  / = @settings["SUBSITE"]
+            -#  / = @settings["SITE_NAME"]
         .media-body.media-middle
         .media-right.media-middle.ng-cloak.text-nowrap
           %a.btn.btn-link.btn-first{ "ui-sref" => "home.users({q: ''})", title: "Search", "ui-sref-opts" => "{reload:true}", "ng-show" => "!isRetrievingProfile && session.connected" }
@@ -80,15 +81,26 @@
         .outer
           .inner
             -# %h2 {{"index.welcome" | t }}
-            = image_tag logo_image_url
-            %h1 {{ setting("SUBSITE") }} {{ setting("SITE_NAME") }}
-            -# %p.intro {{ localizeSetting("TAGLINE") }}
+            / = image_tag logo_image_url
+            / %h1 {{ setting("SUBSITE") }} {{ setting("SITE_NAME") }}
+            %p.intro <span class="bblue"> Share skills</span> internationally, <br> <span class="bblue">make friends</span> locally
+
+            / {{ localizeSetting("TAGLINE") }}
             -# %hr.landing-hr
-            %p.site-description {{ localizeSetting("DESCRIPTION") }}
-            .inner-button
-              %a.btn-large{ href: "", "ng-click" => "signIn(null, 'signup-Facebook')"} {{"signup.with_facebook" | t}}
-            .inner-link
-              %a.btn-small{ href: "", "ng-click" => "signIn(null, 'signin-Facebook')"} {{"signin.sign_in_now" | t}}
+            / %p.site-description this is amzing {{ localizeSetting("DESCRIPTION") }}
+            .col-xs-6.col-xs-offset-3
+              .col-xs-6 
+                / %img(src="/bg1.jpg" alt="")
+                Travellers
+                Receive free accommodation in exchange for your skills
+              .col-xs-6 
+                Hosts
+                Learn skills at home by hosting our experienced travellers
+            -# .inner-button
+            -#   %a.btn-large{ href: "", "ng-click" => "signIn(null, 'signup-Facebook')"} {{"signup.with_facebook" | t}}
+            -# .inner-link
+            -#   %a.btn-small{ href: "", "ng-click" => "signIn(null, 'signin-Facebook')"} {{"signin.sign_in_now" | t}}
+
       #sidebar{"ng-class" => "!session.connected ? 'lower-sidebar' : ''"}
         #sidebar-background{ "ng-click" => "hideSidebar()" }
         %widget-main-menu{ "user-connected" => "session.connected"}
