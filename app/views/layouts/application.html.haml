@@ -2,7 +2,8 @@
 %html{"ng-app" => "blnkk"}
   %head
     %meta{:charset => 'utf-8'}
-    %title{ "ng-bind" => "title"}= @title.present? ? "#{@title} - #{@settings["SUBSITE"]} #{@settings["SITE_NAME"]}" : "#{@settings["SUBSITE"]} #{@settings["SITE_NAME"]} - #{localize_setting("TAGLINE")}"
+    / %title{ "ng-bind" => "title"}= @title.present? ? "#{@title} - #{@settings["SUBSITE"]} #{@settings["SITE_NAME"]}" : "#{@settings["SUBSITE"]} #{@settings["SITE_NAME"]} - #{localize_setting("TAGLINE")}"
+    %title GlobeTutoring
     %meta{'http-equiv' => 'X-UA-Compatible', content: 'IE=Edge,chrome=1'}
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1'}
     %meta{name: 'description', content: @description}
@@ -36,76 +37,82 @@
     = csrf_meta_tags
   %body{"ng-controller" => "SessionController"}
     .logo-wrapper#sticky-header
-      .media.with-overflow
-        .media-left.media-middle.text-nowrap
-          %a.hamburger.ng-cloak.visible-xs-inline-block{"href" => "#", "ng-click" => "toggleSidebar()" }
-            %i.fa.fa-bars
-            %span.badge{"ng-show" => "session.user.unread_notifications_count > 0 || session.user.unread_conversations_count > 0", "ng-show" => "session.connected"}
-              {{ session.user.unread_notifications_count + session.user.unread_conversations_count }}
-          %a.logo{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
-            = image_tag logo_image_url
-            -#/ %span.hidden-xs
-            -#  / = @settings["SUBSITE"]
-            -#  / = @settings["SITE_NAME"]
-        .media-body.media-middle
-        .media-right.media-middle.ng-cloak.text-nowrap
-          %a.btn.btn-link.btn-first{ "ui-sref" => "home.users({q: ''})", title: "Search", "ui-sref-opts" => "{reload:true}", "ng-show" => "!isRetrievingProfile && session.connected" }
-            %i.fa.fa-fw.fa-search
-          %a.btn.btn-primary.hidden-xs{ href: "", "ng-click" => "signIn(null, 'signup')", "ng-show" => "!isRetrievingProfile && !session.connected"}
-            {{'toolbar.register' | t}}
-          %a.btn.btn-primary{ href: "", "ng-click" => "signIn(null, 'signin')", "ng-show" => "!isRetrievingProfile && !session.connected"}
-            {{'toolbar.sign_in' | t}}
-          .btn-group{"ng-show" => "!isRetrievingProfile && session.connected"}
-            %button.btn.btn-link.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
-              %i.fa.fa-fw.fa-ellipsis-v
-            %ul.dropdown-menu.dropdown-menu-right
-              %li
-                %a{ "ui-sref" => "home.userSingle({id: session.user.id})" } 
-                  %i.fa.fa-user.fa-fw
-                  {{'toolbar.my_profile' | t}}
-              %li
-                %a{ "ui-sref" => "home.users-edit" }
-                  %i.fa.fa-cog.fa-fw
-                  {{'toolbar.settings' | t}}
-              %li.divider
-              %li
-                %a{ href: "", "ng-click" => "signOut()" } 
-                  %i.fa.fa-power-off.fa-fw
-                  {{'toolbar.sign_out' | t}}
+      .container
+        .media.with-overflow
+          .media-left.media-middle.text-nowrap
+            %a.hamburger.ng-cloak.visible-xs-inline-block{"href" => "#", "ng-click" => "toggleSidebar()" }
+              %i.fa.fa-bars
+              %span.badge{"ng-show" => "session.user.unread_notifications_count > 0 || session.user.unread_conversations_count > 0", "ng-show" => "session.connected"}
+                {{ session.user.unread_notifications_count + session.user.unread_conversations_count }}
+            %a.logo{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
+              = image_tag logo_image_url
+              -#/ %span.hidden-xs
+              -#  / = @settings["SUBSITE"]
+              -#  / = @settings["SITE_NAME"]
+          .media-body.media-middle
+          .media-right.media-middle.ng-cloak.text-nowrap
+            %a.btn.btn-link.btn-first{ "ui-sref" => "home.users({q: ''})", title: "Search", "ui-sref-opts" => "{reload:true}", "ng-show" => "!isRetrievingProfile && session.connected" }
+              %i.fa.fa-fw.fa-search
+            %a.nav-signin{ href: "", "ng-click" => "signIn(null, 'signup-Facebook')", "ng-show" => "!isRetrievingProfile && !session.connected"}
+              {{'toolbar.register' | t}}
+            %a.nav-signin{ href: "", "ng-click" => "signIn(null, 'signin-Facebook')", "ng-show" => "!isRetrievingProfile && !session.connected"}
+              {{'toolbar.sign_in' | t}}
+            .btn-group{"ng-show" => "!isRetrievingProfile && session.connected"}
+              %button.btn.btn-link.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
+                %i.fa.fa-fw.fa-ellipsis-v
+              %ul.dropdown-menu.dropdown-menu-right
+                %li
+                  %a{ "ui-sref" => "home.userSingle({id: session.user.id})" } 
+                    %i.fa.fa-user.fa-fw
+                    {{'toolbar.my_profile' | t}}
+                %li
+                  %a{ "ui-sref" => "home.users-edit" }
+                    %i.fa.fa-cog.fa-fw
+                    {{'toolbar.settings' | t}}
+                %li.divider
+                %li
+                  %a{ href: "", "ng-click" => "signOut()" } 
+                    %i.fa.fa-power-off.fa-fw
+                    {{'toolbar.sign_out' | t}}
 
     .alert-wrapper.ng-cloak{ "ng-controller" => "AlertsController" }
       %alert{ "ng-repeat" => "alert in alerts.get()", type: "{{alert.type}}", close: "closeAlert($index)" } {{alert.msg}}
+    .condom
+      .ng-cloak{ "ng-show" => "!isRetrievingProfile"  }
+        %div.landing-page{ "ng-if" => "!session.connected" }
+          .container
+            .outer
+              .inner
+                -# %h2 {{"index.welcome" | t }}
+                / = image_tag logo_image_url
+                / %h1 {{ setting("SUBSITE") }} {{ setting("SITE_NAME") }}
+                %p.intro <span class="bblue"> Share skills</span> internationally, <br> <span class="bblue">make friends</span> locally
 
-    .content-wrapper.ng-cloak{ "ng-show" => "!isRetrievingProfile"  }
-      %div.landing-page{ "ng-if" => "!session.connected" }
-        .outer
-          .inner
-            -# %h2 {{"index.welcome" | t }}
-            / = image_tag logo_image_url
-            / %h1 {{ setting("SUBSITE") }} {{ setting("SITE_NAME") }}
-            %p.intro <span class="bblue"> Share skills</span> internationally, <br> <span class="bblue">make friends</span> locally
+                / {{ localizeSetting("TAGLINE") }}
+                -# %hr.landing-hr
+                / %p.site-description this is amzing {{ localizeSetting("DESCRIPTION") }}
+                .col-xs-6.col-xs-offset-3
+                  .col-xs-6 
+                    / %img(src="/bg1.jpg" alt="")
+                    <span class="landing-title">Travellers</span>
+                    <span>Receive free accommodation in exchange for your skills</span>
+                  .col-xs-6 
+                    <span class="landing-title">Hosts</span>
 
-            / {{ localizeSetting("TAGLINE") }}
-            -# %hr.landing-hr
-            / %p.site-description this is amzing {{ localizeSetting("DESCRIPTION") }}
-            .col-xs-6.col-xs-offset-3
-              .col-xs-6 
-                / %img(src="/bg1.jpg" alt="")
-                Travellers
-                Receive free accommodation in exchange for your skills
-              .col-xs-6 
-                Hosts
-                Learn skills at home by hosting our experienced travellers
-            .inner-button
-              %a.btn-large{ href: "", "ng-click" => "signIn(null, 'signup-Facebook')"} {{"signup.with_facebook" | t}}
-            .inner-link
-              %a.btn-small{ href: "", "ng-click" => "signIn(null, 'signin-Facebook')"} {{"signin.sign_in_now" | t}}
+                    Learn skills at home by hosting our experienced travellers
+                -#.inner-button
+                  -#%a.btn-large{ href: "", "ng-click" => "signIn(null, 'signup-Facebook')"} {{"signup.with_facebook" | t}}
+                -#.inner-link
+                  -# %a.btn-small{ href: "", "ng-click" => "signIn(null, 'signin-Facebook')"} {{"signin.sign_in_now" | t}}
 
-      #sidebar{"ng-class" => "!session.connected ? 'lower-sidebar' : ''"}
-        #sidebar-background{ "ng-click" => "hideSidebar()" }
-        %widget-main-menu{ "user-connected" => "session.connected"}
-      %new-request{"ng-show" => "newRequestVisible"}
-      %div{ "ui-view" => "" }
+          
+        %new-request{"ng-show" => "newRequestVisible"}
+        .app-bot
+          .container
+            #sidebar{"ng-class" => "!session.connected ? 'lower-sidebar' : ''"}
+              #sidebar-background{ "ng-click" => "hideSidebar()" }
+              %widget-main-menu{ "user-connected" => "session.connected"}
+            %div.view{ "ui-view" => "" }
 
     %noscript
       .headings-wrapper

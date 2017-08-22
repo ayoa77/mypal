@@ -1,0 +1,45 @@
+.view{
+  background-color: white;
+}
+.condom{
+  margin-top:81px;
+  // background-color: white;
+}
+.app-bot{
+  background-color: white;
+  overflow: auto;
+}
+.landing-title{
+  font-size:35px;
+  font-family:Roboto Slab;
+  font-weight: 700;
+}
+.landing-title:after{
+  content:"";
+  display:block;
+  width:15%;
+  margin: 13px auto 0 auto;
+  // margin-top:10px;
+
+  border-top:solid 2px white;
+}
+
+#sidebar{
+  float:left;
+  width:17%;
+}
+.nav-signin{
+  color:white;
+  font-size: 20px;
+  padding:0 30px;
+
+}
+.nav-signin:hover{
+  color:white;
+}
+.content-wrapper #main-content{
+  // top:none;
+  // bottom:none;
+  // left:none;
+  // right:none;
+}

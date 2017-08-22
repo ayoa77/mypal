@@ -25,7 +25,7 @@ en:
       intro: "%{name} started following you on Doers!"
       action: View full profile
   toolbar:
-    sign_in: Log in
+    sign_in: Sign In Again
     register: Sign up
     my_profile: My profile
     settings: Settings
