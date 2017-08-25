@@ -78,6 +78,7 @@
     .alert-wrapper.ng-cloak{ "ng-controller" => "AlertsController" }
       %alert{ "ng-repeat" => "alert in alerts.get()", type: "{{alert.type}}", close: "closeAlert($index)" } {{alert.msg}}
     .condom
+      .channel-banner{} Hello, This is where the channel banner will be placed.  Can ya dig?
       .ng-cloak{ "ng-show" => "!isRetrievingProfile"  }
         %div.landing-page{ "ng-if" => "!session.connected" }
           .container
