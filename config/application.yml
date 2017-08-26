@@ -3,7 +3,7 @@ default: &default
   # From address
   MAILGUN_FROM_ADDRESS: "Globetutoring <info@mg.globetutoring.com>"
   ROOT_URL: "http://globetutoring.com/"
-  DATA_URL: "http://globetutoring.com/"
+  DATA_URL: "http://localhost:3000/"
   # DATA_URL: "https://i.doers.io/"
 
   # Payments

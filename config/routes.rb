@@ -66,7 +66,7 @@ Rails.application.routes.draw do
     resources :requests
     resources :conversations
     resources :settings
-    resources :cities
+    resources :acts_as_taggable_on_tags
     resources :newsletters do
       member do
         post 'send_me'

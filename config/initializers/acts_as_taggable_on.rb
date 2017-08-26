@@ -9,6 +9,8 @@ class ActsAsTaggableOn::Tag
   belongs_to :user
   belongs_to :request
 
+  has_one :city_image
+
   def populate
     self.update_columns(user_count: User.where(enabled: true).tagged_with(self.name, on: :tags).count)
   end

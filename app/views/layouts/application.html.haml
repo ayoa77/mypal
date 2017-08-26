@@ -13,7 +13,7 @@
     %link{ rel: 'alternate', href: url_for(params.merge(ln: @locale_primary, host: root_url)), hreflang: @locale_primary }
     - if @locale_secondary.present?
       %link{ rel: 'alternate', href: url_for(params.merge(ln: @locale_secondary, host: root_url)), hreflang: @locale_secondary }
-    
+
     %meta{property: 'og:site_name', content: "#{@settings["SITE_NAME"]}"}
     %meta{property: 'og:url', content: request.original_url}
     %meta{property: 'og:title', content: @title}
@@ -62,7 +62,7 @@
                 %i.fa.fa-fw.fa-ellipsis-v
               %ul.dropdown-menu.dropdown-menu-right
                 %li
-                  %a{ "ui-sref" => "home.userSingle({id: session.user.id})" } 
+                  %a{ "ui-sref" => "home.userSingle({id: session.user.id})" }
                     %i.fa.fa-user.fa-fw
                     {{'toolbar.my_profile' | t}}
                 %li
@@ -71,14 +71,15 @@
                     {{'toolbar.settings' | t}}
                 %li.divider
                 %li
-                  %a{ href: "", "ng-click" => "signOut()" } 
+                  %a{ href: "", "ng-click" => "signOut()" }
                     %i.fa.fa-power-off.fa-fw
                     {{'toolbar.sign_out' | t}}
 
     .alert-wrapper.ng-cloak{ "ng-controller" => "AlertsController" }
       %alert{ "ng-repeat" => "alert in alerts.get()", type: "{{alert.type}}", close: "closeAlert($index)" } {{alert.msg}}
     .condom
-      .channel-banner{} Hello, This is where the channel banner will be placed.  Can ya dig?
+      .channel-banner{ "ng-show" => "current_page?(tag_path)" }
+        = image_tag ActsAsTaggableOn::Tag.find_by(name: params[:id]).city_image.banner.url if ActsAsTaggableOn::Tag.find_by(name: params[:id]).present?
       .ng-cloak{ "ng-show" => "!isRetrievingProfile"  }
         %div.landing-page{ "ng-if" => "!session.connected" }
           .container
@@ -93,11 +94,11 @@
                 -# %hr.landing-hr
                 / %p.site-description this is amzing {{ localizeSetting("DESCRIPTION") }}
                 .col-xs-6.col-xs-offset-3
-                  .col-xs-6 
+                  .col-xs-6
                     / %img(src="/bg1.jpg" alt="")
                     <span class="landing-title">Travellers</span>
                     <span>Receive free accommodation in exchange for your skills</span>
-                  .col-xs-6 
+                  .col-xs-6
                     <span class="landing-title">Hosts</span>
 
                     Learn skills at home by hosting our experienced travellers
@@ -106,7 +107,7 @@
                 -#.inner-link
                   -# %a.btn-small{ href: "", "ng-click" => "signIn(null, 'signin-Facebook')"} {{"signin.sign_in_now" | t}}
 
-          
+
         %new-request{"ng-show" => "newRequestVisible"}
         .app-bot
           .container

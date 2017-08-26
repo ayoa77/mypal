@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170801041204) do
+ActiveRecord::Schema.define(version: 20170824104229) do
+
+  create_table "city_images", force: :cascade do |t|
+    t.integer "tag_id",     limit: 4
+    t.string  "banner_uid", limit: 191
+    t.string  "small_uid",  limit: 191
+  end
+
+  add_index "city_images", ["tag_id"], name: "index_city_images_on_tag_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "request_id",   limit: 4

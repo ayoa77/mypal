@@ -1,0 +1,39 @@
+.page-header
+  %h1 Cities/Tags
+%table.table.table-striped
+  %thead
+    %tr
+      %th Position
+      %th Name
+      %th Banner
+      %th Small/Thumb
+  %tbody
+    - @tags.each do |t|
+      %tr
+        -# %td= t.position
+        %td
+        %td= t.name
+        %td
+          = image_tag t.city_image.small.thumb('300x200#').url if t.city_image.small_stored?
+          -# = image_tag t.city_image.banner.url(:thumb)
+        %td
+          -# = image_tag t.city_image.small.url(:thumb)
+          = image_tag t.city_image.banner.thumb('300x200#').url if t.city_image.banner_stored?
+
+
+          -# = image_tag t.banner.thumb('100x150#').url
+          -# %ul.dropdown-menu
+            -# %li
+            -#   = link_to "Send to myself", send_me_admin_tag_path(n), "method" => "post"
+            -# %li
+            -#   = link_to "Send to all admins", send_admin_admin_tag_path(n), "method" => "post"
+            -# %li.divider
+            -# %li
+            -#   = link_to "Send to everybody", send_everybody_admin_tag_path(n), "method" => "post", "data-confirm" => "Are you sure you want to send this tag to everybody? This cannot be undone. And this can also take a while."
+
+
+    %tr
+      %td
+      %td
+      %td
+      %td= link_to "New", new_admin_acts_as_taggable_on_tag_path, class: "btn btn-primary btn-xs pull-right"
