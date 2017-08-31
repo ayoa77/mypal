@@ -4,3 +4,4 @@
     = @tag.name
 
 = render partial:'form'
+= link_to 'Delete',  admin_acts_as_taggable_on_tag_path(@tag),  method: :delete, class: "btn btn-primary pull-left", data: { confirm: 'Are you sure?' } 

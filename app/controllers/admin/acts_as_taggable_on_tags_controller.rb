@@ -25,9 +25,10 @@ class Admin::ActsAsTaggableOnTagsController < AdminController
       @tag.user = current_user
       @tag.display_name = tag_params[:name]
       @city_image = @tag.build_city_image(city_image_params)
-      @tag.banner_url = @city_image.banner.url
-      @tag.small_url = @city_image.small.url
-      if @tag.save
+      if @tag.save && @city_image.save
+        @tag.banner_url = @city_image.banner.url
+        @tag.small_url = @city_image.small.url
+        @tag.save
         @tag.reload
         current_user.tag_list << @tag.name
         current_user.save
@@ -44,16 +45,31 @@ class Admin::ActsAsTaggableOnTagsController < AdminController
     def update
       @tag = ActsAsTaggableOn::Tag.find_by(id: params[:id])
       @city_image = @tag.city_image
-      @tag.banner_url = @city_image.banner.url
-      @tag.small_url = @city_image.small.url
       if @tag.update_attributes(tag_params) && @city_image.update_attributes(city_image_params)
+        @tag.banner_url = @city_image.banner.url
+        @tag.small_url = @city_image.small.url
+        @tag.save
         flash[:notice] = "city #{@tag.name} updated"
-        redirect_to acts_as_taggable_on_tags_path
+        redirect_to admin_acts_as_taggable_on_tags_path
       else
         flash[:alert] = "Updating city failed"
         render :edit
       end
     end
+
+    def destroy
+      @tag = ActsAsTaggableOn::Tag.find_by!(id: params[:id])
+      @city_image = @tag.city_image
+      if @tag.destroy && @city_image.destroy
+        ActsAsTaggableOn::Tagging.where(tag_id: @tag.id).delete_all if ActsAsTaggableOn::Tagging.where(tag_id: @tag.id)
+        flash[:notice] = "city #{@tag.name} deleted"
+        redirect_to admin_acts_as_taggable_on_tags_path
+      else
+        flash[:alert] = "Deleting city failed"
+        render :edit
+      end
+    end
+
 
 
     private
