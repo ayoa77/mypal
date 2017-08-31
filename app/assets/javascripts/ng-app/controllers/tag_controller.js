@@ -9,7 +9,7 @@ angular.module('blnkk.controllers')
 
     $scope.tags_to_follow = [];
     $scope.tags_already_following = [];
-    
+
     this.getTags = function() {
       $scope.isLoadingTags = true;
       Tag.getAll("what-to-follow").then( function(tags){
@@ -35,7 +35,7 @@ angular.module('blnkk.controllers')
         controller: 'TagNewController'
       });
     }
-    
+
   }])
 
   .controller('TagShowController', ['$scope', '$rootScope', '$stateParams', '$timeout', '$filter', '$cookies', 'Analytics', 'Tag', 'Request', 'User', 'Rating', 'Alerts', function($scope, $rootScope, $stateParams, $timeout, $filter, $cookies, Analytics, Tag, Request, User, Rating, Alerts){
@@ -48,6 +48,7 @@ angular.module('blnkk.controllers')
     $scope.requests = [];
     $scope.isLoadingRequests = false;
     $scope.isEndOfRequests = false;
+    console.log($scope);
 
     this.initializePage = function(){
       console.log("Initializing tag page");
@@ -55,6 +56,7 @@ angular.module('blnkk.controllers')
       Tag.getByName($stateParams.tag)
         .then( function(tag) {
           $scope.tag = tag;
+          console.log($stateParams.tag);
           setTitle($rootScope, tag.display_name, $scope.session.user.unread_notifications_count + $scope.session.user.unread_conversations_count, Analytics);
           populateTags([tag], $scope.session.user.tag_list);
           $scope.setNewRequestVisibility($scope.session.connected && $scope.session.user.tag_list.indexOf($scope.tag.name) >= 0, $scope.tag.name);
@@ -147,7 +149,7 @@ angular.module('blnkk.controllers')
     $scope.newTag = '';
     $scope.newIcon = 'hash';
     $scope.isCreating = false;
-    
+
     $scope.cancel = function () {
       $scope.newTag = '';
       $modalInstance.close();
@@ -181,7 +183,7 @@ angular.module('blnkk.controllers')
     $scope.newTag = the_tag.display_name;
     $scope.newIcon = the_tag.icon;
     $scope.isUpdating = false;
-    
+
     $scope.cancel = function () {
       $scope.newTag = '';
       $modalInstance.close();

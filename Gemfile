@@ -65,6 +65,7 @@ group :development do
   gem 'capistrano-rvm'
 end
 
+
 gem 'acts-as-taggable-on', '~> 3.4'
 
 # angular gems

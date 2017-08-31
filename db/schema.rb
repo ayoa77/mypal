@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170824104229) do
+ActiveRecord::Schema.define(version: 20170831041454) do
 
   create_table "city_images", force: :cascade do |t|
     t.integer "tag_id",     limit: 4
@@ -250,6 +250,8 @@ ActiveRecord::Schema.define(version: 20170824104229) do
     t.integer "request_id",     limit: 4
     t.integer "taggings_count", limit: 4,   default: 0
     t.integer "user_count",     limit: 4,   default: 0
+    t.string  "banner_url",     limit: 191
+    t.string  "small_url",      limit: 191
   end
 
   add_index "tags", ["display_name"], name: "index_tags_on_display_name", using: :btree

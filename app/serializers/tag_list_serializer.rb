@@ -4,6 +4,8 @@ class TagListSerializer < BaseSerializer
              :name,
              :display_name,
              :icon,
-             :user_count
-
+             :user_count,
+             :banner_url,
+             :small_url
+             
 end

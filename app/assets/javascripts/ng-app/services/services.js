@@ -554,11 +554,13 @@ angular.module('blnkk.services', [ 'persona' ])
 	.service('Tag', ['$http', '$q', function($http, $q){
 		var theService = this;
 
+
 		this.getByName = function(name){
 			var deferred = $q.defer();
 			$http.get( '/api/v1/tags/' + name )
 				.success(function(dataReturned, status) {
 	    		deferred.resolve(dataReturned.tag);
+					console.log(dataReturned.tag);
 				})
 				.error(function(dataReturned, status) {
 					getErrorFunction(I18n.t("services.error_tag", {name: name}), status, deferred);

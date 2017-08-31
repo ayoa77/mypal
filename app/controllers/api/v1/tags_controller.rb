@@ -21,7 +21,14 @@ class Api::V1::TagsController < ApiUserController
   end
 
   def show
+    # tag = ActsAsTaggableOn::Tag.find_by!(name: params[:id])
+    # render :json => {:tag => tag, :city_image => city_image }}
+    # render json: { tag: tag, city_image: city_image }
+    # render json: {tag: {tag: tag, city_image: city_image }}
     tag = ActsAsTaggableOn::Tag.find_by!(name: params[:id])
+    # tag = ActsAsTaggableOn::Tag.includes(:city_image).find_by!(name: params[:id])
+    # city_image = tag.city_image
+    # tag = tag.attributes.merge(:banner => city_image.banner.url, :small => city_image.small.url ).to_json
     render json: tag
   end
 
