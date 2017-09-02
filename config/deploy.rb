@@ -3,7 +3,8 @@ lock '3.4.1'
 
 set :application, 'globetutoring'
 set :repo_url, 'https://ayoa77:S6SMTfsmuF9vFRNeSy84@bitbucket.org/ayoa77/globetutoring.git'
-set :branch, "frontend"
+set :branch, "backend"
+
 set :user, "aj"
 set :rails_env, "production"
 set :deploy_via, :copy
