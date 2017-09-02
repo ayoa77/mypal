@@ -78,8 +78,8 @@
     .alert-wrapper.ng-cloak{ "ng-controller" => "AlertsController" }
       %alert{ "ng-repeat" => "alert in alerts.get()", type: "{{alert.type}}", close: "closeAlert($index)" } {{alert.msg}}
     .condom
-      .channel-banner{ "ng-show" => "current_page?(tag_path)" }
-        = image_tag ActsAsTaggableOn::Tag.find_by(name: params[:id]).city_image.banner.url if ActsAsTaggableOn::Tag.find_by(name: params[:id]).present?
+      -#.channel-banner{ "ng-show" => "current_page?(tag_path)" }
+      -#  = image_tag ActsAsTaggableOn::Tag.find_by(name: params[:id]).city_image.banner.url if ActsAsTaggableOn::Tag.find_by(name: params[:id]).present?
       .ng-cloak{ "ng-show" => "!isRetrievingProfile"  }
         %div.landing-page{ "ng-if" => "!session.connected" }
           .container
@@ -111,7 +111,7 @@
         %new-request{"ng-show" => "newRequestVisible"}
         .app-bot
           .container
-            #sidebar{"ng-class" => "!session.connected ? 'lower-sidebar' : ''"}
+            #sidebar{style:"margin-top:320px;","ng-class" => "!session.connected ? 'lower-sidebar' : ''"}
               #sidebar-background{ "ng-click" => "hideSidebar()" }
               %widget-main-menu{ "user-connected" => "session.connected"}
             %div.view{ "ui-view" => "" }

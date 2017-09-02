@@ -43,3 +43,25 @@
   // left:none;
   // right:none;
 }
+.channel-top{
+  height:300px;
+  background-size:cover;
+  position: relative;
+  padding-left:190px;
+  // padding-bottom:20px;
+}
+.channel-inner{
+  position:absolute;
+  bottom:20px;
+  height:100px;
+  a{
+    float: left;
+    margin-top:43px;
+    font-size: 40px;
+  }
+}
+.channel-img{
+  width:100px;
+  float:left;
+  margin-right:15px;
+}
