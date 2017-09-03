@@ -8,7 +8,7 @@ set :branch, "backend"
 set :user, "aj"
 set :rails_env, "production"
 set :deploy_via, :copy
-set :keep_releases, 5
+set :keep_releases, 10
 server 'globetutoring.com', user: 'aj', roles: %w{web app db live}
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/var/www/html/globetutoring/'
