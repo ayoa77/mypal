@@ -1,7 +1,7 @@
 en:
   emails:
     # powered_by: "Powered by %{siteName}"
-    reason: You received this email because you are a Doers member or someone used your email to invite you for Doers.
+    reason: You received this email because you are a Skillster or someone used your email to invite you for Skillster.
     unsubscribe: Unsubscribe
     greeting_name: "Hi %{name},"
     greeting_no_name: "Hey there,"
@@ -9,17 +9,17 @@ en:
       intro: "%{name} commented on a post you also commented on!"
       action: Check it out
     new_comment:
-      intro: "%{name} commented on your post on Doers!"
+      intro: "%{name} commented on your post on Skillsters!"
       action: Check it out
     new_message:
-      intro: "%{name} wrote you a message on Doers!"
+      intro: "%{name} wrote you a message on Skillsters!"
       action: Keep the conversation going
     fresh_new_posts:
-      intro: There are some fresh new posts for you on Doers!
+      intro: There are some fresh new posts for you on Skillsters!
       action: Read more
       view_all_posts: View all new posts
     invite:
-      intro: "%{name} is looking for you on Doers!"
+      intro: "%{name} is looking for you on Skillsters!"
       action: Check it out
     new_follower:
       intro: "%{name} started following you on Doers!"
@@ -32,7 +32,7 @@ en:
     sign_out: Log out
   index:
     welcome: "Welcome to"
-    join: Become a Doer
+    join: Become a Skillster
     news_feed: My newsfeed
     discover: Discover more
     recommended: Recommended
@@ -45,7 +45,7 @@ en:
     trying_reconnect: Trying to reconnect...
     retry: Retry now
   tag:
-    index_title: Categories
+    index_title: Skill channels
     recommended: Recommended
     latest: Latest
     top: Top
@@ -112,15 +112,15 @@ en:
     send: Send
     send_placeholder: Send a private message...
   new_tag_modal:
-    title: New category
-    description: This will create a new public category which everyone in this community can follow.
+    title: Do Not use this one!
+    description: Do not edit this one, please. Use the admin panel if you have access to it.
     name: Name
     icon: Icon
     create: Create
     cancel: Cancel
   edit_tag_modal:
-    title: Edit category
-    description: "You can edit this category at any time. But, use it sparingly: it might confuse or disorient others!"
+    title: Do Not use this one!
+    description: "Do not edit this one, please. Use the admin panel if you have access to it."
     name: Name
     icon: Icon
     save: Save
@@ -229,11 +229,11 @@ en:
     notifications: Notifications
     who_to_follow: Who to follow
     invite_people: Invite people
-    tags: Categories
-    more_tags: All categories
+    tags: Skill Channels
+    more_tags: All Skills
     get_started: Get started
     complete_profile: Complete your profile
-    follow_tags: Follow 5 categories
+    follow_tags: Follow 5 skills
     follow_people: Follow 5 people
     # get_followers: Get 10 followers
     connect_linkedin: Connect with LinkedIn
@@ -246,8 +246,8 @@ en:
     content_placeholder: "Post details and why people should host or share their skill with you"
     post: Post
     cancel: Cancel
-    pick_a_tag: Project category ...
-    blink_posted: Doers request posted
+    pick_a_tag: Skill channel ...
+    blink_posted: Skillsters request posted
   request_item_actions_directive:
     chat: Chat
     share: Share
@@ -279,10 +279,10 @@ en:
       one: "%{count} follower"
       other: "%{count} followers"
       zero: "%{count} followers"
-    edit_tag: Edit category
-    delete_tag: Delete category
-    delete_tag_question: Are you sure you want to delete this category?
-    tag_deleted: Category deleted
+    edit_tag: Edit channel
+    delete_tag: Delete channel
+    delete_tag_question: Are you sure you want to delete this channel?
+    tag_deleted: Channel deleted
     sticky_post_changed: Sticky post changed
   user_directives:
     online: Online
@@ -299,7 +299,7 @@ en:
       zero: "%{count} Points"
     admin: "Admin"
     about_me: About me
-    tags: Project categories following
+    tags: Skill channels following
     followed_by:
       one: "Followed by %{user1}"
       two: "Followed by %{user1} and %{user2}"
@@ -328,8 +328,8 @@ en:
     who_to_follow: People to follow
     view_more_members: View more members
   widget_tags_to_follow_directive:
-    what_to_follow: Categories to follow
-    view_more_tags: View more categories
+    what_to_follow: Channels to follow
+    view_more_tags: View more channels
   general:
     admin: Admin
     email: "Email"
