@@ -1,21 +1,21 @@
-.item-main-wrapper{"ng-show" => "tag"}
+.item-main-wrapper.tag{"ng-show" => "tag"}
   %div.channel-top{style: "background-image:url({{tag.banner_url}});"}
     %div.channel-inner
-      %img.channel-img{"ng-src" => "{{tag.small_url}}"}      
+      .top-right
+        %follow-tag
+        .btn-group{ "ng-if" => "session.user.admin" }
+          %button.btn.btn-default.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
+            %i.fa.fa-ellipsis-h
+          %ul.dropdown-menu.dropdown-menu-right
+            %li
+              %a{href: "", "ng-click" => "editTag()"}
+                {{"tag_item_directive.edit_tag" | t}}
+            %li
+              %a{href: "", "ng-click" => "destroyTag()", "ng-disabled" => "isDestroying"}
+                {{"tag_item_directive.delete_tag" | t}}
+      -# %img.channel-img{"ng-src" => "{{tag.small_url}}"}
       %a.title.title-lg.primary{"ui-sref" => "home.tagSingle({tag: tag.name})" }> {{ tag.display_name }}
   .item-body
-    .top-right
-      %follow-tag
-      .btn-group{ "ng-if" => "session.user.admin" }
-        %button.btn.btn-default.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
-          %i.fa.fa-ellipsis-h
-        %ul.dropdown-menu.dropdown-menu-right
-          %li
-            %a{href: "", "ng-click" => "editTag()"}
-              {{"tag_item_directive.edit_tag" | t}}
-          %li
-            %a{href: "", "ng-click" => "destroyTag()", "ng-disabled" => "isDestroying"}
-              {{"tag_item_directive.delete_tag" | t}}
     .media.no-margin
       .media-left
         -#%a{"ui-sref" => "home.tagSingle({tag: tag.name})" }
@@ -38,4 +38,3 @@
   /       .description{ "ng-show" => "tag.user" }
   /         %user-link.user{ user: "tag.user", title: "{{tag.user.name}}"}>
   /           {{"tag_item_directive.created_by" | t:{user: tag.user.name} }}
-

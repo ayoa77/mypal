@@ -76,7 +76,9 @@ body {
       padding: 20px;
       overflow-y: auto;
       z-index: 999;
+      visibility: hidden;
       @media (min-width: $screen-sm-min) {
+        visibility: visible;
         top: 0;
       }
     }
@@ -94,7 +96,7 @@ body {
     }
       &.open{
         left: 0;
-        #sidebar-background{
+        #sidebar-background {
           visibility: visible;
           opacity: 1;
           transition-delay:0s;
@@ -482,7 +484,7 @@ label{
 /* @group headers */
 
 .logo-wrapper {
-  background-color:rgba(0,0,0,.3);
+  background-color:blanchedalmond;
   padding: 10px 20px;
   @media (min-width: $screen-sm-min) {
     padding: 10px 40px;
@@ -550,7 +552,7 @@ label{
       padding: 0;
       position: relative;
       border: none;
-      color: white;
+      color: black;
       i.fa{
         font-size: 24px;
       }
@@ -734,11 +736,19 @@ label{
   }
 }
 
+.fa-circle{
+  display: none;
+}
+
 .item-main-wrapper {
 
+  float: none;
+  width: 100%;
   padding: 0;
   @media (min-width: $screen-sm-min){
     padding: 10px 0;
+    float: right;
+    width: 80%;
   }
 
   transition: margin .26s ease;
@@ -932,7 +942,7 @@ label{
     &.title-lg{
       font-size: 20px;
       line-height: 20px;
-      color: white;
+      color: black;
     }
   }
 

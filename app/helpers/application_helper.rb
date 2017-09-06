@@ -31,11 +31,11 @@ module ApplicationHelper
   end
   # "#{@settings["SITE_URL"].chomp("/")}/favicon.png"
   def favicon_image_url
-    "/favicon.png"
+    "/logo.png"
   end
   # "#{@settings["SITE_URL"].chomp("/")}/share.png"
   def share_image_url
-    "/share.png"
+    "/logo.png"
   end
 
   def localize_setting setting

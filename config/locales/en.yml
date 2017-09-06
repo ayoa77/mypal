@@ -61,13 +61,13 @@ en:
     # no_conversations: Your conversations will appear here.
   notifications:
     title: Notifications
-    no_notifications: Your notifications will appear here. 
+    no_notifications: Your notifications will appear here.
     new_follower: "%{name} started following you."
-    request_like_num: 
+    request_like_num:
       zero: "%{name} likes your post."
       one: "%{name} and %{count} other like your post."
       other: "%{name} and %{count} others like your post."
-    comment_like_num: 
+    comment_like_num:
       zero: "%{name} likes your comment."
       one: "%{name} and %{count} other like your comment."
       other: "%{name} and %{count} others like your comment."
@@ -152,7 +152,7 @@ en:
   unsubscribe:
     header: Email preferences updated
     body1: You will not receive such emails anymore from us.
-    profile_pre: Visit your 
+    profile_pre: Visit your
     profile_link: profile settings
     profile_post:  if you want to change more email preferences.
   user:
@@ -241,9 +241,9 @@ en:
   messages_directive:
     replied_on: "replied on:"
   new_request_directive:
-    title: "Collaborators Wanted"
-    subject_placeholder: "Subject (e.g. Looking for a designer for my iOS game)"
-    content_placeholder: "Project details and why people should join"
+    title: "Create a Post"
+    subject_placeholder: "Looking for an English tutor or host in Taipei"
+    content_placeholder: "Post details and why people should host or share their skill with you"
     post: Post
     cancel: Cancel
     pick_a_tag: Project category ...

@@ -111,7 +111,7 @@
         %new-request{"ng-show" => "newRequestVisible"}
         .app-bot
           .container
-            #sidebar{style:"margin-top:320px;","ng-class" => "!session.connected ? 'lower-sidebar' : ''"}
+            #sidebar{style:"margin-top:0px ;","ng-class" => "!session.connected ? 'lower-sidebar' : ''", "ng-click" => "hideSidebar()"  }
               #sidebar-background{ "ng-click" => "hideSidebar()" }
               %widget-main-menu{ "user-connected" => "session.connected"}
             %div.view{ "ui-view" => "" }

@@ -6,6 +6,8 @@
   // background-color: white;
 }
 .app-bot{
+  //ugly fix -- look into this later -- AJ help
+  margin-top: -1px;
   background-color: white;
   overflow: auto;
 }
@@ -48,12 +50,15 @@
   background-size:cover;
   position: relative;
   padding-left:190px;
+  // width: 80%;
+  // float: right;
   // padding-bottom:20px;
 }
 .channel-inner{
   position:absolute;
   bottom:20px;
   height:100px;
+  width: 300px;
   a{
     float: left;
     margin-top:43px;
@@ -64,4 +69,10 @@
   width:100px;
   float:left;
   margin-right:15px;
+}
+.top-right{
+  position: relative;
+  right: -120%;
+  bottom: -60px;
+  float: right;
 }
