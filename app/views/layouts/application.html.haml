@@ -95,7 +95,7 @@
                 -# %hr.landing-hr
                 %p.site-description Skills shared for accommodation
                 -#%p.site-description this is amzing {{ localizeSetting("DESCRIPTION") }}
-                .col-xs-6.col-xs-offset-3{style: "margin-top:35px;"}
+                .col-xs-6.col-xs-offset-3{style: "margin-top:50px;"}
                   .col-xs-6
                     / %img(src="/bg1.jpg" alt="")
                     <span class="landing-title">Guests:</span>
@@ -117,7 +117,7 @@
         %new-request{"ng-show" => "newRequestVisible"}
         .app-bot
           .container
-            #sidebar{style:"margin-top:0px ;","ng-class" => "!session.connected ? 'lower-sidebar' : ''", "ng-click" => "hideSidebar()"  }
+            #sidebar{style:"margin-top:55px ;","ng-class" => "!session.connected ? 'lower-sidebar' : ''", "ng-click" => "hideSidebar()"  }
               #sidebar-background{ "ng-click" => "hideSidebar()" }
               %widget-main-menu{ "user-connected" => "session.connected"}
             %div.view{ "ui-view" => "" }
