@@ -45,7 +45,7 @@ en:
     trying_reconnect: Trying to reconnect...
     retry: Retry now
   tag:
-    index_title: Project categories
+    index_title: Categories
     recommended: Recommended
     latest: Latest
     top: Top
@@ -229,7 +229,7 @@ en:
     notifications: Notifications
     who_to_follow: Who to follow
     invite_people: Invite people
-    tags: Project categories
+    tags: Categories
     more_tags: All categories
     get_started: Get started
     complete_profile: Complete your profile
