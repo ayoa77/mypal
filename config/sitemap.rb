@@ -12,7 +12,7 @@ ActiveRecord::Base.connection.execute('SHOW databases').each do |db|
         settings[s.key] = s.value
       end
 
-      SitemapGenerator::Sitemap.default_host = "http://globetutoring.com" rescue ""
+      SitemapGenerator::Sitemap.default_host = "http://skillster.me" rescue ""
 
       # SitemapGenerator::Sitemap.default_host = settings["SITE_URL"] rescue ""
       # SitemapGenerator::Sitemap.sitemaps_path = "sitemaps/#{settings["SUBSITE"].downcase.to_url}"

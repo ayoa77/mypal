@@ -2,8 +2,8 @@ default: &default
   # # MailGun
   # From address
   MAILGUN_FROM_ADDRESS: "Globetutoring <info@mg.globetutoring.com>"
-  ROOT_URL: "http://globetutoring.com/"
-  DATA_URL: "http://globetutoring.com/"
+  ROOT_URL: "http://skillster.me/"
+  DATA_URL: "http://skillster.me/"
   # DATA_URL: "https://i.doers.io/"
 
   # Payments

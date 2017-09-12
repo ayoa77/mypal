@@ -792,7 +792,7 @@ angular.module('blnkk.services', [ 'persona' ])
 		} else {
 			clientId = '108627286462499';
 			console.log(clientId);
-			redirect = encodeURIComponent("http://globetutoring.com/oauth2authentication");
+			redirect = encodeURIComponent("http://skillster.me/oauth2authentication");
 			// redirect = encodeURIComponent($location.protocol() + '://' + $location.host() + '/oauth2authentication');
 		}
 		this.getAuthenticationURL = function(redirectTo, requestType) {
