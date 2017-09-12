@@ -83,44 +83,50 @@
       -#  = image_tag ActsAsTaggableOn::Tag.find_by(name: params[:id]).city_image.banner.url if ActsAsTaggableOn::Tag.find_by(name: params[:id]).present?
       .ng-cloak{ "ng-show" => "!isRetrievingProfile"  }
         %div.landing-page{ "ng-if" => "!session.connected" }
-          .container
-            .outer
-              .inner
-                -# %h2 {{"index.welcome" | t }}
-                / = image_tag logo_image_url
-                / %h1 {{ setting("SUBSITE") }} {{ setting("SITE_NAME") }}
-                %p.intro Become a skillster
+          .slidey
+            .container.slide1
+              .outer
+                .inner
+                  -# %h2 {{"index.welcome" | t }}
+                  / = image_tag logo_image_url
+                  / %h1 {{ setting("SUBSITE") }} {{ setting("SITE_NAME") }}
+                  %p.intro Become a skillsters!
 
-                / {{ localizeSetting("TAGLINE") }}
-                -# %hr.landing-hr
-                %p.site-description Skills shared for accommodation
-                -#%p.site-description this is amzing {{ localizeSetting("DESCRIPTION") }}
-                .col-xs-6.col-xs-offset-3{style: "margin-top:50px;"}
-                  .col-xs-6
-                    / %img(src="/bg1.jpg" alt="")
-                    <span class="landing-title">Guests:</span>
-                    %div
-                      <i style="font-size:50px; margin:10px 0 10px 0;" class="fa fa-user index-user" aria-hidden="true"></i>
-                    <span>Offer your skill to a host in exchange for free accommodation </span>
-                  .col-xs-6
-                    <span class="landing-title">Hosts:</span>
-                    %div
-                      <i style="font-size:50px; margin:10px 0 10px 0;" class="fa fa-home index-guest" aria-hidden="true"></i>
-                    %span Provide a guest a place to </br> stay in return for </br> a skill you want
+                  / {{ localizeSetting("TAGLINE") }}
+                  -# %hr.landing-hr
+                  %p.site-description Skills shared for accommodation
+                  -#%p.site-description this is amzing {{ localizeSetting("DESCRIPTION") }}
+                  .col-sm-6.col-sm-offset-3{style: "margin-top:50px;"}
+                    .col-sm-6
+                      / %img(src="/bg1.jpg" alt="")
+                      <span class="landing-title">Guests:</span>
+                      %div
+                        <i style="font-size:50px; margin:10px 0 10px 0;" class="fa fa-user index-user" aria-hidden="true"></i>
+                      <span>Offer your skill to a host in exchange for free accommodation </span>
+                    .col-sm-6
+                      <span class="landing-title">Hosts:</span>
+                      %div
+                        <i style="font-size:50px; margin:10px 0 10px 0;" class="fa fa-home index-guest" aria-hidden="true"></i>
+                      %span Provide a guest a place to </br> stay in return for </br> a skill you want
 
-                -#.inner-button
-                  -#%a.btn-large{ href: "", "ng-click" => "signIn(null, 'signup-Facebook')"} {{"signup.with_facebook" | t}}
-                -#.inner-link
-                  -# %a.btn-small{ href: "", "ng-click" => "signIn(null, 'signin-Facebook')"} {{"signin.sign_in_now" | t}}
-
+                  -#.inner-button
+                    -#%a.btn-large{ href: "", "ng-click" => "signIn(null, 'signup-Facebook')"} {{"signup.with_facebook" | t}}
+                  -#.inner-link
+                    -# %a.btn-small{ href: "", "ng-click" => "signIn(null, 'signin-Facebook')"} {{"signin.sign_in_now" | t}}
+            .container.slide2              
+            .container.slide3              
+            .container.slide4              
+            .container.slide5              
+            .container.slide6              
+            
 
         %new-request{"ng-show" => "newRequestVisible"}
         .app-bot
           .container
-            #sidebar{style:"margin-top:55px ;","ng-class" => "!session.connected ? 'lower-sidebar' : ''", "ng-click" => "hideSidebar()"  }
+            #sidebar.col-sm-3{"ng-class" => "!session.connected ? 'lower-sidebar' : ''", "ng-click" => "hideSidebar()"  }
               #sidebar-background{ "ng-click" => "hideSidebar()" }
               %widget-main-menu{ "user-connected" => "session.connected"}
-            %div.view{ "ui-view" => "" }
+            %div.view.col-sm-8{ "ui-view" => "" }
 
     %noscript
       .headings-wrapper
@@ -139,6 +145,8 @@
     = javascript_include_tag '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'
     :javascript
       $(document).ready(function(){
-        $('.your-class').slick({
+        $('.slidey').slick({
+          prevArrow: "<button class='slick-prev'> &lt; </button> ",
+          nextArrow:"<button class='slick-next'> &gt; </button> "
         });
       });

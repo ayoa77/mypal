@@ -1,9 +1,9 @@
 .item-main-wrapper
-
+  %div.channel-top.request{style: "background-image:url({{request.tag.banner_url}});"}
+    %a.title.title-lg.primary.request{style:"margin-top:60px;display:block;", "ui-sref" => "home.tagSingle({tag: tag.name})" }> {{ request.tag.display_name }}
   .item-body{"ng-click" => "toggle()"}
 
     .media.old-media-style
-
       .media-left
         .tag-icon
           %a.stop-event{"ng-show" => "request.tag && !tag", "ui-sref" => "home.tagSingle({tag: request.tag.name})"}
