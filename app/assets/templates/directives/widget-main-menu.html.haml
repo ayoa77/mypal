@@ -20,7 +20,7 @@
         %span.badge.pull-right{"ng-show" => "session.user.unread_notifications_count > 0"} {{session.user.unread_notifications_count}}
 
   %ul.dropdown-menu{"ng-show" => "session.connected && (session.user.email.split('@')[0] == session.user.name || !session.user.biography || (session.user.tag_list.length < 5) || (session.user.following_count < 5) || (session.user.request_count < 1))"}
-    %li.dropdown-header 
+    %li.dropdown-header
       {{"main_menu_directive.get_started" | t}}
 
     %li
@@ -61,7 +61,7 @@
           {{"main_menu_directive.make_first_post" | t}}
 
   %ul.dropdown-menu
-    %li.dropdown-header 
+    %li.dropdown-header
       {{"main_menu_directive.tags" | t}}
     %li{"ng-repeat" => "tag in (session.connected ? session.user.tags : tags)"}
       %a{"ui-sref" => "home.tagSingle({tag: tag.name})", "ui-sref-opts" => "{reload: true}"}
@@ -73,7 +73,7 @@
         {{"main_menu_directive.more_tags" | t}}
 
   %ul.dropdown-menu{"ng-controller" => "DashboardController", "ng-show" => "conversations.length > 0"}
-    %li.dropdown-header 
+    %li.dropdown-header
       {{"main_menu_directive.conversations" | t}}
     %li{"ng-repeat" => "conversation in conversations"}
       %a{"ui-sref" => "home.conversation({id: conversation.id})", "ui-sref-opts" => "{reload: true}"}
@@ -92,7 +92,7 @@
       %span
         &copy;
         = Date.today.strftime("%Y")
-        {{ setting("SITE_NAME") }}
+        Skillster
       %br
       -# %a{ "ui-sref" => "home.users({q: 'doers-team'})" } {{"widget_footer_directive.team" | t}}
       -# %a{ "ui-sref" => "terms" } {{"widget_footer_directive.terms" | t}}
@@ -101,9 +101,9 @@
 
     .item{"ng-show" => "showLanguage('en')"}
       %a{"ng-click" => "$event.preventDefault();switchLanguage('en')", href: "/?ln=en"} {{ setting("SITE_NAME") }} offered in: English
-    .item{"ng-show" => "showLanguage('zh-CN')"}  
+    .item{"ng-show" => "showLanguage('zh-CN')"}
       %a{"ng-click" => "$event.preventDefault();switchLanguage('zh-CN')", href: "/?ln=zh-CN"} {{ setting("SITE_NAME") }} offered in: 简体中文
-    .item{"ng-show" => "showLanguage('zh-TW')"}  
+    .item{"ng-show" => "showLanguage('zh-TW')"}
       %a{"ng-click" => "$event.preventDefault();switchLanguage('zh-TW')", href: "/?ln=zh-TW"} {{ setting("SITE_NAME") }} offered in: 繁體中文
 
     .item.social-links{"ng-if" => "!isChina()"}
