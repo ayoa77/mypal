@@ -115,19 +115,19 @@
                     -# %a.btn-small{ href: "", "ng-click" => "signIn(null, 'signin-Facebook')"} {{"signin.sign_in_now" | t}}
             .container.slide2
               -#.slide-blur{style: "background-image:url('dance.png')"}
-              %img{"ng-src" => "dance.png"}          
-            .container.slide3              
+              %img{"ng-src" => "dance.png"}
+            .container.slide3
               -#.slide-blur{style: "background-image:url('rock.png')"}
-              %img{"ng-src" => "rock.png"}          
-            .container.slide4              
+              %img{"ng-src" => "rock.png"}
+            .container.slide4
               -#.slide-blur{style: "background-image:url('exercise.png')"}
-              %img{"ng-src" => "exercise.png"}          
-            .container.slide5              
+              %img{"ng-src" => "exercise.png"}
+            .container.slide5
               -#.slide-blur{style: "background-image:url('explore.png')"}
-              %img{"ng-src" => "explore.png"}          
-            .container.slide6              
+              %img{"ng-src" => "explore.png"}
+            .container.slide6
               -#.slide-blur{style: "background-image:url('learn.png')"}
-              %img{"ng-src" => "learn.png"}          
+              %img{"ng-src" => "learn.png"}
         %new-request{"ng-show" => "newRequestVisible"}
         .app-bot
           .container
@@ -155,6 +155,9 @@
       $(document).ready(function(){
         $('.slidey').slick({
           prevArrow: "<button class='slick-prev'> &lt; </button> ",
-          nextArrow:"<button class='slick-next'> &gt; </button> "
+          nextArrow:"<button class='slick-next'> &gt; </button> ",
+          autoplay: true,
+          pauseOnHover: true,
+          autoplaySpeed: 4000
         });
       });

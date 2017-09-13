@@ -31,7 +31,7 @@ module ApplicationHelper
   end
   # "#{@settings["SITE_URL"].chomp("/")}/favicon.png"
   def favicon_image_url
-    "/logo.png"
+    "/favicon.ico"
   end
   # "#{@settings["SITE_URL"].chomp("/")}/share.png"
   def share_image_url
