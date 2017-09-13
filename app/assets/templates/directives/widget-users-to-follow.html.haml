@@ -1,6 +1,6 @@
 .item-main-wrapper{"ng-show" => "showWidget && (users.length > 0 || tags.length > 0)"}
   .row
-    .col-md-4{"ng-show" => "tags.length > 0"}
+    .col-md-6{"ng-show" => "tags.length > 0"}
       .item-header
         {{"widget_tags_to_follow_directive.what_to_follow" | t}}
       .item-body
@@ -21,7 +21,7 @@
       .item-footer.text-right
         %a.btn.btn-default{"ui-sref" => "home.tags"} {{"widget_tags_to_follow_directive.view_more_tags" | t}}
 
-    .col-md-4{"ng-show" => "users.length > 0"}
+    .col-md-6{"ng-show" => "users.length > 0"}
       .item-header
         {{"widget_users_to_follow_directive.who_to_follow" | t}}
       .item-body

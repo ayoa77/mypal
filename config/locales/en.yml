@@ -22,10 +22,10 @@ en:
       intro: "%{name} is looking for you on Skillsters!"
       action: Check it out
     new_follower:
-      intro: "%{name} started following you on Doers!"
+      intro: "%{name} started following you on Skillster!"
       action: View full profile
   toolbar:
-    sign_in: Sign In Again
+    sign_in: Sign In
     register: Sign up
     my_profile: My profile
     settings: Settings
@@ -180,7 +180,7 @@ en:
     by: "By %{name} - %{bio}"
     invite:
       title: Invite people
-      description: Make the most out of Doers by inviting your friends to join the community and to follow you.
+      description: Make the most out of Skillster by inviting your friends to join the community and to follow you.
       gmail_contacts: Gmail contacts
       connecting: Connecting...
       connect: Connect
@@ -271,8 +271,8 @@ en:
     report_post_question: Are you sure you want to report this post?
     people_reached_num:
       one: "%{count} doer reached"
-      other: "%{count} doers reached"
-      zero: "%{count} doers reached"
+      other: "%{count} Skillster reached"
+      zero: "%{count} Skillster reached"
   tag_item_directive:
     created_by: "Created by %{user}"
     follower_num:
@@ -317,12 +317,12 @@ en:
     team: Team
     contact: Contact
     terms: Terms
-    on_facebook: Doers on Facebook
-    on_twitter: Doers on Twitter
-    on_google_plus: Doers on Google+
-    on_linkedin: Doers on LinkedIn
+    on_facebook: Skillster on Facebook
+    on_twitter: Skillster on Twitter
+    on_google_plus: Skillster on Google+
+    on_linkedin: Skillster on LinkedIn
   widget_online_users_directive:
-    members: Doers Members
+    members: Skillster Members
     view_all: View all members
   widget_users_to_follow_directive:
     who_to_follow: People to follow

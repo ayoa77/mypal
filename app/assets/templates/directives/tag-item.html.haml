@@ -15,17 +15,17 @@
                 {{"tag_item_directive.delete_tag" | t}}
       -# %img.channel-img{"ng-src" => "{{tag.small_url}}"}
       %a.title.title-lg.primary{"ui-sref" => "home.tagSingle({tag: tag.name})" }> {{ tag.display_name }}
-  .item-body.col-lm-8
-    .media.no-margin
-      .media-left
+  -#.item-body.col-lm-8
+    -#.media.no-margin
+      -#.media-left
         -#%a{"ui-sref" => "home.tagSingle({tag: tag.name})" }
         -#  .img-placeholder.img-placeholder-100
         -#   %i.fa.fa-fw{ "ng-class" => "'fa-'+tag.icon" }
-      .media-body.media-bottom
+      -#.media-body.media-bottom
         -#%a.title.title-lg.primary{"ui-sref" => "home.tagSingle({tag: tag.name})" }> {{ tag.display_name }}
-        .item-tags
+        -#.item-tags
 
-          %span.item.text-nowrap
+          -#%span.item.text-nowrap
           -#  %a{"ui-sref" => "home.users({q: 'category:'+tag.name})"}
           -#    %span{ "ng-bind-html" => "'tag_item_directive.follower_num' | t:{count: tag.user_count}" }>
 

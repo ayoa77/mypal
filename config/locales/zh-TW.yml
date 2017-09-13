@@ -1,7 +1,7 @@
 zh-TW:
   emails:
     # powered_by: "Powered by %{siteName}"
-    reason: "您收到這封電子郵件是因為您是Doers的會員，或是有個Doers的會員邀請您使用Doers。"
+    reason: "您收到這封電子郵件是因為您是Skillster的會員，或是有個Skillster的會員邀請您使用Skillster。"
     unsubscribe: 退訂 
     greeting_name: "你好 %{name},"
     greeting_no_name: "哈囉,"
@@ -9,20 +9,20 @@ zh-TW:
       intro: "%{name} 評論了您的留言”!"
       action: 去看看吧
     new_comment:
-      intro: "%{name} 評論了您在Doers上的公告!"
+      intro: "%{name} 評論了您在Skillster上的公告!"
       action: 去看看吧
     new_message:
-      intro: "%{name} 在Doers上留言給你!"
+      intro: "%{name} 在Skillster上留言給你!"
       action: 現在就回覆吧
     fresh_new_posts:
-      intro: 在Doers上有一些您可能會感到興趣的新信息!
+      intro: 在Skillster上有一些您可能會感到興趣的新信息!
       action: 查看更多
       view_all_posts: 瀏覽全部
     invite:
-      intro: "%{name} 在Doers上找你呢!"
+      intro: "%{name} 在Skillster上找你呢!"
       action: 去看看吧
     new_follower:
-      intro: "%{name} 變成你的Doers粉絲了!"
+      intro: "%{name} 變成你的Skillster粉絲了!"
       action: 查看檔案
   toolbar:
     sign_in: 登入
@@ -81,7 +81,7 @@ zh-TW:
       other: "%{name} 和另外 %{count} 個人評論了一則你也評論過的告示。"
   services:
     unavailable: 真拍謝，現在無法服務。 請稍後再試試。
-    need_sign_in: 你必需登入才能夠使用 Doers。請登入。
+    need_sign_in: 你必需登入才能夠使用 Skillster。請登入。
     not_found: 找不到你要的資訊，真抱歉。
     unknown: 不知道那裡出錯了。請稍候再試！
     sign_in: 請登入。
@@ -128,7 +128,7 @@ zh-TW:
   profile:
     summary: 個人簡歷
   share:
-    page: 將 Doers 分享給朋友
+    page: 將 Skillster 分享給朋友
     tagline: 關心就要分享!
   signup:
     title: 註冊
@@ -172,14 +172,14 @@ zh-TW:
     my_posts_comments: 你有新留言
     posts_comments: 我的留言有人評論了
     new_followers: 新粉絲
-    newsletters: Doers周報
+    newsletters: Skillster周報
     save: 儲存簡歷
     my_posts: 我的公告
     my_posts_plus_replied_on: 我的公告及我留言過的公告
     by: "%{name} - %{bio} 發佈"
     invite:
       title: 邀請更多人
-      description: 邀請朋友使用Doers並相互關注、互通有無。
+      description: 邀請朋友使用Skillster並相互關注、互通有無。
       gmail_contacts: Gmail 聯絡人
       connecting: 連線中...
       connect: 連線
@@ -230,7 +230,7 @@ zh-TW:
     invite_people: 邀請更多人
     tags: 頻道
     more_tags: 更多頻道
-    get_started: 開始使用 Doers
+    get_started: 開始使用 Skillster
     complete_profile: 完善個人簡歷
     follow_tags: 關注5個頻道
     follow_people: 關注5個會員
@@ -316,12 +316,12 @@ zh-TW:
     team: 團隊成員
     contact: 聯絡方式
     terms: 使用條款
-    on_facebook: Doers 在 Facebook
-    on_twitter: Doers 在 Twitter
-    on_google_plus: Doers 在 Google+
-    on_linkedin: Doers 在 LinkedIn
+    on_facebook: Skillster 在 Facebook
+    on_twitter: Skillster 在 Twitter
+    on_google_plus: Skillster 在 Google+
+    on_linkedin: Skillster 在 LinkedIn
   widget_online_users_directive:
-    members: Doers 會員
+    members: Skillster 會員
     view_all: 瀏覽全部會員
   widget_users_to_follow_directive:
     who_to_follow: 關注那些人
