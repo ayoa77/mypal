@@ -52,7 +52,7 @@
               -#  / = @settings["SUBSITE"]
               -#  / = @settings["SITE_NAME"]
           .media-body.media-middle.nav-mid
-          .media-right.media-middle.ng-cloak.text-nowrap.nav-rt           
+          .media-right.media-middle.ng-cloak.text-nowrap.nav-rt
             %a.btn.btn-link.btn-first{ "ui-sref" => "home.users({q: ''})", title: "Search", "ui-sref-opts" => "{reload:true}", "ng-show" => "!isRetrievingProfile && session.connected" }
               %i.fa.fa-fw.fa-search
             %a.nav-signin{ href: "", "ng-click" => "signIn(null, 'signup-Facebook')", "ng-show" => "!isRetrievingProfile && !session.connected"}
@@ -159,7 +159,7 @@
         $('.slidey').slick({
           prevArrow: "<button class='slick-prev'> &lt; </button> ",
           nextArrow:"<button class='slick-next'> &gt; </button> ",
-          //autoplay: true,
+          autoplay: true,
           pauseOnHover: true,
           autoplaySpeed: 4000
         });
