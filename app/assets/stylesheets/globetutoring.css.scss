@@ -25,17 +25,28 @@
 
   border-top:solid 2px white;
 }
-
+.spinner{
+  margin:0;
+}
 #sidebar{
   // float:left;
   // width:17%;
-  margin-top:20px;
+  margin-top:40px;
+}
+.view{
+  margin-top:40px;
 }
 .nav-signin{
   color:#00B0BD;
   font-size: 20px;
   padding:0 30px;
 
+}
+.nav-hamburger{
+  display:none;
+}
+.nav-mobile{
+  display:none;
 }
 .nav-signin:hover{
   color:white;
@@ -173,6 +184,12 @@ body{
   }
   #sidebar.open{
     left:0;
+  }
+  .nav-mid{
+    display:none;
+  }
+  .nav-rt{
+    white-space: normal;
   }
 }
 @media(max-width: 425px){

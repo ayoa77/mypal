@@ -1,4 +1,4 @@
-%div{"ng-if" => "session.connected", "ng-controller" => "NotificationsController"}
+%div{ "ng-if" => "session.connected", "ng-controller" => "NotificationsController"}
 
   .no-content-filler{"ng-show" => "session.connected && (notifications == null || notifications.length == 0) && isEndOfNotifications"}
     %i.fa.fa-bell-o
