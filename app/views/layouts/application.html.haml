@@ -3,7 +3,7 @@
   %head
     %meta{:charset => 'utf-8'}
     / %title{ "ng-bind" => "title"}= @title.present? ? "#{@title} - #{@settings["SUBSITE"]} #{@settings["SITE_NAME"]}" : "#{@settings["SUBSITE"]} #{@settings["SITE_NAME"]} - #{localize_setting("TAGLINE")}"
-    %title GlobeTutoring
+    %title Skillster
     %meta{'http-equiv' => 'X-UA-Compatible', content: 'IE=Edge,chrome=1'}
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1'}
     %meta{name: 'description', content: @description}
@@ -113,12 +113,12 @@
                     -#%a.btn-large{ href: "", "ng-click" => "signIn(null, 'signup-Facebook')"} {{"signup.with_facebook" | t}}
                   -#.inner-link
                     -# %a.btn-small{ href: "", "ng-click" => "signIn(null, 'signin-Facebook')"} {{"signin.sign_in_now" | t}}
-            .container.slide2              
-            .container.slide3              
-            .container.slide4              
-            .container.slide5              
-            .container.slide6              
-            
+            .container.slide2
+            .container.slide3
+            .container.slide4
+            .container.slide5
+            .container.slide6
+
 
         %new-request{"ng-show" => "newRequestVisible"}
         .app-bot
