@@ -172,6 +172,18 @@ body{
 
 
 //Media Queries
+@media (max-width:1379px){
+  .landing-page .intro{
+    margin-top:0px;
+    // font-size: 100px;
+  }
+}
+@media (max-width: 1024px){
+  .landing-page .intro{
+    margin-top:10px;
+    font-size: 100px;
+  }
+}
 @media (max-width: 768px){
   .landing-page .intro{
     margin-top:20px;
