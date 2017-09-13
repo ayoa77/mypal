@@ -1,8 +1,8 @@
 .item-main-wrapper{style: "padding-top:0;"}
   -#%div.channel-top.request{style: "background-image:url({{request.tag.banner_url}});"}
   -#  %a.title.title-lg.primary.request{style:"margin-top:60px;display:block;", "ui-sref" => "home.tagSingle({tag: tag.name})" }> {{ request.tag.display_name }}
-  .item-body{style:"padding-top:0;", "ng-click" => "toggle()"} 
-    %div hihi
+  .item-body{style:"padding-top:0;", "ng-click" => "toggle()"}
+    %div 
 
 
     .media.old-media-style
@@ -36,7 +36,7 @@
 
           %span.item.text-nowrap
             %i.fa.fa-clock-o.fa-fw
-            
+
             %a.stop-event{ "ui-sref" => "requestSingle({id: request.id})"}>
               %span{"am-time-ago" => "request.created_at", "am-preprocess" => "unix"}
 
@@ -48,10 +48,10 @@
         %formatted-message.item.readmore{ text: "request.content" }
 
         -# .item.show-expanded
-          
+
         -#   .content
         -#     %formatted-message{text: "request.content"}
-            
+
         %attachment{text: "request.content"}
 
   %request-item-actions
