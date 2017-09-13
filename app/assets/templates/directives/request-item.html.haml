@@ -1,7 +1,9 @@
-.item-main-wrapper
+.item-main-wrapper{style: "padding-top:0;"}
   -#%div.channel-top.request{style: "background-image:url({{request.tag.banner_url}});"}
   -#  %a.title.title-lg.primary.request{style:"margin-top:60px;display:block;", "ui-sref" => "home.tagSingle({tag: tag.name})" }> {{ request.tag.display_name }}
-  .item-body{"ng-click" => "toggle()"}
+  .item-body{style:"padding-top:0;", "ng-click" => "toggle()"} 
+    %div hihi
+
 
     .media.old-media-style
       .media-left
