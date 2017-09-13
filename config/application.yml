@@ -1,7 +1,7 @@
 default: &default
   # # MailGun
   # From address
-  MAILGUN_FROM_ADDRESS: "Globetutoring <info@mg.globetutoring.com>"
+  MAILGUN_FROM_ADDRESS: "Skillster <info@mg.skillster.me>"
   ROOT_URL: "http://skillster.me/"
   DATA_URL: "http://skillster.me/"
   # DATA_URL: "https://i.doers.io/"
