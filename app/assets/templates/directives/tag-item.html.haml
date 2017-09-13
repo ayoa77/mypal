@@ -3,16 +3,16 @@
     %div.channel-inner
       .top-right
         %follow-tag
-        .btn-group{ "ng-if" => "session.user.admin" }
-          %button.btn.btn-default.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
-            %i.fa.fa-ellipsis-h
-          %ul.dropdown-menu.dropdown-menu-right
-            %li
-              %a{href: "", "ng-click" => "editTag()"}
-                {{"tag_item_directive.edit_tag" | t}}
-            %li
-              %a{href: "", "ng-click" => "destroyTag()", "ng-disabled" => "isDestroying"}
-                {{"tag_item_directive.delete_tag" | t}}
+        -# .btn-group{ "ng-if" => "session.user.admin" }
+        -#   %button.btn.btn-default.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
+        -#     %i.fa.fa-ellipsis-h
+        -#   %ul.dropdown-menu.dropdown-menu-right
+        -#     %li
+        -#       %a{href: "", "ng-click" => "editTag()"}
+        -#         {{"tag_item_directive.edit_tag" | t}}
+        -#     %li
+        -#       %a{href: "", "ng-click" => "destroyTag()", "ng-disabled" => "isDestroying"}
+        -#         {{"tag_item_directive.delete_tag" | t}}
       -# %img.channel-img{"ng-src" => "{{tag.small_url}}"}
       %a.title.title-lg.primary{"ui-sref" => "home.tagSingle({tag: tag.name})" }> {{ tag.display_name }}
   .item-body.col-lm-8
