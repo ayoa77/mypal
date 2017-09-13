@@ -4,7 +4,6 @@
   .item-body{style:"padding-top:0;", "ng-click" => "toggle()"} 
     %div
 
-
     .media.old-media-style
       .media-left
         .tag-icon
@@ -36,7 +35,7 @@
 
           %span.item.text-nowrap
             %i.fa.fa-clock-o.fa-fw
-            
+
             %a.stop-event{ "ui-sref" => "requestSingle({id: request.id})"}>
               %span{"am-time-ago" => "request.created_at", "am-preprocess" => "unix"}
 
@@ -48,10 +47,10 @@
         %formatted-message.item.readmore{ text: "request.content" }
 
         -# .item.show-expanded
-          
+
         -#   .content
         -#     %formatted-message{text: "request.content"}
-            
+
         %attachment{text: "request.content"}
 
   %request-item-actions
