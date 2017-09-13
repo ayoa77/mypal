@@ -132,9 +132,16 @@ body{
 .site-intros{
   margin-top:50px;
 }
-
+.landing-page .intro{
+  font-weight: 900;
+  font-size: 120px;
+  margin-top:70px;
+}
+.landing-page .inner .site-description{
+  font-size: 40px;
+}
 .slide1{
-  background-image: url('/slide1.png');
+  background-image: url('/blur/climbing.jpg');
 }
 .slide2{
   background-image: url('/blur/dance.jpg');
@@ -165,7 +172,14 @@ body{
 
 
 //Media Queries
-@media (max-width: 767px){
+@media (max-width: 768px){
+  .landing-page .intro{
+    margin-top:20px;
+    font-size: 70px;
+  }
+  .landing-page .inner .site-description{
+    font-size: 30px;
+  }
   #sidebar{
     position: fixed;
     background-color: white;
@@ -180,7 +194,7 @@ body{
     transition: left 0.4s ease-in-out;
   }
   .site-intros{
-    margin-top:25px;
+    margin-top:0px;
   }
   #sidebar.open{
     left:0;
@@ -193,6 +207,12 @@ body{
   }
 }
 @media(max-width: 425px){
+  .landing-page .intro{
+    font-size: 50px;
+  }
+  .landing-page .inner .site-description{
+    font-size: 20px;
+  }
   .slide1, .slide2, .slide3, .slide4, .slide5, .slide6{
     height:300px;
   }
@@ -216,6 +236,6 @@ body{
     display: none;
   }
   .landing-page .intro{
-    font-size: 36px;
+    font-size: 50px;
   }
 }
