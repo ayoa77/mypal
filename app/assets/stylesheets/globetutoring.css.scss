@@ -29,6 +29,7 @@
 #sidebar{
   // float:left;
   // width:17%;
+  margin-top:20px;
 }
 .nav-signin{
   color:#00B0BD;
@@ -87,6 +88,8 @@ body{
 }
 .slidey{
   position: relative;
+  background-image:url('/loading.gif');
+  background-size: cover;
 }
 .slidey .slick-prev, .slidey .slick-next{
   position: absolute;
@@ -104,27 +107,38 @@ body{
 }
 .slide1,.slide2,.slide3,.slide4,.slide5,.slide6,{
   // background-size: cover;
+  // position: relative;
   background-position: center;
-  background-size:100%;
+  background-size:cover;
   height:500px;
+  background-repeat: no-repeat;
+  img{
+    height:100%;
+    width:initial;
+    margin:0 auto;
+  }
 }
+.site-intros{
+  margin-top:50px;
+}
+
 .slide1{
   background-image: url('/slide1.png');
 }
 .slide2{
-  background-image: url('/dance.png');
+  background-image: url('/blur/dance.jpg');
 }
 .slide3{
-  background-image: url('/rock.png');
+  background-image: url('/blur/rock.jpg');
 }
 .slide4{
-  background-image: url('/exercise.png');
+  background-image: url('/blur/exercise.jpg');
 }
 .slide5{
-  background-image: url('/explore.png');
+  background-image: url('/blur/explore.jpg');
 }
 .slide6{
-  background-image: url('/learn.png');
+  background-image: url('/blur/learn.jpg');
 }
 .landing-page{
   height:inherit;
@@ -153,13 +167,37 @@ body{
     margin-top:0px;
     overflow: auto;
     transition: left 0.4s ease-in-out;
-
+  }
+  .site-intros{
+    margin-top:25px;
   }
   #sidebar.open{
     left:0;
   }
 }
+@media(max-width: 425px){
+  .slide1, .slide2, .slide3, .slide4, .slide5, .slide6{
+    height:300px;
+  }
+  .slide1 img, .slide2 img, .slide3 img, .slide4 img, .slide5 img, .slide6 img{
+    width:100%;
+    margin-top:30px;
+    height:initial;
+  }
+  .site-intros{
+    display:none;
+  }
+}
 @media (max-width:375px){
+  .landing-icon{
+    display:none;
+  }
+  .landing-page .inner .site-description{
+    font-size: 13px;
+  }
+  .slide-blur{
+    display: none;
+  }
   .landing-page .intro{
     font-size: 36px;
   }

@@ -369,7 +369,8 @@ angular.module('blnkk.controllers', [ 'persona' ])
       wsCurrentTime = wsInitialTime;
 		  authService.signOut().then(function(){
         SocketMessages.disconnect();
-        $state.go('home.index');        
+        $state.go('home.index');
+        window.location.reload();      
       });
 
     };
