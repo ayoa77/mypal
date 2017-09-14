@@ -21,26 +21,26 @@
             %i.fa.fa-cog
             %span.hidden-xs {{"user_directives.edit_profile" | t}}
 
-          .btn-group{"ng-if"=>"session.user.admin && session.user.id != user.id"}
-            %button.btn.btn-default.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
-              %i.fa.fa-ellipsis-h
-            %ul.dropdown-menu.dropdown-menu-right
-              %li{"ng-show" => "!user.admin"}
-                %a{href: "", "ng-click" => "promote()"}
-                  {{"user_directives.promote" | t}}
-              %li{"ng-show" => "user.admin"}
-                %a{href: "", "ng-click" => "demote()"}
-                  {{"user_directives.demote" | t}}
-              %li{"ng-show" => "!user.enabled"}
-                %a{href: "", "ng-click" => "enable()"}
-                  {{"user_directives.enable" | t}}
-              %li{"ng-show" => "user.enabled"}
-                %a{href: "", "ng-click" => "disable()"}
-                  {{"user_directives.disable" | t}}
+          -#.btn-group{"ng-if"=>"session.user.admin && session.user.id != user.id"}
+            -#%button.btn.btn-default.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
+              -#%i.fa.fa-ellipsis-h
+            -#%ul.dropdown-menu.dropdown-menu-right
+              -#%li{"ng-show" => "!user.admin"}
+                -#%a{href: "", "ng-click" => "promote()"}
+                  -#{{"user_directives.promote" | t}}
+              -#%li{"ng-show" => "user.admin"}
+                -#%a{href: "", "ng-click" => "demote()"}
+                  -#{{"user_directives.demote" | t}}
+              -#%li{"ng-show" => "!user.enabled"}
+                -#%a{href: "", "ng-click" => "enable()"}
+                  -#{{"user_directives.enable" | t}}
+              -#%li{"ng-show" => "user.enabled"}
+                -#%a{href: "", "ng-click" => "disable()"}
+                  -#{{"user_directives.disable" | t}}
                   
         .clearfix
 
-        %a.title.title-lg.primary{"ui-sref" => "home.userSingle({id: user.id})"} {{user.name}}
+        %a.title.title-lg.primary{style: "color:black;","ui-sref" => "home.userSingle({id: user.id})"} {{user.name}}
         .item-tags
 
           %span.item.text-nowrap.points
