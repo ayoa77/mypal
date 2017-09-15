@@ -48,6 +48,7 @@ class Admin::ActsAsTaggableOnTagsController < AdminController
       if @tag.update_attributes(tag_params) && @city_image.update_attributes(city_image_params)
         @tag.banner_url = @city_image.banner.url
         @tag.small_url = @city_image.small.url
+        @tag.display_name = tag_params[:name]
         @tag.save
         flash[:notice] = "city #{@tag.name} updated"
         redirect_to admin_acts_as_taggable_on_tags_path

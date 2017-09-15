@@ -45,7 +45,7 @@ en:
     trying_reconnect: Trying to reconnect...
     retry: Retry now
   tag:
-    index_title: Skill channels
+    index_title: Channels
     recommended: Recommended
     latest: Latest
     top: Top
@@ -229,8 +229,8 @@ en:
     notifications: Notifications
     who_to_follow: Who to follow
     invite_people: Invite people
-    tags: Skill Channels
-    more_tags: All Skills
+    tags: Channels
+    more_tags: All Channels
     get_started: Get started
     complete_profile: Complete your profile
     follow_tags: Follow 5 skills
@@ -246,7 +246,7 @@ en:
     content_placeholder: "Post details and why people should host or share their skill with you"
     post: Post
     cancel: Cancel
-    pick_a_tag: Skill channel ...
+    pick_a_tag: Channel ...
     blink_posted: Skillsters request posted
   request_item_actions_directive:
     chat: Chat
@@ -299,7 +299,7 @@ en:
       zero: "%{count} Points"
     admin: "Admin"
     about_me: About me
-    tags: Skill channels following
+    tags: Channels following
     followed_by:
       one: "Followed by %{user1}"
       two: "Followed by %{user1} and %{user2}"
