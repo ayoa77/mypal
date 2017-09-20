@@ -24,7 +24,6 @@ class Invitation < ActiveRecord::Base
   def self.invite(user_from, email_to, name_to = nil)
     invite = Invitation.create(user: user_from, email: email_to)
     if invite.present? && invite.valid?
-      byebug
       GunMailer.send_invitation(user_from, email_to, name_to)
     end
   end

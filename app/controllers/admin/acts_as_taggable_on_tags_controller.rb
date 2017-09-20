@@ -21,7 +21,6 @@ class Admin::ActsAsTaggableOnTagsController < AdminController
     end
 
     def create
-      byebug
       @tag = ActsAsTaggableOn::Tag.new(tag_params)
       @tag.user = current_user
       @tag.display_name = tag_params[:name]
