@@ -44,7 +44,7 @@ Rails.application.configure do
   #   Rails.application.routes.default_url_options = {
   #     host:  'com',
   #     protocol: 'http',
-  #     subdomain: 'globetutoring'
+  #     subdomain: 'skillster'
   #   }
   # end
 end
