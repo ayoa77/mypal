@@ -6,12 +6,13 @@ var setTitle = function(rootScope, title, count, analytics) {
   if (title){
     title += " - " + settings["SUBSITE"] + " " + settings["SITE_NAME"];
   } else {
-    title = settings["SUBSITE"] + " " + settings["SITE_NAME"] + " - ";
-    if (I18n.locale == settings["LOCALE_SECONDARY"]){
-      title += settings["TAGLINE_SECONDARY"];
-    } else {
-      title += settings["TAGLINE_PRIMARY"];
-    }
+    title = settings["SUBSITE"] + " " + settings["SITE_NAME"];
+    // if (I18n.locale == settings["LOCALE_SECONDARY"]){
+    //   title += settings["TAGLINE_SECONDARY"];
+    // } else {
+    //   title += settings["TAGLINE_PRIMARY"];
+
+    // }
   }
 
 
