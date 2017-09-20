@@ -1,3 +1,22 @@
+@-webkit-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+textarea{
+  resize:none;
+}
 .view{
   background-color: white;
 }
@@ -107,6 +126,10 @@ body{
   position: relative;
   background-image:url('/loading.gif');
   background-size: cover;
+  -webkit-animation: fadein 6.5s; /* Safari 4+ */
+  -moz-animation:    fadein 6.5s; /* Fx 5+ */
+  -o-animation:      fadein 6.5s; /* Opera 12+ */
+  animation:         fadein 6.5s; /* IE 10+, Fx 29+ */
 }
 .slidey .slick-prev, .slidey .slick-next{
   position: absolute;

@@ -9,17 +9,17 @@ en:
       intro: "%{name} commented on a post you also commented on!"
       action: Check it out
     new_comment:
-      intro: "%{name} commented on your post on Skillsters!"
+      intro: "%{name} commented on your post on Skillster!"
       action: Check it out
     new_message:
-      intro: "%{name} wrote you a message on Skillsters!"
+      intro: "%{name} wrote you a message on Skillster!"
       action: Keep the conversation going
     fresh_new_posts:
-      intro: There are some fresh new posts for you on Skillsters!
+      intro: There are some fresh new posts for you on Skillster!
       action: Read more
       view_all_posts: View all new posts
     invite:
-      intro: "%{name} is looking for you on Skillsters!"
+      intro: "%{name} is looking for you on Skillster!"
       action: Check it out
     new_follower:
       intro: "%{name} started following you on Skillster!"
@@ -242,12 +242,12 @@ en:
     replied_on: "replied on:"
   new_request_directive:
     title: "Create a Post"
-    subject_placeholder: "Looking for an English tutor or host in Taipei"
-    content_placeholder: "Post details and why people should host or share their skill with you"
+    subject_placeholder: "List your target city, skill or accommodation needs"
+    content_placeholder: "Add details: your skills, travel plans, accommodation preferences (as a Skillster) skills you want to learn, help your project needed, housing provided in return (as a host)"
     post: Post
     cancel: Cancel
     pick_a_tag: Channel ...
-    blink_posted: Skillsters request posted
+    blink_posted: Skillster request posted
   request_item_actions_directive:
     chat: Chat
     share: Share
