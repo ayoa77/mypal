@@ -27,17 +27,16 @@ class Admin::ActsAsTaggableOnTagsController < AdminController
       @city_image = @tag.build_city_image(city_image_params)
       if @tag.save && @city_image.save
         @tag.banner_url = @city_image.banner.url
-        @tag.small_url = @city_image.small.url
+        # @tag.small_url = @city_image.small.url
         @tag.save
         @tag.reload
         current_user.tag_list << @tag.name
         current_user.save
         @tag.populate
-        flash[:notice] = "New city #{@tag.name} created"
+        flash[:notice] = "New channel #{@tag.name} created"
         redirect_to admin_acts_as_taggable_on_tags_path
       else
-        t.fourth.banner_url = t.fourth.city_image:banner, :small_url.url
-        flash[:alert] = "Creating city failed"
+        flash[:alert] = "Creating channel failed"
         render :new
       end
     end
@@ -45,15 +44,15 @@ class Admin::ActsAsTaggableOnTagsController < AdminController
     def update
       @tag = ActsAsTaggableOn::Tag.find_by(id: params[:id])
       @city_image = @tag.city_image
-      if @tag.update_attributes(tag_params) && @city_image.update_attributes(city_image_params)
+      if @tag.update_attributes(tag_params) || city_image_params.present? && @city_image.update_attributes(city_image_params.try)
         @tag.banner_url = @city_image.banner.url
-        @tag.small_url = @city_image.small.url
+        # @tag.small_url = @city_image.small.url
         @tag.display_name = tag_params[:name]
         @tag.save
-        flash[:notice] = "city #{@tag.name} updated"
+        flash[:notice] = "channel #{@tag.name} updated"
         redirect_to admin_acts_as_taggable_on_tags_path
       else
-        flash[:alert] = "Updating city failed"
+        flash[:alert] = "Updating channel failed"
         render :edit
       end
     end
@@ -63,10 +62,10 @@ class Admin::ActsAsTaggableOnTagsController < AdminController
       @city_image = @tag.city_image
       if @tag.destroy && @city_image.destroy
         ActsAsTaggableOn::Tagging.where(tag_id: @tag.id).delete_all if ActsAsTaggableOn::Tagging.where(tag_id: @tag.id)
-        flash[:notice] = "city #{@tag.name} deleted"
+        flash[:notice] = "channel #{@tag.name} deleted"
         redirect_to admin_acts_as_taggable_on_tags_path
       else
-        flash[:alert] = "Deleting city failed"
+        flash[:alert] = "Deleting channel failed"
         render :edit
       end
     end
@@ -80,7 +79,6 @@ class Admin::ActsAsTaggableOnTagsController < AdminController
     end
 
     def city_image_params
-      params.require(:city_image).permit(:banner, :small)
+      params.require(:city_image).permit(:banner, :small) 
     end
-
 end

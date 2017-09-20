@@ -5,12 +5,12 @@
     = f.text_field :name, class: "form-control", required: :required
 
     = fields_for @city_image do |ci|
-      .form-group
-        %label Thumb
-        = ci.file_field :small, class: "form-control", required: :required
+      -# .form-group
+      -#   %label Thumb
+      -#   = ci.file_field :small, class: "form-control", required: :required
 
       .form-group
         %label Banner
-        = ci.file_field :banner, class: "form-control", required: :required
+        = ci.file_field :banner, class: "form-control"
 
   = f.submit "Save", class: "btn btn-primary"
