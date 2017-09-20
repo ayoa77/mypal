@@ -18,7 +18,7 @@ class EmailJob
 def self.test
     begin
     RestClient.post "#{Rails.application.secrets.mailgun_base_url}messages",
-      from: 'test <ayodeleamadi@mg.skillster.com>',
+      from: 'test <ayodeleamadi@mg.skillster.me>',
       to: 'ayodeleamadi@gmail.com',
       subject: 'subjectify',
       text: 'textme',
