@@ -4,8 +4,7 @@ var setTitle = function(rootScope, title, count, analytics) {
   var prefix = (count > 0 ? '(' + count + ') ' : '');
 
   if (title){
-    // title += " - " + settings["SUBSITE"] + " " + settings["SITE_NAME"];
-    title += " - " + " " + settings["SITE_NAME"];
+    title += " - " + settings["SUBSITE"] + " " + settings["SITE_NAME"];
   } else {
     title = settings["SUBSITE"] + " " + settings["SITE_NAME"] + " - ";
     if (I18n.locale == settings["LOCALE_SECONDARY"]){
