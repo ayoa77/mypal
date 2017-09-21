@@ -828,11 +828,11 @@ angular.module('blnkk.services', [ 'persona' ])
 		var clientId;
 		var redirect;
 		if ($location.host() == 'localhost') {
-			clientId = '75ap9kmjwh1saq';
+			clientId = '7727a6dzcubr3n';
 			redirect = encodeURIComponent("http://localhost:3000/oauth2authentication");
 		} else {
-			clientId = '75grdrw2yddh6s';
-			redirect = encodeURIComponent($location.protocol() + '://' + $location.host() + '/oauth2authentication');
+			clientId = '7727a6dzcubr3n';
+			redirect = encodeURIComponent("http://skillster.me/oauth2authentication");
 		}
 		this.getAuthenticationURL = function(redirectTo, requestType) {
 			if (requestType == null)
