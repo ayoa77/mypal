@@ -126,10 +126,19 @@ body{
   position: relative;
   background-image:url('/loading.gif');
   background-size: cover;
-  -webkit-animation: fadein 6.5s; /* Safari 4+ */
-  -moz-animation:    fadein 6.5s; /* Fx 5+ */
-  -o-animation:      fadein 6.5s; /* Opera 12+ */
-  animation:         fadein 6.5s; /* IE 10+, Fx 29+ */
+}
+.slidey{
+  display: none;
+}
+.slidey .container:first-child {
+  display: block;
+}
+.slidey.slick-initialized{
+  display: block;
+  -webkit-animation: fadein 5s; /* Safari 4+ */
+  -moz-animation:    fadein 5s; /* Fx 5+ */
+  -o-animation:      fadein 5s; /* Opera 12+ */
+  animation:         fadein 5s; /* IE 10+, Fx 29+ */
 }
 .slidey .slick-prev, .slidey .slick-next{
   position: absolute;

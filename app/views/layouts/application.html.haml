@@ -155,12 +155,13 @@
     = javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'
     = javascript_include_tag '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'
     :javascript
-      $(document).ready(function(){
+      $(document).ready(function(){       
         $('.slidey').slick({
           prevArrow: "<button class='slick-prev'> &lt; </button> ",
           nextArrow:"<button class='slick-next'> &gt; </button> ",
           autoplay: true,
           pauseOnHover: true,
-          autoplaySpeed: 4000
+          fade:true,
+          autoplaySpeed: 5000
         });
       });
