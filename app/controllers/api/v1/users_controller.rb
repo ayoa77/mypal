@@ -176,7 +176,7 @@ class Api::V1::UsersController < ApiUserController
   def removeTag
     tag = ActsAsTaggableOn::Tag.find_by!(name: params[:tag]) # To make sure the tag exists
     if signed_in? && params.has_key?(:tag)
-      current_user.tag_list.remove(params[:tag])
+      current_user.tag_list.remove(params[:tag].downcase)
       if current_user.save
         tag.populate
         render json: current_user, status: :ok, serializer: UserMeSerializer, root: :user
@@ -199,7 +199,7 @@ class Api::V1::UsersController < ApiUserController
             email_array = email.split(',')
             email_array.each do |email|
               Invitation.invite(current_user, email)
-              Contact.create(user:current_user, source: :manual, email: email)
+              Contact.create(user: current_user, source: :manual, email: email)
             end
           else
             Invitation.invite(current_user, email, name)
