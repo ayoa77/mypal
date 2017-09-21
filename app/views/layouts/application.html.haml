@@ -88,16 +88,16 @@
         %div.landing-page{ "ng-if" => "!session.connected" }
           .slidey
             .container.slide1
-              .outer
-                .inner
+              -#.outer
+                -#.inner
                   -# %h2 {{"index.welcome" | t }}
                   / = image_tag logo_image_url
                   / %h1 {{ setting("SUBSITE") }} {{ setting("SITE_NAME") }}
-                  %p.intro Become a Skillster!
+                  -#%p.intro Become a Skillster!
 
                   / {{ localizeSetting("TAGLINE") }}
                   -# %hr.landing-hr
-                  %p.site-description Skills shared for accommodation
+                  -#%p.site-description Skills shared for accommodation
                   -#%p.site-description this is amzing {{ localizeSetting("DESCRIPTION") }}
                   -#.col-sm-6.col-sm-offset-3.site-intros
                     -#.col-sm-6
@@ -118,19 +118,19 @@
                     -# %a.btn-small{ href: "", "ng-click" => "signIn(null, 'signin-Facebook')"} {{"signin.sign_in_now" | t}}
             .container.slide2
               -#.slide-blur{style: "background-image:url('dance.png')"}
-              %img{"ng-src" => "dance.png"}
+              -#%img{"ng-src" => "dance.png"}
             .container.slide3
               -#.slide-blur{style: "background-image:url('rock.png')"}
-              %img{"ng-src" => "rock.png"}
+              -#%img{"ng-src" => "rock.png"}
             .container.slide4
               -#.slide-blur{style: "background-image:url('exercise.png')"}
-              %img{"ng-src" => "exercise.png"}
-            .container.slide5
+              -#%img{"ng-src" => "exercise.png"}
+            -#.container.slide5
               -#.slide-blur{style: "background-image:url('explore.png')"}
-              %img{"ng-src" => "explore.png"}
-            .container.slide6
+              -#%img{"ng-src" => "explore.png"}
+            -#.container.slide6
               -#.slide-blur{style: "background-image:url('learn.png')"}
-              %img{"ng-src" => "learn.png"}
+              -#%img{"ng-src" => "learn.png"}
         %new-request{"ng-if" => "session.connected","ng-show" => "newRequestVisible"}
         .app-bot
           .container

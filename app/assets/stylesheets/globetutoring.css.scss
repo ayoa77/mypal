@@ -157,7 +157,7 @@ body{
 .slide1,.slide2,.slide3,.slide4,.slide5,.slide6,{
   // background-size: cover;
   // position: relative;
-  background-position: center;
+  background-position: center bottom; //cange back to center center later
   background-size:cover;
   height:500px;
   background-repeat: no-repeat;
@@ -179,23 +179,23 @@ body{
   font-size: 40px;
 }
 .slide1{
-  background-image: url('/blur/climbing.jpg');
+  background-image: url('/ballet.jpg');
 }
 .slide2{
-  background-image: url('/blur/dance.jpg');
+  background-image: url('/woman-working.jpg'); //woman
 }
 .slide3{
-  background-image: url('/blur/rock.jpg');
+  background-image: url('/photographer.jpg'); //help explore climb
 }
 .slide4{
-  background-image: url('/blur/exercise.jpg');
+  background-image: url('/climber.jpg');
 }
-.slide5{
-  background-image: url('/blur/explore.jpg');
-}
-.slide6{
-  background-image: url('/blur/learn.jpg');
-}
+// .slide5{
+  // background-image: url('/blur/explore.jpg');
+// }
+// .slide6{
+  // background-image: url('/blur/learn.jpg');
+// }
 .landing-page{
   height:inherit;
   background-size: cover;
