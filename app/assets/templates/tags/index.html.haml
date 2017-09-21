@@ -3,7 +3,7 @@
 
 %tag-item.border{"ng-repeat" => "tag in tags_to_follow"}
 
-%tag-item.border{"ng-repeat" => "tag in tags_already_following"}
+%tag-item.border{"ng-if"=>"!session.connected", "ng-repeat" => "tag in tags_already_following"}
 
 .spinner.spinner-lg{ "ng-show" => "isLoadingTags" }
   %i.fa.fa-spinner.fa-pulse
