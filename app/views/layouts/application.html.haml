@@ -55,9 +55,9 @@
           .media-right.media-middle.ng-cloak.text-nowrap.nav-rt
             %a.btn.btn-link.btn-first{ "ui-sref" => "home.users({q: ''})", title: "Search", "ui-sref-opts" => "{reload:true}", "ng-show" => "!isRetrievingProfile && session.connected" }
               %i.fa.fa-fw.fa-search
-            %a.nav-signin{ href: "", "ng-click" => "signIn(null, 'signup-Facebook')", "ng-show" => "!isRetrievingProfile && !session.connected"}
+            %a.nav-signin{ href: "", "ng-click" => "signIn(null, 'signup')", "ng-show" => "!isRetrievingProfile && !session.connected"}
               {{'toolbar.register' | t}}
-            %a.nav-signin{ href: "", "ng-click" => "signIn(null, 'signin-Facebook')", "ng-show" => "!isRetrievingProfile && !session.connected"}
+            %a.nav-signin{ href: "", "ng-click" => "signIn(null, 'signin')", "ng-show" => "!isRetrievingProfile && !session.connected"}
               {{'toolbar.sign_in' | t}}
             .btn-group{"ng-show" => "!isRetrievingProfile && session.connected"}
               %button.btn.btn-link.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
