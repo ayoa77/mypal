@@ -26,6 +26,7 @@ class OauthServicesController < BaseController
 	end
 
 	def authentication
+		byebug
 		if params[:error].present?
 			CustomLogger.add(__FILE__, __method__, { }, params[:error])
 			redirect_to "/?auth_result=error"

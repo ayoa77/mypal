@@ -798,7 +798,7 @@ angular.module('blnkk.services', [ 'persona' ])
 			if (requestType == null)
 				requestType = 'signin';
 			redirectTo = redirectTo.split('?')[0];
-			return "https://www.facebook.com/dialog/oauth?client_id=" + clientId + "&response_type=code&scope=public_profile%2cemail&redirect_uri=" + redirect + "&state=" + encodeURIComponent("redirect=" + redirectTo + "&provider=facebook&type=" + requestType + "&ln=" + I18n.locale);
+			return "https://www.facebook.com/dialog/oauth?client_id=" + clientId + "&response_type=code&scope=public_profile%2cemail&redirect_uri=" + redirect + "&state=" + encodeURIComponent("redirect=" + redirectTo + "&provider=facebook&type=" + requestType.signinType + "&ln=" + I18n.locale);
 		}
 
 	}])

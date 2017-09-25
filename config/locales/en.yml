@@ -39,7 +39,7 @@ en:
     latest: Latest
     top: Top
   session:
-    unable_sign_in: Unable to sign you in. Please try again later.
+    unable_sign_in: Unable to sign you in. Try signing up first.
     new_message_from: "New message from %{name}"
     reconnecting_in: "Reconnecting in %{remainingSeconds} seconds..."
     trying_reconnect: Trying to reconnect...
