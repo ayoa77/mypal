@@ -48,6 +48,8 @@
                 {{ session.user.unread_notifications_count + session.user.unread_conversations_count }}
             %a.logo{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
               = image_tag logo_image_url
+            %a.logo.mobile{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
+              %img(src="/mobile-logo.png" alt="")/
               -#/ %span.hidden-xs
               -#  / = @settings["SUBSITE"]
               -#  / = @settings["SITE_NAME"]
@@ -154,8 +156,15 @@
       I18n.locale = "#{I18n.locale}";
     = javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'
     = javascript_include_tag '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'
+    = javascript_include_tag '/assets/skillster-worker.js'
     :javascript
-      $(document).ready(function(){       
+      $(document).ready(function(){   
+        var scripts = document.getElementsByTagName('script');
+        var lastScript = scripts[scripts.length-2];
+        var styles = document.getElementsByTagName('link');
+        var lastStyle = styles[styles.length-1];
+
+        console.log(lastStyle.href);
         $('.slidey').slick({
           prevArrow: "<button class='slick-prev'> &lt; </button> ",
           nextArrow: "<button class='slick-next'> &gt; </button> ",

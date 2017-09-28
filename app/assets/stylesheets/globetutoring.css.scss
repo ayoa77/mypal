@@ -17,6 +17,9 @@
 textarea{
   resize:none;
 }
+a.logo.mobile{
+  display:none;
+}
 .view{
   background-color: white;
 }
@@ -210,6 +213,16 @@ body{
 
 
 //Media Queries
+@media(min-width:1200px){
+  .container{
+    width:970px;
+  }
+}
+@media (max-width:1440px){
+  .container{
+    // width: 968px;
+  }
+}
 @media (max-width:1379px){
   .landing-page .intro{
     margin-top:0px;
@@ -223,6 +236,29 @@ body{
   }
 }
 @media (max-width: 768px){
+  .logo-wrapper .media-left a{
+    display:none;
+  }
+  a.logo.mobile{
+    display: inline-block;    
+    img{
+      height:40px;
+    }
+  }
+  .media-middle{
+    float:left;
+  }
+  .nav-rt{
+    float:right;
+    margin-top:10px;
+  }
+  .logo-wrapper{
+    padding:20px;
+  }
+  .nav-signin{
+    font-size: 16px;
+    padding:0 5px;
+  }
   .landing-page .intro{
     margin-top:20px;
     font-size: 70px;
