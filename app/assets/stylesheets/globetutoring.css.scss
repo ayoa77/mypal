@@ -210,7 +210,9 @@ body{
   float:left;
   width:100%;
 }
-
+.user{
+  margin-top:20px;
+}
 
 //Media Queries
 @media(min-width:1200px){
@@ -236,6 +238,15 @@ body{
   }
 }
 @media (max-width: 768px){
+  .item-footer{
+    overflow:auto;
+  }
+  .modal-content>.item-main-wrapper .profile-summary .item-main-wrapper{
+    margin:10px 0;
+  }
+  .top-right{
+    position: initial;
+  }
   .logo-wrapper .media-left a{
     display:none;
   }
@@ -245,7 +256,7 @@ body{
       height:40px;
     }
   }
-  .media-middle{
+  .nav-leftpart{
     float:left;
   }
   .nav-rt{
