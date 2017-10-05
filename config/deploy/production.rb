@@ -12,7 +12,8 @@ role :live, %w{globetutoring.com}
 role :resque_worker, %w{globetutoring.com}
 role :resque_scheduler, %w{globetutoring.com}
 
-set :workers, { "email" => 1, "*" => 1, "location" => 1, "elasticsearch" => 1}
+# set :workers, { "email" => 1, "*" => 1, "location" => 1, "elasticsearch" => 1}
+set :workers, {"*" => 1}
 
 
 # Extended Server Syntax
@@ -38,7 +39,7 @@ end
 # Global options
 # --------------
  set :ssh_options, {
-   keys: %w(/Users/ayoamadi/.ssh/id_rsa),
+   keys: %w(/Users/ayoamadi/.ssh/canopy_rsa),
    forward_agent: true,
  }
 #
