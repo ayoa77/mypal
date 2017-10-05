@@ -182,16 +182,16 @@ body{
   font-size: 40px;
 }
 .slide1{
-  background-image: url('/ballet.jpg');
+  background-image: url('/help.jpg');
 }
 .slide2{
-  background-image: url('/woman-working.jpg'); //woman
+  background-image: url('/how.jpg'); //woman
 }
 .slide3{
-  background-image: url('/photographer.jpg'); //help explore climb
+  background-image: url('/start.jpg'); //help explore climb
 }
 .slide4{
-  background-image: url('/climber.jpg');
+  background-image: url('/explore.jpg');
 }
 // .slide5{
   // background-image: url('/blur/explore.jpg');
@@ -229,6 +229,9 @@ body{
   .landing-page .intro{
     margin-top:0px;
     // font-size: 100px;
+  }
+  .slide1, .slide2, .slide3, .slide4, .slide5, .slide6{
+    height:400px;
   }
 }
 @media (max-width: 1024px){
@@ -311,7 +314,7 @@ body{
     font-size: 20px;
   }
   .slide1, .slide2, .slide3, .slide4, .slide5, .slide6{
-    height:260px;
+    height:200px;
   }
   .slide1 img, .slide2 img, .slide3 img, .slide4 img, .slide5 img, .slide6 img{
     width:100%;
