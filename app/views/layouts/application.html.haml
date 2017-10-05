@@ -33,9 +33,13 @@
     = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', media: :all
     = stylesheet_link_tag :application
     = render "layouts/conditional_styles"
-
+    = javascript_include_tag '//www.googletagmanager.com/gtag/js?id=UA-107581261-1'
     :javascript
       document.write('<base href="' + document.location.protocol + '//' + document.location.host + '/" />');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-107581261-1');
     = csrf_meta_tags
   %body{"ng-controller" => "SessionController"}
     .logo-wrapper#sticky-header
@@ -121,7 +125,7 @@
             .container.slide2
               -#.slide-blur{style: "background-image:url('dance.png')"}
               -#%img{"ng-src" => "dance.png"}
-            .container.slide3
+            -# .container.slide3
               -#.slide-blur{style: "background-image:url('rock.png')"}
               -#%img{"ng-src" => "rock.png"}
             .container.slide4

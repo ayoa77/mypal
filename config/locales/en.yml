@@ -242,8 +242,8 @@ en:
     replied_on: "replied on:"
   new_request_directive:
     title: "Create a Post"
-    subject_placeholder: "List your target city, skill or accommodation needs"
-    content_placeholder: "Add details: your skills, travel plans, accommodation preferences (as a Skillster) skills you want to learn, help your project needed, housing provided in return (as a host)"
+    subject_placeholder: "List your location, the skill needed and compensation offered"
+    content_placeholder: "Add details: describe your project, what needs to be done, anything else that matters"
     post: Post
     cancel: Cancel
     pick_a_tag: Channel ...
