@@ -45,7 +45,6 @@ class Admin::ActsAsTaggableOnTagsController < AdminController
       @tag = ActsAsTaggableOn::Tag.find_by(id: params[:id])
       @city_image = @tag.city_image
       if @tag.update_attributes(tag_params) && city_image_params.present? 
-        byebug
         @city_image.update_attributes(city_image_params)
         @tag.banner_url = @city_image.banner.url
         # @tag.small_url = @city_image.small.url
