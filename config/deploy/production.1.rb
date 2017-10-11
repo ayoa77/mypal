@@ -4,13 +4,13 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-# role :app, %w{139.162.107.188}
-# role :web, %w{139.162.107.188}
-# role :db,  %w{139.162.107.188}
-# role :live, %w{139.162.107.188}
+role :app, %w{globetutoring.com}
+role :web, %w{globetutoring.com}
+role :db,  %w{globetutoring.com}
+role :live, %w{globetutoring.com}
 
-role :resque_worker, %w{139.162.107.188}
-role :resque_scheduler, %w{139.162.107.188}
+role :resque_worker, %w{globetutoring.com}
+role :resque_scheduler, %w{globetutoring.com}
 
 set :workers, { "email" => 1, "*" => 1, "location" => 1, "elasticsearch" => 1}
 # set :workers, {"*" => 1}
@@ -22,7 +22,7 @@ set :workers, { "email" => 1, "*" => 1, "location" => 1, "elasticsearch" => 1}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server '139.162.107.188', user: 'aj', roles: %w{web app db live}
+server 'globetutoring.com', user: 'aj', roles: %w{web app db live}
 
 set :rails_env, "production"
 
@@ -39,7 +39,7 @@ end
 # Global options
 # --------------
  set :ssh_options, {
-   keys: %w(/Users/ayoamadi/.ssh/id_rsa),
+   keys: %w(/Users/ayoamadi/.ssh/canopy_rsa),
    forward_agent: true,
  }
 #

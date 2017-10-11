@@ -101,3 +101,4 @@ Update the monit config file: /etc/monit/monitrc
 
 $ sudo monit -t           # test configuration
 $ sudo monit reload       # reload configuration
+$ monit                   # starts monit and gets it running in the background
