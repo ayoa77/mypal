@@ -11,7 +11,7 @@ set :deploy_via, :remote_cache
 set :keep_releases, 10
 server '139.162.107.188', user: 'aj', roles: %w{web app db live}
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/var/www/html/globetutoring/'
+set :deploy_to, '/home/aj/var/www/html/skillster/'
 
 role :app, %w{139.162.107.188}
 role :web, %w{139.162.107.188}
@@ -35,6 +35,11 @@ role :live, %w{139.162.107.188}
 
 # Default value for :pty is false
 # set :pty, true
+
+# sudo cp database.yml /home/aj/var/www/html/skillster/shared/config/ &&
+# sudo cp paypal.yml /home/aj/var/www/html/skillster/shared/config/ && 
+# sudo cp secrets.yml /home/aj/var/www/html/skillster/shared/config/ &&
+# sudo cp application.yml /var/www/html/skillster/shared/config
 
 # Default value for :linked_files is []
 set :linked_files, %w{config/application.yml config/database.yml config/secrets.yml config/paypal.yml}
