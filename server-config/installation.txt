@@ -69,6 +69,7 @@ $ sudo mkdir /etc/redis
 $ sudo mkdir /var/redis
 $ sudo cp utils/redis_init_script /etc/init.d/redis_6379
 $ sudo mkdir /var/redis/6379
+$ bundle exec passenger start --daemonize --user blnkk@localhost --environment production
 
 Create redis config file for blnkk: /etc/redis/6379.conf
 
@@ -79,7 +80,7 @@ $ sudo /etc/init.d/redis_6379 start
 ========================
 INSTALLING ELASTICSEARCH
 ========================
-
+JAVA is no longer an elasticsearch dependency
 First install Java:
 
 $ sudo add-apt-repository ppa:webupd8team/java
