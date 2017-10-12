@@ -38,6 +38,7 @@ $ sudo a2enmod proxy_connect
 $ sudo a2enmod proxy_html
 $ sudo a2enmod proxy_wstunnel
 $ sudo a2enmod xml2enc lbmethod_byrequests slotmem_shm // new ones
+$ sudo a2enmod expires
 
 Create apache config file for blnkk: /etc/apache2/sites-available/blnkk.conf
 Enable site:
@@ -46,6 +47,9 @@ $ sudo a2ensite blnkk
 
 $ sudo a2enmod expires
 $ sudo service apache2 restart
+
+
+passenger-install-apache2-module
 
 ================================
 INSTALLING AND CONFIGURING REDIS

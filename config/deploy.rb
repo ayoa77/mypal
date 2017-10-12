@@ -39,7 +39,7 @@ role :live, %w{139.162.107.188}
 # sudo cp database.yml /home/aj/var/www/html/skillster/shared/config/ &&
 # sudo cp paypal.yml /home/aj/var/www/html/skillster/shared/config/ && 
 # sudo cp secrets.yml /home/aj/var/www/html/skillster/shared/config/ &&
-# sudo cp application.yml /var/www/html/skillster/shared/config
+# sudo cp application.yml /home/aj/var/www/html/skillster/shared/config/
 
 # Default value for :linked_files is []
 set :linked_files, %w{config/application.yml config/database.yml config/secrets.yml config/paypal.yml}
