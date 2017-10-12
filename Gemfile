@@ -111,6 +111,9 @@ gem 'elasticsearch-rails'
 #i18n
 gem "i18n-js", ">= 3.0.0.rc8"
 
+#passenger to serve when in production
+gem "passenger"
+
 # jobs
 gem 'resque'
 gem 'resque-web', require: 'resque_web'

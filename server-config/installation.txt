@@ -38,6 +38,7 @@ $ sudo a2enmod proxy_connect
 $ sudo a2enmod proxy_html
 $ sudo a2enmod proxy_wstunnel
 $ sudo a2enmod xml2enc lbmethod_byrequests slotmem_shm // new ones
+$ sudo a2enmod expires
 
 Create apache config file for blnkk: /etc/apache2/sites-available/blnkk.conf
 Enable site:
@@ -46,6 +47,9 @@ $ sudo a2ensite blnkk
 
 $ sudo a2enmod expires
 $ sudo service apache2 restart
+
+
+passenger-install-apache2-module
 
 ================================
 INSTALLING AND CONFIGURING REDIS
@@ -65,6 +69,7 @@ $ sudo mkdir /etc/redis
 $ sudo mkdir /var/redis
 $ sudo cp utils/redis_init_script /etc/init.d/redis_6379
 $ sudo mkdir /var/redis/6379
+$ bundle exec passenger start --daemonize --user blnkk@localhost --environment production
 
 Create redis config file for blnkk: /etc/redis/6379.conf
 
@@ -75,7 +80,7 @@ $ sudo /etc/init.d/redis_6379 start
 ========================
 INSTALLING ELASTICSEARCH
 ========================
-
+JAVA is no longer an elasticsearch dependency
 First install Java:
 
 $ sudo add-apt-repository ppa:webupd8team/java
@@ -101,3 +106,4 @@ Update the monit config file: /etc/monit/monitrc
 
 $ sudo monit -t           # test configuration
 $ sudo monit reload       # reload configuration
+$ monit                   # starts monit and gets it running in the background

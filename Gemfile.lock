@@ -158,6 +158,9 @@ GEM
     netrc (0.10.2)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
+    passenger (5.1.8)
+      rack
+      rake (>= 0.8.1)
     paypal-sdk-rest (1.1.1)
       multi_json (~> 1.0)
       uuidtools (~> 2.1)
@@ -329,6 +332,7 @@ DEPENDENCIES
   jwt
   meta_request
   mysql2 (~> 0.3.20)
+  passenger
   paypal-sdk-rest
   rails (= 4.2.8)
   redcarpet
