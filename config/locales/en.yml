@@ -242,8 +242,8 @@ en:
     replied_on: "replied on:"
   new_request_directive:
     title: "Create a Post"
-    subject_placeholder: "List your location, the skill needed and compensation offered"
-    content_placeholder: "Add details: describe your project, what needs to be done, anything else that matters"
+    subject_placeholder: "List your location, TRIAL OFFER and time frame"
+    content_placeholder: "Add details: ASK clients or friends to ENDORSE your expertise listed on this post and SHARE it among their social networks to help you ENGAGE potential clients."
     post: Post
     cancel: Cancel
     pick_a_tag: Channel ...
@@ -251,7 +251,7 @@ en:
   request_item_actions_directive:
     chat: Chat
     share: Share
-    add_comment: Add a comment...
+    add_comment: Offer an endorsement or add a comment...
     view_more:
       one: "View %{count} more comment"
       other: "View %{count} more comments"
