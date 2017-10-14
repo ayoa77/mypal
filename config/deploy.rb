@@ -1,22 +1,22 @@
 # config valid only for Capistrano 3.4 bundle exec cap -T
 lock '3.4.1'
 
-set :application, 'globetutoring'
+set :application, 'lionslounge'
 set :repo_url, 'https://ayoa77:S6SMTfsmuF9vFRNeSy84@bitbucket.org/ayoa77/globetutoring.git'
 set :branch, "frontend"
 
 set :user, "aj"
 set :rails_env, "production"
-set :deploy_via, :remote_cache
+set :deploy_via, :copy
 set :keep_releases, 10
-server 'globetutoring.com', user: 'aj', roles: %w{web app db live}
-# Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/var/www/html/globetutoring/'
+# server 'globetutoring.com', user: 'aj', roles: %w{web app db live}
+# # Default deploy_to directory is /var/www/my_app
+# set :deploy_to, '/var/www/html/globetutoring/'
 
-role :app, %w{globetutoring.com}
-role :web, %w{globetutoring.com}
-role :db,  %w{globetutoring.com}
-role :live, %w{globetutoring.com}
+# role :app, %w{globetutoring.com}
+# role :web, %w{globetutoring.com}
+# role :db,  %w{globetutoring.com}
+# role :live, %w{globetutoring.com}
 
 
 
