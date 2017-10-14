@@ -28,17 +28,17 @@ $ sudo a2enmod passenger
 
 Enable mods for proxy:
 
-$ sudo a2enmod proxy
-$ sudo a2enmod proxy_http
-$ sudo a2enmod proxy_ajp
-$ sudo a2enmod rewrite
-$ sudo a2enmod headers
-$ sudo a2enmod proxy_balancer
-$ sudo a2enmod proxy_connect
-$ sudo a2enmod proxy_html
-$ sudo a2enmod proxy_wstunnel
-$ sudo a2enmod xml2enc lbmethod_byrequests slotmem_shm // new ones
-$ sudo a2enmod expires
+sudo a2enmod proxy &&
+sudo a2enmod proxy_http &&
+sudo a2enmod proxy_ajp &&
+sudo a2enmod rewrite &&
+sudo a2enmod headers &&
+sudo a2enmod proxy_balancer &&
+sudo a2enmod proxy_connect &&
+sudo a2enmod proxy_html &&
+sudo a2enmod proxy_wstunnel &&
+sudo a2enmod expires
+sudo a2enmod xml2enc lbmethod_byrequests slotmem_shm // new ones
 
 Create apache config file for blnkk: /etc/apache2/sites-available/blnkk.conf
 Enable site:
@@ -56,31 +56,30 @@ INSTALLING AND CONFIGURING REDIS
 ================================
 
 $ wget http://download.redis.io/redis-stable.tar.gz
-$ tar xvzf redis-stable.tar.gz
-$ cd redis-stable
-$ make
-$ sudo cp src/redis-server /usr/local/bin/
-$ sudo cp src/redis-cli /usr/local/bin/
+$ tar xvzf redis-stable.tar.gz &&
+$ cd redis-stable &&
+$ make 
+$ sudo cp src/redis-server /usr/local/bin/ && sudo cp src/redis-cli /usr/local/bin/
 
 Add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect
 (Not able to do this if not root) Run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
 
-$ sudo mkdir /etc/redis
-$ sudo mkdir /var/redis
-$ sudo cp utils/redis_init_script /etc/init.d/redis_6379
-$ sudo mkdir /var/redis/6379
+$ sudo mkdir /etc/redis &&
+ sudo mkdir /var/redis &&
+ sudo cp utils/redis_init_script /etc/init.d/redis_6379 &&
+ sudo mkdir /var/redis/6379 &&
 $ bundle exec passenger start --daemonize --user blnkk@localhost --environment production
 
 Create redis config file for blnkk: /etc/redis/6379.conf
 
-$ sudo update-rc.d redis_6379 defaults
-$ sudo /etc/init.d/redis_6379 start
+$ sudo update-rc.d redis_6379 defaults &&
+ sudo /etc/init.d/redis_6379 start
 
 
 ========================
 INSTALLING ELASTICSEARCH
 ========================
-JAVA is no longer an elasticsearch dependency
+JAVA is an elasticsearch dependency
 First install Java:
 
 $ sudo add-apt-repository ppa:webupd8team/java
@@ -89,6 +88,10 @@ $ sudo apt-get install oracle-java7-installer
 $ java -version
 
 Then install Elasticsearch:
+
+install JAVA
+https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html
+
 
 $ wget -qO - https://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo apt-key add -
 $ sudo add-apt-repository "deb http://packages.elasticsearch.org/elasticsearch/1.4/debian stable main"
@@ -104,6 +107,7 @@ $ sudo apt-get install monit
 
 Update the monit config file: /etc/monit/monitrc
 
+$ sudo chmod 0700 monitrc # own this config file before testing
 $ sudo monit -t           # test configuration
 $ sudo monit reload       # reload configuration
-$ monit                   # starts monit and gets it running in the background
+$ sudo monit              # starts monit and gets it running in the background

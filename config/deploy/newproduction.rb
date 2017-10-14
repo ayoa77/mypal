@@ -25,6 +25,8 @@ set :workers, { "email" => 1, "*" => 1, "location" => 1, "elasticsearch" => 1}
 server '139.162.107.188', user: 'aj', roles: %w{web app db live}
 
 set :rails_env, "production"
+set :deploy_to, '/home/aj/var/www/html/skillster/'
+
 
 namespace :deploy do
   after :restart, "sitemap:refresh"

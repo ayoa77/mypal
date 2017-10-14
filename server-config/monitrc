@@ -51,9 +51,9 @@ check process mysql with pidfile /var/run/mysqld/mysqld.pid
   if failed port 3306 then restart
   if 5 restarts within 5 cycles then timeout
 
-check process websocket_rails with pidfile /home/deploy/www/blnkk/shared/tmp/pids/websocket_rails.pid
-  start "/bin/su - deploy -c 'cd /var/www/html/globetutoring/current && ( RAILS_ENV=production bundle exec rake websocket_rails:start_server )'"
-  stop "/bin/su - deploy -c 'cd /var/www/html/globetutoring/current && ( RAILS_ENV=production bundle exec rake websocket_rails:stop_server )'"
+check process websocket_rails with pidfile /home/aj/var/www/html/lionslounge/shared/tmp/pids/websocket_rails.pid
+  start "/bin/su - deploy -c 'cd /home/aj/var/www/html/globetutoring/current && ( RAILS_ENV=production bundle exec rake websocket_rails:start_server )'"
+  stop "/bin/su - deploy -c 'cd /home/aj/var/www/html/globetutoring/current && ( RAILS_ENV=production bundle exec rake websocket_rails:stop_server )'"
   if failed port 3001 then restart
   if 5 restarts within 5 cycles then timeout
 
