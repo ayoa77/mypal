@@ -23,7 +23,7 @@
                 = comment.user.name
 
             %p{:style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;font-weight:400;font-size:14px;line-height:140%;color:#505050;padding:0 0 15px 0;margin:0;"}
-              = comment.content
+              = comment.content.truncate(20)
 
             %p{:style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;font-weight:400;font-size:14px;line-height:140%;color:#505050;padding:0 0 15px 0;margin:0;"}
               %a{:href => request_url(comment.request), :style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif; color: #333;font-size:14px;font-weight:500;padding: 10px 20px; border-radius: 2px; background-color: #efefef; display: inline-block; text-decoration: none;"}

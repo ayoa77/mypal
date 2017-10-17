@@ -79,20 +79,16 @@ $ sudo update-rc.d redis_6379 defaults &&
 ========================
 INSTALLING ELASTICSEARCH
 ========================
-JAVA is an elasticsearch dependency
-First install Java:
 
-$ sudo add-apt-repository ppa:webupd8team/java
-$ sudo apt-get update
-$ sudo apt-get install oracle-java7-installer
-$ java -version
+JAVA first
+
+https://linoxide.com/debian/install-java-8-debian-gnulinux-9-stretch/
+
 
 Then install Elasticsearch:
 
-install JAVA
+
 https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html
-
-
 $ wget -qO - https://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo apt-key add -
 $ sudo add-apt-repository "deb http://packages.elasticsearch.org/elasticsearch/1.4/debian stable main"
 $ sudo apt-get update && sudo apt-get install elasticsearch
@@ -107,7 +103,7 @@ $ sudo apt-get install monit
 
 Update the monit config file: /etc/monit/monitrc
 
-$ sudo chmod 0700 monitrc # own this config file before testing
+$ sudo chmod 0700 /etc/monit/monitrc # own this config file before testing
 $ sudo monit -t           # test configuration
 $ sudo monit reload       # reload configuration
 $ sudo monit              # starts monit and gets it running in the background
