@@ -3,7 +3,7 @@ lock '3.4.1'
 
 set :application, 'lionslounge'
 set :repo_url, 'https://ayoa77:S6SMTfsmuF9vFRNeSy84@bitbucket.org/ayoa77/globetutoring.git'
-set :branch, "frontend"
+set :branch, "lionslounge"
 
 set :user, "aj"
 set :rails_env, "production"

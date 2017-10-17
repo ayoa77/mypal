@@ -3,6 +3,8 @@ require "resque_web"
 
 Rails.application.routes.draw do
 
+  root to: redirect(subdomain: 'lionsclub')
+    
   root 'application#index'
 
   constraints CanAccessKibana do
