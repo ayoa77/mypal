@@ -178,7 +178,7 @@ class GunMailer
 		    Setting.all.each do |s|
 		      settings[s.key] = s.value
 		    end
-		    settings["SITE_NAME"] = settings["CHINA"] == "1" ? "小圈" : "skillster"
+		    settings["SITE_NAME"] = settings["CHINA"] == "1" ? "小圈" : "LionsClub"
 		    locals[:settings] = settings
 
 				locals[:description] = I18n.locale.to_s == settings["LOCALE_SECONDARY"] ? settings["DESCRIPTION_SECONDARY"] : settings["DESCRIPTION_PRIMARY"]

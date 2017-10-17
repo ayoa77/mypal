@@ -49,7 +49,7 @@ class OauthServicesController < BaseController
 							current_user.facebook_url = user_info[:facebook_url]
 							current_user.facebook_name = user_info[:facebook_name]
 							current_user.save
-							redirect_to ('http://globetutoring.com' + redirect_path).gsub! %r{(?<!:)/+(?=/)}, ''
+							redirect_to (root_url + redirect_path).gsub! %r{(?<!:)/+(?=/)}, ''
 							return
 						else
 							redirect_to "/?auth_result=not_found" # user not found
