@@ -154,7 +154,7 @@ class GunMailer
 
     def self.setting the_setting
       if the_setting == "SITE_NAME"
-        return setting("CHINA") == "1" ? "小圈" : "skillster"
+        return setting("CHINA") == "1" ? "小圈" : "LionsClub"
       else
         Setting.find_by(key: the_setting).value
       end
