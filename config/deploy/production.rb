@@ -15,15 +15,15 @@ set :keep_releases, 10
 server '139.162.124.64', user: 'aj', roles: %w{web app db live}
 # Default deploy_to directory is /var/www/my_app
 
-role :app, %w{139.162.124.64}
-role :web, %w{139.162.124.64}
-role :db,  %w{139.162.124.64}
-role :live, %w{139.162.124.64}
+# role :app, %w{139.162.124.64}
+# role :web, %w{139.162.124.64}
+# role :db,  %w{139.162.124.64}
+# role :live, %w{139.162.124.64}
 
-role :app, %w{139.162.124.64}
-role :web, %w{139.162.124.64}
-role :db,  %w{139.162.124.64}
-role :live, %w{139.162.124.64}
+# role :app, %w{139.162.124.64}
+# role :web, %w{139.162.124.64}
+# role :db,  %w{139.162.124.64}
+# role :live, %w{139.162.124.64}
 
 role :resque_worker, %w{139.162.124.64}
 role :resque_scheduler, %w{139.162.124.64}
