@@ -11,7 +11,7 @@ set :deploy_via, :remote_cache
 set :keep_releases, 10
 # server '139.162.107.188', user: 'aj', roles: %w{web app live}
 # Default deploy_to directory is /var/www/my_app
-server 'globetutoring.com', user: 'blnkk', roles: [:db]
+server '172.104.119.112', user: 'blnkk', roles: [:db]
 set :deploy_to, '/home/aj/var/www/html/skillster/'
 
 role :app, %w{139.162.107.188}
