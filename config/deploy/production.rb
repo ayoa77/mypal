@@ -6,11 +6,11 @@
 
 set :application, 'lionslounge'
 set :repo_url, 'https://ayoa77:S6SMTfsmuF9vFRNeSy84@bitbucket.org/ayoa77/globetutoring.git'
-set :branch, "frontend"
+set :branch, "lionslounge"
 
 set :user, "aj"
 set :rails_env, "production"
-set :deploy_via, :remote_cache
+set :deploy_via, :copy
 set :keep_releases, 10
 server '139.162.124.64', user: 'aj', roles: %w{web app db live}
 # Default deploy_to directory is /var/www/my_app
@@ -40,9 +40,9 @@ set :deploy_to, '/home/aj/var/www/html/lionslounge/'
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server '139.162.124.64', user: 'aj', roles: %w{web app db live}
+# server '139.162.124.64', user: 'aj', roles: %w{web app db live}
 
-set :rails_env, "production"
+# set :rails_env, "production"
 
 namespace :deploy do
   after :restart, "sitemap:refresh"
