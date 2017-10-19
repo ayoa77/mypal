@@ -46,7 +46,7 @@
       .container
         .media.with-overflow
           .media-left.media-middle.text-nowrap.nav-leftpart
-            %a.hamburger.ng-cloak.visible-xs-inline-block{"href" => "#", "ng-click" => "toggleSidebar()" }
+            %a.hamburger.ng-cloak.visible-xs-inline-block{"ng-if" => "session.connected", "href" => "#", "ng-click" => "toggleSidebar()" }
               %i.fa.fa-bars
               %span.badge{"ng-show" => "session.user.unread_notifications_count > 0 || session.user.unread_conversations_count > 0", "ng-show" => "session.connected"}
                 {{ session.user.unread_notifications_count + session.user.unread_conversations_count }}

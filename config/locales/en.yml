@@ -242,8 +242,8 @@ en:
     replied_on: "replied on:"
   new_request_directive:
     title: "Create a Post"
-    subject_placeholder: "List your location, TRIAL OFFER and time frame"
-    content_placeholder: "Add details: ASK clients or friends to ENDORSE your expertise listed on this post and SHARE it among their social networks to help you ENGAGE potential clients."
+    subject_placeholder: "List location, skills offered, time frame"
+    content_placeholder: "List details about your expertise, experience, and what you are offering"
     post: Post
     cancel: Cancel
     pick_a_tag: Channel ...
@@ -251,7 +251,7 @@ en:
   request_item_actions_directive:
     chat: Chat
     share: Share
-    add_comment: Offer an endorsement or add a comment...
+    add_comment: Endorse this Skillster
     view_more:
       one: "View %{count} more comment"
       other: "View %{count} more comments"
