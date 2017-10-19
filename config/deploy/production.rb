@@ -11,20 +11,19 @@ set :application, 'skillster'
 set :repo_url, 'https://ayoa77:S6SMTfsmuF9vFRNeSy84@bitbucket.org/ayoa77/globetutoring.git'
 set :branch, "frontend"
 
-set :user, "aj"
 set :rails_env, "production"
 set :keep_releases, 10
-# server '139.162.107.188', user: 'aj', roles: %w{web app live}
+server '139.162.107.188', user: 'aj', roles: %w{web app live}
 # Default deploy_to directory is /var/www/my_app
 server '172.104.119.112', user: 'aj', roles: [:db]
 set :deploy_to, '/home/aj/var/www/html/skillster/'
 
-role :app, %w{139.162.107.188}
-role :web, %w{139.162.107.188}
+# role :app, %w{139.162.107.188}
+# role :web, %w{139.162.107.188}
 # server 'foo.example.org', user: 'runner',   roles: [:exec], port: 456
 # role :db, %w{139.162.107.188}, user: 'aj', primary: true
 # role :db, %w{139.162.107.188}
-role :live, %w{139.162.107.188}
+# role :live, %w{139.162.107.188}
 
 role :resque_worker, %w{139.162.107.188}
 role :resque_scheduler, %w{139.162.107.188}
@@ -40,8 +39,6 @@ set :workers, {"*" => 1}
 # used to set extended properties on the server.
 
 # server '139.162.107.188', user: 'aj', roles: %w{web app db live}
-
-set :rails_env, "production"
 
 namespace :deploy do
   after :restart, "sitemap:refresh"
