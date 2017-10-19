@@ -1,7 +1,7 @@
 # config valid only for Capistrano 3.4 bundle exec cap -T
 lock '3.4.1'
 
-set :application, 'lionslounge'
+set :application, 'skillster'
 set :repo_url, 'https://ayoa77:S6SMTfsmuF9vFRNeSy84@bitbucket.org/ayoa77/globetutoring.git'
 set :branch, "frontend"
 
