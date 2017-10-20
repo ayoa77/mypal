@@ -790,7 +790,7 @@ angular.module('blnkk.services', [ 'persona' ])
 			// redirect = encodeURIComponent("http://heylions.club/oauth2authentication");
 			redirect = encodeURIComponent("http://localhost:3000/oauth2authentication");
 		} else {
-			clientId = '1076848665751122';
+			clientId = '529326840737249';
 			redirect = encodeURIComponent("http://heylions.club/oauth2authentication");
 			// redirect = encodeURIComponent($location.protocol() + '://' + $location.host() + '/oauth2authentication');
 		}
