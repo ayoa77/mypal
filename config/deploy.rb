@@ -79,9 +79,6 @@ namespace :deploy do
   after :publishing, :restart
 
   after :restart, "resque:restart"
-  # role :resque_worker, %w{globetutoring.com}
-  # role :resque_scheduler, %w{globetutoring.com}
-  #
   # set :workers, { "email" => 1, "*" => 1, "location" => 1, "elasticsearch" => 1}
 
 

@@ -787,11 +787,11 @@ angular.module('blnkk.services', [ 'persona' ])
 		if ($location.host() == 'localhost') {
 			clientId = '221821404959944';
 			// clientId = '108627286462499';
-			// redirect = encodeURIComponent("http://globetutoring.com/oauth2authentication");
+			// redirect = encodeURIComponent("http://heylions.club/oauth2authentication");
 			redirect = encodeURIComponent("http://localhost:3000/oauth2authentication");
 		} else {
 			clientId = '1076848665751122';
-			redirect = encodeURIComponent("http://globetutoring.com/oauth2authentication");
+			redirect = encodeURIComponent("http://heylions.club/oauth2authentication");
 			// redirect = encodeURIComponent($location.protocol() + '://' + $location.host() + '/oauth2authentication');
 		}
 		this.getAuthenticationURL = function(redirectTo, requestType) {
@@ -832,7 +832,7 @@ angular.module('blnkk.services', [ 'persona' ])
 			redirect = encodeURIComponent("http://localhost:3000/oauth2authentication");
 		} else {
 			clientId = '7727a6dzcubr3n';
-			redirect = encodeURIComponent("http://globetutoring.com/oauth2authentication");
+			redirect = encodeURIComponent("http://heylions.club/oauth2authentication");
 		}
 		this.getAuthenticationURL = function(redirectTo, requestType) {
 			if (requestType == null)
