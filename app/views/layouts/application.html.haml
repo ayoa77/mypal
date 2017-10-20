@@ -68,7 +68,7 @@
             .btn-group{"ng-show" => "!isRetrievingProfile && session.connected"}
               %button.btn.btn-link.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
                 %i.fa.fa-fw.fa-ellipsis-v
-              %ul.dropdown-menu.dropdown-menu-right
+              %ul.dropdown-menu.dropdown-menu-right.drowdown-nav
                 %li
                   %a{ "ui-sref" => "home.userSingle({id: session.user.id})" }
                     %i.fa.fa-user.fa-fw
@@ -122,13 +122,13 @@
                     -#%a.btn-large{ href: "", "ng-click" => "signIn(null, 'signup-Facebook')"} {{"signup.with_facebook" | t}}
                   -#.inner-link
                     -# %a.btn-small{ href: "", "ng-click" => "signIn(null, 'signin-Facebook')"} {{"signin.sign_in_now" | t}}
-            .container.slide2
+            -# .container.slide2
               -#.slide-blur{style: "background-image:url('dance.png')"}
               -#%img{"ng-src" => "dance.png"}
             -# .container.slide3
               -#.slide-blur{style: "background-image:url('rock.png')"}
               -#%img{"ng-src" => "rock.png"}
-            .container.slide4
+            -# .container.slide4
               -#.slide-blur{style: "background-image:url('exercise.png')"}
               -#%img{"ng-src" => "exercise.png"}
             -#.container.slide5
@@ -169,8 +169,8 @@
         var lastStyle = styles[styles.length-1];
 
         console.log(lastStyle.href);
-        $('.slidey').slick({
-          prevArrow: "<button class='slick-prev'> &lt; </button> ",
+         $('.slidey').slick({
+           prevArrow: "<button class='slick-prev'> &lt; </button> ",
           nextArrow: "<button class='slick-next'> &gt; </button> ",
           autoplay: true,
           pauseOnHover: true,

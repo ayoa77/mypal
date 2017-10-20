@@ -255,15 +255,15 @@ body{
     // max-height: 400px;
     // background:black;
   }
-  .dropdown-menu{
+  .dropdown-nav{
     position: fixed;
     top:60px;
     right:8%;
     z-index: 9000;
   }
-  .item-footer{
-    overflow:auto;
-  }
+  // .item-footer{
+  //   overflow:auto;
+  // }
   .modal-content>.item-main-wrapper .profile-summary .item-main-wrapper{
     margin:10px 0;
   }
@@ -303,7 +303,7 @@ body{
   #sidebar{
     position: fixed;
     background-color: white;
-    width:100%;
+    // width:50%;
     height:100%;
     padding:20px 5%;
     opacity: 1;
