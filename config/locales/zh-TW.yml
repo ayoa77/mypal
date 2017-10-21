@@ -187,7 +187,7 @@ zh-TW:
       update: 更新
       select_all: 選擇全部
       other_contacts: 其它聯絡人
-      helper_text: "敲擊 <kbd>輸入鍵</kbd> 或在每個電子郵件地址後加個逗點。"
+      helper_text: "若要輸入多個電子信箱，請將每個電子信箱以逗號隔開"
       sending: 發送中...
       send: 發送電子郵件邀請函
       sent_success: 邀請郵件已寄送給收件人

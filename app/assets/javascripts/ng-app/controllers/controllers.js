@@ -4,9 +4,11 @@ var setTitle = function(rootScope, title, count, analytics) {
   var prefix = (count > 0 ? '(' + count + ') ' : '');
 
   if (title){
+    console.log(title)
     title += " - " + settings["SUBSITE"] + " " + settings["SITE_NAME"];
   } else {
     title = settings["SUBSITE"] + " " + settings["SITE_NAME"];
+    console.log(title)
     // if (I18n.locale == settings["LOCALE_SECONDARY"]){
     //   title += settings["TAGLINE_SECONDARY"];
     // } else {
