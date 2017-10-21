@@ -9,8 +9,8 @@
           {{comment.user.name}}
         %span.timestamp{"am-time-ago" => "comment.created_at", "am-preprocess" => "unix"}>
       .auto-folded
-        %formatted-message.text{text: "comment.content"}
-        %attachment.small{text: "comment.content"}
+        %formatted-message.text{text: "comment.content.truncate(20)"}
+        %attachment.small{text: "comment.content.truncate(20)"}
         .auto-folded--more
           %button.btn.btn-default.btn-sm{ "ng-click" => "unfold()"}> {{"comment_directive.read_more" | t}}
   .item-actions

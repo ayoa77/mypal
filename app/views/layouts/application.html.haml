@@ -33,21 +33,27 @@
     = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', media: :all
     = stylesheet_link_tag :application
     = render "layouts/conditional_styles"
-
+    = javascript_include_tag '//www.googletagmanager.com/gtag/js?id=UA-107581261-1'
     :javascript
       document.write('<base href="' + document.location.protocol + '//' + document.location.host + '/" />');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-107581261-1');
     = csrf_meta_tags
   %body{"ng-controller" => "SessionController"}
     .logo-wrapper#sticky-header
       .container
         .media.with-overflow
-          .media-left.media-middle.text-nowrap
-            %a.hamburger.ng-cloak.visible-xs-inline-block{"href" => "#", "ng-click" => "toggleSidebar()" }
+          .media-left.media-middle.text-nowrap.nav-leftpart
+            %a.hamburger.ng-cloak.visible-xs-inline-block{"ng-if" => "session.connected", "href" => "#", "ng-click" => "toggleSidebar()" }
               %i.fa.fa-bars
               %span.badge{"ng-show" => "session.user.unread_notifications_count > 0 || session.user.unread_conversations_count > 0", "ng-show" => "session.connected"}
                 {{ session.user.unread_notifications_count + session.user.unread_conversations_count }}
             %a.logo{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
               = image_tag logo_image_url
+            %a.logo.mobile{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
+              %img(src="/mobile-logo.png" alt="")/
               -#/ %span.hidden-xs
               -#  / = @settings["SUBSITE"]
               -#  / = @settings["SITE_NAME"]
@@ -62,7 +68,7 @@
             .btn-group{"ng-show" => "!isRetrievingProfile && session.connected"}
               %button.btn.btn-link.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
                 %i.fa.fa-fw.fa-ellipsis-v
-              %ul.dropdown-menu.dropdown-menu-right
+              %ul.dropdown-menu.dropdown-menu-right.drowdown-nav
                 %li
                   %a{ "ui-sref" => "home.userSingle({id: session.user.id})" }
                     %i.fa.fa-user.fa-fw
@@ -116,13 +122,13 @@
                     -#%a.btn-large{ href: "", "ng-click" => "signIn(null, 'signup-Facebook')"} {{"signup.with_facebook" | t}}
                   -#.inner-link
                     -# %a.btn-small{ href: "", "ng-click" => "signIn(null, 'signin-Facebook')"} {{"signin.sign_in_now" | t}}
-            .container.slide2
+            -# .container.slide2
               -#.slide-blur{style: "background-image:url('dance.png')"}
               -#%img{"ng-src" => "dance.png"}
-            .container.slide3
+            -# .container.slide3
               -#.slide-blur{style: "background-image:url('rock.png')"}
               -#%img{"ng-src" => "rock.png"}
-            .container.slide4
+            -# .container.slide4
               -#.slide-blur{style: "background-image:url('exercise.png')"}
               -#%img{"ng-src" => "exercise.png"}
             -#.container.slide5
@@ -154,10 +160,17 @@
       I18n.locale = "#{I18n.locale}";
     = javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'
     = javascript_include_tag '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'
+    -# = # javascript_include_tag '/assets/skillster-worker.js'
     :javascript
-      $(document).ready(function(){       
-        $('.slidey').slick({
-          prevArrow: "<button class='slick-prev'> &lt; </button> ",
+      $(document).ready(function(){   
+        var scripts = document.getElementsByTagName('script');
+        var lastScript = scripts[scripts.length-2];
+        var styles = document.getElementsByTagName('link');
+        var lastStyle = styles[styles.length-1];
+
+        console.log(lastStyle.href);
+         $('.slidey').slick({
+           prevArrow: "<button class='slick-prev'> &lt; </button> ",
           nextArrow: "<button class='slick-next'> &gt; </button> ",
           autoplay: true,
           pauseOnHover: true,

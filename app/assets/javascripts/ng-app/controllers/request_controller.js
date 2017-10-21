@@ -21,8 +21,8 @@ angular.module('blnkk.controllers')
   .controller('CopyRequestLinkController', ['$scope', '$rootScope', '$timeout', 'linkToCopy',  '$uibModalInstance', function($scope, $rootScope, $timeout, linkToCopy, $uibModalInstance){
     $scope.isLoadingUser = false;
     $scope.user = null;
-    
     $scope.linkToCopy = linkToCopy;
+    console.log(linkToCopy)
 
     $scope.close = function () {
       $uibModalInstance.close();

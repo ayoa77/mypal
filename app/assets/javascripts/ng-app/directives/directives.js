@@ -206,6 +206,7 @@ function widgetMainMenu(){
 			}
 			$scope.switchLanguage = function(lng) {
 				$window.location.replace($window.location.pathname + '?ln=' + lng);
+				console.log($window.location.pathname)
 			};
 			$scope.start = function(){
 	      $uibModal.open({
@@ -1025,7 +1026,7 @@ function attachment(){
   					if (url.match(imageRegex)) {
      			    $scope.foundAttachments = true;
      			    // $scope.imageAttachments.push({origUrl: url, loadUrl: "/img?url="+url});
-     			    $scope.imageAttachments.push({origUrl: url, loadUrl: url});
+     			    $scope.imageAttachments.push({origUrl: url.truncate(20), loadUrl: url});
     				}
     				var youtubeMatch = url.match(youtubeRegex)
   					if (youtubeMatch && youtubeMatch[2].length == 11) {

@@ -18,7 +18,8 @@ set httpd port 2812
 ## Services
 ###############################################################################
 
-check system live.blnkk.com
+# check system live.blnkk.com
+check system skillster.me
   if loadavg (1min) > 4 then alert
   if loadavg (5min) > 2 then alert
   if memory usage > 75% then alert
@@ -39,7 +40,7 @@ check process apache with pidfile /var/run/apache2/apache2.pid
 #     and request "/"
 #     then restart
 #  if failed port 443 type tcpssl protocol http
-  if failed url https://blnkk.com
+  if failed url https://skillster.me
 #     with timeout 15 seconds
      then restart
   if 3 restarts within 5 cycles then timeout
@@ -50,9 +51,9 @@ check process mysql with pidfile /var/run/mysqld/mysqld.pid
   if failed port 3306 then restart
   if 5 restarts within 5 cycles then timeout
 
-check process websocket_rails with pidfile /home/deploy/www/blnkk/shared/tmp/pids/websocket_rails.pid
-  start "/bin/su - deploy -c 'cd /home/deploy/www/blnkk/current && ( RAILS_ENV=production bundle exec rake websocket_rails:start_server )'"
-  stop "/bin/su - deploy -c 'cd /home/deploy/www/blnkk/current && ( RAILS_ENV=production bundle exec rake websocket_rails:stop_server )'"
+check process websocket_rails with pidfile /home/aj/var/www/html/lionslounge/shared/tmp/pids/websocket_rails.pid
+  start "/bin/su - deploy -c 'cd /home/aj/var/www/html/globetutoring/current && ( RAILS_ENV=production bundle exec rake websocket_rails:start_server )'"
+  stop "/bin/su - deploy -c 'cd /home/aj/var/www/html/globetutoring/current && ( RAILS_ENV=production bundle exec rake websocket_rails:stop_server )'"
   if failed port 3001 then restart
   if 5 restarts within 5 cycles then timeout
 

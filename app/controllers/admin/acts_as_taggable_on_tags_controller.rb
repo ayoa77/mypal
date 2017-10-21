@@ -44,11 +44,18 @@ class Admin::ActsAsTaggableOnTagsController < AdminController
     def update
       @tag = ActsAsTaggableOn::Tag.find_by(id: params[:id])
       @city_image = @tag.city_image
-      if @tag.update_attributes(tag_params) || city_image_params.present? && @city_image.update_attributes(city_image_params.try)
+      if @tag.update_attributes(tag_params) && city_image_params.present? 
+        @city_image.update_attributes(city_image_params)
         @tag.banner_url = @city_image.banner.url
         # @tag.small_url = @city_image.small.url
         @tag.display_name = tag_params[:name]
         @tag.save
+        @city_image.save
+        flash[:notice] = "channel #{@tag.name} updated"
+        redirect_to admin_acts_as_taggable_on_tags_path
+      elsif @tag.update_attributes(tag_params) && !city_image_params.present?
+            @tag.display_name = tag_params[:name]
+            @tag.save
         flash[:notice] = "channel #{@tag.name} updated"
         redirect_to admin_acts_as_taggable_on_tags_path
       else
