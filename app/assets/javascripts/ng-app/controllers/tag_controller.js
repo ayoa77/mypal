@@ -57,7 +57,7 @@ angular.module('blnkk.controllers')
         .then( function(tag) {
           $scope.tag = tag;
           console.log($stateParams.tag);
-          setTitle($rootScope, tag.display_name, $scope.session.user.unread_notifications_count + $scope.session.user.unread_conversations_count, Analytics);
+          setTitle($rootScope, tag.name, $scope.session.user.unread_notifications_count + $scope.session.user.unread_conversations_count, Analytics);
           populateTags([tag], $scope.session.user.tag_list);
           $scope.setNewRequestVisibility($scope.session.connected && $scope.session.user.tag_list.indexOf($scope.tag.name) >= 0, $scope.tag.name);
         }, function(message) {

@@ -3,8 +3,8 @@ default: &default
   # From address
   MAILGUN_FROM_ADDRESS: "Skillster <info@mg.skillster.me>"
   ROOT_URL: "http://skillster.me/"
-  DATA_URL: "http://skillster.me/"
-  # DATA_URL: "http://localhost:3000/"
+  #DATA_URL: "http://skillster.me/"
+  DATA_URL: "http://localhost:3000/"
   # DATA_URL: "https://i.doers.io/"
 
   # Payments

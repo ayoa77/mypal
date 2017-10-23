@@ -144,7 +144,7 @@ function followTag(){
 	    		return;
 	    	}
 	    	populateTags([tag], $scope.session.user.tag_list);
-    		if (tag.member && !confirm(I18n.t("follow_tag_directive.unfollow_question", { tag: tag.display_name }) )){
+    		if (tag.member && !confirm(I18n.t("follow_tag_directive.unfollow_question", { tag: tag.name }) )){
     			return;
     		}
 	    	$scope.isBusy = true;

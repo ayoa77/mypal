@@ -12,7 +12,7 @@
                 .img-placeholder.img-placeholder-50
                   %i.fa.fa-fw{ "ng-class" => "'fa-'+tag.icon" }
             .media-body.media-bottom
-              %a.title.primary{"ui-sref" => "home.tagSingle({tag: tag.name})" }> {{ tag.display_name }}
+              %a.title.primary{"ui-sref" => "home.tagSingle({tag: tag.name})" }> {{ tag.name }}
               .item-tags
                 %span.item.text-nowrap
                   %span{ "ng-bind-html" => "'tag_item_directive.follower_num' | t:{count: tag.user_count}" }>
