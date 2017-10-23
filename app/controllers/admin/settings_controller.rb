@@ -4,7 +4,6 @@ class Admin::SettingsController < AdminController
     settings =  Setting.all
     @sings = settings.select { |sets| !sets.key.include?('STYLES') }
     @styles = settings.select { |sets| sets.key.include?('STYLES') }
-
   end
 
   def update
