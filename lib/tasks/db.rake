@@ -36,14 +36,22 @@ namespace :db do
         Setting.find_or_create_by(key: "COLOR")
         Setting.find_by(key: "LOCALE_PRIMARY") || Setting.create(key: "LOCALE_PRIMARY", value: "en")
         Setting.find_or_create_by(key: "LOCALE_SECONDARY")
-        Setting.find_or_create_by(key: "BACKGROUND_URL")
-        Setting.find_or_create_by(key: "TEXT_COLOR")
-        Setting.find_or_create_by(key: "TAGLINE_PRIMARY")
-        Setting.find_or_create_by(key: "TAGLINE_SECONDARY")
-        Setting.find_or_create_by(key: "TAGLINE_EN_FONT")
-        Setting.find_or_create_by(key: "TAGLINE_ZH_FONT")
-        Setting.find_or_create_by(key: "TAGLINE_PRIMARY_SIZE")
-        Setting.find_or_create_by(key: "TAGLINE_SECONDARY_SIZE")        
+        Setting.find_or_create_by(key: "STYLES_BACKGROUND_URL")
+        Setting.find_or_create_by(key: "STYLES_TEXT_COLOR")
+        Setting.find_or_create_by(key: "STYLES_TAGLINE_PRIMARY")
+        Setting.find_or_create_by(key: "STYLES_TAGLINE_SECONDARY")
+        Setting.find_or_create_by(key: "STYLES_TAGLINE_EN_FONT")
+        Setting.find_or_create_by(key: "STYLES_TAGLINE_ZH_FONT")
+        Setting.find_or_create_by(key: "STYLES_TAGLINE_PRIMARY_SIZE")
+        Setting.find_or_create_by(key: "STYLES_TAGLINE_SECONDARY_SIZE")       
+        Setting.find_by(key: "TAGLINE_PRIMARY").delete
+        Setting.find_by(key: "TAGLINE_SECONDARY").delete
+        Setting.find_by(key: "TAGLINE_EN_FONT").delete
+        Setting.find_by(key: "TAGLINE_ZH_FONT").delete
+        Setting.find_by(key: "TAGLINE_PRIMARY_SIZE").delete
+        Setting.find_by(key: "TAGLINE_SECONDARY_SIZE").delete
+        Setting.find_by(key: "TEXT_COLOR").delete
+        Setting.find_by(key: "BACKGROUND_URL").delete 
         # Setting.find_or_create_by(key: "DESCRIPTION_PRIMARY")
         # Setting.find_or_create_by(key: "DESCRIPTION_SECONDARY")
         Setting.find_by(key: "CHINA") || Setting.create(key: "CHINA", value: "0")
