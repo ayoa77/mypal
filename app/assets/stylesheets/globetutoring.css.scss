@@ -136,8 +136,8 @@ body{
 }
 
 .tagline-container {
-  height: 500px;
-  width: 100vw;
+  height: 600px;
+  width: 98vw;
   margin: -8px -8px;
   position: relative;
   overflow: hidden;
@@ -155,7 +155,9 @@ body{
   opacity: .2;
   contrast: 1;
 }
-
+.signin-modal{
+  padding-bottom:20px;
+}
 .tagline-effect {
   height: 100%;
   width: 100vw;
@@ -306,7 +308,10 @@ body{
 }
 @media (max-width: 768px){
   .item-footer{
-    overflow:auto;
+    // overflow:auto;
+  }
+  .tagline-information .big-text{
+    font-size: 35px;
   }
   .modal-content>.item-main-wrapper .profile-summary .item-main-wrapper{
     margin:10px 0;
@@ -337,6 +342,7 @@ body{
     font-size: 16px;
     padding:0 5px;
   }
+  
   .landing-page .intro{
     margin-top:20px;
     font-size: 70px;
@@ -347,7 +353,7 @@ body{
   #sidebar{
     position: fixed;
     background-color: white;
-    width:100%;
+    // width:50%;
     height:100%;
     padding:20px 5%;
     opacity: 1;

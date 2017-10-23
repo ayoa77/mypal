@@ -1,4 +1,4 @@
-.item-main-wrapper.no-margin
+.item-main-wrapper.no-margin.signin-modal
   .item-header
     .pull-right
       %a.close{href: "", "ng-click" => "cancel()"}
@@ -30,7 +30,7 @@
   .item 
     %button.btn.btn-primary.btn-block.linkedin{ "ng-click" => "signInWithLinkedin()"} {{signinType+".with_linkedin" | t}}
 
-    .item.text-center{ "ng-show" => "signinType == 'signin'" }
+    .item.text-center.si{ "ng-show" => "signinType == 'signin'" }
       %em {{"signin.no_account_yet" | t}}
     .item{ "ng-show" => "signinType == 'signin'" }
       %button.btn.btn-primary.btn-block{ "ng-click" => "noAccountSignUp()"} {{"signin.sign_up_now" | t}}
