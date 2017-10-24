@@ -3,8 +3,8 @@ ActsAsTaggableOn.force_lowercase = true
 
 class ActsAsTaggableOn::Tag
 
-  validates :name, length: {minimum: 3}
-  validates :display_name, length: {minimum: 3}
+  validates :name, length: {minimum: 1}
+  validates :display_name, length: {minimum: 1}
 
   belongs_to :user
   belongs_to :request
