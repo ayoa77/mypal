@@ -65,7 +65,7 @@ a.logo.mobile{
   margin-top:40px;
 }
 .nav-signin{
-  color:#00B0BD;
+  color:white;
   font-size: 20px;
   padding:0 30px;
 
@@ -77,7 +77,7 @@ a.logo.mobile{
   display:none;
 }
 .nav-signin:hover{
-  color:white;
+  color:#949494;
 }
 .content-wrapper #main-content{
   // top:none;
@@ -138,7 +138,7 @@ body{
 .tagline-container {
   height: 600px;
   width: 98vw;
-  margin: -8px -8px;
+  margin: -31px -8px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -149,7 +149,7 @@ body{
   height: auto;
   width: 100%;
   position: absolute;
-  top: -70%;
+  top: -30%;
   z-index: -1;
   filter: grayscale(1);
   opacity: .2;

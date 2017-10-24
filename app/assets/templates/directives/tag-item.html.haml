@@ -14,7 +14,7 @@
         -#       %a{href: "", "ng-click" => "destroyTag()", "ng-disabled" => "isDestroying"}
         -#         {{"tag_item_directive.delete_tag" | t}}
       -# %img.channel-img{"ng-src" => "{{tag.small_url}}"}
-      %a.title.title-lg.primary{"ui-sref" => "home.tagSingle({tag: tag.name})" }> {{ tag.display_name }}
+      %a.title.title-lg.primary{"ui-sref" => "home.tagSingle({tag: tag.name})" }> {{ tag.name }}
   -#.item-body.col-lm-8
     -#.media.no-margin
       -#.media-left
@@ -22,7 +22,7 @@
         -#  .img-placeholder.img-placeholder-100
         -#   %i.fa.fa-fw{ "ng-class" => "'fa-'+tag.icon" }
       -#.media-body.media-bottom
-        -#%a.title.title-lg.primary{"ui-sref" => "home.tagSingle({tag: tag.name})" }> {{ tag.display_name }}
+        -#%a.title.title-lg.primary{"ui-sref" => "home.tagSingle({tag: tag.name})" }> {{ tag.name }}
         -#.item-tags
 
           -#%span.item.text-nowrap
