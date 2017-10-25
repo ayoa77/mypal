@@ -309,7 +309,7 @@ body{
 
 @media (max-width: 799px) {
 .tagline-information .little-text {
-  display: none;
+  // display: none;
 }
 
 }
@@ -319,12 +319,13 @@ body{
     height: 300px;
     margin: -45px 0px;
   }
+
   .item-footer{
     // overflow:auto;
   }
   .tagline-information .big-text{
     font-size: 35px;
-    display: none;
+    // display: none;
   }
   .modal-content>.item-main-wrapper .profile-summary .item-main-wrapper{
     margin:10px 0;
