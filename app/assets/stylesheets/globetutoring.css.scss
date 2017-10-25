@@ -137,8 +137,8 @@ body{
 
 .tagline-container {
   height: 600px;
-  width: 98vw;
-  margin: -31px -8px;
+  width: 100vw;
+  margin: -31px 0px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -149,7 +149,7 @@ body{
   height: auto;
   width: 100%;
   position: absolute;
-  top: -30%;
+  top: 0%;
   z-index: -1;
   filter: grayscale(1);
   opacity: .2;
@@ -306,12 +306,25 @@ body{
     font-size: 100px;
   }
 }
-@media (max-width: 768px){
+
+@media (max-width: 799px) {
+.tagline-information .little-text {
+  display: none;
+}
+
+}
+
+@media (max-width: 767px){
+  .tagline-container{
+    height: 300px;
+    margin: -45px 0px;
+  }
   .item-footer{
     // overflow:auto;
   }
   .tagline-information .big-text{
     font-size: 35px;
+    display: none;
   }
   .modal-content>.item-main-wrapper .profile-summary .item-main-wrapper{
     margin:10px 0;
@@ -359,7 +372,7 @@ body{
     opacity: 1;
     z-index: 1000;
     left:-100%;
-    margin-top:0px;
+    margin-top:-20px;
     overflow: auto;
     transition: left 0.4s ease-in-out;
   }

@@ -47,7 +47,7 @@
         .media.with-overflow
           .media-left.media-middle.text-nowrap.nav-leftpart
             %a.hamburger.ng-cloak.visible-xs-inline-block{"href" => "#", "ng-click" => "toggleSidebar()" }
-              %i.fa.fa-bars
+              %i.fa.fa-bars{"ng-show" => "!isRetrievingProfile && session.connected"}
               %span.badge{"ng-show" => "session.user.unread_notifications_count > 0 || session.user.unread_conversations_count > 0", "ng-show" => "session.connected"}
                 {{ session.user.unread_notifications_count + session.user.unread_conversations_count }}
             %a.logo{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
