@@ -138,7 +138,7 @@
               -#.slide-blur{style: "background-image:url('learn.png')"}
               -#%img{"ng-src" => "learn.png"}
         %new-request{"ng-if" => "session.connected","ng-show" => "newRequestVisible"}
-        .app-bot
+        .app-bot{"ng-show" => "!isRetrievingProfile && session.connected && isPrivate"}
           .container
             #sidebar.col-sm-3{"ng-class" => "!session.connected ? 'lower-sidebar' : ''", "ng-click" => "hideSidebar()"  }
               #sidebar-background{ "ng-click" => "hideSidebar()" }
