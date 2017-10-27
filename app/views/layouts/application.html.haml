@@ -155,7 +155,7 @@
             #sidebar.col-sm-3{"ng-class" => "!session.connected ? 'lower-sidebar' : ''", "ng-click" => "hideSidebar()"  }
               #sidebar-background{ "ng-click" => "hideSidebar()" }
               %widget-main-menu{ "user-connected" => "session.connected"}
-            %div.view.col-sm-8{ "ui-view" => "" }
+            %div.view.col-sm-8{"ng-if" => "session.connected", "ui-view" => "" }
 
     %noscript
       .headings-wrapper
