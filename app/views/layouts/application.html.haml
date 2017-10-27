@@ -149,7 +149,8 @@
               -#.slide-blur{style: "background-image:url('learn.png')"}
               -#%img{"ng-src" => "learn.png"}
         %new-request{"ng-if" => "!isRetrievingProfile && session.connected","ng-show" => "newRequestVisible"}
-        .app-bot{"ng-if" => "!isRetrievingProfile && session.connected"}
+        .app-bot{"ng-if" => "session.connected"}
+
           .container
             #sidebar.col-sm-3{"ng-class" => "!session.connected ? 'lower-sidebar' : ''", "ng-click" => "hideSidebar()"  }
               #sidebar-background{ "ng-click" => "hideSidebar()" }
@@ -178,6 +179,7 @@
         var lastScript = scripts[scripts.length-2];
         var styles = document.getElementsByTagName('link');
         var lastStyle = styles[styles.length-1];
+        console.log(session.connected)
 
         console.log(lastStyle.href);
         -# $('.slidey').slick({
