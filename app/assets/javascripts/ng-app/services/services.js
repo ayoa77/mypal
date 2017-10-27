@@ -831,7 +831,7 @@ angular.module('blnkk.services', [ 'persona' ])
 			clientId = '7727a6dzcubr3n';
 			redirect = encodeURIComponent("http://localhost:3000/oauth2authentication");
 		} else {
-			clientId = '7727a6dzcubr3n';
+			clientId = '81fmq7b1l2fmnn';
 			redirect = encodeURIComponent("http://heylions.club/oauth2authentication");
 		}
 		this.getAuthenticationURL = function(redirectTo, requestType) {
