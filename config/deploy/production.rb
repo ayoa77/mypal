@@ -29,7 +29,7 @@ role :resque_worker, %w{139.162.124.64}
 role :resque_scheduler, %w{139.162.124.64}
 
 # set :workers, { "email" => 1, "*" => 1, "location" => 1, "elasticsearch" => 1}
-set :workers, {"*" => 1}
+set :workers, {"*" => 1,  "elasticsearch" => 1}
 set :deploy_to, '/home/aj/var/www/html/lionslounge/'
 
 
