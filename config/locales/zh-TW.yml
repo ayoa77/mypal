@@ -45,7 +45,7 @@ zh-TW:
     trying_reconnect: 嘗試登入中...
     retry: 重新嘗試中...
   tag:
-    index_title: 頻道
+    index_title: 我的頻道
     recommended: 推薦
     latest: 最新
     top: 超級熱門
@@ -230,7 +230,7 @@ zh-TW:
     invite_people: 邀請更多人
     tags: 頻道
     more_tags: 更多頻道
-    get_started: 開始使用 Skillster
+    get_started: 開始使用 Hey Lions
     complete_profile: 完善個人簡歷
     follow_tags: 關注5個頻道
     follow_people: 關注5個會員
@@ -240,9 +240,9 @@ zh-TW:
   messages_directive:
     replied_on: “回覆："
   new_request_directive:
-    title: "撰寫"
-    subject_placeholder: "Subject"
-    content_placeholder: "寫點東西"
+    title: "發佈公告"
+    subject_placeholder: "發佈公告"
+    content_placeholder: "詳細描述公告內容（何人、何事、何時、何地、何物...）"
     post: 發佈
     cancel: 取消
     pick_a_tag: "選擇一個頻道..."
