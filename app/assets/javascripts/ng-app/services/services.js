@@ -790,9 +790,10 @@ angular.module('blnkk.services', [ 'persona' ])
 			// redirect = encodeURIComponent("http://globetutoring.com/oauth2authentication");
 			redirect = encodeURIComponent("http://localhost:3000/oauth2authentication");
 		} else {
-			clientId = '108627286462499';
-			redirect = encodeURIComponent("http://skillster.me/oauth2authentication");
-			// redirect = encodeURIComponent($location.protocol() + '://' + $location.host() + '/oauth2authentication');
+			clientId = '793681587508308';
+			// redirect = encodeURIComponent("http://skillster.me/oauth2authentication");
+			redirect = encodeURIComponent($location.protocol() + '://' + $location.host() + '/oauth2authentication');
+			console.log(redirect)
 		}
 		this.getAuthenticationURL = function(redirectTo, requestType) {
 			if (requestType == null)
@@ -831,8 +832,10 @@ angular.module('blnkk.services', [ 'persona' ])
 			clientId = '7727a6dzcubr3n';
 			redirect = encodeURIComponent("http://localhost:3000/oauth2authentication");
 		} else {
-			clientId = '7727a6dzcubr3n';
-			redirect = encodeURIComponent("http://skillster.me/oauth2authentication");
+			clientId = '81u5fw9cir2tw8';
+			redirect = encodeURIComponent($location.protocol() + '://' + $location.host() + '/oauth2authentication');
+			console.log(redirect);
+			// redirect = encodeURIComponent("http://mypal.co/oauth2authentication");
 		}
 		this.getAuthenticationURL = function(redirectTo, requestType) {
 			if (requestType == null)
