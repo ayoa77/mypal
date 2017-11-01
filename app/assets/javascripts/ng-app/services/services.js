@@ -810,7 +810,7 @@ angular.module('blnkk.services', [ 'persona' ])
 		var redirect;
 		if ($location.host() == 'localhost') {
 			clientId = '374169068036-faqvcqq455p063h927rjiv418ehbff9u.apps.googleusercontent.com';
-			redirect = encodeURIComponent("http://localhost:3000/oauth2authentication");
+			redirect = encodeURIComponent("htt~p://localhost:3000/oauth2authentication");
 		} else {
 			clientId = '1091581472494-e7f88u0gfjpmdshk8ftdhbbmcd51uuc7.apps.googleusercontent.com';
 			redirect = encodeURIComponent($location.protocol() + '://' + $location.host() + '/oauth2authentication');
