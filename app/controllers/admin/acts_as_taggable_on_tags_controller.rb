@@ -2,7 +2,7 @@ class Admin::ActsAsTaggableOnTagsController < AdminController
 
 
     def index
-      @tags = ActsAsTaggableOn::Tag.all.order(:id)
+      @tags = ActsAsTaggableOn::Tag.all.order(:position)
     end
 
     def show
@@ -33,6 +33,8 @@ class Admin::ActsAsTaggableOnTagsController < AdminController
         current_user.tag_list << @tag.name
         current_user.save
         @tag.populate
+        @tag.setposition
+
         flash[:notice] = "New channel #{@tag.name} created"
         redirect_to admin_acts_as_taggable_on_tags_path
       else
@@ -50,11 +52,13 @@ class Admin::ActsAsTaggableOnTagsController < AdminController
         # @tag.small_url = @city_image.small.url
         @tag.display_name = tag_params[:name]
         @tag.save
+        @tag.setposition
         @city_image.save
         flash[:notice] = "channel #{@tag.name} updated"
         redirect_to admin_acts_as_taggable_on_tags_path
       elsif @tag.update_attributes(tag_params) && !city_image_params.present?
             @tag.display_name = tag_params[:name]
+            @tag.setposition
             @tag.save
         flash[:notice] = "channel #{@tag.name} updated"
         redirect_to admin_acts_as_taggable_on_tags_path
@@ -86,6 +90,10 @@ class Admin::ActsAsTaggableOnTagsController < AdminController
     end
 
     def city_image_params
-      params.require(:city_image).permit(:banner, :small) 
+      if  !params[:city_image].nil?    
+   params.require(:city_image).permit(:banner, :small) 
+      else
+      nil
+      end
     end
-end
+  end

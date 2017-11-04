@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831041454) do
+ActiveRecord::Schema.define(version: 20171103092810) do
 
   create_table "city_images", force: :cascade do |t|
     t.integer "tag_id",     limit: 4
@@ -224,7 +224,7 @@ ActiveRecord::Schema.define(version: 20170831041454) do
 
   create_table "settings", force: :cascade do |t|
     t.string "key",   limit: 191
-    t.string "value", limit: 191
+    t.string "value", limit: 255
   end
 
   add_index "settings", ["key"], name: "index_settings_on_key", unique: true, using: :btree
@@ -252,6 +252,7 @@ ActiveRecord::Schema.define(version: 20170831041454) do
     t.integer "user_count",     limit: 4,   default: 0
     t.string  "banner_url",     limit: 191
     t.string  "small_url",      limit: 191
+    t.integer "position",       limit: 4,   default: 0,      null: false
   end
 
   add_index "tags", ["display_name"], name: "index_tags_on_display_name", using: :btree

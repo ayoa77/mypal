@@ -10,9 +10,9 @@
   %tbody
     - @tags.each do |t|
       %tr
-        -# %td= t.position
-        %td
+        %td= t.position
         %td= link_to t.name, edit_admin_acts_as_taggable_on_tag_path(t)
+        %td
         -# %td
           -# = image_tag t.city_image.small.thumb('300x200#').url if t.city_image.small_stored?
           -# = image_tag t.city_image.banner.url(:thumb)

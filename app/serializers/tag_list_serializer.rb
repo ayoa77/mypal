@@ -6,6 +6,7 @@ class TagListSerializer < BaseSerializer
              :icon,
              :user_count,
              :banner_url,
-             :small_url
+             :small_url,
+             :position
              
 end
