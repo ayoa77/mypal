@@ -14,5 +14,22 @@ class ActsAsTaggableOn::Tag
   def populate
     self.update_columns(user_count: User.where(enabled: true).tagged_with(self.name, on: :tags).count)
   end
+ 
+  def setposition
+    oldone = nil
+    thisonesid = self.id
+    thisonesposition = self.position
+    oldones = ActsAsTaggableOn::Tag.where(position: thisonesposition)
+    oldones = oldones.where.not(id:thisonesid)
+    oldone = oldones.first
+    
+    unless oldone.nil? 
+      oldone.position += 1
+      oldone.save
+      oldone.setposition
+    end
+    else 
+      return 
+  end
 
 end

@@ -3,7 +3,10 @@
   .form-group
     %label Name
     = f.text_field :name, class: "form-control", required: :required
-
+    
+    .form-group
+      %label Positon
+      = f.number_field :position, class: "form-control"
     = fields_for @city_image do |ci|
       -# .form-group
       -#   %label Thumb
