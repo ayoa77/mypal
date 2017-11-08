@@ -28,7 +28,6 @@ class ActsAsTaggableOn::Tag
       oldone.save
       oldone.setposition
     end
-    else 
       return 
   end
 
