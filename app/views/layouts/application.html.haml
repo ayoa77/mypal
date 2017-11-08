@@ -91,7 +91,7 @@
       -#.channel-banner{ "ng-show" => "current_page?(tag_path)" }
       -#  = image_tag ActsAsTaggableOn::Tag.find_by(name: params[:id]).city_image.banner.url if ActsAsTaggableOn::Tag.find_by(name: params[:id]).present?
       / %img{:src => "/loading.gif", :alt => ""}/
-      .ng-cloak{ "ng-show" => ""}  
+      .ng-cloak{ "ng-show" => "!isRetrievingProfile"}  
         %div.landing-page{ "ng-if" => "!session.connected" }
           .tagline-container
             .tagline-information{style: "color:#{@settings["STYLES_TEXT_COLOR"]}; font_family:#{@settings["STYLES_TAGLINE_EN_FONT"]}, Arial, sans-serif, #{@settings["STYLES_TAGLINE_ZH_FONT"]}"}
@@ -148,8 +148,8 @@
             -#.container.slide6
               -#.slide-blur{style: "background-image:url('learn.png')"}
               -#%img{"ng-src" => "learn.png"}
-        %new-request{"ng-if" => "!isRetrievingProfile && session.connected","ng-show" => "newRequestVisible"}
-        .app-bot{"ng-if" => "session.connected"}
+        %new-request{"ng-if" => "session.connected","ng-show" => "newRequestVisible"}
+        .app-bot
 
           .container
             #sidebar.col-sm-3{"ng-class" => "!session.connected ? 'lower-sidebar' : ''", "ng-click" => "hideSidebar()"  }
