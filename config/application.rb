@@ -42,8 +42,7 @@ module Blnkk
         File.extname(path).in? [
           '.html', '.erb', '.haml',                 # Templates
           '.png',  '.gif', '.jpg', '.jpeg',         # Images
-          '.eot',  '.otf', '.svc', '.woff', '.ttf', # Fonts
-          '.js', 
+          '.eot',  '.otf', '.svc', '.woff', '.ttf', # Fonts 
         ]
       end)
     end
