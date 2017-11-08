@@ -19,7 +19,7 @@ a.social, .dropdown-menu li a.social{
     color: #00d231;
   }
   .fa-envelope-square, .fa-share-square{
-    color: $medium_gray;
+    color: #7d7c7c;
   }
   &:hover{
     .fa-facebook-square{
@@ -38,7 +38,7 @@ a.social, .dropdown-menu li a.social{
       color: lighten(#00d231,5%);
     }
     .fa-envelope-square, .fa-share-square{
-      color: lighten($medium_gray,5%);
+      color: lighten(#7d7c7c, 5%);
     }
   }
 
