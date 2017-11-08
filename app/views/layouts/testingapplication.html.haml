@@ -3,7 +3,7 @@
   %head
     %meta{:charset => 'utf-8'}
     / %title{ "ng-bind" => "title"}= @title.present? ? "#{@title} - #{@settings["SUBSITE"]} #{@settings["SITE_NAME"]}" : "#{@settings["SUBSITE"]} #{@settings["SITE_NAME"]} - #{localize_setting("TAGLINE")}"
-    %title Hey Lions Club
+    %title MyPal
     %meta{'http-equiv' => 'X-UA-Compatible', content: 'IE=Edge,chrome=1'}
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1'}
     %meta{name: 'description', content: @description}
@@ -46,15 +46,14 @@
       .container
         .media.with-overflow
           .media-left.media-middle.text-nowrap.nav-leftpart
-            %a.hamburger.ng-cloak.visible-xs-inline-block{"href" => "#", "ng-click" => "toggleSidebar()" }
-              %i.fa.fa-bars{"ng-show" => "!isRetrievingProfile && session.connected"}
+            %a.hamburger.ng-cloak.visible-xs-inline-block{"ng-if" => "session.connected", "href" => "#", "ng-click" => "toggleSidebar()" }
+              %i.fa.fa-bars
               %span.badge{"ng-show" => "session.user.unread_notifications_count > 0 || session.user.unread_conversations_count > 0", "ng-show" => "session.connected"}
                 {{ session.user.unread_notifications_count + session.user.unread_conversations_count }}
             %a.logo{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
-              = @settings["SITE_NAME"]
-            -# = image_tag logo_image_url
+              = image_tag logo_image_url
             %a.logo.mobile{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
-            -# %img(src="/mobile-logo.png" alt="")
+              %img(src="/mobile-logo.png" alt="")/
               -#/ %span.hidden-xs
               -#  / = @settings["SUBSITE"]
               -#  / = @settings["SITE_NAME"]
@@ -69,7 +68,7 @@
             .btn-group{"ng-show" => "!isRetrievingProfile && session.connected"}
               %button.btn.btn-link.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
                 %i.fa.fa-fw.fa-ellipsis-v
-              %ul.dropdown-menu.dropdown-menu-right
+              %ul.dropdown-menu.dropdown-menu-right.drowdown-nav
                 %li
                   %a{ "ui-sref" => "home.userSingle({id: session.user.id})" }
                     %i.fa.fa-user.fa-fw
@@ -91,20 +90,10 @@
       -#.channel-banner{ "ng-show" => "current_page?(tag_path)" }
       -#  = image_tag ActsAsTaggableOn::Tag.find_by(name: params[:id]).city_image.banner.url if ActsAsTaggableOn::Tag.find_by(name: params[:id]).present?
       / %img{:src => "/loading.gif", :alt => ""}/
-      .ng-cloak{ "ng-show" => "isRetrievingProfile"}  
+      .ng-cloak{ "ng-show" => "!isRetrievingProfile"}  
         %div.landing-page{ "ng-if" => "!session.connected" }
-          .tagline-container
-            .tagline-information{style: "color:#{@settings["STYLES_TEXT_COLOR"]}; font_family:#{@settings["STYLES_TAGLINE_EN_FONT"]}, Arial, sans-serif, #{@settings["STYLES_TAGLINE_ZH_FONT"]}"}
-              .tagline-effect
-              %img{:src =>  "#{@settings["STYLES_LOGO"]}"}
-              %p.tagline-text.big-text{style: ""} 
-                = @settings["STYLES_TAGLINE_PRIMARY"]
-              %p.tagline-text.little-text{style: "font-size:#{@settings["STYLES_TAGLINE_SECONDARY_SIZE"]}px"} 
-                = @settings["STYLES_TAGLINE_SECONDARY"]
-
-            .tagline-photo
-              %img{:src => "#{@settings["STYLES_BACKGROUND_URL"]}"}
-
+          .slidey
+            .container.slide1
               -#.outer
                 -#.inner
                   -# %h2 {{"index.welcome" | t }}
@@ -148,14 +137,13 @@
             -#.container.slide6
               -#.slide-blur{style: "background-image:url('learn.png')"}
               -#%img{"ng-src" => "learn.png"}
-        %new-request{"ng-if" => "!isRetrievingProfile && session.connected","ng-show" => "newRequestVisible"}
-        .app-bot{"ng-if" => "session.connected"}
-
+        %new-request{"ng-if" => "session.connected","ng-show" => "newRequestVisible"}
+        .app-bot{"ng-show" => "!isRetrievingProfile && session.connected && isPrivate"}
           .container
             #sidebar.col-sm-3{"ng-class" => "!session.connected ? 'lower-sidebar' : ''", "ng-click" => "hideSidebar()"  }
               #sidebar-background{ "ng-click" => "hideSidebar()" }
               %widget-main-menu{ "user-connected" => "session.connected"}
-            %div.view.col-sm-8{"ng-if" => "session.connected", "ui-view" => "" }
+            %div.view.col-sm-8{ "ui-view" => "" }
 
     %noscript
       .headings-wrapper
@@ -179,15 +167,14 @@
         var lastScript = scripts[scripts.length-2];
         var styles = document.getElementsByTagName('link');
         var lastStyle = styles[styles.length-1];
-        console.log(session.connected)
 
         console.log(lastStyle.href);
-        -# $('.slidey').slick({
-        -#   prevArrow: "<button class='slick-prev'> &lt; </button> ",
-        -#   nextArrow: "<button class='slick-next'> &gt; </button> ",
-        -#   autoplay: true,
-        -#   pauseOnHover: true,
-        -#   fade:true,
-        -#   autoplaySpeed: 5000
-        -# });
+         $('.slidey').slick({
+           prevArrow: "<button class='slick-prev'> &lt; </button> ",
+          nextArrow: "<button class='slick-next'> &gt; </button> ",
+          autoplay: true,
+          pauseOnHover: true,
+          fade:true,
+          autoplaySpeed: 5000
+        });
       });
