@@ -43,7 +43,7 @@ module Blnkk
           '.html', '.erb', '.haml',                 # Templates
           '.png',  '.gif', '.jpg', '.jpeg',         # Images
           '.eot',  '.otf', '.svc', '.woff', '.ttf', # Fonts
-          '.js', '.scss', '.css', '.less'
+          '.js', 
         ]
       end)
     end
