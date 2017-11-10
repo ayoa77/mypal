@@ -94,16 +94,17 @@
       .ng-cloak{ "ng-show" => "!isRetrievingProfile"}  
         %div.landing-page{ "ng-if" => "!session.connected" }
           .tagline-container
-            .tagline-information{style: "color:#{@settings["STYLES_TEXT_COLOR"]}; font_family:#{@settings["STYLES_TAGLINE_EN_FONT"]}, Arial, sans-serif, #{@settings["STYLES_TAGLINE_ZH_FONT"]}"}
-              .tagline-effect
-              %img{:src =>  "#{@settings["STYLES_LOGO"]}"}
-              %p.tagline-text.big-text{style: ""} 
-                = @settings["STYLES_TAGLINE_PRIMARY"]
-              %p.tagline-text.little-text{style: "font-size:#{@settings["STYLES_TAGLINE_SECONDARY_SIZE"]}px"} 
-                = @settings["STYLES_TAGLINE_SECONDARY"]
+            -# .tagline-information{style: "color:#{@settings["STYLES_TEXT_COLOR"]}; font_family:#{@settings["STYLES_TAGLINE_EN_FONT"]}, Arial, sans-serif, #{@settings["STYLES_TAGLINE_ZH_FONT"]}"}
+            -#   .tagline-effect
+            -#   %img{:src =>  "#{@settings["STYLES_LOGO"]}"}
+            -#   %p.tagline-text.big-text{style: ""} 
+            -#     = @settings["STYLES_TAGLINE_PRIMARY"]
+            -#   %p.tagline-text.little-text{style: "font-size:#{@settings["STYLES_TAGLINE_SECONDARY_SIZE"]}px"} 
+            -#     = @settings["STYLES_TAGLINE_SECONDARY"]
 
             .tagline-photo
-              %img{:src => "#{@settings["STYLES_BACKGROUND_URL"]}"}
+              %img
+              -# %img{:src => "backgrounds/landing-page-lg.jpg"}
 
               -#.outer
                 -#.inner
