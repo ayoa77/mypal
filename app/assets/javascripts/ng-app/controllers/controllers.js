@@ -371,7 +371,7 @@ angular.module('blnkk.controllers', [ 'persona' ])
 		  authService.signOut().then(function(){
         SocketMessages.disconnect();
         $state.go('home.index');
-        window.location.reload();      
+        // window.location.reload();      
       });
 
     };
