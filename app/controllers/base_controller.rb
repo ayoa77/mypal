@@ -65,7 +65,6 @@ class BaseController < ActionController::Base
       ActiveRecord::Base.connection.active? #raises expection if database does not exist
     rescue
       ActiveRecord::Base.establish_connection(Rails.env.to_sym)
-      byebug
       redirect_to request.url
       # redirect_to ENV['ROOT_URL']
 
