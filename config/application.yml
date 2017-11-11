@@ -2,7 +2,7 @@ default: &default
   # # MailGun
   # From address
   MAILGUN_FROM_ADDRESS: "MyPal <info@mg.mypal.co>"
-  ROOT_URL: "http://mypal.co/"
+  # ROOT_URL: "http://mypal.co/"
   # DATA_URL: "http://mypal.co/"
   DATA_URL: "http://localhost:3000/"
   # DATA_URL: "https://i.doers.io/"
