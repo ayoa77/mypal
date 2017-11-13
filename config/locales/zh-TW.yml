@@ -39,7 +39,9 @@ zh-TW:
     latest: 最新訊息
     top: 超級熱門
   session:
-    unable_sign_in: "無法登入（害羞中...），請稍候再試試。"
+    unable_sign_in_li: "無法登入（害羞中...），請稍候再試試。"
+    unable_sign_in_fb: "Facebook註冊失敗，請確認您的Facebook帳號電子郵件已通過驗證"
+    unable_sign_in: "Linkedin註冊失敗，請確認您的Linkedin帳號電子郵件已通過驗證\nFacebook註冊失敗，請確認您的Facebook帳號電子郵件已通過驗證\n"
     new_message_from: "%{name} 留言給你了"
     reconnecting_in: "%{remainingSeconds} 幾秒內重新登入，請稍待... "
     trying_reconnect: 嘗試登入中...

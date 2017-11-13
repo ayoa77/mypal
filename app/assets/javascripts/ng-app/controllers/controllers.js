@@ -59,6 +59,7 @@ angular.module('blnkk.controllers', [ 'persona' ])
     $scope.isRetrievingProfile = true;
     if ($location.search().auth_result == "error" || $location.search().auth_result == "unknown") {
       $location.search("");
+      console.log($location)
       alertsService.add('danger', I18n.t("session.unable_sign_in"));
     } else if ($location.search().auth_result == "not_found") {
       $location.search("");
