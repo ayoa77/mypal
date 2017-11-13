@@ -50,12 +50,13 @@
               %i.fa.fa-bars{"ng-show" => "!isRetrievingProfile && session.connected"}
               %span.badge{"ng-show" => "session.user.unread_notifications_count > 0 || session.user.unread_conversations_count > 0", "ng-show" => "session.connected"}
                 {{ session.user.unread_notifications_count + session.user.unread_conversations_count }}
-            %a.logo{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
+            %a.logo.hidden-xs{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
               = @settings["SITE_NAME"]
+              -#/ %span.hidden-xs
+            %a.logo.hidden-sm.hidden-md.hidden-lg.hidden-xl{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
+              %img(src="/mobile-logo.png" alt="")
             -# = image_tag logo_image_url
             %a.logo.mobile{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
-            -# %img(src="/mobile-logo.png" alt="")
-              -#/ %span.hidden-xs
               -#  / = @settings["SUBSITE"]
               -#  / = @settings["SITE_NAME"]
           .media-body.media-middle.nav-mid
@@ -156,7 +157,7 @@
             #sidebar.col-sm-3{"ng-class" => "!session.connected ? 'lower-sidebar' : ''", "ng-click" => "hideSidebar()"  }
               #sidebar-background{ "ng-click" => "hideSidebar()" }
               %widget-main-menu{ "user-connected" => "session.connected"}
-            %div.view.col-sm-8{"ui-view" => "" }
+            %div.view.col-sm-8{"ng-if" => "session.connected", "ui-view" => "" }
             -# %div.view.col-sm-8{"ng-if" => "session.connected", "ui-view" => "" }
 
     %noscript
