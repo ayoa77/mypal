@@ -60,12 +60,10 @@ class BaseController < ActionController::Base
         # ActiveRecord::Base.establish_connection(default_config.dup.update(:database => "blnkk_dongmen"))
         ActiveRecord::Base.establish_connection(Rails.env.to_sym)
       else
-        byebug
         ActiveRecord::Base.establish_connection(default_config.dup.update(:database => "blnkk_#{request.subdomain}"))
       end
       ActiveRecord::Base.connection.active? #raises expection if database does not exist
     rescue
-      byebug
       ActiveRecord::Base.establish_connection(Rails.env.to_sym)
       redirect_to ENV['ROOT_URL']
     end
