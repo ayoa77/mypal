@@ -42,6 +42,7 @@ require 'gun_mailer'
 
 class User < ActiveRecord::Base
   include Elasticsearch::Model
+   ActiveRecord::Base.establish_connection(Rails.env.to_sym)
 
   after_save    { Resque.enqueue(UserIndexJob, :index, self.id, ActiveRecord::Base.connection.current_database) }
   after_destroy { Resque.enqueue(UserIndexJob, :delete, self.id, ActiveRecord::Base.connection.current_database) }
