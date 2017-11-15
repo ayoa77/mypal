@@ -12,6 +12,7 @@
 #
 
 class Message < ActiveRecord::Base
+    establish_connection(Rails.env.to_sym)
 
   belongs_to :conversation
   belongs_to :user

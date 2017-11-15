@@ -12,9 +12,9 @@
 #  lng          :float(24)
 #  created_at   :datetime
 #  updated_at   :datetime
-#
 
 class Location < ActiveRecord::Base
+ establish_connection(Rails.env.to_sym)
 
   has_many :users
 

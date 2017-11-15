@@ -42,7 +42,7 @@ require 'gun_mailer'
 
 class User < ActiveRecord::Base
   include Elasticsearch::Model
-   ActiveRecord::Base.establish_connection(Rails.env.to_sym)
+  establish_connection(Rails.env.to_sym)
 
   after_save    { Resque.enqueue(UserIndexJob, :index, self.id, ActiveRecord::Base.connection.current_database) }
   after_destroy { Resque.enqueue(UserIndexJob, :delete, self.id, ActiveRecord::Base.connection.current_database) }
@@ -67,7 +67,7 @@ class User < ActiveRecord::Base
   validates :paypal, allow_blank: true, length: {maximum: 191}, :format => { :with => /\A[-_a-zA-Z0-9\.%\+]+@([-_a-zA-Z0-9\.]+\.)+[a-z]{2,4}\Z/i }
   validates :website, allow_blank: true, length: {maximum: 191}
 
-  # validate :private_and_invited, :on => :create
+  validate :private_and_invited, :on => :create
 
   belongs_to :location
 

@@ -51,7 +51,7 @@ namespace :db do
         # Setting.find_or_create_by(key: "DESCRIPTION_SECONDARY")
         Setting.find_by(key: "CHINA") || Setting.create(key: "CHINA", value: "0")
         Setting.find_by(key: "PRIVATE") || Setting.create(key: "PRIVATE", value: "0")
-        Setting.find_or_create_by(key: "ADMIN_EMAIL")
+        Setting.find_by(key: "ADMIN_EMAIL") || Setting.create(key: "ADMIN_EMAIL", value: "ayodeleamadi@gmail.com")
 
         # if !ActsAsTaggableOn::Tag.find_by(id: 1)
         #   ActsAsTaggableOn::Tag.create(id: 1, name: "welcome", display_name: "Welcome")
