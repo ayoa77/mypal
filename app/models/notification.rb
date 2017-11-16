@@ -16,7 +16,7 @@
 #
 
 class Notification < ActiveRecord::Base
-
+establish_connection(Rails.env.to_sym)
   enum notification_type: { request_like: 1, comment_my_request: 2, comment_commented_request: 3, new_follower: 4, comment_like: 5 }
 
   belongs_to :user
