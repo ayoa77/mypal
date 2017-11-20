@@ -8,7 +8,7 @@
 #
 
 class Conversation < ActiveRecord::Base
-  establish_connection(Rails.env.to_sym)
+  establish_connection(Rails.env.to_sym) if Setting.find_by(key: "VISIBLE").value != "0"
 
   has_many :conversation_users
   has_many :users, through: :conversation_users

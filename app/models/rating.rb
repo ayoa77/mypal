@@ -12,7 +12,7 @@
 #
 
 class Rating < ActiveRecord::Base
-  establish_connection(Rails.env.to_sym)
+  establish_connection(Rails.env.to_sym) if Setting.find_by(key: "VISIBLE").value != "0"
 
   belongs_to :user
   belongs_to :rateable, polymorphic: true

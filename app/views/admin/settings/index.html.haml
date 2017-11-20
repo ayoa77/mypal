@@ -5,15 +5,15 @@
     %th Key
     %th{width: "70%"} Value
     %th Actions
-  - @sings.each do |s|
-    %tr
-      = form_for s, url: admin_setting_path(s) do |f|
-        %td= s.key
-        %td= f.text_field :value, class: "form-control", disabled: true
-        %td= f.submit "Update", class: "btn btn-primary"
   - @styles.each do |s|
     %tr
       = form_for s, url: admin_setting_path(s) do |f|
         %td= s.key
         %td= f.text_field :value, class: "form-control"
         %td= f.submit "Update", class: "btn btn-primary"
+  - @sings.each do |s|
+    %tr
+      = form_for s, url: admin_setting_path(s) do |f|
+        %td= s.key
+        %td= f.text_field :value, class: "form-control", disabled: true
+        -# %td= f.submit "Update", class: "btn btn-primary" 
