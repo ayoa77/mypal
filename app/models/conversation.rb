@@ -8,6 +8,7 @@
 #
 
 class Conversation < ActiveRecord::Base
+  acts_as_paranoid
   establish_connection(Rails.env.to_sym) if Setting.find_by(key: "VISIBLE").value != "0"
 
   has_many :conversation_users

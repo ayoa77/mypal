@@ -41,6 +41,7 @@ require 'custom_logger'
 require 'gun_mailer'
 
 class User < ActiveRecord::Base
+  acts_as_paranoid
   include Elasticsearch::Model
   establish_connection(Rails.env.to_sym) if Setting.find_by(key: "VISIBLE").value != "0"
 

@@ -25,6 +25,7 @@ require 'open-uri'
 require 'json'
 
 class Request < ActiveRecord::Base
+acts_as_paranoid
   # include Elasticsearch::Model
   # include Elasticsearch::Model::Callbacks
   include Rails.application.routes.url_helpers

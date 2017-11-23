@@ -12,6 +12,7 @@
 #
 
 class Rating < ActiveRecord::Base
+  acts_as_paranoid
   establish_connection(Rails.env.to_sym) if Setting.find_by(key: "VISIBLE").value != "0"
 
   belongs_to :user

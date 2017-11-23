@@ -14,7 +14,8 @@
 #  updated_at   :datetime
 
 class Location < ActiveRecord::Base
- establish_connection(Rails.env.to_sym)
+  acts_as_paranoid
+ establish_connection(Rails.env.to_sym) if Setting.find_by(key: "VISIBLE").value != "0"
 
   has_many :users
 
