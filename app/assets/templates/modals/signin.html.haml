@@ -20,12 +20,13 @@
 
     -#.item.text-center{ "ng-if" => "!isPrivate()" }
       -#%em {{"signin.or" | t}}
-
-    .item{"ng-if" => "!isChina() && !isPrivate()" }
+    -# .item{"ng-if" => "!isChina() && !isPrivate()" }
+    .item
       %button.btn.btn-primary.btn-block.facebook{ "ng-click" => "signInWithFacebook()"} {{signinType+".with_facebook" | t}}
     -#.item{"ng-if" => "!isChina() && !isPrivate()" }
       -#%button.btn.btn-primary.btn-block.google{ "ng-click" => "signInWithGoogle()"} {{signinType+".with_google" | t}}
-    .item{"ng-if" => "!isPrivate()" }
+    -# .item{"ng-if" => "!isPrivate()" }
+    .item
       %button.btn.btn-primary.btn-block.linkedin{ "ng-click" => "signInWithLinkedin()"} {{signinType+".with_linkedin" | t}}
 
     .item.text-center{ "ng-show" => "signinType == 'signin'" }
