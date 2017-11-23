@@ -12,9 +12,10 @@
 #
 
 class Viewing < ActiveRecord::Base
-     establish_connection(Rails.env.to_sym) if Setting.find_by(key: "VISIBLE").value != "0"
-     
-
+  
+  if Setting.find_by(key: "VISIBLE").value != "0"
+    establish_connection(Rails.env.to_sym) 
+  end     
 
   belongs_to :user
   belongs_to :viewable, polymorphic: true

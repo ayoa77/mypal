@@ -43,7 +43,10 @@ require 'gun_mailer'
 class User < ActiveRecord::Base
   acts_as_paranoid
   include Elasticsearch::Model
-  establish_connection(Rails.env.to_sym) if Setting.find_by(key: "VISIBLE").value != "0"
+ 
+  if Setting.find_by(key: "VISIBLE").value != "0"
+    establish_connection(Rails.env.to_sym) 
+  end
 
   after_save    { Resque.enqueue(UserIndexJob, :index, self.id, ActiveRecord::Base.connection.current_database) }
   after_destroy { Resque.enqueue(UserIndexJob, :delete, self.id, ActiveRecord::Base.connection.current_database) }
