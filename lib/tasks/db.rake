@@ -31,7 +31,7 @@ namespace :db do
       if db[0].starts_with?("blnkk")
         puts "Injecting settings in database #{db[0]} ..."
         ActiveRecord::Base.establish_connection(default_config.dup.update(:database => "#{db[0]}"))
-        Setting.find_by(key: "SITE_NAME") || Setting.create(key: "SITE_NAME", value: "My Pal")
+        Setting.find_by(key: "SITE_NAME") || Setting.create(key: "SITE_NAME", value: "美朋")
         Setting.find_or_create_by(key: "SUBSITE")
         Setting.find_or_create_by(key: "SITE_URL")
         Setting.find_or_create_by(key: "COLOR")
