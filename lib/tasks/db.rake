@@ -37,6 +37,7 @@ namespace :db do
         Setting.find_or_create_by(key: "COLOR")
         Setting.find_by(key: "LOCALE_PRIMARY") || Setting.create(key: "LOCALE_PRIMARY", value: "en")
         Setting.find_or_create_by(key: "LOCALE_SECONDARY")
+        Setting.find_by(key: "STYLES_SUBSITE") || Setting.create(key: "STYLES_SUBSITE", value: "美朋音樂牧者")
         Setting.find_by(key: "STYLES_BACKGROUND_URL") || Setting.create(key: "STYLES_BACKGROUND_URL", value: "https://trello-attachments.s3.amazonaws.com/5922c1425d222c68f8a64bb8/5a02c743be01b3c159931f87/c9dbe07a6fc0fb1b6c3d1c4bf577eeb4/hands-coffee-smartphone-technology_(1).jpg")
         Setting.find_by(key: "STYLES_LOGO") || Setting.create(key: "STYLES_LOGO", value: "https://trello-attachments.s3.amazonaws.com/5922c1425d222c68f8a64bb8/5a02c743be01b3c159931f87/6a851c021d49e938d30e4124ccf19661/wpid-wp-1439000336813-1_(1).png")
         Setting.find_by(key: "STYLES_TEXT_COLOR") || Setting.create(key: "STYLES_TEXT_COLOR", value: "white")

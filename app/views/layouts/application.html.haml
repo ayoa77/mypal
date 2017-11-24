@@ -54,7 +54,8 @@
               = @settings["SITE_NAME"]
             -# = image_tag logo_image_url
             %a.logo.mobile{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
-              %img(src="/mobile-logo.png" alt="")
+              = @settings["SITE_NAME"]
+              -# %img(src="/mobile-logo.png" alt="")
               -#/ %span.hidden-xs
               -#  / = @settings["SUBSITE"]
               -#  / = @settings["SITE_NAME"]
@@ -98,12 +99,20 @@
             -#   .tagline-effect
             -#   %img{:src =>  "#{@settings["STYLES_LOGO"]}"}
             -#   %p.tagline-text.big-text{style: ""} 
-            -#     = @settings["STYLES_TAGLINE_PRIMARY"]
+            -#     = @settings["STYLES_SUBSITE"]
             -#   %p.tagline-text.little-text{style: "font-size:#{@settings["STYLES_TAGLINE_SECONDARY_SIZE"]}px"} 
             -#     = @settings["STYLES_TAGLINE_SECONDARY"]
 
             .tagline-photo
-              %img
+              %div.banner-text
+                %p.tagline-text.big-text
+                  = @settings["STYLES_SUBSITE"]
+                %p.tagline-text.little-text
+                  = @settings["STYLES_TAGLINE_PRIMARY"]
+                %p.tagline-text.description-text
+                  = @settings["STYLES_TAGLINE_SECONDARY"]
+              -# %img
+
               -# %img{:src => "backgrounds/landing-page-lg.jpg"}
 
               -#.outer

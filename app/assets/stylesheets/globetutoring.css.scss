@@ -131,6 +131,7 @@ body{
   background-size: cover;
 }
 .tagline-text {
+  line-height: 50px;
   font-family: Helvetica, Arial, sans-serif;
   margin: 0;
 }
@@ -183,12 +184,32 @@ body{
   height: auto;
   width: 120px;
 }
+.banner-text {
+  margin-top:95px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  left: 0px;
+  height: 100%;
+}
 
-.tagline-information .big-text {
+.tagline-text.description-text {
+  font-size: 20px;
+  line-height: 32px;
+  desc: #888;
+}
+
+.tagline-text.little-text {
+  font-size: 24px;
+  color: #542437;
+}
+
+.tagline-text.big-text {
   font-size: 60px;
-  color: white;
-  text-align: center;
-  margin-top: 30px;
+  color: #70C6CD;
+  // text-align: center;
+  // margin-top: 30px;
 }
 
 .tagline-information .little-text {
@@ -290,7 +311,7 @@ body{
 }
 @media (max-width:1440px){
     .tagline-photo {
-    background-image: url("/backgrounds/landing-page-md.jpg");
+    background-image: url("/backgrounds/landing-page-lg.jpg");
     }
   .container{
     // width: 968px;
@@ -306,8 +327,16 @@ body{
   }
 }
 @media (max-width: 1024px){
+  .tagline-photo {
+    background-image: url("/backgrounds/landing-page-md.jpg");
+   }
+
+  .banner-text {
+    width: 60%;
+   }
+
   .landing-page .intro{
-    margin-top:10px;
+    margin-top: 10px;
     font-size: 100px;
   }
 }
@@ -328,6 +357,17 @@ body{
       .tagline-photo {
         background-image: url("/backgrounds/landing-page-sm.jpg");
           }
+
+  .tagline-text.little-text {
+  font-size: 20px;
+}
+.banner-text{
+
+}
+
+.tagline-text.big-text {
+  font-size: 50px;
+}
 
   .item-footer{
     // overflow:auto;
@@ -407,6 +447,17 @@ body{
       background-image: url("/backgrounds/landing-page-xs.jpg");    
       height:300px
     }
+      .banner-text {
+        width: 70%;
+      }
+
+  .tagline-text.little-text {
+  font-size: 20px;
+}
+
+.tagline-text.big-text {
+  font-size: 34px;
+}
       
   .landing-page .intro{
     font-size: 50px;
@@ -428,7 +479,14 @@ body{
   }
 }
 @media (max-width:375px){
-  
+    
+  .tagline-text.little-text {
+      font-size: 18px;
+    }
+
+    .tagline-text.big-text {
+      font-size: 25px;
+    }
   .landing-icon{
     display:none;
   }
