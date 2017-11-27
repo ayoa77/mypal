@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 20170831041454) do
   create_table "comments", force: :cascade do |t|
     t.integer  "request_id",   limit: 4
     t.integer  "user_id",      limit: 4
-    t.text     "content",      limit: 65535
-    t.boolean  "enabled",                    default: true
-    t.integer  "like_count",   limit: 4,     default: 0
-    t.integer  "report_count", limit: 4,     default: 0
+    t.text     "content",      limit: 16777215
+    t.boolean  "enabled",                       default: true
+    t.integer  "like_count",   limit: 4,        default: 0
+    t.integer  "report_count", limit: 4,        default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -126,8 +126,8 @@ ActiveRecord::Schema.define(version: 20170831041454) do
   create_table "messages", force: :cascade do |t|
     t.integer  "conversation_id",  limit: 4
     t.integer  "user_id",          limit: 4
-    t.boolean  "system_generated",               default: false
-    t.text     "content",          limit: 65535
+    t.boolean  "system_generated",                  default: false
+    t.text     "content",          limit: 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -138,8 +138,8 @@ ActiveRecord::Schema.define(version: 20170831041454) do
   create_table "newsletters", force: :cascade do |t|
     t.string   "subject",    limit: 191
     t.string   "intro",      limit: 191
-    t.text     "content",    limit: 65535
-    t.boolean  "sent",                     default: false
+    t.text     "content",    limit: 16777215
+    t.boolean  "sent",                        default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -201,16 +201,16 @@ ActiveRecord::Schema.define(version: 20170831041454) do
   create_table "requests", force: :cascade do |t|
     t.integer  "user_id",          limit: 4
     t.string   "subject",          limit: 191
-    t.text     "content",          limit: 65535
-    t.text     "reward",           limit: 65535
+    t.text     "content",          limit: 16777215
+    t.text     "reward",           limit: 16777215
     t.integer  "location_id",      limit: 4
     t.string   "workflow_state",   limit: 191
-    t.integer  "user_reach_count", limit: 4,     default: 0
-    t.integer  "like_count",       limit: 4,     default: 0
-    t.integer  "report_count",     limit: 4,     default: 0
-    t.integer  "comment_count",    limit: 4,     default: 0
-    t.integer  "raw_score",        limit: 4,     default: 0
-    t.float    "score",            limit: 24,    default: 1.0
+    t.integer  "user_reach_count", limit: 4,        default: 0
+    t.integer  "like_count",       limit: 4,        default: 0
+    t.integer  "report_count",     limit: 4,        default: 0
+    t.integer  "comment_count",    limit: 4,        default: 0
+    t.integer  "raw_score",        limit: 4,        default: 0
+    t.float    "score",            limit: 24,       default: 1.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -261,7 +261,7 @@ ActiveRecord::Schema.define(version: 20170831041454) do
   create_table "users", force: :cascade do |t|
     t.string   "email",                   limit: 191
     t.string   "name",                    limit: 191
-    t.text     "biography",               limit: 65535
+    t.text     "biography",               limit: 16777215
     t.string   "avatar_uid",              limit: 191
     t.string   "language",                limit: 191
     t.string   "paypal",                  limit: 191
@@ -271,23 +271,23 @@ ActiveRecord::Schema.define(version: 20170831041454) do
     t.string   "facebook_url",            limit: 191
     t.string   "facebook_name",           limit: 191
     t.integer  "location_id",             limit: 4
-    t.boolean  "enabled",                               default: true
-    t.boolean  "admin",                                 default: false
-    t.integer  "follower_count",          limit: 4,     default: 0
-    t.integer  "following_count",         limit: 4,     default: 0
-    t.integer  "report_count",            limit: 4,     default: 0
-    t.integer  "request_count",           limit: 4,     default: 0
-    t.integer  "request_like_count",      limit: 4,     default: 0
-    t.integer  "comment_like_count",      limit: 4,     default: 0
-    t.integer  "conversation_like_count", limit: 4,     default: 0
-    t.integer  "point_count",             limit: 4,     default: 0
+    t.boolean  "enabled",                                  default: true
+    t.boolean  "admin",                                    default: false
+    t.integer  "follower_count",          limit: 4,        default: 0
+    t.integer  "following_count",         limit: 4,        default: 0
+    t.integer  "report_count",            limit: 4,        default: 0
+    t.integer  "request_count",           limit: 4,        default: 0
+    t.integer  "request_like_count",      limit: 4,        default: 0
+    t.integer  "comment_like_count",      limit: 4,        default: 0
+    t.integer  "conversation_like_count", limit: 4,        default: 0
+    t.integer  "point_count",             limit: 4,        default: 0
     t.string   "ip",                      limit: 191
-    t.boolean  "online",                                default: false
+    t.boolean  "online",                                   default: false
     t.datetime "last_seen_at"
     t.datetime "last_fresh_new_posts_at"
-    t.text     "active_sessions",         limit: 65535
+    t.text     "active_sessions",         limit: 16777215
     t.string   "socket_key",              limit: 191
-    t.text     "keywords",                limit: 65535
+    t.text     "keywords",                limit: 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar_url",              limit: 191
