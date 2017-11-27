@@ -202,7 +202,7 @@ body{
 .tagline-text.description-text {
   font-size: 20px;
   line-height: 70px;
-  desc: #542437;
+  color: #542437;
 }
 
 .tagline-text.little-text {
@@ -451,6 +451,9 @@ body{
   }
 }
 @media(max-width: 425px){
+  .tagline-text.description-text {
+    display:none;
+  }
     .tagline-container {
     height: 300px;
     }
