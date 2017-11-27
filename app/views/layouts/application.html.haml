@@ -111,9 +111,12 @@
                 -#   = @settings["STYLES_TAGLINE_PRIMARY"]
                 %p.tagline-text.description-text
                   = @settings["STYLES_TAGLINE_SECONDARY"]
-              -# %img
+          - if @settings["VISIBLE"] != "0"
+            = edit stuff here
+            
+                  
 
-              -# %img{:src => "backgrounds/landing-page-lg.jpg"}
+            -# %img{:src => "backgrounds/landing-page-lg.jpg"}
 
               -#.outer
                 -#.inner
