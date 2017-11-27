@@ -13,7 +13,10 @@
 
 class Message < ActiveRecord::Base
   acts_as_paranoid
-    establish_connection(Rails.env.to_sym) if Setting.find_by(key: "VISIBLE").value != "0"
+  
+  if Setting.find_by(key: "VISIBLE").value != "0"
+    establish_connection(Rails.env.to_sym) 
+  end
 
   belongs_to :conversation
   belongs_to :user
