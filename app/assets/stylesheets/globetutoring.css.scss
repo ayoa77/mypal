@@ -24,7 +24,7 @@ a.logo.mobile{
   background-color: white;
 }
 .condom{
-  margin-top:81px;
+  margin-top:48px;
   // background-color: white;
 }
 .app-bot{
@@ -139,7 +139,7 @@ body{
 .tagline-container {
   height: 500px;
   width: 100vw;
-  margin: -34px 0px;
+  margin: 0px 0px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -149,16 +149,22 @@ body{
 .tagline-photo {
   background-image: url("/backgrounds/landing-page-lg.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   height: 500px;
   width: 100%;
   position: absolute;
-  top: 0%;
   z-index: -1;
-  // filter: grayscale(1);
-  // opacity: .2;
-  // contrast: 1;
+
+  // background-image: url("/backgrounds/landing-page-lg.jpg");
+  // background-repeat: no-repeat;
+  // background-size: 100%;
+  // height: 500px;
+  // width: 100%;
+  // position: absolute;
+  // top: 0%;
+  // z-index: -1;
 }
+
 .signin-modal{
   padding-bottom:20px;
 }
@@ -185,13 +191,12 @@ body{
   width: 120px;
 }
 .banner-text {
-  margin-top:95px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50%;
-  left: 0px;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
 }
 
 .tagline-text.description-text {
@@ -311,7 +316,8 @@ body{
 }
 @media (max-width:1440px){
     .tagline-photo {
-    background-image: url("/backgrounds/landing-page-lg.jpg");
+      background-image: url("/backgrounds/landing-page-lg.jpg");
+      background-position: center;
     }
   .container{
     // width: 968px;
@@ -329,6 +335,7 @@ body{
 @media (max-width: 1024px){
   .tagline-photo {
     background-image: url("/backgrounds/landing-page-md.jpg");
+    background-position: -200px;
    }
 
   .banner-text {
@@ -353,10 +360,14 @@ body{
 
 }
 
-@media (max-width: 767px){
-      .tagline-photo {
-        background-image: url("/backgrounds/landing-page-sm.jpg");
-          }
+@media (max-width: 768px){
+  .tagline-photo {
+    height: 300px;
+    background-image: url("/backgrounds/landing-page-sm.jpg");
+    background-position: right;
+    background-size: auto 300px;
+
+  }
 
   .tagline-text.little-text {
   font-size: 20px;
