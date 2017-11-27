@@ -242,7 +242,7 @@ ActiveRecord::Schema.define(version: 20171121101140) do
 
   create_table "settings", force: :cascade do |t|
     t.string "key",   limit: 191
-    t.string "value", limit: 255
+    t.string "value", limit: 191
   end
 
   add_index "settings", ["key"], name: "index_settings_on_key", unique: true, using: :btree
