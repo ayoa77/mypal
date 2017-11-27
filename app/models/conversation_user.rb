@@ -13,7 +13,12 @@
 require 'gun_mailer'
 
 class ConversationUser < ActiveRecord::Base
+  acts_as_paranoid
 
+  if Setting.find_by(key: "VISIBLE").value != "0"
+    establish_connection(Rails.env.to_sym) 
+  end
+  
   belongs_to :user
   belongs_to :conversation
 

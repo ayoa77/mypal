@@ -14,8 +14,8 @@ ActiveRecord::Base.connection.execute('SHOW databases').each do |db|
 
       SitemapGenerator::Sitemap.default_host = "http://mypal.co" rescue ""
 
-      # SitemapGenerator::Sitemap.default_host = settings["SITE_URL"] rescue ""
-      # SitemapGenerator::Sitemap.sitemaps_path = "sitemaps/#{settings["SUBSITE"].downcase.to_url}"
+      # SitemapGenerator::Sitemap.default_host = settings["SITE_URL"] rescue "http://mypal.co"
+      SitemapGenerator::Sitemap.sitemaps_path = "sitemaps/#{settings["SUBSITE"].downcase.to_url}"
 
       SitemapGenerator::Sitemap.create do
 

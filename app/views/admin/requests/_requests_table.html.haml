@@ -17,7 +17,7 @@
         %th Created at
         %th State
     %tbody
-      - requests.each do |r|
+      - @requests.each do |r|
         %tr
           %td= link_to r.id, request_path(r), class: "btn btn-default btn-xs"
           %td= r.real_subject

@@ -17,7 +17,8 @@ class Api::V1::TagsController < ApiUserController
         tags = tags.where("`name` IN (?)", current_user.tag_list)
       end
     end
-    render json: tags.order(user_count: :desc) #.includes(:user)
+    render json: tags.order(:position) #.includes(:user)
+    # render json: tags.order(user_count: :desc) #.includes(:user)
   end
 
   def show

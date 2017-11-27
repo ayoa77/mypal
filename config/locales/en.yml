@@ -1,7 +1,7 @@
 en:
   emails:
     # powered_by: "Powered by %{siteName}"
-    reason: You received this email because you are a Skillster or someone used your email to invite you for Skillster.
+    reason: You received this email because you are a MyPal or someone used your email to invite you for MyPal.
     unsubscribe: Unsubscribe
     greeting_name: "Hi %{name},"
     greeting_no_name: "Hey there,"
@@ -9,20 +9,20 @@ en:
       intro: "%{name} commented on a post you also commented on!"
       action: Check it out
     new_comment:
-      intro: "%{name} commented on your post on Skillster!"
+      intro: "%{name} commented on your post on MyPal!"
       action: Check it out
     new_message:
-      intro: "%{name} wrote you a message on Skillster!"
+      intro: "%{name} wrote you a message on MyPal!"
       action: Keep the conversation going
     fresh_new_posts:
-      intro: There are some fresh new posts for you on Skillster!
+      intro: There are some fresh new posts for you on MyPal!
       action: Read more
       view_all_posts: View all new posts
     invite:
-      intro: "%{name} is looking for you on Skillster!"
+      intro: "%{name} is looking for you on MyPal!"
       action: Check it out
     new_follower:
-      intro: "%{name} started following you on Skillster!"
+      intro: "%{name} started following you on MyPal!"
       action: View full profile
   toolbar:
     sign_in: Sign In
@@ -32,7 +32,7 @@ en:
     sign_out: Log out
   index:
     welcome: "Welcome to"
-    join: Become a Skillster
+    join: Become a MyPal
     news_feed: My newsfeed
     discover: Discover more
     recommended: Recommended
@@ -180,7 +180,7 @@ en:
     by: "By %{name} - %{bio}"
     invite:
       title: Invite people
-      description: Make the most out of Skillster by inviting your friends to join the community and to follow you.
+      description: Make the most out of MyPal by inviting your friends to join the community and to follow you.
       gmail_contacts: Gmail contacts
       connecting: Connecting...
       connect: Connect
@@ -247,11 +247,11 @@ en:
     post: Post
     cancel: Cancel
     pick_a_tag: Channel ...
-    blink_posted: Skillster request posted
+    blink_posted: MyPal request posted
   request_item_actions_directive:
     chat: Chat
     share: Share
-    add_comment: Endorse this Skillster
+    add_comment: Endorse this MyPal
     view_more:
       one: "View %{count} more comment"
       other: "View %{count} more comments"
@@ -271,8 +271,8 @@ en:
     report_post_question: Are you sure you want to report this post?
     people_reached_num:
       one: "%{count} doer reached"
-      other: "%{count} Skillster reached"
-      zero: "%{count} Skillster reached"
+      other: "%{count} MyPal reached"
+      zero: "%{count} MyPal reached"
   tag_item_directive:
     created_by: "Created by %{user}"
     follower_num:
@@ -317,12 +317,12 @@ en:
     team: Team
     contact: Contact
     terms: Terms
-    on_facebook: Skillster on Facebook
-    on_twitter: Skillster on Twitter
-    on_google_plus: Skillster on Google+
-    on_linkedin: Skillster on LinkedIn
+    on_facebook: MyPal on Facebook
+    on_twitter: MyPal on Twitter
+    on_google_plus: MyPal on Google+
+    on_linkedin: MyPal on LinkedIn
   widget_online_users_directive:
-    members: Skillster Members
+    members: MyPal Members
     view_all: View all members
   widget_users_to_follow_directive:
     who_to_follow: People to follow

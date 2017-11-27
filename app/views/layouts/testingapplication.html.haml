@@ -1,0 +1,180 @@
+!!!
+%html{"ng-app" => "blnkk"}
+  %head
+    %meta{:charset => 'utf-8'}
+    / %title{ "ng-bind" => "title"}= @title.present? ? "#{@title} - #{@settings["SUBSITE"]} #{@settings["SITE_NAME"]}" : "#{@settings["SUBSITE"]} #{@settings["SITE_NAME"]} - #{localize_setting("TAGLINE")}"
+    %title MyPal
+    %meta{'http-equiv' => 'X-UA-Compatible', content: 'IE=Edge,chrome=1'}
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1'}
+    %meta{name: 'description', content: @description}
+    %link{ rel: 'shortcut icon', type:"image/ico", href: favicon_image_url}
+    %link{ rel: 'apple-touch-icon', type:"image/ico", href: favicon_image_url}
+
+    %link{ rel: 'alternate', href: url_for(params.merge(ln: @locale_primary, host: root_url)), hreflang: @locale_primary }
+    - if @locale_secondary.present?
+      %link{ rel: 'alternate', href: url_for(params.merge(ln: @locale_secondary, host: root_url)), hreflang: @locale_secondary }
+
+    %meta{property: 'og:site_name', content: "#{@settings["SITE_NAME"]}"}
+    %meta{property: 'og:url', content: request.original_url}
+    %meta{property: 'og:title', content: @title}
+    %meta{property: 'og:description', content: @description}
+    %meta{property: 'og:image', content: @icon || share_image_url}
+
+    %meta{itemprop: 'name', content: @title}
+    %meta{itemprop: 'description', content: @description}
+    %meta{itemprop: 'image', content: @icon || share_image_url}
+
+    = stylesheet_link_tag '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css', media: :all
+    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Montserrat:400,700', media: :all
+    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Roboto+Slab:400,500,600,700,900', media: :all
+    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Roboto:400,500,600,700,900', media: :all
+    = stylesheet_link_tag "//fonts.googleapis.com/css?family=Fira+Sans", media: :all
+    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', media: :all
+    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', media: :all
+    = stylesheet_link_tag :application
+    = render "layouts/conditional_styles"
+    = javascript_include_tag '//www.googletagmanager.com/gtag/js?id=UA-107581261-1'
+    :javascript
+      document.write('<base href="' + document.location.protocol + '//' + document.location.host + '/" />');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-107581261-1');
+    = csrf_meta_tags
+  %body{"ng-controller" => "SessionController"}
+    .logo-wrapper#sticky-header
+      .container
+        .media.with-overflow
+          .media-left.media-middle.text-nowrap.nav-leftpart
+            %a.hamburger.ng-cloak.visible-xs-inline-block{"ng-if" => "session.connected", "href" => "#", "ng-click" => "toggleSidebar()" }
+              %i.fa.fa-bars
+              %span.badge{"ng-show" => "session.user.unread_notifications_count > 0 || session.user.unread_conversations_count > 0", "ng-show" => "session.connected"}
+                {{ session.user.unread_notifications_count + session.user.unread_conversations_count }}
+            %a.logo{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
+              = image_tag logo_image_url
+            %a.logo.mobile{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
+              %img(src="/mobile-logo.png" alt="")/
+              -#/ %span.hidden-xs
+              -#  / = @settings["SUBSITE"]
+              -#  / = @settings["SITE_NAME"]
+          .media-body.media-middle.nav-mid
+          .media-right.media-middle.ng-cloak.text-nowrap.nav-rt
+            %a.btn.btn-link.btn-first{ "ui-sref" => "home.users({q: ''})", title: "Search", "ui-sref-opts" => "{reload:true}", "ng-show" => "!isRetrievingProfile && session.connected" }
+              %i.fa.fa-fw.fa-search
+            %a.nav-signin{ href: "", "ng-click" => "signIn(null, 'signup')", "ng-show" => "!isRetrievingProfile && !session.connected"}
+              {{'toolbar.register' | t}}
+            %a.nav-signin{ href: "", "ng-click" => "signIn(null, 'signin')", "ng-show" => "!isRetrievingProfile && !session.connected"}
+              {{'toolbar.sign_in' | t}}
+            .btn-group{"ng-show" => "!isRetrievingProfile && session.connected"}
+              %button.btn.btn-link.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
+                %i.fa.fa-fw.fa-ellipsis-v
+              %ul.dropdown-menu.dropdown-menu-right.drowdown-nav
+                %li
+                  %a{ "ui-sref" => "home.userSingle({id: session.user.id})" }
+                    %i.fa.fa-user.fa-fw
+                    {{'toolbar.my_profile' | t}}
+                %li
+                  %a{ "ui-sref" => "home.users-edit" }
+                    %i.fa.fa-cog.fa-fw
+                    {{'toolbar.settings' | t}}
+                %li.divider
+                %li
+                  %a{ href: "/", "ng-click" => "signOut()" }
+                    %i.fa.fa-power-off.fa-fw
+                    {{'toolbar.sign_out' | t}}
+
+
+    .alert-wrapper.ng-cloak{ "ng-controller" => "AlertsController" }
+      %alert{ "ng-repeat" => "alert in alerts.get()", type: "{{alert.type}}", close: "closeAlert($index)" } {{alert.msg}}
+    .condom
+      -#.channel-banner{ "ng-show" => "current_page?(tag_path)" }
+      -#  = image_tag ActsAsTaggableOn::Tag.find_by(name: params[:id]).city_image.banner.url if ActsAsTaggableOn::Tag.find_by(name: params[:id]).present?
+      / %img{:src => "/loading.gif", :alt => ""}/
+      .ng-cloak{ "ng-show" => "!isRetrievingProfile"}  
+        %div.landing-page{ "ng-if" => "!session.connected" }
+          .slidey
+            .container.slide1
+              -#.outer
+                -#.inner
+                  -# %h2 {{"index.welcome" | t }}
+                  / = image_tag logo_image_url
+                  / %h1 {{ setting("SUBSITE") }} {{ setting("SITE_NAME") }}
+                  -#%p.intro Become a Skillster!
+
+                  / {{ localizeSetting("TAGLINE") }}
+                  -# %hr.landing-hr
+                  -#%p.site-description Skills shared for accommodation
+                  -#%p.site-description this is amzing {{ localizeSetting("DESCRIPTION") }}
+                  -#.col-sm-6.col-sm-offset-3.site-intros
+                    -#.col-sm-6
+                      / %img(src="/bg1.jpg" alt="")
+                      -#<span class="landing-title">Guests:</span>
+                      -#%div.landing-icon
+                      -#  <i style="font-size:50px; margin:10px 0 10px 0;" class="fa fa-user index-user" aria-hidden="true"></i>
+                      -#<span>Offer your skill to a host in exchange for free accommodation </span>
+                    -#.col-sm-6
+                      -#<span class="landing-title">Hosts:</span>
+                      -#%div.landing-icon
+                        -#<i style="font-size:50px; margin:10px 0 10px 0;" class="fa fa-home index-guest" aria-hidden="true"></i>
+                      -#%span Provide a guest a place to </br> stay in return for </br> a skill you want
+
+                  -#.inner-button
+                    -#%a.btn-large{ href: "", "ng-click" => "signIn(null, 'signup-Facebook')"} {{"signup.with_facebook" | t}}
+                  -#.inner-link
+                    -# %a.btn-small{ href: "", "ng-click" => "signIn(null, 'signin-Facebook')"} {{"signin.sign_in_now" | t}}
+            -# .container.slide2
+              -#.slide-blur{style: "background-image:url('dance.png')"}
+              -#%img{"ng-src" => "dance.png"}
+            -# .container.slide3
+              -#.slide-blur{style: "background-image:url('rock.png')"}
+              -#%img{"ng-src" => "rock.png"}
+            -# .container.slide4
+              -#.slide-blur{style: "background-image:url('exercise.png')"}
+              -#%img{"ng-src" => "exercise.png"}
+            -#.container.slide5
+              -#.slide-blur{style: "background-image:url('explore.png')"}
+              -#%img{"ng-src" => "explore.png"}
+            -#.container.slide6
+              -#.slide-blur{style: "background-image:url('learn.png')"}
+              -#%img{"ng-src" => "learn.png"}
+        %new-request{"ng-if" => "session.connected","ng-show" => "newRequestVisible"}
+        .app-bot{"ng-show" => "!isRetrievingProfile && session.connected && isPrivate"}
+          .container
+            #sidebar.col-sm-3{"ng-class" => "!session.connected ? 'lower-sidebar' : ''", "ng-click" => "hideSidebar()"  }
+              #sidebar-background{ "ng-click" => "hideSidebar()" }
+              %widget-main-menu{ "user-connected" => "session.connected"}
+            %div.view.col-sm-8{ "ui-view" => "" }
+
+    %noscript
+      .headings-wrapper
+        .container
+          %h1= @title
+          %h2= @description
+      .content-wrapper
+        .container= yield
+
+    = # javascript_include_tag 'https://login.persona.org/include.js'
+    = javascript_include_tag :application
+    :javascript
+      I18n.defaultLocale = "#{I18n.default_locale}";
+      I18n.locale = "#{I18n.locale}";
+    = javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'
+    = javascript_include_tag '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'
+    -# = # javascript_include_tag '/assets/skillster-worker.js'
+    :javascript
+      $(document).ready(function(){   
+        var scripts = document.getElementsByTagName('script');
+        var lastScript = scripts[scripts.length-2];
+        var styles = document.getElementsByTagName('link');
+        var lastStyle = styles[styles.length-1];
+
+        console.log(lastStyle.href);
+         $('.slidey').slick({
+           prevArrow: "<button class='slick-prev'> &lt; </button> ",
+          nextArrow: "<button class='slick-next'> &gt; </button> ",
+          autoplay: true,
+          pauseOnHover: true,
+          fade:true,
+          autoplaySpeed: 5000
+        });
+      });

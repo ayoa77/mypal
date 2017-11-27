@@ -39,6 +39,7 @@ angular
             });
             $rootScope.$on('$stateChangeSuccess', function(event, toState, toStateParams) {
                 $rootScope.currentURLWithParams = $state.href($state.current.name, toStateParams, {absolute: true});
+                console.log($rootScope.currentURLWithParams);
                 $rootScope.currentURL = $rootScope.currentURLWithParams.split('?')[0];
                 $uibModalStack.dismissAll();
             });

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831041454) do
+ActiveRecord::Schema.define(version: 20171121101140) do
 
   create_table "city_images", force: :cascade do |t|
     t.integer "tag_id",     limit: 4
@@ -30,8 +30,10 @@ ActiveRecord::Schema.define(version: 20170831041454) do
     t.integer  "report_count", limit: 4,        default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
+  add_index "comments", ["deleted_at"], name: "index_comments_on_deleted_at", using: :btree
   add_index "comments", ["request_id"], name: "index_comments_on_request_id", using: :btree
 
   create_table "contacts", force: :cascade do |t|
@@ -51,9 +53,11 @@ ActiveRecord::Schema.define(version: 20170831041454) do
     t.boolean  "unread",                    default: false
     t.datetime "last_read_at"
     t.boolean  "notified",                  default: false
+    t.datetime "deleted_at"
   end
 
   add_index "conversation_users", ["conversation_id", "user_id"], name: "index_conversation_users_on_conversation_id_and_user_id", unique: true, using: :btree
+  add_index "conversation_users", ["deleted_at"], name: "index_conversation_users_on_deleted_at", using: :btree
   add_index "conversation_users", ["notified"], name: "index_conversation_users_on_notified", using: :btree
   add_index "conversation_users", ["unread"], name: "index_conversation_users_on_unread", using: :btree
   add_index "conversation_users", ["user_id"], name: "index_conversation_users_on_user_id", using: :btree
@@ -61,8 +65,10 @@ ActiveRecord::Schema.define(version: 20170831041454) do
   create_table "conversations", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
+  add_index "conversations", ["deleted_at"], name: "index_conversations_on_deleted_at", using: :btree
   add_index "conversations", ["updated_at"], name: "index_conversations_on_updated_at", using: :btree
 
   create_table "daily_stats", force: :cascade do |t|
@@ -98,8 +104,10 @@ ActiveRecord::Schema.define(version: 20170831041454) do
     t.string   "email",      limit: 191
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
+  add_index "invitations", ["deleted_at"], name: "index_invitations_on_deleted_at", using: :btree
   add_index "invitations", ["email"], name: "index_invitations_on_email", using: :btree
   add_index "invitations", ["user_id", "email"], name: "index_invitations_on_user_id_and_email", unique: true, using: :btree
 
@@ -113,9 +121,11 @@ ActiveRecord::Schema.define(version: 20170831041454) do
     t.float    "lng",          limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
   add_index "locations", ["city", "region", "country"], name: "index_locations_on_city_and_region_and_country", unique: true, using: :btree
+  add_index "locations", ["deleted_at"], name: "index_locations_on_deleted_at", using: :btree
 
   create_table "logs", force: :cascade do |t|
     t.text "content", limit: 65535
@@ -130,9 +140,11 @@ ActiveRecord::Schema.define(version: 20170831041454) do
     t.text     "content",          limit: 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
   add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+  add_index "messages", ["deleted_at"], name: "index_messages_on_deleted_at", using: :btree
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "newsletters", force: :cascade do |t|
@@ -183,18 +195,22 @@ ActiveRecord::Schema.define(version: 20170831041454) do
     t.string   "rateable_type", limit: 191
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
+  add_index "ratings", ["deleted_at"], name: "index_ratings_on_deleted_at", using: :btree
   add_index "ratings", ["rating"], name: "index_ratings_on_rating", using: :btree
   add_index "ratings", ["user_id", "rateable_id", "rateable_type"], name: "one_person_one_rating", unique: true, using: :btree
   add_index "ratings", ["user_id", "rateable_type"], name: "index_ratings_on_user_id_and_rateable_type", using: :btree
   add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
 
   create_table "request_users", force: :cascade do |t|
-    t.integer "request_id", limit: 4
-    t.integer "user_id",    limit: 4
+    t.integer  "request_id", limit: 4
+    t.integer  "user_id",    limit: 4
+    t.datetime "deleted_at"
   end
 
+  add_index "request_users", ["deleted_at"], name: "index_request_users_on_deleted_at", using: :btree
   add_index "request_users", ["request_id", "user_id"], name: "index_request_users_on_request_id_and_user_id", unique: true, using: :btree
   add_index "request_users", ["user_id"], name: "index_request_users_on_user_id", using: :btree
 
@@ -213,9 +229,11 @@ ActiveRecord::Schema.define(version: 20170831041454) do
     t.float    "score",            limit: 24,       default: 1.0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
   add_index "requests", ["created_at"], name: "index_requests_on_created_at", using: :btree
+  add_index "requests", ["deleted_at"], name: "index_requests_on_deleted_at", using: :btree
   add_index "requests", ["location_id"], name: "index_requests_on_location_id", using: :btree
   add_index "requests", ["raw_score"], name: "index_requests_on_raw_score", using: :btree
   add_index "requests", ["score"], name: "index_requests_on_score", using: :btree
@@ -224,7 +242,7 @@ ActiveRecord::Schema.define(version: 20170831041454) do
 
   create_table "settings", force: :cascade do |t|
     t.string "key",   limit: 191
-    t.string "value", limit: 191
+    t.string "value", limit: 255
   end
 
   add_index "settings", ["key"], name: "index_settings_on_key", unique: true, using: :btree
@@ -252,6 +270,7 @@ ActiveRecord::Schema.define(version: 20170831041454) do
     t.integer "user_count",     limit: 4,   default: 0
     t.string  "banner_url",     limit: 191
     t.string  "small_url",      limit: 191
+    t.integer "position",       limit: 4,   default: 0,      null: false
   end
 
   add_index "tags", ["display_name"], name: "index_tags_on_display_name", using: :btree
@@ -291,10 +310,12 @@ ActiveRecord::Schema.define(version: 20170831041454) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar_url",              limit: 191
+    t.datetime "deleted_at"
   end
 
   add_index "users", ["admin"], name: "index_users_on_admin", using: :btree
   add_index "users", ["created_at"], name: "index_users_on_created_at", using: :btree
+  add_index "users", ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["enabled"], name: "index_users_on_enabled", using: :btree
   add_index "users", ["last_seen_at"], name: "index_users_on_last_seen_at", using: :btree

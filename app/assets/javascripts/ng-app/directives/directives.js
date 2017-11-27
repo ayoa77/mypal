@@ -1025,8 +1025,8 @@ function attachment(){
   				$scope.text.replace(urlRegex, function(url) {
   					if (url.match(imageRegex)) {
      			    $scope.foundAttachments = true;
-     			    // $scope.imageAttachments.push({origUrl: url, loadUrl: "/img?url="+url});
-     			    $scope.imageAttachments.push({origUrl: url.truncate(20), loadUrl: url});
+     			    $scope.imageAttachments.push({origUrl: url, loadUrl: "/img?url="+url});
+     			    // $scope.imageAttachments.push({origUrl: url.truncate(20), loadUrl: url});
     				}
     				var youtubeMatch = url.match(youtubeRegex)
   					if (youtubeMatch && youtubeMatch[2].length == 11) {

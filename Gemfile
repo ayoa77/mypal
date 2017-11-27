@@ -126,3 +126,6 @@ gem 'sitemap_generator'
 gem 'browser'
 
 gem 'stringex'
+
+# adding this to deal with potentially deleted items in database - hopefully can use it to create new ids for matching unique ids user database
+gem "paranoia", github: "rubysherpas/paranoia", branch: "rails4"

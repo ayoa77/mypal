@@ -39,7 +39,9 @@ zh-TW:
     latest: 最新訊息
     top: 超級熱門
   session:
-    unable_sign_in: "無法登入（害羞中...），請稍候再試試。"
+    unable_sign_in_li: "無法登入（害羞中...），請稍候再試試。"
+    unable_sign_in_fb: "Facebook註冊失敗，請確認您的Facebook帳號電子郵件已通過驗證"
+    unable_sign_in: "註冊失敗，請確認您的Facebook或Linkedin 帳號電子郵件已通過驗證"
     new_message_from: "%{name} 留言給你了"
     reconnecting_in: "%{remainingSeconds} 幾秒內重新登入，請稍待... "
     trying_reconnect: 嘗試登入中...
@@ -228,9 +230,9 @@ zh-TW:
     notifications: 我的信息中心
     who_to_follow: 增加關注對象
     invite_people: 邀請更多人
-    tags: 頻道
+    tags: 我的頻道
     more_tags: 更多頻道
-    get_started: 開始使用 MyPal
+    get_started: 開始使用美朋
     complete_profile: 完善個人簡歷
     follow_tags: 關注5個頻道
     follow_people: 關注5個會員
@@ -240,9 +242,9 @@ zh-TW:
   messages_directive:
     replied_on: “回覆："
   new_request_directive:
-    title: "撰寫"
-    subject_placeholder: "Subject"
-    content_placeholder: "寫點東西"
+    title: "發布或分享"
+    subject_placeholder: "主題或重點"
+    content_placeholder: "請在這裏提供更多詳情（人、事、時、地、物..."
     post: 發佈
     cancel: 取消
     pick_a_tag: "選擇一個頻道..."

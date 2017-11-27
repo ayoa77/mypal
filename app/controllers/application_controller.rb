@@ -49,7 +49,7 @@ class ApplicationController < BaseController
     end
     @settings["WEBSOCKET_PREFIX"] = @websocket_prefix
     @settings["FAVICON"] = view_context.favicon_image_url
-    @settings["SITE_NAME"] = @settings["CHINA"] == "1" ? "小圈" : "MyPal"
+    # @settings["SITE_NAME"] = @settings["CHINA"] == "1" ? "小圈" : "MyPal"
   end
 
   def set_defaults

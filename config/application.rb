@@ -33,5 +33,18 @@ module Blnkk
 
     # fluentd logging
     # Fluent::Logger::FluentLogger.open(nil, :host=>'127.0.0.1', :port=>24224)
+      initializer 'setup_asset_pipeline', :group => :all  do |app|
+      # We don't want the default of everything that isn't js or css, because it pulls too many things in
+      app.config.assets.precompile.shift
+
+      # Explicitly register the extensions we are interested in compiling
+      app.config.assets.precompile.push(Proc.new do |path|
+        File.extname(path).in? [
+          '.html', '.erb', '.haml',                 # Templates
+          '.png',  '.gif', '.jpg', '.jpeg',         # Images
+          '.eot',  '.otf', '.svc', '.woff', '.ttf', # Fonts 
+        ]
+      end)
+    end
   end
 end
