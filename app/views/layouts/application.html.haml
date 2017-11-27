@@ -111,6 +111,17 @@
                 -#   = @settings["STYLES_TAGLINE_PRIMARY"]
                 %p.tagline-text.description-text
                   = @settings["STYLES_TAGLINE_SECONDARY"]
+                  
+          - if @settings["VISIBLE"] != "1"
+            %div.locked-and-loaded
+              %img{:src => "lock.png"}
+              %p.locked-text
+                This is a private community.
+              %p.locked-description
+                Please contact ___ if you have questions.
+              
+
+        
             
                   
 
