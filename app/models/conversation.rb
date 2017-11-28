@@ -10,9 +10,9 @@
 class Conversation < ActiveRecord::Base
   acts_as_paranoid
   
-  if Setting.find_by(key: "VISIBLE").value != "0"
-    establish_connection(Rails.env.to_sym) 
-  end
+  # if Setting.find_by(key: "VISIBLE").value != "0"
+  #   establish_connection(Rails.env.to_sym) 
+  # end
 
   has_many :conversation_users
   has_many :users, through: :conversation_users

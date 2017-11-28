@@ -44,9 +44,15 @@ class User < ActiveRecord::Base
   acts_as_paranoid
   include Elasticsearch::Model
  
-  if Setting.find_by(key: "VISIBLE").value != "0"
-    establish_connection(Rails.env.to_sym) 
-  end
+  # if Setting.find_by(key: "VISIBLE").value != "0"
+  #   byebug
+  #   establish_connection(Rails.env.to_sym) 
+  # else
+  #   byebug
+  #   default_config ||= ActiveRecord::Base.connection.instance_variable_get("@config").dup
+  #   establish_connection(Rails.env.to_sym) 
+
+  # end
 
   after_save    { Resque.enqueue(UserIndexJob, :index, self.id, ActiveRecord::Base.connection.current_database) }
   after_destroy { Resque.enqueue(UserIndexJob, :delete, self.id, ActiveRecord::Base.connection.current_database) }

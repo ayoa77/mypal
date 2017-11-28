@@ -17,9 +17,9 @@
 
 class Notification < ActiveRecord::Base
   
-  if Setting.find_by(key: "VISIBLE").value != "0"
-    establish_connection(Rails.env.to_sym) 
-  end
+  # if Setting.find_by(key: "VISIBLE").value != "0"
+  #   establish_connection(Rails.env.to_sym) 
+  # end
 
 
   

@@ -15,7 +15,7 @@
 
 class Location < ActiveRecord::Base
   acts_as_paranoid
- establish_connection(Rails.env.to_sym) if Setting.find_by(key: "VISIBLE").value != "0"
+#  establish_connection(Rails.env.to_sym) if Setting.find_by(key: "VISIBLE").value != "0"
 
   has_many :users
 
