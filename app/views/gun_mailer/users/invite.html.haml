@@ -16,16 +16,16 @@
       %table{:cellpadding => "0", :cellspacing => "0", :style => "padding-top: 10px;width:100%;"}
         %tr
           %td{:style => "padding-right: 20px;vertical-align: top;width:50px;"}
-            %a{:href => "#{settings["SITE_URL"]}" }
-              %img{:src => "#{settings["SITE_URL"]}/favicon.png", :style => "width:50px;height:50px;border-radius:50%"}
+            %a{:href => root_url }
+              %img{:src => "#{root_url}/favicon.png", :style => "width:50px;height:50px;border-radius:50%"}
           %td
             %p{:style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;font-weight:400;font-size:14px;line-height:140%;color:#505050;padding:0 0 15px 0;margin:0;"}
-              %a{:href =>"#{settings["SITE_URL"]}", :style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;font-weight:600;font-size:16px;color:#444; text-decoration:none;"}
+              %a{:href =>root_url, :style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;font-weight:600;font-size:16px;color:#444; text-decoration:none;"}
                 = "#{settings["SUBSITE"]} #{settings["SITE_NAME"]}"
 
             %p{:style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;font-weight:400;font-size:14px;line-height:140%;color:#505050;padding:0 0 15px 0;margin:0;"}
               = description
 
             %p{:style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif;font-weight:400;font-size:14px;line-height:140%;color:#505050;padding:0 0 15px 0;margin:0;"}
-              %a{:href => "#{settings["SITE_URL"]}", :style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif; color: #333;font-size:14px;font-weight:500;padding: 10px 20px; border-radius: 2px; background-color: #efefef; display: inline-block; text-decoration: none;"}
+              %a{:href => root_url, :style => "font-family: Montserrat, Helvetica, Arial, '冬青黑体', 'Hiragino Sans GB', '微軟正黑體', 'Microsoft JhengHei', '黑体', 'SimHei', '华文黑体', 'STHeiti', sans-serif; color: #333;font-size:14px;font-weight:500;padding: 10px 20px; border-radius: 2px; background-color: #efefef; display: inline-block; text-decoration: none;"}
                 = t "emails.invite.action"
