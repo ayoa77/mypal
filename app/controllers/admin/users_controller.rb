@@ -5,6 +5,7 @@ class Admin::UsersController < AdminController
   end
 
   def show
+    @requests = Request.order(created_at: :desc).includes(:user, :users, :tags)
     @user = User.find(params[:id])
     @tags = ActsAsTaggableOn::Tag.order(:display_name)
   end
