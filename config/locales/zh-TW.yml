@@ -244,7 +244,7 @@ zh-TW:
   new_request_directive:
     title: "發布或分享"
     subject_placeholder: "主題或重點"
-    content_placeholder: "請在這裏提供更多詳情（人、事、時、地、物..."
+    content_placeholder: "請在這裡提供更多詳情（人、事、事、地、物...)"
     post: 發佈
     cancel: 取消
     pick_a_tag: "選擇一個頻道..."
