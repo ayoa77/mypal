@@ -25,8 +25,8 @@ set :deploy_to, '/home/aj/var/www/html/skillster/'
 # role :db, %w{139.162.107.188}
 # role :live, %w{139.162.107.188}
 
-role :resque_worker, %w{139.162.107.188}
-role :resque_scheduler, %w{139.162.107.188}
+role :resque_worker, %w{172.104.119.112}
+role :resque_scheduler, %w{172.104.119.112}
 
 # set :workers, { "email" => 1, "*" => 1, "location" => 1, "elasticsearch" => 1}
 set :workers, {"*" => 1}
@@ -38,7 +38,7 @@ set :workers, {"*" => 1}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-# server '139.162.107.188', user: 'aj', roles: %w{web app db live}
+# server '172.104.119.112', user: 'aj', roles: %w{web app db live}
 
 namespace :deploy do
   after :restart, "sitemap:refresh"
