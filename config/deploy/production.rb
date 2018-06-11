@@ -13,7 +13,7 @@ set :branch, "frontend"
 
 set :rails_env, "production"
 set :keep_releases, 10
-server '139.162.107.188', user: 'aj', roles: %w{web app live}
+server '172.104.119.112', user: 'aj', roles: %w{web app live}
 # Default deploy_to directory is /var/www/my_app
 server '172.104.119.112', user: 'aj', roles: [:db]
 set :deploy_to, '/home/aj/var/www/html/skillster/'
