@@ -785,12 +785,14 @@ angular.module('blnkk.services', [ 'persona' ])
 		var clientId;
 		var redirect;
 		if ($location.host() == 'localhost') {
+			console.log('if ' + $location.host())
 			clientId = '221821404959944';
 			// clientId = '108627286462499';
 			// redirect = encodeURIComponent("http://globetutoring.com/oauth2authentication");
 			redirect = encodeURIComponent("http://localhost:3000/oauth2authentication");
 			console.log(redirect)
 		} else {
+			console.log('else ' + $location.host())
 			clientId = '793681587508308';
 			// redirect = encodeURIComponent("http://skillster.me/oauth2authentication");
 			redirect = encodeURIComponent($location.protocol() + '://' + $location.host() + '/oauth2authentication');

@@ -3,7 +3,7 @@
   %head
     %meta{:charset => 'utf-8'}
     / %title{ "ng-bind" => "title"}= @title.present? ? "#{@title} - #{@settings["SUBSITE"]} #{@settings["SITE_NAME"]}" : "#{@settings["SUBSITE"]} #{@settings["SITE_NAME"]} - #{localize_setting("TAGLINE")}"
-    %title #{@settings["SITE_NAME"]}
+    %title Skillster
     %meta{'http-equiv' => 'X-UA-Compatible', content: 'IE=Edge,chrome=1'}
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1'}
     %meta{name: 'description', content: @description}
@@ -47,15 +47,13 @@
         .media.with-overflow
           .media-left.media-middle.text-nowrap.nav-leftpart
             %a.hamburger.ng-cloak.visible-xs-inline-block{"href" => "#", "ng-click" => "toggleSidebar()" }
-              %i.fa.fa-bars{"ng-show" => "!isRetrievingProfile && session.connected"}
+              %i.fa.fa-bars
               %span.badge{"ng-show" => "session.user.unread_notifications_count > 0 || session.user.unread_conversations_count > 0", "ng-show" => "session.connected"}
                 {{ session.user.unread_notifications_count + session.user.unread_conversations_count }}
             %a.logo{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
-              = @settings["SITE_NAME"]
-            -# = image_tag logo_image_url
+              = image_tag logo_image_url
             %a.logo.mobile{ href: root_path, "ui-sref" => "home.index", "ui-sref-opts" => "{reload:true}", "ng-click" => "hideSidebar()" }
-              = @settings["SITE_NAME"]
-              -# %img(src="/mobile-logo.png" alt="")
+              %img(src="/mobile-logo.png" alt="")/
               -#/ %span.hidden-xs
               -#  / = @settings["SUBSITE"]
               -#  / = @settings["SITE_NAME"]
@@ -95,14 +93,6 @@
       .ng-cloak{ "ng-show" => "!isRetrievingProfile"}  
         %div.landing-page{ "ng-if" => "!session.connected" }
           .tagline-container
-            -# .tagline-information{style: "color:#{@settings["STYLES_TEXT_COLOR"]}; font_family:#{@settings["STYLES_TAGLINE_EN_FONT"]}, Arial, sans-serif, #{@settings["STYLES_TAGLINE_ZH_FONT"]}"}
-            -#   .tagline-effect
-            -#   %img{:src =>  "#{@settings["STYLES_LOGO"]}"}
-            -#   %p.tagline-text.big-text{style: ""} 
-            -#     = @settings["STYLES_SUBSITE"]
-            -#   %p.tagline-text.little-text{style: "font-size:#{@settings["STYLES_TAGLINE_SECONDARY_SIZE"]}px"} 
-            -#     = @settings["STYLES_TAGLINE_SECONDARY"]
-
             .tagline-photo
               %div.banner-text
                 %p.tagline-text.big-text
@@ -110,23 +100,8 @@
                 -# %p.tagline-text.little-text
                 -#   = @settings["STYLES_TAGLINE_PRIMARY"]
                 %p.tagline-text.description-text
-                  = @settings["STYLES_TAGLINE_SECONDARY"]
-                  
-          - if @settings["VISIBLE"] != "1"
-            %div.locked-and-loaded
-              %img{:src => "lock.png"}
-              %p.locked-text
-                這是一個不公開的社群
-              %p.locked-description
-                若需要協助，請發送電子郵件至 
-                %a{:href => 'mailto: chieflinkist@gmail.com'} chieflinkist@gmail.com
-              
-            
-                  
-
-            -# %img{:src => "backgrounds/landing-page-lg.jpg"}
-
-              -#.outer
+                  = @settings["STYLES_TAGLINE_SECONDARY"]           
+            -#.outer
                 -#.inner
                   -# %h2 {{"index.welcome" | t }}
                   / = image_tag logo_image_url
@@ -169,15 +144,13 @@
             -#.container.slide6
               -#.slide-blur{style: "background-image:url('learn.png')"}
               -#%img{"ng-src" => "learn.png"}
-        %new-request{"ng-if" => "session.connected", "ng-show" => "newRequestVisible"}
-        .app-bot{"ng-if" => "session.connected"}
-
+        %new-request{"ng-if" => "session.connected","ng-show" => "newRequestVisible"}
+        .app-bot
           .container
             #sidebar.col-sm-3{"ng-class" => "!session.connected ? 'lower-sidebar' : ''", "ng-click" => "hideSidebar()"  }
               #sidebar-background{ "ng-click" => "hideSidebar()" }
               %widget-main-menu{ "user-connected" => "session.connected"}
-            %div.view.col-sm-8{"ng-if" => "session.connected", "ui-view" => "" }
-            -# %div.view.col-sm-8{"ng-if" => "session.connected", "ui-view" => "" }
+            %div.view.col-sm-8{ "ui-view" => "" }
 
     %noscript
       .headings-wrapper
@@ -201,15 +174,14 @@
         var lastScript = scripts[scripts.length-2];
         var styles = document.getElementsByTagName('link');
         var lastStyle = styles[styles.length-1];
-        console.log(session.connected)
 
         console.log(lastStyle.href);
-        -# //$('.slidey').slick({
-        -#  // prevArrow: "<button class='slick-prev'> &lt; </button> ",
-        -#  // nextArrow: "<button class='slick-next'> &gt; </button> ",
-        -#  // autoplay: true,
-        -#  // pauseOnHover: true,
-        -#  // fade:true,
-        -#  // autoplaySpeed: 5000
-        -# //});
+      //  $('.slidey').slick({
+         // prevArrow: "<button class='slick-prev'> &lt; </button> ",
+         // nextArrow: "<button class='slick-next'> &gt; </button> ",
+         // //autoplay: true,
+         // pauseOnHover: true,
+          //fade:true,
+         // autoplaySpeed: 5000
+      //   });
       });

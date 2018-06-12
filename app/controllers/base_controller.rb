@@ -56,7 +56,7 @@ class BaseController < ActionController::Base
   def select_database
     default_config ||= ActiveRecord::Base.connection.instance_variable_get("@config").dup
     begin
-      if request.subdomain.empty?
+      if request.subdomain.empty? || request.subdomain == 'mypal'
         ActiveRecord::Base.establish_connection(Rails.env.to_sym)
       else
         ActiveRecord::Base.establish_connection(default_config.dup.update(:database => "blnkk_#{request.subdomain}"))
