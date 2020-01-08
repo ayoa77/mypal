@@ -22,6 +22,7 @@ dump.rdb
 /config/database.yml
 /config/fluent-logger.yml
 /config/database.yml
+/config/secrets.yml
 
 /public/system
 /public/sitemaps
