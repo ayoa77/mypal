@@ -8,14 +8,14 @@
 lock '3.4.1'
 
 set :application, 'mypal'
-set :repo_url, 'https://ayoa77:S6SMTfsmuF9vFRNeSy84@bitbucket.org/ayoa77/globetutoring.git'
+set :repo_url, 'https://github.com/ayoa77/mypal.git'
 set :branch, "frontend"
 
 set :rails_env, "production"
 set :keep_releases, 10
-server '172.104.119.112', user: 'aj', roles: %w{web app live}
+server 'flexstudio.io', user: 'aj', roles: %w{web app live}
 # Default deploy_to directory is /var/www/my_app
-server '172.104.119.112', user: 'aj', roles: [:db]
+server 'flexstudio.io', user: 'aj', roles: [:db]
 set :deploy_to, '/home/aj/var/www/html/skillster/'
 
 # role :app, %w{139.162.107.188}
@@ -25,8 +25,8 @@ set :deploy_to, '/home/aj/var/www/html/skillster/'
 # role :db, %w{139.162.107.188}
 # role :live, %w{139.162.107.188}
 
-role :resque_worker, %w{172.104.119.112}
-role :resque_scheduler, %w{172.104.119.112}
+role :resque_worker, %w{flexstudio.io}
+role :resque_scheduler, %w{flexstudio.io}
 
 # set :workers, { "email" => 1, "*" => 1, "location" => 1, "elasticsearch" => 1}
 set :workers, {"*" => 1}
@@ -38,7 +38,7 @@ set :workers, {"*" => 1}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-# server '172.104.119.112', user: 'aj', roles: %w{web app db live}
+# server 'flexstudio.io', user: 'aj', roles: %w{web app db live}
 
 namespace :deploy do
   after :restart, "sitemap:refresh"

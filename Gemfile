@@ -13,7 +13,7 @@ if RUBY_VERSION =~ /2.1.5/
   Encoding.default_internal = Encoding::UTF_8
 end
 # Use mysql as the database for Active Record
-gem 'mysql2', '~> 0.3.20'
+gem 'mysql2', '~> 0.4.10', group: :mysql
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

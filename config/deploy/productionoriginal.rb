@@ -5,7 +5,7 @@
 # property set.  Don't declare `role :all`, it's a meta role.
 
 set :application, 'lionslounge'
-set :repo_url, 'https://ayoa77:S6SMTfsmuF9vFRNeSy84@bitbucket.org/ayoa77/globetutoring.git'
+set :repo_url, 'https://github.com/ayoa77/mypal.git'
 set :branch, "frontend"
 
 set :user, "aj"
